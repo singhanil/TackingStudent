@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="467ea463e11148529a4c35847cdcf7a2" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="StudentTrackingModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.AspNetRole" Width="1.5" PointX="8.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.AspNetUser" Width="1.5" PointX="11" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Class" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Holiday" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Message" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.PrimaryTag" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.School" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.SchoolBranch" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.SecondaryTag" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Section" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.StaffDetail" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.StudentAttendance" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.StudentDetail" Width="1.5" PointX="4.625" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="StudentTrackingModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StaffDetail_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StudentDetail_Class1" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StaffDetail_PrimaryTag" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StudentAttendance_PrimaryTag" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StudentDetail_PrimaryTag" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_SchoolBranch_School" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StudentDetail_SchoolBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StudentAttendance_SecondaryTag" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StudentDetail_SecondaryTag" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StaffDetail_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK_StudentDetail_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

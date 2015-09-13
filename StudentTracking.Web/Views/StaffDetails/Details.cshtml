@@ -1,0 +1,82 @@
+﻿@model StudentTracking.Data.StaffDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StaffDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportingEmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportingEmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffMobileNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffMobileNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Class")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryTag.TagId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryTag.TagId)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Section")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
