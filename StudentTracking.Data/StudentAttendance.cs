@@ -31,6 +31,7 @@ namespace StudentTracking.Data
         public Nullable<int> LockRetryCount { get; set; }
         public Nullable<System.DateTime> TagReadingTime { get; set; }
         public Nullable<short> NoOftimeTimeTagRead { get; set; }
+        public string IpAddress { get; set; }
     
         public virtual PrimaryTag PrimaryTag { get; set; }
         public virtual SecondaryTag SecondaryTag { get; set; }

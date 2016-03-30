@@ -17,8 +17,14 @@ namespace StudentTracking.Web
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+                defaults: new {id = RouteParameter.Optional}
+             );
+            config.Routes.MapHttpRoute(
+                name: "testApi",
+                routeTemplate: "testApi/{controller}/{tagId}/{ipAddress}/{isIntime}",
+                defaults: new { tagId = RouteParameter.Optional, ipAddress = RouteParameter.Optional,ipIntime = RouteParameter.Optional }
+             );
+           
         }
     }
 }

@@ -44,49 +44,6 @@ namespace StudentTracking.Data
         public virtual DbSet<StudentAttendance> StudentAttendances { get; set; }
         public virtual DbSet<StudentDetail> StudentDetails { get; set; }
     
-        public virtual ObjectResult<sp_GetAttendanceInfoForMessageSend_Result> sp_GetAttendanceInfoForMessageSend(Nullable<bool> isInTime, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime)
-        {
-            var isInTimeParameter = isInTime.HasValue ?
-                new ObjectParameter("IsInTime", isInTime) :
-                new ObjectParameter("IsInTime", typeof(bool));
-    
-            var startTimeParameter = startTime.HasValue ?
-                new ObjectParameter("StartTime", startTime) :
-                new ObjectParameter("StartTime", typeof(System.DateTime));
-    
-            var endTimeParameter = endTime.HasValue ?
-                new ObjectParameter("EndTime", endTime) :
-                new ObjectParameter("EndTime", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetAttendanceInfoForMessageSend_Result>("sp_GetAttendanceInfoForMessageSend", isInTimeParameter, startTimeParameter, endTimeParameter);
-        }
-    
-        public virtual ObjectResult<sp_GetMessage_Result> sp_GetMessage()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetMessage_Result>("sp_GetMessage");
-        }
-    
-        public virtual int sp_GetMobileInfoForMessageSend(Nullable<bool> isInTime, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, string schoolBranchCode)
-        {
-            var isInTimeParameter = isInTime.HasValue ?
-                new ObjectParameter("IsInTime", isInTime) :
-                new ObjectParameter("IsInTime", typeof(bool));
-    
-            var startTimeParameter = startTime.HasValue ?
-                new ObjectParameter("StartTime", startTime) :
-                new ObjectParameter("StartTime", typeof(System.DateTime));
-    
-            var endTimeParameter = endTime.HasValue ?
-                new ObjectParameter("EndTime", endTime) :
-                new ObjectParameter("EndTime", typeof(System.DateTime));
-    
-            var schoolBranchCodeParameter = schoolBranchCode != null ?
-                new ObjectParameter("SchoolBranchCode", schoolBranchCode) :
-                new ObjectParameter("SchoolBranchCode", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_GetMobileInfoForMessageSend", isInTimeParameter, startTimeParameter, endTimeParameter, schoolBranchCodeParameter);
-        }
-    
         public virtual ObjectResult<sp_InsertUpdateAttendance_Result> sp_InsertUpdateAttendance(string tagId, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, Nullable<bool> isInTime, string ipAddress)
         {
             var tagIdParameter = tagId != null ?
@@ -110,19 +67,6 @@ namespace StudentTracking.Data
                 new ObjectParameter("IpAddress", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_InsertUpdateAttendance_Result>("sp_InsertUpdateAttendance", tagIdParameter, startTimeParameter, endTimeParameter, isInTimeParameter, ipAddressParameter);
-        }
-    
-        public virtual int sp_UpdateAttendenceStatus(Nullable<long> attendanceId, Nullable<bool> isInTime)
-        {
-            var attendanceIdParameter = attendanceId.HasValue ?
-                new ObjectParameter("AttendanceId", attendanceId) :
-                new ObjectParameter("AttendanceId", typeof(long));
-    
-            var isInTimeParameter = isInTime.HasValue ?
-                new ObjectParameter("IsInTime", isInTime) :
-                new ObjectParameter("IsInTime", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateAttendenceStatus", attendanceIdParameter, isInTimeParameter);
         }
     
         public virtual int sp_UpdateMessagingStatus(Nullable<long> attendanceId, Nullable<bool> isInTime)

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StudentTrackingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StudentTrackingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -172,6 +172,7 @@
           <Property Name="LockRetryCount" Type="int" />
           <Property Name="TagReadingTime" Type="datetime" />
           <Property Name="NoOftimeTimeTagRead" Type="smallint" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="StudentDetail">
           <Key>
@@ -376,6 +377,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_GetAttendanceInfoForMessageSend" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IsInTime" Type="bit" Mode="In" />
+          <Parameter Name="StartTime" Type="datetime" Mode="In" />
+          <Parameter Name="EndTime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_GetMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetMobileInfoForMessageSend" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IsInTime" Type="bit" Mode="In" />
+          <Parameter Name="StartTime" Type="datetime" Mode="In" />
+          <Parameter Name="EndTime" Type="datetime" Mode="In" />
+          <Parameter Name="SchoolBranchCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertUpdateAttendance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TagId" Type="nvarchar" Mode="In" />
+          <Parameter Name="StartTime" Type="datetime" Mode="In" />
+          <Parameter Name="EndTime" Type="datetime" Mode="In" />
+          <Parameter Name="IsInTime" Type="bit" Mode="In" />
+          <Parameter Name="IpAddress" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_UpdateAttendenceStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AttendanceId" Type="bigint" Mode="In" />
+          <Parameter Name="IsInTime" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_UpdateMessagingStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AttendanceId" Type="bigint" Mode="In" />
+          <Parameter Name="IsInTime" Type="bit" Mode="In" />
+        </Function>
         <EntityContainer Name="StudentTrackingModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -455,8 +483,7 @@
             <End Role="StudentDetail" EntitySet="StudentDetail" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudentTrackingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -642,6 +669,7 @@
           <Property Name="NoOftimeTimeTagRead" Type="Int16" />
           <NavigationProperty Name="PrimaryTag" Relationship="Self.FK_StudentAttendance_PrimaryTag" FromRole="StudentAttendance" ToRole="PrimaryTag" />
           <NavigationProperty Name="SecondaryTag" Relationship="Self.FK_StudentAttendance_SecondaryTag" FromRole="StudentAttendance" ToRole="SecondaryTag" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="StudentDetail">
           <Key>
@@ -900,7 +928,48 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <FunctionImport Name="sp_GetAttendanceInfoForMessageSend" ReturnType="Collection(StudentTrackingModel.sp_GetAttendanceInfoForMessageSend_Result)">
+            <Parameter Name="IsInTime" Mode="In" Type="Boolean" />
+            <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+            <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetMessage" ReturnType="Collection(StudentTrackingModel.sp_GetMessage_Result)" />
+          <FunctionImport Name="sp_GetMobileInfoForMessageSend">
+            <Parameter Name="IsInTime" Mode="In" Type="Boolean" />
+            <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+            <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+            <Parameter Name="SchoolBranchCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertUpdateAttendance" ReturnType="Collection(StudentTrackingModel.sp_InsertUpdateAttendance_Result)">
+            <Parameter Name="TagId" Mode="In" Type="String" />
+            <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+            <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+            <Parameter Name="IsInTime" Mode="In" Type="Boolean" />
+            <Parameter Name="IpAddress" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateAttendenceStatus">
+            <Parameter Name="AttendanceId" Mode="In" Type="Int64" />
+            <Parameter Name="IsInTime" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateMessagingStatus">
+            <Parameter Name="AttendanceId" Mode="In" Type="Int64" />
+            <Parameter Name="IsInTime" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="sp_GetAttendanceInfoForMessageSend_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="ParentMobileNo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_GetMessage_Result">
+          <Property Type="Byte" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="MessageCode" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_InsertUpdateAttendance_Result">
+          <Property Type="Decimal" Name="AttendanceID" Nullable="true" Precision="38" Scale="0" />
+          <Property Type="String" Name="ParentMobileNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1059,6 +1128,7 @@
           <EntitySetMapping Name="StudentAttendances">
             <EntityTypeMapping TypeName="StudentTrackingModel.StudentAttendance">
               <MappingFragment StoreEntitySet="StudentAttendance">
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PrimaryTagId" ColumnName="PrimaryTagId" />
                 <ScalarProperty Name="SecondaryTagId" ColumnName="SecondaryTagId" />
@@ -1103,6 +1173,35 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetAttendanceInfoForMessageSend" FunctionName="StudentTrackingModel.Store.sp_GetAttendanceInfoForMessageSend">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StudentTrackingModel.sp_GetAttendanceInfoForMessageSend_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParentMobileNo" ColumnName="ParentMobileNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetMessage" FunctionName="StudentTrackingModel.Store.sp_GetMessage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StudentTrackingModel.sp_GetMessage_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="MessageCode" ColumnName="MessageCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetMobileInfoForMessageSend" FunctionName="StudentTrackingModel.Store.sp_GetMobileInfoForMessageSend" />
+          <FunctionImportMapping FunctionImportName="sp_InsertUpdateAttendance" FunctionName="StudentTrackingModel.Store.sp_InsertUpdateAttendance">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="StudentTrackingModel.sp_InsertUpdateAttendance_Result">
+                <ScalarProperty Name="AttendanceID" ColumnName="AttendanceID" />
+                <ScalarProperty Name="ParentMobileNo" ColumnName="ParentMobileNo" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UpdateAttendenceStatus" FunctionName="StudentTrackingModel.Store.sp_UpdateAttendenceStatus" />
+          <FunctionImportMapping FunctionImportName="sp_UpdateMessagingStatus" FunctionName="StudentTrackingModel.Store.sp_UpdateMessagingStatus" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
