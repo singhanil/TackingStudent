@@ -1,11 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentTracking.Web", "StudentTracking.Web\StudentTracking.Web.csproj", "{C6BE1348-0DDC-46D5-B3DD-6DBF971FFA78}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentTracking.Data", "StudentTracking.Data\StudentTracking.Data.csproj", "{D035DC39-BFF2-46C1-BB98-D8CB5C617390}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Services", "03 Services", "{8A8F966D-F9CC-4EF7-97EE-DB49E5D5BAEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Infrastructure", "01 Infrastructure", "{CDD8F3E2-5716-49D9-B1EB-344600D5F9C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 Presentation", "04 Presentation", "{BF586DD7-CC82-477A-9C84-EC1C0291282A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 Application", "02 Application", "{5FC07183-A34C-47F2-AF11-E239CC1AC0C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolWepAPI", "SchoolWepAPI\SchoolWepAPI.csproj", "{50E09900-AA04-49AE-9E1E-90ECCAC272E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 Domain", "00 Domain", "{C3A01F2A-2E92-4FE8-A7F1-5F3BB59F5C3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentTracking.Domain", "Domain\StudentTracking.Domain.csproj", "{0FB0254A-8403-400C-AD98-B9A0C2AF532D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentTracking.Application.API", "StudentTracking.Application.API\StudentTracking.Application.API.csproj", "{90802B49-E675-4BB2-98B2-95B64080E394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentTracking.Application.Main", "StudentTracking.Application.Main\StudentTracking.Application.Main.csproj", "{1CBD6A5A-EAB3-4053-91DE-1BD87A865467}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +39,32 @@ Global
 		{D035DC39-BFF2-46C1-BB98-D8CB5C617390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D035DC39-BFF2-46C1-BB98-D8CB5C617390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D035DC39-BFF2-46C1-BB98-D8CB5C617390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50E09900-AA04-49AE-9E1E-90ECCAC272E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E09900-AA04-49AE-9E1E-90ECCAC272E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E09900-AA04-49AE-9E1E-90ECCAC272E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E09900-AA04-49AE-9E1E-90ECCAC272E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FB0254A-8403-400C-AD98-B9A0C2AF532D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FB0254A-8403-400C-AD98-B9A0C2AF532D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FB0254A-8403-400C-AD98-B9A0C2AF532D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FB0254A-8403-400C-AD98-B9A0C2AF532D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90802B49-E675-4BB2-98B2-95B64080E394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90802B49-E675-4BB2-98B2-95B64080E394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90802B49-E675-4BB2-98B2-95B64080E394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90802B49-E675-4BB2-98B2-95B64080E394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBD6A5A-EAB3-4053-91DE-1BD87A865467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBD6A5A-EAB3-4053-91DE-1BD87A865467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBD6A5A-EAB3-4053-91DE-1BD87A865467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBD6A5A-EAB3-4053-91DE-1BD87A865467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50E09900-AA04-49AE-9E1E-90ECCAC272E0} = {8A8F966D-F9CC-4EF7-97EE-DB49E5D5BAEC}
+		{D035DC39-BFF2-46C1-BB98-D8CB5C617390} = {CDD8F3E2-5716-49D9-B1EB-344600D5F9C9}
+		{C6BE1348-0DDC-46D5-B3DD-6DBF971FFA78} = {BF586DD7-CC82-477A-9C84-EC1C0291282A}
+		{90802B49-E675-4BB2-98B2-95B64080E394} = {5FC07183-A34C-47F2-AF11-E239CC1AC0C9}
+		{1CBD6A5A-EAB3-4053-91DE-1BD87A865467} = {5FC07183-A34C-47F2-AF11-E239CC1AC0C9}
+		{0FB0254A-8403-400C-AD98-B9A0C2AF532D} = {C3A01F2A-2E92-4FE8-A7F1-5F3BB59F5C3B}
 	EndGlobalSection
 EndGlobal

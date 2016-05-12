@@ -1,0 +1,26 @@
+INFO  2016-05-11 13:15:05,029   851ms BaseApiController      Get                - Valid Request. School Id: 12
+INFO  2016-05-11 13:15:28,376 24198ms BaseApiController      Get                - Valid Request. School Id: 12
+INFO  2016-05-11 15:05:28,398 54835ms BaseApiController      Get                - Valid Request. School Id: 12
+INFO  2016-05-11 15:05:35,740 62177ms BaseApiController      Get                - Valid Request. School Id: 12
+ERROR 2016-05-11 17:55:36,594  2517ms BaseApiController      Get                - Error whiling retrieving School. Id = 12
+System.InvalidOperationException: No connection string named 'StudentTrackingEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at StudentTracking.Application.Main.School.Get(Int32 id) in d:\Digital\Learn\TackingStudent-master\TackingStudent-master\StudentTracking.Application.Main\School.cs:line 22
+   at SchoolWepAPI.Controllers.SchoolController.Get(String securityToken, Int32 Id) in d:\Digital\Learn\TackingStudent-master\TackingStudent-master\SchoolWepAPI\Controllers\SchoolController.cs:line 56
+ERROR 2016-05-11 18:00:58,615  2434ms BaseApiController      Get                - Error whiling retrieving School. Id = 12
+System.InvalidOperationException: No connection string named 'StudentTrackingEntities' could be found in the application config file.
+   at System.Data.Entity.Internal.LazyInternalConnection.get_ConnectionHasModel()
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at StudentTracking.Application.Main.School.Get(Int32 id) in d:\Digital\Learn\TackingStudent-master\TackingStudent-master\StudentTracking.Application.Main\School.cs:line 22
+   at SchoolWepAPI.Controllers.SchoolController.Get(String securityToken, Int32 Id) in d:\Digital\Learn\TackingStudent-master\TackingStudent-master\SchoolWepAPI\Controllers\SchoolController.cs:line 56
