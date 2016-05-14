@@ -17,7 +17,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="row">
-        <div  ng-if="showAddForm" class="col-md-12 col-sm-12 col-xs-12">
+        <div ng-if="showAddForm" class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Add School</h2>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address2">
-                                Address2 <span class="required" style="color:red;" ng-show="School.address2.$invalid">*</span>
+                                Address2
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" name="address2" id="address2" ng-model="school.Address2" required class="form-control col-md-7 col-xs-12">
@@ -81,16 +81,16 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state">
-                                State <span class="required" style="color:red;" ng-show="School.state.$invalid">*</span>
+                                Country <span class="required" style="color:red;" ng-show="School.country.$invalid">*</span>
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <input type="text" name="state" id="state" ng-model="school.State" required class="form-control col-md-7 col-xs-12">
+                                <input type="text" name="country" id="country" ng-model="school.Country" required class="form-control col-md-7 col-xs-12">
                             </div>
                             <label class="control-label col-md-1 col-sm-3 col-xs-12" for="county">
-                                County <span class="required" style="color:red;" ng-show="School.county.$invalid">*</span>
+                                State <span class="required" style="color:red;" ng-show="School.state.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                <input type="text" name="county" id="county" ng-model="school.County" required class="form-control col-md-7 col-xs-12">
+                                <input type="text" name="state" id="state" ng-model="school.State" required class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                         <div class="form-group">
@@ -105,6 +105,7 @@
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <input type="number" maxlength="8" name="zipcode" id="zipcode" ng-model="school.ZipCode" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="School.zipcode.$invalid && !School.zipcode.$pristine" class="help-block">Enter valid zip code(Max 8 digit's).</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -127,19 +128,23 @@
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <input name="email" type="email" id="contactPerson" ng-model="school.Email" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="School.email.$invalid && !School.email.$pristine" class="help-block">Enter valid email.</p>
                             </div>
                             <label class="control-label col-md-1 col-sm-3 col-xs-12" for="phone">
                                 Phone <span class="required" style="color:red;" ng-show="School.phone.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <input type="number" ng-minlength="10" ng-maxlength="10" name="phone" id="phone" ng-model="school.Phone" required class="form-control col-md-7 col-xs-12">
-                                <p ng-show="School.phone.$invalid && !School.phone.$pristine" class="help-block">Enter valid phone number.</p>
+                                <p ng-show="School.phone.$invalid && !School.phone.$pristine" class="help-block">Enter valid phone number(Max 10 digit's).</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="discription" class="control-label col-md-3 col-sm-3 col-xs-12">Discription</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="discription" ng-model="school.Discription" class="form-control col-md-7 col-xs-12" type="text">
+                                <textarea rows="3"  ng-model="school.Discription"  class="form-control col-md-7 col-xs-12">
+                                    Enter your text here...
+                                </textarea>
+                                <!--<textarea id="discription" ng-model="school.Discription" class="form-control col-md-7 col-xs-12" type="text">-->
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -158,15 +163,11 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
+            <div class="x_panel" ng-if="!showAddForm">
                 <div class="x_title">
                     <h2>School List </h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <li>
-                            <div class="form-group">
-                                <button ng-if="!showAddForm" type="button" ng-click="ShowAddForm();" class="btn btn-primary">Add School</button>
-                            </div>
-                        </li>
+
                         <li>
                             <div class="form-group">
 
@@ -289,7 +290,49 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="datatable-fixed-header_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable-fixed-header_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="datatable-fixed-header_previous"><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="datatable-fixed-header_next"><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div></div>
+                        </div><div class="row">
+                            <div class="col-sm-5"><div class="dataTables_info" id="datatable-fixed-header_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div>
+                            <!--<div class="col-sm-5">
+                                <button ng-if="!showAddForm" type="button" ng-click="ShowAddForm();" class="btn btn-primary">Add School</button>
+                            </div>-->
+                            <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="datatable-fixed-header_paginate" style="display:inline-flex;">
+                                    <ul class="pagination" style="margin-top:20px;">
+                                        <li>
+                                            <div class="datatable-fixed-header">
+                                                <button ng-if="!showAddForm" type="button" ng-click="ShowAddForm();" class="btn btn-primary">Add School</button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="pagination">
+                                        <li class="paginate_button previous disabled" id="datatable-fixed-header_previous">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="0" tabindex="0">Previous</a>
+                                        </li>
+                                        <li class="paginate_button active">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="1" tabindex="0">1</a>
+                                        </li>
+                                        <li class="paginate_button ">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="2" tabindex="0">2</a>
+                                        </li>
+                                        <li class="paginate_button ">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="3" tabindex="0">3</a>
+                                        </li>
+                                        <li class="paginate_button ">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="4" tabindex="0">4</a>
+                                        </li>
+                                        <li class="paginate_button ">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="5" tabindex="0">5</a>
+                                        </li>
+                                        <li class="paginate_button ">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="6" tabindex="0">6</a>
+                                        </li>
+                                        <li class="paginate_button next" id="datatable-fixed-header_next">
+                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="7" tabindex="0">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
