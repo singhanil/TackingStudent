@@ -105,6 +105,7 @@
     <Content Include="App\DashBoard\DashBoardMain.html" />
     <Content Include="App\DashBoard\DashboardModule.js" />
     <Content Include="App\DashBoard\DashboardStates.js" />
+    <Content Include="App\Directive\LoadingDirective.js" />
     <Content Include="App\Login\Login.html" />
     <Content Include="App\Login\Login1.html" />
     <Content Include="App\Login\Login.js" />
@@ -121,6 +122,7 @@
     <Content Include="content\css\floatexamples.css" />
     <Content Include="content\css\ion.rangeSlider.css" />
     <Content Include="content\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="content\css\ng-grid.css" />
     <Content Include="content\css\normalize.css" />
     <Content Include="content\css\nprogress.css" />
     <Content Include="packages.config" />
@@ -298,6 +300,7 @@
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery.min.js" />
+    <Content Include="scripts\ng-grid.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

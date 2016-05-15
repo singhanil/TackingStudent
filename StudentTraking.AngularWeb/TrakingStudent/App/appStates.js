@@ -12,6 +12,7 @@
 angular.module("StudentTracking").run(function ($rootScope, $state, $location, LoginService) {
     debugger
     $rootScope.$on('$stateChangeStart', function (e, toState, toParams, fromState, fromParams) {
+        $rootScope.ajaxError = false;
         if (toState.name != "dashboard" && toState.name != "login") {
             LoginService.SetLocalStorage("MainDashboard", false);
             $rootScope.MainDashboard = localStorage.getItem("MainDashboard") == "true" ? true : false;

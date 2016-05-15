@@ -5,13 +5,14 @@
         //#region Api's
         var studentTrakingApiUrl = "http://localhost/studentTrackingAPI";
         var getLoginUrl = "/api/LogIn";
-        
+        var getStatesUrl = "/School/GetStateList";
+        var getSchoolsUrl = "/School/GetSchoolList";
+
         //#endregion
-         var getConstant = function (key) {
+        var getConstant = function (key) {
             var _constant = "";
             //*******************************************************
             //please add all key in lowercase manner
-            //debugger;
             //********************************************************
             switch (key.toLowerCase()) {
                 case 'studenttrakingurl':
@@ -19,6 +20,11 @@
                     break;
                 case 'loginurl':
                     _constant = getLoginUrl;
+                    break;
+                case 'states':
+                    _constant = getStatesUrl;
+                case 'schools':
+                    _constant = getSchoolsUrl;
                     break;
                 default:
                     break;
@@ -31,5 +37,5 @@
         };
         return oConstant;
     }
-    module.factory('Constant', ['$rootScope',constant]);
+    module.factory('Constant', ['$rootScope', constant]);
 }(angular.module('StudentTracking.constant', [])));

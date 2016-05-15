@@ -15,10 +15,10 @@
             }
         })
        .state('dashboard.school', {
-            url: "/school",
-            templateUrl: 'App/School/School.html',
-            controller: 'SchoolManagement  as vm',
-        })
+           url: "/school",
+           templateUrl: 'App/School/School.html',
+           controller: 'SchoolManagement  as vm',
+       })
     }
     module.run(function ($state) { })
     module.config(config);//.run(function ($state) { }); // fixes ui-view in ng-include
