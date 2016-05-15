@@ -12,10 +12,20 @@ namespace StudentTracking.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Holiday
+    public partial class Theme
     {
-        public int Id { get; set; }
-        public Nullable<System.DateTime> HolidayDate { get; set; }
-        public string HolidayDay { get; set; }
+        public Theme()
+        {
+            this.Schools = new HashSet<School>();
+        }
+    
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string IsActive { get; set; }
+        public string Details { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
+    
+        public virtual ICollection<School> Schools { get; set; }
     }
 }

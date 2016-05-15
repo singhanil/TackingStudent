@@ -12,12 +12,12 @@ namespace StudentTracking.Web.Controllers
 {
     public class StudentDetailsController : Controller
     {
-        private StudentTrackingEntities db = new StudentTrackingEntities();
+        private StudentTrackingContext db = new StudentTrackingContext();
 
         // GET: StudentDetails
         public ActionResult Index()
         {
-            var studentDetails = db.StudentDetails.Include(s => s.Class).Include(s => s.PrimaryTag).Include(s => s.SchoolBranch).Include(s => s.SecondaryTag).Include(s => s.Section);
+            var studentDetails = db.StudentDetails.Include(s => s.ClassId).Include(s => s.PrimaryTagId).Include(s => s.SchoolBranchId).Include(s => s.SecondaryTagId).Include(s => s.SectionId);
             return View(studentDetails.ToList());
         }
 
@@ -40,9 +40,9 @@ namespace StudentTracking.Web.Controllers
         public ActionResult Create()
         {
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "Name");
-            ViewBag.PrimaryTagId = new SelectList(db.PrimaryTags, "Id", "TagId");
+            ViewBag.PrimaryTagId = new SelectList(db.TagDetails, "Id", "TagId");
             ViewBag.SchoolBranchId = new SelectList(db.SchoolBranches, "Id", "Name");
-            ViewBag.SecondaryTagId = new SelectList(db.SecondaryTags, "Id", "TagId");
+            ViewBag.SecondaryTagId = new SelectList(db.TagDetails, "Id", "TagId");
             ViewBag.SectionId = new SelectList(db.Sections, "Id", "Name");
             return View();
         }
@@ -62,9 +62,9 @@ namespace StudentTracking.Web.Controllers
             }
 
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "Name", studentDetail.ClassId);
-            ViewBag.PrimaryTagId = new SelectList(db.PrimaryTags, "Id", "TagId", studentDetail.PrimaryTagId);
+            ViewBag.PrimaryTagId = new SelectList(db.TagDetails, "Id", "TagId", studentDetail.PrimaryTagId);
             ViewBag.SchoolBranchId = new SelectList(db.SchoolBranches, "Id", "Name", studentDetail.SchoolBranchId);
-            ViewBag.SecondaryTagId = new SelectList(db.SecondaryTags, "Id", "TagId", studentDetail.SecondaryTagId);
+            ViewBag.SecondaryTagId = new SelectList(db.TagDetails, "Id", "TagId", studentDetail.SecondaryTagId);
             ViewBag.SectionId = new SelectList(db.Sections, "Id", "Name", studentDetail.SectionId);
             return View(studentDetail);
         }
@@ -82,9 +82,9 @@ namespace StudentTracking.Web.Controllers
                 return HttpNotFound();
             }
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "Name", studentDetail.ClassId);
-            ViewBag.PrimaryTagId = new SelectList(db.PrimaryTags, "Id", "TagId", studentDetail.PrimaryTagId);
+            ViewBag.PrimaryTagId = new SelectList(db.TagDetails, "Id", "TagId", studentDetail.PrimaryTagId);
             ViewBag.SchoolBranchId = new SelectList(db.SchoolBranches, "Id", "Name", studentDetail.SchoolBranchId);
-            ViewBag.SecondaryTagId = new SelectList(db.SecondaryTags, "Id", "TagId", studentDetail.SecondaryTagId);
+            ViewBag.SecondaryTagId = new SelectList(db.TagDetails, "Id", "TagId", studentDetail.SecondaryTagId);
             ViewBag.SectionId = new SelectList(db.Sections, "Id", "Name", studentDetail.SectionId);
             return View(studentDetail);
         }
@@ -103,9 +103,9 @@ namespace StudentTracking.Web.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "Name", studentDetail.ClassId);
-            ViewBag.PrimaryTagId = new SelectList(db.PrimaryTags, "Id", "TagId", studentDetail.PrimaryTagId);
+            ViewBag.PrimaryTagId = new SelectList(db.TagDetails, "Id", "TagId", studentDetail.PrimaryTagId);
             ViewBag.SchoolBranchId = new SelectList(db.SchoolBranches, "Id", "Name", studentDetail.SchoolBranchId);
-            ViewBag.SecondaryTagId = new SelectList(db.SecondaryTags, "Id", "TagId", studentDetail.SecondaryTagId);
+            ViewBag.SecondaryTagId = new SelectList(db.TagDetails, "Id", "TagId", studentDetail.SecondaryTagId);
             ViewBag.SectionId = new SelectList(db.Sections, "Id", "Name", studentDetail.SectionId);
             return View(studentDetail);
         }

@@ -12,10 +12,11 @@ namespace StudentTracking.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Holiday
+    public partial class AuthTicket
     {
-        public int Id { get; set; }
-        public Nullable<System.DateTime> HolidayDate { get; set; }
-        public string HolidayDay { get; set; }
+        public int ID { get; set; }
+        public string SecurityToken { get; set; }
+        public System.DateTime ExpirationDate { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
     }
 }

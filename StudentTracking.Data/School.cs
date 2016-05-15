@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace StudentTracking.Data
 {
     using System;
@@ -18,15 +16,33 @@ namespace StudentTracking.Data
     {
         public School()
         {
-            this.SchoolBranches = new HashSet<SchoolBranch>();
+            this.Users = new HashSet<User>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
-        [Display(Name = "Contact Detail")]
-        public string Contact_Detail { get; set; }
+        public string BranchName { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+        public string ContactPerson { get; set; }
+        public string Title { get; set; }
+        public string Phone { get; set; }
+        public string EmailId { get; set; }
+        public string Description { get; set; }
+        public string FaceBookUrl { get; set; }
+        public string Twitter { get; set; }
+        public string LinkedIn { get; set; }
+        public int OrganizationId { get; set; }
+        public int ThemeId { get; set; }
+        public string IsActive { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
     
-        public virtual ICollection<SchoolBranch> SchoolBranches { get; set; }
+        public virtual Organization Organization { get; set; }
+        public virtual Theme Theme { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

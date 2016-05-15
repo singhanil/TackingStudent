@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace StudentTracking.Data
 {
     using System;
@@ -17,24 +15,13 @@ namespace StudentTracking.Data
     public partial class StaffDetail
     {
         public int Id { get; set; }
-        [Display(Name = "Staff Id")]
         public string StaffId { get; set; }
-        [Display(Name = "Name")]
         public string StaffName { get; set; }
         public Nullable<byte> Department { get; set; }
-        [Display(Name = "Primary Tag Id")]
         public Nullable<long> PrimaryTagId { get; set; }
-        [Display(Name = "Reporting Email Id")]
         public string ReportingEmailId { get; set; }
-        [Display(Name = "Staff Mobile No")]
         public string StaffMobileNo { get; set; }
-       
         public Nullable<int> ClassId { get; set; }
-        
         public Nullable<int> SectionId { get; set; }
-    
-        public virtual Class Class { get; set; }
-        public virtual PrimaryTag PrimaryTag { get; set; }
-        public virtual Section Section { get; set; }
     }
 }

@@ -7,8 +7,8 @@
     <ProjectGuid>{0FB0254A-8403-400C-AD98-B9A0C2AF532D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>StudentTracking.Domain</RootNamespace>
+    <AssemblyName>StudentTracking.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MasterDataResponse.cs" />
     <Compile Include="SchoolResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceResponse.cs" />
+    <Compile Include="StudentResponse.cs" />
     <Compile Include="UserContext.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using StudentTracking.Application.API;
+using StudentTracking.Application.Main;
 using StudentTracking.Data;
 using StudentTracking.Domain;
 using System;
@@ -11,12 +12,12 @@ namespace SchoolWepAPI.Controllers
 {
     public class SchoolController : BaseApiController
     {
-        private StudentTrackingEntities _dbContext;
+        private StudentTrackingContext _dbContext;
 
 
         public SchoolController()
         {
-            this._dbContext = new StudentTrackingEntities();
+            this._dbContext = new StudentTrackingContext();
         }
         /// <summary>
         /// Get the list of school
@@ -80,14 +81,15 @@ namespace SchoolWepAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
-        private bool IsValid(string p)
+        private bool IsValid(string securityToken)
         {
-            return true;
+            ISecurity auth = new Security(this._dbContext);
+            return auth.ValidateToken(securityToken);
         }
 
         // POST api/<controller>
         [HttpPost]
-        public HttpResponseMessage Save(string securityToken, School objSchool)
+        public HttpResponseMessage Save(string securityToken, StudentTracking.Data.School objSchool)
         {
             return Request.CreateResponse(HttpStatusCode.OK, objSchool.Id);
         }

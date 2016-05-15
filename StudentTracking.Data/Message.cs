@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace StudentTracking.Data
 {
     using System;
@@ -17,9 +15,7 @@ namespace StudentTracking.Data
     public partial class Message
     {
         public byte Id { get; set; }
-        [Display(Name = "Message")]
         public string Message1 { get; set; }
-        [Display(Name = "Message Code")]
         public string MessageCode { get; set; }
     }
 }

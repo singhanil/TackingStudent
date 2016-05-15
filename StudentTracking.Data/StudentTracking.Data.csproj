@@ -51,104 +51,85 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUser.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="AuthTicket.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Class.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Holiday.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Message.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="PrimaryTag.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Organization.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="School.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="SchoolBranch.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SecondaryTag.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Section.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_GetAttendanceInfoForMessageSend_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_GetMessage_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_InsertUpdateAttendance_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="StaffDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentAttendance.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentDetail.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="StudentTracking.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentTracking.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentTracking.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentTracking.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentTracking.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TagDetail.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Theme.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <EntityDeploy Include="StudentTracking.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StudentTracking.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="StudentTracking.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
+      <DependentUpon>StudentTracking.edmx</DependentUpon>
+      <LastGenOutput>StudentTracking.Context.cs</LastGenOutput>
+    </None>
+    <None Include="StudentTracking.edmx.diagram">
+      <DependentUpon>StudentTracking.edmx</DependentUpon>
+    </None>
+    <None Include="StudentTracking.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+      <DependentUpon>StudentTracking.edmx</DependentUpon>
+      <LastGenOutput>StudentTracking.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

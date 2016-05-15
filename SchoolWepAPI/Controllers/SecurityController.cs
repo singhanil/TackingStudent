@@ -1,4 +1,7 @@
-﻿using StudentTracking.Domain;
+﻿using StudentTracking.Application.API;
+using StudentTracking.Application.Main;
+using StudentTracking.Data;
+using StudentTracking.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +13,28 @@ namespace SchoolWepAPI.Controllers
 {
     public class SecurityController : BaseApiController
     {
+        StudentTrackingContext __dbContext = null;
+
+        public SecurityController()
+        {
+            this.__dbContext = new StudentTrackingContext();
+        }
+        [HttpGet]
         [Route("api/Security/{userId}/{password}")]
         public HttpResponseMessage Authenticate(string userId, string password)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new UserContext
+            AuthResponse response = new AuthResponse();
+
+            ISecurity auth = new Security(this.__dbContext);
+            var uc = auth.Authenticate(userId, password);
+            if(null != uc)
             {
-                Id = userId,
-                Name = "Test 1",
-                Role = "Admin",
-                SchoolId = "123",
-                SecurityToken = Guid.NewGuid().ToString()
-            });
+                response.Status="OK";
+                response.UserContext = uc;
+            }
+            else
+                response = new AuthResponse{Status="Failed", ErrorCode="AU1001", ErrorMessage="Invalid username or password."};
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
         // GET api/<controller>/5

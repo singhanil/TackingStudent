@@ -1,0 +1,839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StudentTracking.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.Class' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.Holiday' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="HolidayDate" Type="date" />
+          <Property Name="HolidayDay" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="MessageCode" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="25" />
+          <Property Name="Country" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="FaceBookUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="50" />
+          <Property Name="LinkedIn" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrganizationId" Type="int" Nullable="false" />
+          <Property Name="ThemeId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.SchoolBranch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SchoolBranch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="SchoolId" Type="int" />
+          <Property Name="Contact Detail" Type="nvarchar" MaxLength="500" />
+          <Property Name="Branch Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.Section' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.StaffDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StaffDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StaffId" Type="nvarchar" MaxLength="50" />
+          <Property Name="StaffName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Department" Type="tinyint" />
+          <Property Name="PrimaryTagId" Type="bigint" />
+          <Property Name="ReportingEmailId" Type="nvarchar" MaxLength="200" />
+          <Property Name="StaffMobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassId" Type="int" />
+          <Property Name="SectionId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StudentAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="PrimaryTagId" Type="bigint" />
+          <Property Name="SecondaryTagId" Type="bigint" />
+          <Property Name="InTime" Type="datetime" />
+          <Property Name="OutTime" Type="datetime" />
+          <Property Name="IntimeMessageSendStatus" Type="bit" />
+          <Property Name="OutTimeMessageSentStatus" Type="bit" />
+          <Property Name="NextRuntime" Type="datetime" />
+          <Property Name="LastRuntime" Type="datetime" />
+          <Property Name="LockAcquired" Type="datetime" />
+          <Property Name="LockExpire" Type="datetime" />
+          <Property Name="LockUid" Type="uniqueidentifier" />
+          <Property Name="LockProcessId" Type="int" />
+          <Property Name="ProcessRetryCount" Type="int" />
+          <Property Name="LockRetryCount" Type="int" />
+          <Property Name="TagReadingTime" Type="datetime" />
+          <Property Name="NoOftimeTimeTagRead" Type="smallint" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.StudentDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StudentDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Address1" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="DateOfBirthh" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentMobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrimaryTagId" Type="bigint" />
+          <Property Name="SecondaryTagId" Type="bigint" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="200" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SchoolBranchId" Type="int" />
+          <Property Name="ClassId" Type="int" />
+          <Property Name="SectionId" Type="int" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="25" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="Country" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DateOfBirthh" Type="date" Nullable="false" />
+          <Property Name="ParentName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="AuthTickets">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SecurityToken" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organizations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TagId" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="Type" Type="char" MaxLength="1" />
+          <Property Name="Details" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Themes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="Details" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserRole" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="SchoolId" Type="int" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__School__Organiza__31EC6D26">
+          <End Role="Organizations" Type="Self.Organizations" Multiplicity="1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organizations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="OrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__School__ThemeId__32E0915F">
+          <End Role="Themes" Type="Self.Themes" Multiplicity="1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Themes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentTrackingModelsStoreContainer">
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuthTickets" EntityType="Self.AuthTickets" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="TagDetails" EntityType="Self.TagDetails" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Themes" EntityType="Self.Themes" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Class].[Id] AS [Id], 
+    [Class].[Name] AS [Name]
+    FROM [dbo].[Class] AS [Class]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Holiday" EntityType="Self.Holiday" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Holiday].[Id] AS [Id], 
+    [Holiday].[HolidayDate] AS [HolidayDate], 
+    [Holiday].[HolidayDay] AS [HolidayDay]
+    FROM [dbo].[Holiday] AS [Holiday]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Message].[Id] AS [Id], 
+    [Message].[Message] AS [Message], 
+    [Message].[MessageCode] AS [MessageCode]
+    FROM [dbo].[Message] AS [Message]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SchoolBranch" EntityType="Self.SchoolBranch" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SchoolBranch].[Id] AS [Id], 
+    [SchoolBranch].[Name] AS [Name], 
+    [SchoolBranch].[Address] AS [Address], 
+    [SchoolBranch].[SchoolId] AS [SchoolId], 
+    [SchoolBranch].[Contact Detail] AS [Contact Detail], 
+    [SchoolBranch].[Branch Code] AS [Branch Code]
+    FROM [dbo].[SchoolBranch] AS [SchoolBranch]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Section" EntityType="Self.Section" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Section].[Id] AS [Id], 
+    [Section].[Name] AS [Name]
+    FROM [dbo].[Section] AS [Section]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StaffDetail" EntityType="Self.StaffDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StaffDetail].[Id] AS [Id], 
+    [StaffDetail].[StaffId] AS [StaffId], 
+    [StaffDetail].[StaffName] AS [StaffName], 
+    [StaffDetail].[Department] AS [Department], 
+    [StaffDetail].[PrimaryTagId] AS [PrimaryTagId], 
+    [StaffDetail].[ReportingEmailId] AS [ReportingEmailId], 
+    [StaffDetail].[StaffMobileNo] AS [StaffMobileNo], 
+    [StaffDetail].[ClassId] AS [ClassId], 
+    [StaffDetail].[SectionId] AS [SectionId]
+    FROM [dbo].[StaffDetail] AS [StaffDetail]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StudentAttendance" EntityType="Self.StudentAttendance" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StudentAttendance].[Id] AS [Id], 
+    [StudentAttendance].[PrimaryTagId] AS [PrimaryTagId], 
+    [StudentAttendance].[SecondaryTagId] AS [SecondaryTagId], 
+    [StudentAttendance].[InTime] AS [InTime], 
+    [StudentAttendance].[OutTime] AS [OutTime], 
+    [StudentAttendance].[IntimeMessageSendStatus] AS [IntimeMessageSendStatus], 
+    [StudentAttendance].[OutTimeMessageSentStatus] AS [OutTimeMessageSentStatus], 
+    [StudentAttendance].[NextRuntime] AS [NextRuntime], 
+    [StudentAttendance].[LastRuntime] AS [LastRuntime], 
+    [StudentAttendance].[LockAcquired] AS [LockAcquired], 
+    [StudentAttendance].[LockExpire] AS [LockExpire], 
+    [StudentAttendance].[LockUid] AS [LockUid], 
+    [StudentAttendance].[LockProcessId] AS [LockProcessId], 
+    [StudentAttendance].[ProcessRetryCount] AS [ProcessRetryCount], 
+    [StudentAttendance].[LockRetryCount] AS [LockRetryCount], 
+    [StudentAttendance].[TagReadingTime] AS [TagReadingTime], 
+    [StudentAttendance].[NoOftimeTimeTagRead] AS [NoOftimeTimeTagRead], 
+    [StudentAttendance].[IpAddress] AS [IpAddress]
+    FROM [dbo].[StudentAttendance] AS [StudentAttendance]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StudentDetail" EntityType="Self.StudentDetail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StudentDetail].[Id] AS [Id], 
+    [StudentDetail].[StudentId] AS [StudentId], 
+    [StudentDetail].[ParentMobileNo] AS [ParentMobileNo], 
+    [StudentDetail].[PrimaryTagId] AS [PrimaryTagId], 
+    [StudentDetail].[SecondaryTagId] AS [SecondaryTagId], 
+    [StudentDetail].[EmailId] AS [EmailId], 
+    [StudentDetail].[StudentName] AS [StudentName], 
+    [StudentDetail].[SchoolBranchId] AS [SchoolBranchId], 
+    [StudentDetail].[ClassId] AS [ClassId], 
+    [StudentDetail].[SectionId] AS [SectionId], 
+    [StudentDetail].[Address1] AS [Address1], 
+    [StudentDetail].[Address2] AS [Address2], 
+    [StudentDetail].[City] AS [City], 
+    [StudentDetail].[State] AS [State], 
+    [StudentDetail].[ZipCode] AS [ZipCode], 
+    [StudentDetail].[Country] AS [Country], 
+    [StudentDetail].[Gender] AS [Gender], 
+    [StudentDetail].[DateOfBirthh] AS [DateOfBirthh], 
+    [StudentDetail].[ParentName] AS [ParentName]
+    FROM [dbo].[StudentDetail] AS [StudentDetail]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__School__Organiza__31EC6D26" Association="Self.FK__School__Organiza__31EC6D26">
+            <End Role="Organizations" EntitySet="Organizations" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="FK__School__ThemeId__32E0915F" Association="Self.FK__School__ThemeId__32E0915F">
+            <End Role="Themes" EntitySet="Themes" />
+            <End Role="School" EntitySet="School" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentTracking.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FaceBookUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LinkedIn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+          <Property Name="ThemeId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Organization" Relationship="Self.FK__School__Organiza__31EC6D26" FromRole="School" ToRole="Organizations" />
+          <NavigationProperty Name="Theme" Relationship="Self.FK__School__ThemeId__32E0915F" FromRole="School" ToRole="Themes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__SchoolId__276EDEB3" FromRole="School" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="AuthTicket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SecurityToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Schools" Relationship="Self.FK__School__Organiza__31EC6D26" FromRole="Organizations" ToRole="School" />
+        </EntityType>
+        <EntityType Name="TagDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagId" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Schools" Relationship="Self.FK__School__ThemeId__32E0915F" FromRole="Themes" ToRole="School" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserRole" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="School" Relationship="Self.FK__Users__SchoolId__276EDEB3" FromRole="Users" ToRole="School" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="HolidayDate" Type="DateTime" Precision="0" />
+          <Property Name="HolidayDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Message1" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" />
+          <Property Name="Message1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SchoolBranch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolId" Type="Int32" />
+          <Property Name="Contact_Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Branch_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StaffDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StaffId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StaffName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="Byte" />
+          <Property Name="PrimaryTagId" Type="Int64" />
+          <Property Name="ReportingEmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="StaffMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClassId" Type="Int32" />
+          <Property Name="SectionId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StudentAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="PrimaryTagId" Type="Int64" />
+          <Property Name="SecondaryTagId" Type="Int64" />
+          <Property Name="InTime" Type="DateTime" Precision="3" />
+          <Property Name="OutTime" Type="DateTime" Precision="3" />
+          <Property Name="IntimeMessageSendStatus" Type="Boolean" />
+          <Property Name="OutTimeMessageSentStatus" Type="Boolean" />
+          <Property Name="NextRuntime" Type="DateTime" Precision="3" />
+          <Property Name="LastRuntime" Type="DateTime" Precision="3" />
+          <Property Name="LockAcquired" Type="DateTime" Precision="3" />
+          <Property Name="LockExpire" Type="DateTime" Precision="3" />
+          <Property Name="LockUid" Type="Guid" />
+          <Property Name="LockProcessId" Type="Int32" />
+          <Property Name="ProcessRetryCount" Type="Int32" />
+          <Property Name="LockRetryCount" Type="Int32" />
+          <Property Name="TagReadingTime" Type="DateTime" Precision="3" />
+          <Property Name="NoOftimeTimeTagRead" Type="Int16" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Address1" />
+            <PropertyRef Name="City" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="DateOfBirthh" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrimaryTagId" Type="Int64" />
+          <Property Name="SecondaryTagId" Type="Int64" />
+          <Property Name="EmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolBranchId" Type="Int32" />
+          <Property Name="ClassId" Type="Int32" />
+          <Property Name="SectionId" Type="Int32" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirthh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ParentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__School__Organiza__31EC6D26">
+          <End Role="Organizations" Type="Self.Organization" Multiplicity="1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organizations">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="OrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__School__ThemeId__32E0915F">
+          <End Role="Themes" Type="Self.Theme" Multiplicity="1" />
+          <End Role="School" Type="Self.School" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Themes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="School">
+              <PropertyRef Name="ThemeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__SchoolId__276EDEB3">
+          <End Role="School" Type="Self.School" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentTrackingContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Schools" EntityType="Self.School" />
+          <EntitySet Name="AuthTickets" EntityType="Self.AuthTicket" />
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="TagDetails" EntityType="Self.TagDetail" />
+          <EntitySet Name="Themes" EntityType="Self.Theme" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Classes" EntityType="Self.Class" />
+          <EntitySet Name="Holidays" EntityType="Self.Holiday" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="SchoolBranches" EntityType="Self.SchoolBranch" />
+          <EntitySet Name="Sections" EntityType="Self.Section" />
+          <EntitySet Name="StaffDetails" EntityType="Self.StaffDetail" />
+          <EntitySet Name="StudentAttendances" EntityType="Self.StudentAttendance" />
+          <EntitySet Name="StudentDetails" EntityType="Self.StudentDetail" />
+          <AssociationSet Name="FK__School__Organiza__31EC6D26" Association="Self.FK__School__Organiza__31EC6D26">
+            <End Role="Organizations" EntitySet="Organizations" />
+            <End Role="School" EntitySet="Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK__School__ThemeId__32E0915F" Association="Self.FK__School__ThemeId__32E0915F">
+            <End Role="Themes" EntitySet="Themes" />
+            <End Role="School" EntitySet="Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__SchoolId__276EDEB3" Association="Self.FK__Users__SchoolId__276EDEB3">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentTrackingModelsStoreContainer" CdmEntityContainer="StudentTrackingContext">
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="StudentTracking.Models.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FaceBookUrl" ColumnName="FaceBookUrl" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="LinkedIn" ColumnName="LinkedIn" />
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+                <ScalarProperty Name="ThemeId" ColumnName="ThemeId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuthTickets">
+            <EntityTypeMapping TypeName="StudentTracking.Models.AuthTicket">
+              <MappingFragment StoreEntitySet="AuthTickets">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SecurityToken" ColumnName="SecurityToken" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="StudentTracking.Models.Organization">
+              <MappingFragment StoreEntitySet="Organizations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagDetails">
+            <EntityTypeMapping TypeName="StudentTracking.Models.TagDetail">
+              <MappingFragment StoreEntitySet="TagDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Themes">
+            <EntityTypeMapping TypeName="StudentTracking.Models.Theme">
+              <MappingFragment StoreEntitySet="Themes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="StudentTracking.Models.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="StudentTracking.Models.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holidays">
+            <EntityTypeMapping TypeName="StudentTracking.Models.Holiday">
+              <MappingFragment StoreEntitySet="Holiday">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HolidayDate" ColumnName="HolidayDate" />
+                <ScalarProperty Name="HolidayDay" ColumnName="HolidayDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="StudentTracking.Models.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
+                <ScalarProperty Name="MessageCode" ColumnName="MessageCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolBranches">
+            <EntityTypeMapping TypeName="StudentTracking.Models.SchoolBranch">
+              <MappingFragment StoreEntitySet="SchoolBranch">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="Contact_Detail" ColumnName="Contact Detail" />
+                <ScalarProperty Name="Branch_Code" ColumnName="Branch Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="StudentTracking.Models.Section">
+              <MappingFragment StoreEntitySet="Section">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffDetails">
+            <EntityTypeMapping TypeName="StudentTracking.Models.StaffDetail">
+              <MappingFragment StoreEntitySet="StaffDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="PrimaryTagId" ColumnName="PrimaryTagId" />
+                <ScalarProperty Name="ReportingEmailId" ColumnName="ReportingEmailId" />
+                <ScalarProperty Name="StaffMobileNo" ColumnName="StaffMobileNo" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentAttendances">
+            <EntityTypeMapping TypeName="StudentTracking.Models.StudentAttendance">
+              <MappingFragment StoreEntitySet="StudentAttendance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PrimaryTagId" ColumnName="PrimaryTagId" />
+                <ScalarProperty Name="SecondaryTagId" ColumnName="SecondaryTagId" />
+                <ScalarProperty Name="InTime" ColumnName="InTime" />
+                <ScalarProperty Name="OutTime" ColumnName="OutTime" />
+                <ScalarProperty Name="IntimeMessageSendStatus" ColumnName="IntimeMessageSendStatus" />
+                <ScalarProperty Name="OutTimeMessageSentStatus" ColumnName="OutTimeMessageSentStatus" />
+                <ScalarProperty Name="NextRuntime" ColumnName="NextRuntime" />
+                <ScalarProperty Name="LastRuntime" ColumnName="LastRuntime" />
+                <ScalarProperty Name="LockAcquired" ColumnName="LockAcquired" />
+                <ScalarProperty Name="LockExpire" ColumnName="LockExpire" />
+                <ScalarProperty Name="LockUid" ColumnName="LockUid" />
+                <ScalarProperty Name="LockProcessId" ColumnName="LockProcessId" />
+                <ScalarProperty Name="ProcessRetryCount" ColumnName="ProcessRetryCount" />
+                <ScalarProperty Name="LockRetryCount" ColumnName="LockRetryCount" />
+                <ScalarProperty Name="TagReadingTime" ColumnName="TagReadingTime" />
+                <ScalarProperty Name="NoOftimeTimeTagRead" ColumnName="NoOftimeTimeTagRead" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentDetails">
+            <EntityTypeMapping TypeName="StudentTracking.Models.StudentDetail">
+              <MappingFragment StoreEntitySet="StudentDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="ParentMobileNo" ColumnName="ParentMobileNo" />
+                <ScalarProperty Name="PrimaryTagId" ColumnName="PrimaryTagId" />
+                <ScalarProperty Name="SecondaryTagId" ColumnName="SecondaryTagId" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="SchoolBranchId" ColumnName="SchoolBranchId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirthh" ColumnName="DateOfBirthh" />
+                <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

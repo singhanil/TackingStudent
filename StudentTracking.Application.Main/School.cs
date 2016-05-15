@@ -8,9 +8,9 @@ namespace StudentTracking.Application.Main
 {
     public class School : ISchool
     {
-        private StudentTrackingEntities _dbContext = null;
-        
-        public School(StudentTrackingEntities cntx)
+        private StudentTrackingContext _dbContext = null;
+
+        public School(StudentTrackingContext cntx)
         {
             this._dbContext = cntx;
         }

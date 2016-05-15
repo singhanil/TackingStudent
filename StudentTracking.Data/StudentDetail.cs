@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace StudentTracking.Data
 {
     using System;
@@ -17,29 +15,23 @@ namespace StudentTracking.Data
     public partial class StudentDetail
     {
         public int Id { get; set; }
-        [Display(Name = "Student Id")]
         public string StudentId { get; set; }
-        [Display(Name = "Parent Mobile No")]
         public string ParentMobileNo { get; set; }
-        [Display(Name = "Primary Tag Id")]
         public Nullable<long> PrimaryTagId { get; set; }
-        [Display(Name = "Secondary Tag Id")]
         public Nullable<long> SecondaryTagId { get; set; }
-        [Display(Name = "Email Id")]
         public string EmailId { get; set; }
-        [Display(Name = "Student Name")]
         public string StudentName { get; set; }
-        [Display(Name = "School Branch")]
         public Nullable<int> SchoolBranchId { get; set; }
-        
         public Nullable<int> ClassId { get; set; }
-       
         public Nullable<int> SectionId { get; set; }
-    
-        public virtual Class Class { get; set; }
-        public virtual PrimaryTag PrimaryTag { get; set; }
-        public virtual SchoolBranch SchoolBranch { get; set; }
-        public virtual SecondaryTag SecondaryTag { get; set; }
-        public virtual Section Section { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
+        public string Country { get; set; }
+        public string Gender { get; set; }
+        public System.DateTime DateOfBirthh { get; set; }
+        public string ParentName { get; set; }
     }
 }

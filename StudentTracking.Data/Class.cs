@@ -14,16 +14,7 @@ namespace StudentTracking.Data
     
     public partial class Class
     {
-        public Class()
-        {
-            this.StaffDetails = new HashSet<StaffDetail>();
-            this.StudentDetails = new HashSet<StudentDetail>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
-    
-        public virtual ICollection<StaffDetail> StaffDetails { get; set; }
-        public virtual ICollection<StudentDetail> StudentDetails { get; set; }
     }
 }

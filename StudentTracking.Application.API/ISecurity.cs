@@ -6,6 +6,7 @@ namespace StudentTracking.Application.API
     public interface ISecurity
     {
         UserContext Authenticate(string userId, string password);
+        bool ValidateToken(string securityToken);
         UserContext Get(string userId);
         IEnumerable<UserContext> UsersList();
         IEnumerable<UserContext> UsersList(string schoolId);

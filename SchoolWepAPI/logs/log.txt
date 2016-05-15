@@ -24,3 +24,15 @@ System.InvalidOperationException: No connection string named 'StudentTrackingEnt
    at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
    at StudentTracking.Application.Main.School.Get(Int32 id) in d:\Digital\Learn\TackingStudent-master\TackingStudent-master\StudentTracking.Application.Main\School.cs:line 22
    at SchoolWepAPI.Controllers.SchoolController.Get(String securityToken, Int32 Id) in d:\Digital\Learn\TackingStudent-master\TackingStudent-master\SchoolWepAPI\Controllers\SchoolController.cs:line 56
+INFO  2016-05-15 01:07:15,356 119585ms BaseApiController      Get                - Retrieved Schools. Count = 2
+INFO  2016-05-15 01:11:42,300 19553ms BaseApiController      Get                - Retrieved Schools. Count = 2
+INFO  2016-05-15 01:14:23,137 180390ms BaseApiController      Get                - Retrieved Schools. Count = 2
+INFO  2016-05-15 01:56:48,468 24724ms BaseApiController      Get                - Retrieved Schools. Count = 2
+INFO  2016-05-15 01:58:27,633 123889ms BaseApiController      Get                - Invalid Request. School Id: {0}
+INFO  2016-05-15 02:00:04,544 19142ms BaseApiController      Get                - Retrieved Schools. Count = 2
+INFO  2016-05-15 02:12:12,588 42196ms BaseApiController      Get                - Invalid Request. School Id: {0}
+INFO  2016-05-15 02:12:20,415 50023ms BaseApiController      Get                - Invalid Request. School Id: {0}
+INFO  2016-05-15 02:12:25,386 54994ms BaseApiController      Get                - Invalid Request. School Id: {0}
+INFO  2016-05-15 23:44:50,932 21470ms BaseApiController      Get                - Invalid Request. Student Id: {0}
+INFO  2016-05-15 23:46:36,506 127044ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-05-16 00:15:01,142 26341ms BaseApiController      GetAll             - Retrieved Master Data

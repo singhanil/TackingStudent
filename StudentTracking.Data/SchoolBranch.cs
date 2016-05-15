@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace StudentTracking.Data
 {
     using System;
@@ -16,22 +14,11 @@ namespace StudentTracking.Data
     
     public partial class SchoolBranch
     {
-        public SchoolBranch()
-        {
-            this.StudentDetails = new HashSet<StudentDetail>();
-        }
-    
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        [Display(Name = "School Id")]
         public Nullable<int> SchoolId { get; set; }
-        [Display(Name = "Contact Detail")]
         public string Contact_Detail { get; set; }
-        [Display(Name = "Branch Code")]
         public string Branch_Code { get; set; }
-    
-        public virtual School School { get; set; }
-        public virtual ICollection<StudentDetail> StudentDetails { get; set; }
     }
 }
