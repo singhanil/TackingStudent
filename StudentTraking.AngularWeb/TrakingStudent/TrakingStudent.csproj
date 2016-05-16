@@ -125,6 +125,7 @@
     <Content Include="content\css\ng-grid.css" />
     <Content Include="content\css\normalize.css" />
     <Content Include="content\css\nprogress.css" />
+    <Content Include="content\css\trakingstudent.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -5,7 +5,8 @@
         var service = {};
         var _constant = new Constant();
         service.School = {
-            Name: "",
+            SchoolName: "",
+            SchoolId:"",
             BranchName: "",
             Address1: "",
             Address2: "",
