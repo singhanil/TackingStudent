@@ -6,8 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">School Details</h4>
                 </div>
-                <div class="modal-body">
-
+                <div class="modal-body" ng-include src="'App/School/SchoolDetails.html'">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -62,7 +61,7 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control" name="school" ng-model="SelectedSchool" ng-disabled="schooldisabled" required
-                                    ng-options="sobj.SchoolId as sobj.SchoolName for sobj in Schools">
+                                        ng-options="sobj.SchoolId as sobj.SchoolName for sobj in Schools">
                                     <option value="">-- Select School --</option>
                                 </select>
                                 <!--<input type="text" ng-model="school.Name" name="schoolname" id="schoolname" class="form-control col-md-7 col-xs-12" required>

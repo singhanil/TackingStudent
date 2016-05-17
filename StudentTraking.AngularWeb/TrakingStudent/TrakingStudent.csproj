@@ -112,6 +112,7 @@
     <Content Include="App\Login\LoginModule.js" />
     <Content Include="App\Login\LoginStates.js" />
     <Content Include="App\School\School.html" />
+    <Content Include="App\School\SchoolDetails.html" />
     <Content Include="App\School\SchoolManagement.js" />
     <Content Include="App\School\SchoolModule.js" />
     <Content Include="App\Services\LoginService.js" />
@@ -307,11 +308,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App\Acadamics\" />
-    <Folder Include="App\ControlPanel\" />
-    <Folder Include="App\Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
