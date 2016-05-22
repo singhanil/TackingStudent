@@ -6,14 +6,14 @@
     <div id="wrapper">
         <div id="login" class="animate form">
             <section class="login_content">
-                <form name="form" role="form" data-ng-submit="validate(User)" class="ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required">
+                <form name="form" role="form" data-ng-submit="validate(UserName, Password)" class="ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required">
                     <h1>Login Form</h1>
-                    <span data-ng-style="{color:'red'}" class="ng-binding" style="color: red;"> </span>
-                    <div data-ng-class="{'has-error':(form.User.UserName.$invalid &amp;&amp; form.User.UserName.$dirty)}">
-                        <input id="UserName"  type="text" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Username" data-ng-model="User.UserName" data-ng-trim="true" maxlength="20" required/>
+                    <span data-ng-style="{color:'red'}" class="ng-binding" style="color: red;"></span>
+                    <div data-ng-class="{'has-error':(form.UserName.$invalid &amp;&amp; form.UserName.$dirty)}">
+                        <input id="UserName" name="UserName"  type="text" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Username" data-ng-model="UserName" data-ng-trim="true" maxlength="20" required/>
                     </div>
-                    <div data-ng-class="{'has-error':(form.User.Password.$invalid &amp;&amp; form.User.Password.$dirty)}">
-                        <input type="password" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Password" data-ng-model="User.Password" maxlength="20" required>
+                    <div data-ng-class="{'has-error':(form.Password.$invalid &amp;&amp; form.Password.$dirty)}">
+                        <input type="password" name="Password" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Password" data-ng-model="Password" maxlength="20" required>
                     </div>
                     <div>
                         <button type="submit" data-ng-disabled="form.$invalid" class="btn btn-success submit">Log in</button>

@@ -7,9 +7,11 @@
         service.authorized = false,
         service.ErrorMessage = undefined;
         service.User = {
+            UserId:"",
             UserName: "",
             UserRole: "",
-            Token: ""
+            SchoolId:"",
+            SecurityToken: ""
         }
         service.User = JSON.parse(localStorage.getItem("User"));
         $rootScope.User = service.User;
@@ -35,9 +37,10 @@
             $state.go(Callback);
         };
 
-        service.authenticateUser = function (User) {
+        service.authenticateUser = function (UserName, Password) {
             var requestData = {
-                user: User
+                UserName: UserName,
+                Password: Password
             };
             debugger;
             var APIURL = _constant.get("studenttrakingurl");
@@ -47,8 +50,8 @@
             var promise = $http({
                 cache: false,
                 url: loginUrl,
-                method: "POST",
-                data: requestData
+                method: "GET",
+                params: requestData
             });
             return promise;
         };

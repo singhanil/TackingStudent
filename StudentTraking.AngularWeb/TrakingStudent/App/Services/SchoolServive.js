@@ -23,7 +23,6 @@
             Discription: "",
         };
         var getStates = function (countryid) {
-            debugger
             var APIURL = _constant.get("studenttrakingurl");
             var url = APIURL + _constant.get("states");
             var params = { countryId: countryid };
@@ -34,7 +33,6 @@
             })
         };
         var getSchools = function () {
-            debugger
             var APIURL = _constant.get("studenttrakingurl");
             var url = APIURL + _constant.get("schools");
             var params = { };

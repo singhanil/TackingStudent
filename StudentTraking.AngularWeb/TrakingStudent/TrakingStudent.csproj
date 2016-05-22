@@ -117,12 +117,18 @@
     <Content Include="App\School\SchoolModule.js" />
     <Content Include="App\Services\LoginService.js" />
     <Content Include="App\Services\SchoolServive.js" />
+    <Content Include="App\Student\Student.html" />
+    <Content Include="App\Student\StudentDetails.html" />
+    <Content Include="App\Student\StudentManagement.js" />
+    <Content Include="App\Student\StudentModule.js" />
+    <Content Include="App\Services\StudentService.js" />
     <Content Include="content\css\animate.min.css" />
     <Content Include="content\css\bootstrap.min.css" />
     <Content Include="content\css\custom.css" />
     <Content Include="content\css\floatexamples.css" />
     <Content Include="content\css\ion.rangeSlider.css" />
     <Content Include="content\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="content\css\jquery-ui.css" />
     <Content Include="content\css\ng-grid.css" />
     <Content Include="content\css\normalize.css" />
     <Content Include="content\css\nprogress.css" />
@@ -301,6 +307,7 @@
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\datepicker.js" />
     <Content Include="scripts\jquery.min.js" />
     <Content Include="scripts\ng-grid.min.js" />
     <Content Include="Web.config" />

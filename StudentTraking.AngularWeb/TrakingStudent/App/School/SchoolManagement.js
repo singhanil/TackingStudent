@@ -22,6 +22,7 @@
                 $scope.Schools = result.data;
             }
         }, function (result) {
+            debugger
             $rootScope.ajaxError = true;
         });
         $scope.Schoolsgrid = {
@@ -38,9 +39,9 @@
 
         $scope.AddSchool = function (isValid, objSchool) {
             debugger
+            $scope.AddSchoolCancel();
         };
         $scope.ShowEditForm = function () {
-            debugger
             $scope.getStates($scope.school.SchoolId);
             $scope.showAddForm = true;
             $scope.IsUpdateClick = true;
@@ -71,16 +72,13 @@
         ];
 
         $scope.getStates = function (countryid) {
-            debugger;
             $scope.States = {};
             if (countryid == null || countryid == undefined) {
                 return false;
             }
             SchoolService.getStates(countryid).then(function (result) {
-                debugger
                 $rootScope.ajaxError = false;
                 if (result != null) {
-                    //console.log(result.data);
                     $scope.States = result.data;
                 }
             }, function (result) {
@@ -88,7 +86,6 @@
             });
         };
         $scope.ShowDetails = function (row) {
-            debugger;
             var rowindex = row.rowIndex;
             $scope.school = row.entity;
             $('#myModal').modal('show');
