@@ -37,15 +37,41 @@ namespace SchoolWepAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        [Route("api/Users/{securityToken}/{schoolId}")]
+        public HttpResponseMessage GetAll(string securityToken, int schoolId)
         {
-            return "value";
+            UsersResponse response = new UsersResponse();
+            if (isValid(securityToken))
+            {
+                ISecurity securitySvc = new Security(this.__dbContext);
+                response = new UsersResponse { Status = "OK" };
+                response.Users = securitySvc.UsersList(schoolId);
+            }
+            else
+            {
+                response = new UsersResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. Security Token: {0}", securityToken));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        [Route("api/Users/{securityToken}/{userId}")]
+        public HttpResponseMessage Get(string securityToken, string userId)
         {
+            UserResponse response = new UserResponse { Status = "OK" };
+            if (isValid(securityToken))
+            {
+                ISecurity securitySvc = new Security(this.__dbContext);
+                response.User = securitySvc.Get(userId);
+            }
+            else
+            {
+                response = new UserResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. Security Token: {0}", securityToken));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
         // PUT api/<controller>/5
@@ -56,6 +82,12 @@ namespace SchoolWepAPI.Controllers
         // DELETE api/<controller>/5
         public void Delete(int id)
         {
+        }
+
+        private bool isValid(string securityToken)
+        {
+            ISecurity auth = new Security(this.__dbContext);
+            return auth.ValidateToken(securityToken);
         }
     }
 }

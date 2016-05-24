@@ -1,12 +1,12 @@
-﻿using StudentTracking.Data;
+﻿using StudentTracking.Application.Models;
 using System.Collections.Generic;
 
 namespace StudentTracking.Application.API
 {
     public interface IStudentDetails
     {
-        IEnumerable<StudentDetail> GetAll(int schoolId);
-        StudentDetail Get(int schoolId, string studentId);
-        StudentDetail Save(StudentDetail student);
+        IEnumerable<StudentModel> GetAll(int schoolId);
+        StudentModel Get(int studentId);
+        StudentModel Save(StudentModel student);
     }
 }

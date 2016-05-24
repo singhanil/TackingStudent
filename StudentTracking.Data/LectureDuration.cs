@@ -12,16 +12,12 @@ namespace StudentTracking.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Class
+    public partial class LectureDuration
     {
-        public Class()
-        {
-            this.StudentDetails = new HashSet<StudentDetail>();
-        }
-    
-        public int Id { get; set; }
-        public string Name { get; set; }
-    
-        public virtual ICollection<StudentDetail> StudentDetails { get; set; }
+        public int ID { get; set; }
+        public string Duration { get; set; }
+        public string IsActive { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public System.DateTime ModifiedDate { get; set; }
     }
 }

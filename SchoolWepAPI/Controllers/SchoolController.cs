@@ -1,7 +1,7 @@
 ﻿using StudentTracking.Application.API;
 using StudentTracking.Application.Main;
 using StudentTracking.Data;
-using StudentTracking.Domain;
+using StudentTracking.Application.Models.Responses;
 using System;
 using System.Linq;
 using System.Net;
@@ -30,7 +30,7 @@ namespace SchoolWepAPI.Controllers
             AllSchoolsResponse response = null;
             if (IsValid(securityToken))
             {
-                ISchool school = new StudentTracking.Application.Main.School(this._dbContext);
+                ISchool school = new StudentTracking.Application.Main.SchoolService(this._dbContext);
                 response = new AllSchoolsResponse { Status = "OK" };
                 response.Schools = school.GetAll();
                 CurrentLoggerProvider.Info(string.Format("Retrieved Schools. Count = {0}", response.Schools.Count()));
@@ -50,7 +50,7 @@ namespace SchoolWepAPI.Controllers
             SchoolResponse response = null;
             if (IsValid(securityToken))
             {
-                ISchool schools = new StudentTracking.Application.Main.School(this._dbContext);
+                ISchool schools = new StudentTracking.Application.Main.SchoolService(this._dbContext);
                 response = new SchoolResponse { Status = "OK" };
                 try
                 {

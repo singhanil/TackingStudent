@@ -1,13 +1,13 @@
-﻿using StudentTracking.Data;
+﻿using StudentTracking.Application.Models;
 using System.Collections.Generic;
 
 namespace StudentTracking.Application.API
 {
     public interface ISchool
     {
-        IEnumerable<School> GetAll();
-        School Get(int id);
-        int Save(School school);
+        IEnumerable<SchoolModel> GetAll();
+        SchoolModel Get(int id);
+        int Save(SchoolModel school);
         bool Delete(int id);
     }
 }

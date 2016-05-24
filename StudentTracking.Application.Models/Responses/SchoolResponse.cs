@@ -1,11 +1,11 @@
-﻿using StudentTracking.Data;
+﻿using StudentTracking.Domain;
 using System.Collections.Generic;
 
-namespace StudentTracking.Domain
+namespace StudentTracking.Application.Models.Responses
 {
     public class SchoolResponse : ServiceResponse
     {
-        public School School { get; set; }
+        public SchoolModel School { get; set; }
     }
 
     public class AllSchoolsResponse : ServiceResponse

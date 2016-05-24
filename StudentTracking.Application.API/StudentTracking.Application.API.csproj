@@ -44,11 +44,16 @@
     <Compile Include="ISecurity.cs" />
     <Compile Include="IStudentDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SchoolModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\StudentTracking.Domain.csproj">
       <Project>{0fb0254a-8403-400c-ad98-b9a0c2af532d}</Project>
       <Name>StudentTracking.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentTracking.Application.Models\StudentTracking.Application.Models.csproj">
+      <Project>{83529003-8235-418a-a115-eacac6ac9c38}</Project>
+      <Name>StudentTracking.Application.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\StudentTracking.Data\StudentTracking.Data.csproj">
       <Project>{d035dc39-bff2-46c1-bb98-d8cb5c617390}</Project>

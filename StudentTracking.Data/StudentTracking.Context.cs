@@ -25,19 +25,20 @@ namespace StudentTracking.Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<School> Schools { get; set; }
+        public virtual DbSet<Section> Sections { get; set; }
+        public virtual DbSet<StudentDetail> StudentDetails { get; set; }
         public virtual DbSet<AuthTicket> AuthTickets { get; set; }
+        public virtual DbSet<LectureDuration> LectureDurations { get; set; }
         public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<TagDetail> TagDetails { get; set; }
         public virtual DbSet<Theme> Themes { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<Holiday> Holidays { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<SchoolBranch> SchoolBranches { get; set; }
-        public virtual DbSet<Section> Sections { get; set; }
         public virtual DbSet<StaffDetail> StaffDetails { get; set; }
         public virtual DbSet<StudentAttendance> StudentAttendances { get; set; }
-        public virtual DbSet<StudentDetail> StudentDetails { get; set; }
     }
 }

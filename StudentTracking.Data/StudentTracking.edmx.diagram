@@ -4,24 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="adcb93e7f9ef4c20b21abfe9a730600d" Name="Diagram1">
-        <EntityTypeShape EntityType="StudentTracking.Models.School" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.AuthTicket" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.Organization" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.TagDetail" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.Theme" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.User" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.Class" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.Holiday" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.Message" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.SchoolBranch" Width="1.5" PointX="7.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.Section" Width="1.5" PointX="4.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.StaffDetail" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.StudentAttendance" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTracking.Models.StudentDetail" Width="1.5" PointX="9.75" PointY="6" IsExpanded="true" />
-        <AssociationConnector Association="StudentTracking.Models.FK__School__Organiza__31EC6D26" ManuallyRouted="false" />
-        <AssociationConnector Association="StudentTracking.Models.FK__School__ThemeId__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="StudentTracking.Models.FK__Users__SchoolId__276EDEB3" ManuallyRouted="false" />
+      <Diagram DiagramId="45ddcf1d160f400f94a3558ef01d203f" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentTrackingModel.Class" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.School" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Section" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.StudentDetail" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.AuthTicket" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.LectureDuration" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Organization" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.TagDetail" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Theme" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.User" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Holiday" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Message" Width="1.5" PointX="9.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.SchoolBranch" Width="1.5" PointX="9.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.StaffDetail" Width="1.5" PointX="9.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentTrackingModel.StudentAttendance" Width="1.5" PointX="5.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="StudentTrackingModel.fk_ClassId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK__School__Organiza__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.FK__School__ThemeId__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.fk_SchoolBranchId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.fk_SectionId" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentTrackingModel.fk_PrimaryTagId" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

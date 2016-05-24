@@ -23,7 +23,5 @@ namespace StudentTracking.Data
         public string ContactNumber { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime ModifiedDate { get; set; }
-    
-        public virtual School School { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using StudentTracking.Application.API;
 using StudentTracking.Application.Main;
+using StudentTracking.Application.Models.Responses;
 using StudentTracking.Data;
 using StudentTracking.Domain;
 using System.Linq;
@@ -45,24 +46,28 @@ namespace SchoolWepAPI.Controllers
             return auth.ValidateToken(securityToken);
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [Route("api/Student/GetStudent/{securityToken}/{studentId}")]
+        public HttpResponseMessage GetStudent(string securityToken, int studentId)
         {
-            return "value";
+            StudentResponse response = null;
+            if (IsValid(securityToken))
+            {
+                IStudentDetails student = new StudentDetails(this._dbContext);
+                response = new StudentResponse { Status = "OK" };
+                response.Student = student.Get(studentId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved Student Details. Id = {0}", response.Student.Id));
+            }
+            else
+            {
+                response = new StudentResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. Student Id: {0}", studentId));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
         // POST api/values
         public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
         {
         }
     }

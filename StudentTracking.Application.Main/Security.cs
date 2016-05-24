@@ -52,21 +52,35 @@ namespace StudentTracking.Application.Main
             return false;
         }
 
-        public UserContext Get(string userId)
+        public User Get(string userId)
         {
-            throw new NotImplementedException();
+            return this._dbContext.Users.Where(u => u.UserId.Equals(userId)).FirstOrDefault();
         }
-        public IEnumerable<UserContext> UsersList()
+        public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return this._dbContext.Users.ToList();
         }
-        public IEnumerable<UserContext> UsersList(string schoolId)
+        public IEnumerable<User> UsersList(int schoolId)
         {
-            throw new NotImplementedException();
+            return this._dbContext.Users.Where(u => u.SchoolId == schoolId).ToList();
         }
-        public UserContext Save(string userId)
+
+        public User Save(User user)
         {
-            throw new NotImplementedException();
+            if (null != user.UserId)
+            {
+                var entity = this._dbContext.Users.Where(e => e.UserId.Equals(user.UserId)).FirstOrDefault();
+
+                this._dbContext.Entry(user).State = EntityState.Modified;
+            }
+            else
+            {
+                //TODO: userid needs to create
+                this._dbContext.Users.Add(user);
+            }
+            this._dbContext.SaveChanges();
+
+            return user;
         }
     }
 }

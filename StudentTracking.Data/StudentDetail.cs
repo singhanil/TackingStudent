@@ -16,10 +16,9 @@ namespace StudentTracking.Data
     {
         public int Id { get; set; }
         public string StudentId { get; set; }
-        public string RollNumber { get; set; }
         public string ParentMobileNo { get; set; }
-        public Nullable<long> PrimaryTagId { get; set; }
-        public Nullable<long> SecondaryTagId { get; set; }
+        public int PrimaryTagId { get; set; }
+        public int SecondaryTagId { get; set; }
         public string EmailId { get; set; }
         public string StudentName { get; set; }
         public Nullable<int> SchoolBranchId { get; set; }
@@ -34,5 +33,10 @@ namespace StudentTracking.Data
         public string Gender { get; set; }
         public System.DateTime DateOfBirthh { get; set; }
         public string ParentName { get; set; }
+    
+        public virtual Class Class { get; set; }
+        public virtual School School { get; set; }
+        public virtual Section Section { get; set; }
+        public virtual TagDetail TagDetail { get; set; }
     }
 }
