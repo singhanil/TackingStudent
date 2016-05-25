@@ -7,7 +7,7 @@ namespace StudentTracking.Application.API
     {
         IEnumerable<SchoolModel> GetAll();
         SchoolModel Get(int id);
-        int Save(SchoolModel school);
+        SchoolModel Save(SchoolModel school);
         bool Delete(int id);
     }
 }

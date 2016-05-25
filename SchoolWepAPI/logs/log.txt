@@ -36,3 +36,7 @@ INFO  2016-05-15 02:12:25,386 54994ms BaseApiController      Get                
 INFO  2016-05-15 23:44:50,932 21470ms BaseApiController      Get                - Invalid Request. Student Id: {0}
 INFO  2016-05-15 23:46:36,506 127044ms BaseApiController      Get                - Retrieved Student Details. Count = 2
 INFO  2016-05-16 00:15:01,142 26341ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-05-24 10:19:15,446 180785ms BaseApiController      Get                - Retrieved Schools. Count = 2
+INFO  2016-05-24 10:20:26,212 251551ms BaseApiController      Get                - Retrieved School. Id = 102, Name=
+INFO  2016-05-24 11:56:44,652 25758ms BaseApiController      GetStudent         - Retrieved Student Details. Id = 101
+INFO  2016-05-24 11:56:44,887 25993ms BaseApiController      Get                - Retrieved Student Details. Count = 2

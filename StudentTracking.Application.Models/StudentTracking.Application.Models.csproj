@@ -40,11 +40,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelBase.cs" />
+    <Compile Include="Requests\SchoolSaveRequest.cs" />
+    <Compile Include="Requests\StudentSaveRequest.cs" />
+    <Compile Include="Requests\UserRequest.cs" />
     <Compile Include="Responses\SchoolResponse.cs" />
     <Compile Include="Responses\StudentResponse.cs" />
+    <Compile Include="Responses\UserResponse.cs" />
     <Compile Include="SchoolModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentModel.cs" />
+    <Compile Include="UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\StudentTracking.Domain.csproj">

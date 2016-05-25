@@ -43,7 +43,7 @@ namespace SchoolWepAPI.Controllers
 
         private bool IsValid(string securityToken)
         {
-            ISecurity auth = new Security(this._dbContext);
+            ISecurity auth = new SecurityService(this._dbContext);
             return auth.ValidateToken(securityToken);
         }
     }

@@ -58,9 +58,10 @@
     <Compile Include="Profiles\ProfileBase.cs" />
     <Compile Include="Profiles\SchoolProfile.cs" />
     <Compile Include="Profiles\StudentProfile.cs" />
+    <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="SchoolService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security.cs" />
+    <Compile Include="SecurityService.cs" />
     <Compile Include="StudentDetails.cs" />
   </ItemGroup>
   <ItemGroup>

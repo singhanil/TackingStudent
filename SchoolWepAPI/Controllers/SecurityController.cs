@@ -1,5 +1,6 @@
 ﻿using StudentTracking.Application.API;
 using StudentTracking.Application.Main;
+using StudentTracking.Application.Models.Responses;
 using StudentTracking.Data;
 using StudentTracking.Domain;
 using System;
@@ -25,7 +26,7 @@ namespace SchoolWepAPI.Controllers
         {
             AuthResponse response = new AuthResponse();
 
-            ISecurity auth = new Security(this.__dbContext);
+            ISecurity auth = new SecurityService(this.__dbContext);
             var uc = auth.Authenticate(userId, password);
             if(null != uc)
             {
@@ -43,7 +44,7 @@ namespace SchoolWepAPI.Controllers
             UsersResponse response = new UsersResponse();
             if (isValid(securityToken))
             {
-                ISecurity securitySvc = new Security(this.__dbContext);
+                ISecurity securitySvc = new SecurityService(this.__dbContext);
                 response = new UsersResponse { Status = "OK" };
                 response.Users = securitySvc.UsersList(schoolId);
             }
@@ -62,7 +63,7 @@ namespace SchoolWepAPI.Controllers
             UserResponse response = new UserResponse { Status = "OK" };
             if (isValid(securityToken))
             {
-                ISecurity securitySvc = new Security(this.__dbContext);
+                ISecurity securitySvc = new SecurityService(this.__dbContext);
                 response.User = securitySvc.Get(userId);
             }
             else
@@ -86,7 +87,7 @@ namespace SchoolWepAPI.Controllers
 
         private bool isValid(string securityToken)
         {
-            ISecurity auth = new Security(this.__dbContext);
+            ISecurity auth = new SecurityService(this.__dbContext);
             return auth.ValidateToken(securityToken);
         }
     }

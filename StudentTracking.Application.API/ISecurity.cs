@@ -1,4 +1,4 @@
-﻿using StudentTracking.Data;
+﻿using StudentTracking.Application.Models;
 using StudentTracking.Domain;
 using System.Collections.Generic;
 
@@ -8,9 +8,9 @@ namespace StudentTracking.Application.API
     {
         UserContext Authenticate(string userId, string password);
         bool ValidateToken(string securityToken);
-        User Get(string userId);
-        IEnumerable<User> GetAll();
-        IEnumerable<User> UsersList(int schoolId);
-        User Save(User user);
+        UserModel Get(string userId);
+        IEnumerable<UserModel> GetAll();
+        IEnumerable<UserModel> UsersList(int schoolId);
+        UserModel Save(UserModel user);
     }
 }

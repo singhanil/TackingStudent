@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentTracking.Application.Models
 {
-    public class SchoolModel
+    public class SchoolModel : ModelBase
     {
         public int Id { get; set; }
         public string Name { get; set; }

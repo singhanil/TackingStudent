@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
+using System;
 
 namespace StudentTracking.Application.Main
 {
@@ -22,6 +23,7 @@ namespace StudentTracking.Application.Main
             var entities = this._dbContext.Schools.ToList();
             return entities.MapAsCollection<School, SchoolModel>();
         }
+
         public SchoolModel Get(int id)
         {
             var entity = this._dbContext.Schools.Where(e => e.Id == id).FirstOrDefault();
@@ -31,30 +33,47 @@ namespace StudentTracking.Application.Main
             
             return null;
         }
-        public int Save(SchoolModel school)
+        public SchoolModel Save(SchoolModel model)
         {
-            /*if (school.Id > 0)
+            var entity = this._dbContext.Schools.Where(e => e.Id == model.Id).FirstOrDefault();
+            entity = _populateValues(entity, model);
+
+            if (model.Id > 0)
             {
-                var entity = this._dbContext.Schools.Where(e => e.Id == school.Id).FirstOrDefault();
-
                 if (null != entity)
-                {
-                    this._dbContext.Entry(school).State = EntityState.Modified;
-                }
+                    this._dbContext.Entry(entity).State = EntityState.Modified;
                 else
-                    this._dbContext.Schools.Add(school);
-
+                    this._dbContext.Schools.Add(entity);
             }
             else
-                this._dbContext.Schools.Add(school);
+                this._dbContext.Schools.Add(entity);
             
             this._dbContext.SaveChanges();
-            */
-            return school.Id;
+            
+            return entity.MapAs<School, SchoolModel>();
         }
 
+        private School _populateValues(School entity, SchoolModel model)
+        {
+            if (null == entity)
+                entity = new School();
+
+            var entityResponse = model.MapAs<School>();
+            entityResponse.Id = entity.Id;
+            entityResponse.CreatedDate = entity.CreatedDate;
+            entityResponse.ModifiedDate = DateTime.Now;
+
+            return entityResponse;
+        }
         public bool Delete(int id)
         {
+            //TODO: Need to have soft delete.
+            var entity = this._dbContext.Schools.Where(s => s.Id == id).FirstOrDefault();
+            if (null != entity)
+            {
+                this._dbContext.Entry(entity).State = EntityState.Deleted;
+                return true;
+            }
             return false;
         }
     }
