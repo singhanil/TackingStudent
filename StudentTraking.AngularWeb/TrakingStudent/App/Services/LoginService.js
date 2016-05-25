@@ -42,10 +42,14 @@
                 UserName: UserName,
                 Password: Password
             };
+            //var requestData = {
+            //    userId: UserName,
+            //    password: Password
+            //};
             debugger;
             var APIURL = _constant.get("studenttrakingurl");
             var loginurl = _constant.get("loginurl");
-            var loginUrl = APIURL + loginurl;
+            var loginUrl = APIURL + loginurl;//"http://localhost/SchoolWepAPI/api/Security/" + UserName + "/" + Password; 
 
             var promise = $http({
                 cache: false,

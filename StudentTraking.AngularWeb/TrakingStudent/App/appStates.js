@@ -10,6 +10,7 @@
 
 angular.module("StudentTracking").run(function ($rootScope, $state, $location, LoginService) {
     $rootScope.Logout = function () {
+        localStorage.clear();
         $location.path('/login');
     }
 
@@ -20,7 +21,6 @@ angular.module("StudentTracking").run(function ($rootScope, $state, $location, L
         if (!LoginService.authorized && (toState.data['authorization'] != undefined) && (toState.data['redirectTo'] != undefined)) {
             $state.transitionTo(toState.data.redirectTo);
         }
-
     })
 });
 

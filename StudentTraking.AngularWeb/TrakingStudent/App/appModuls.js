@@ -5,7 +5,8 @@ var app = angular
     "StudentTracking.dashboard",
     "StudentTracking.constant",
     "StudentTracking.school",
-    "StudentTracking.student"
+    "StudentTracking.student",
+    "StudentTracking.ngLoadingSpinner"
   ]);
 
 

@@ -8,7 +8,7 @@
             <section class="login_content">
                 <form name="form" role="form" data-ng-submit="validate(UserName, Password)" class="ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required">
                     <h1>Login Form</h1>
-                    <span data-ng-style="{color:'red'}" class="ng-binding" style="color: red;"></span>
+                    <span data-ng-style="{color:'red'}">{{LoginError}} </span>
                     <div data-ng-class="{'has-error':(form.UserName.$invalid &amp;&amp; form.UserName.$dirty)}">
                         <input id="UserName" name="UserName"  type="text" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Username" data-ng-model="UserName" data-ng-trim="true" maxlength="20" required/>
                     </div>

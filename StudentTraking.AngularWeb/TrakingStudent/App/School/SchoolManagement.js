@@ -34,8 +34,13 @@
                          { field: "BranchName", displayName: "Branch Name" },
                          { field: "StateName", displayName: "State Name" },
                          { field: "City", displayName: "City" },
-                         { field: "Address1", displayName: "Address" }]
+                         { field: "Address1", displayName: "Address" },
+                         { field: '', displayName: 'Action', cellTemplate: '<a ng-click="deleteSchool(row.getProperty(col.id))"  id="delete"  data-toggle="tooltip">Delete</i></a>' }]
         };
+
+        $scope.deleteSchool = function (schoolId) {
+            alert(schoolId);
+        }
 
         $scope.AddSchool = function (isValid, objSchool) {
             debugger
