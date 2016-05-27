@@ -15,9 +15,9 @@
         }
         var onLoginSuccess = function (data) {
             debugger 
-            //if (data.data.Status == 'OK') { statusText
-            if (data.statusText == 'OK') {
-                LoginService.SetLocalStorage("User", JSON.stringify(data.data));//data.data.UserContext
+            if (data.data.Status == 'OK') { 
+            //if (data.statusText == 'OK') {
+                LoginService.SetLocalStorage("User", JSON.stringify(data.data.UserContext));//data.data.UserContext
                 LoginService.SetLocalStorage("authorized", true);
                 LoginService.SetLocalStorage("MainDashboard", true);
                 LoginService.User = JSON.parse(localStorage.getItem("User"));
@@ -28,7 +28,7 @@
             else { $scope.LoginError = data.data.ErrorMessage; }
         }
         var onLoginError = function (data) {
-            $scope.LoginError = data.data.MessageDetail;//data.data.ErrorMessage
+            $scope.LoginError = data.data.ErrorMessage;//data.data.MessageDetail;
             LoginService.SetLocalStorage("authorized", false);
         }
         $scope.hasError = function (field) {

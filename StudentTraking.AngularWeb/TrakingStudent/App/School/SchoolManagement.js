@@ -13,26 +13,42 @@
         $scope.SelectedState = "";
         $scope.States = {};
         $scope.Schools = {};
+        $scope.Organisation = {};
         SchoolService.getSchools().then(function (result) {
             debugger
             $scope.Schools = {};
             $rootScope.ajaxError = false;
             if (result != null) {
                 //console.log(result.data);
-                $scope.Schools = result.data;
+                $scope.Schools = result.data.Schools;
             }
         }, function (result) {
             debugger
             $rootScope.ajaxError = true;
         });
+
+        $scope.loadOrgList = function () {
+            SchoolService.getOrganisations().then(function (result) {
+                debugger
+                $scope.Organisation = {};
+                $rootScope.ajaxError = false;
+                if (result != null) {
+                    //console.log(result.data);
+                    $scope.Organisation = result.data;
+                }
+            }, function (result) {
+                debugger
+                $rootScope.ajaxError = true;
+            });
+        }
         $scope.Schoolsgrid = {
             data: 'Schools',
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize:true,
-            columnDefs: [{ field: "SchoolName", displayName: "School Name", width:400, cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
+            columnDefs: [{ field: "Name", displayName: "School Name", width: 400, cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
                          { field: "BranchName", displayName: "Branch Name" },
-                         { field: "StateName", displayName: "State Name" },
+                         { field: "State", displayName: "State Name" },
                          { field: "City", displayName: "City" },
                          { field: "Address1", displayName: "Address" },
                          { field: '', displayName: 'Action', cellTemplate: '<a ng-click="deleteSchool(row.getProperty(col.id))"  id="delete"  data-toggle="tooltip">Delete</i></a>' }]
@@ -59,7 +75,11 @@
             $('#myModal').modal('hide');
         }
         $scope.ShowAddForm = function () {
+            debugger
             $scope.showAddForm = true;
+            $scope.school = {};
+            $scope.school = SchoolService.School;
+            $scope.loadOrgList();
         };
         $scope.AddSchoolCancel = function () {
             $scope.school = {};
@@ -73,7 +93,7 @@
             $scope.statedisabled = false;
         };
         $scope.Country = [
-                            { CountryCode: "091", CountryName: "India" }
+                            { CountryCode: "India", CountryName: "India" }
         ];
 
         $scope.getStates = function (countryid) {

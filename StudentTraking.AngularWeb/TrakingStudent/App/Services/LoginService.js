@@ -49,13 +49,13 @@
             debugger;
             var APIURL = _constant.get("studenttrakingurl");
             var loginurl = _constant.get("loginurl");
-            var loginUrl = APIURL + loginurl;//"http://localhost/SchoolWepAPI/api/Security/" + UserName + "/" + Password; 
+            var loginUrl = "http://localhost:58222/api/Security/" + UserName + "/" + Password; //APIURL + loginurl;
 
             var promise = $http({
                 cache: false,
                 url: loginUrl,
-                method: "GET",
-                params: requestData
+                method: "GET"
+                //params: requestData
             });
             return promise;
         };

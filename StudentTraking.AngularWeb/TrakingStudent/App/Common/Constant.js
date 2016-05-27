@@ -3,10 +3,12 @@
 
     function constant($rootScope) {
         //#region Api's
-        var studentTrakingApiUrl = "http://localhost/studentTrackingAPI"; 
+        //var studentTrakingApiUrl = "http://localhost/studentTrackingAPI"; 
+        var studentTrakingApiUrl = "http://localhost:58222";
         var getLoginUrl = "/api/LogIn";
         var getStatesUrl = "/School/GetStateList";
-        var getSchoolsUrl = "/School/GetSchoolList";
+        var getOrganisationUrl = "/School/GetSchoolList";
+        var getSchoolsUrl = "/api/School/";
         var getClassesUrl = "/School/GetClassList";
         var getDivisionsUrl = "/School/GetDivisionList";
         var getStudentsUrl = "/School/GetStudentList";
@@ -26,6 +28,9 @@
                     break;
                 case 'schools':
                     _constant = getSchoolsUrl;
+                    break;
+                case 'orglist':
+                    _constant = getOrganisationUrl;
                     break;
                 case 'states':
                     _constant = getStatesUrl;

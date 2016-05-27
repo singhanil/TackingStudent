@@ -57,11 +57,11 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="schoolname">
-                                Name <span class="required" style="color:red;" ng-show="School.school.$invalid">*</span>
+                                Organization Name <span class="required" style="color:red;" ng-show="School.school.$invalid">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" name="school" ng-model="SelectedSchool" ng-disabled="schooldisabled" required
-                                        ng-options="sobj.SchoolId as sobj.SchoolName for sobj in Schools">
+                                <select class="form-control" name="school" ng-model="school.OrganizationId" ng-disabled="schooldisabled" required
+                                        ng-options="sobj.OrganizationId as sobj.OrganizationName for sobj in Organisation">
                                     <option value="">-- Select School --</option>
                                 </select>
                                 <!--<input type="text" ng-model="school.Name" name="schoolname" id="schoolname" class="form-control col-md-7 col-xs-12" required>
@@ -70,10 +70,48 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                                School Name <span class="required" style="color:red;" ng-show="School.schoolname.$invalid">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="schoolname" id="schoolname" ng-model="school.Name" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
                                 Branch Name <span class="required" style="color:red;" ng-show="School.branchname.$invalid">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" name="branchname" id="branchname" ng-model="school.BranchName" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contactPerson">
+                                Contact Person <span class="required" style="color:red;" ng-show="School.contactPerson.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input type="text" name="contactPerson" id="contactPerson" ng-model="school.ContactPerson" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="contactTitle">
+                                Title <span class="required" style="color:red;" ng-show="School.contactTitle.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <input type="text" name="contactTitle" id="contactTitle" ng-model="school.Title" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">
+                                Email <span class="required" style="color:red;" ng-show="School.email.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input name="email" type="email" id="contactPerson" ng-model="school.EmailId" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="School.email.$invalid && !School.email.$pristine" class="help-block">Enter valid email.</p>
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="phone">
+                                Phone <span class="required" style="color:red;" ng-show="School.phone.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <input type="number" ng-minlength="10" ng-maxlength="10" name="phone" id="phone" ng-model="school.Phone" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="School.phone.$invalid && !School.phone.$pristine" class="help-block">Enter valid phone number(Max 10 digit's).</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -97,7 +135,7 @@
                                 Country <span class="required" style="color:red;" ng-show="School.country.$invalid">*</span>
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <select class="form-control" name="country" ng-model="SelectedCountry" ng-disabled="countrydisabled" required ng-change="getStates(SelectedCountry);"
+                                <select class="form-control" name="country" ng-model="school.Country" ng-disabled="countrydisabled" required ng-change="getStates(SelectedCountry);"
                                         ng-options="r.CountryCode as r.CountryName for r in Country">
                                     <option value="">-- Select Country --</option>
                                 </select>
@@ -106,7 +144,7 @@
                                 State <span class="required" style="color:red;" ng-show="School.state.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                <select class="form-control" name="state" ng-model="SelectedState" ng-disabled="statedisabled" required
+                                <select class="form-control" name="state" ng-model="school.State" ng-disabled="statedisabled" required
                                         ng-options="s.StateId as s.StateName for s in States">
                                     <option value="">-- Select State --</option>
                                 </select>
@@ -119,48 +157,19 @@
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <input type="text" name="city" id="city" ng-model="school.City" required class="form-control col-md-7 col-xs-12">
                             </div>
-                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="zip">
+                            <!--<label class="control-label col-md-1 col-sm-3 col-xs-12" for="zip">
                                 Zip Code <span class="required" style="color:red;" ng-show="School.zipcode.$invalid">*</span>
-                            </label>
-                            <div class="col-md-2 col-sm-6 col-xs-12">
+                            </label>-->
+                            <!--<div class="col-md-2 col-sm-6 col-xs-12">
                                 <input type="number" maxlength="8" name="zipcode" id="zipcode" ng-model="school.ZipCode" required class="form-control col-md-7 col-xs-12">
                                 <p ng-show="School.zipcode.$invalid && !School.zipcode.$pristine" class="help-block">Enter valid zip code(Max 8 digit's).</p>
-                            </div>
+                            </div>-->
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contactPerson">
-                                Contact Person <span class="required" style="color:red;" ng-show="School.contactPerson.$invalid">*</span>
-                            </label>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <input type="text" name="contactPerson" id="contactPerson" ng-model="school.ContactPerson" required class="form-control col-md-7 col-xs-12">
-                            </div>
-                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="contactTitle">
-                                Title <span class="required" style="color:red;" ng-show="School.contactTitle.$invalid">*</span>
-                            </label>
-                            <div class="col-md-2 col-sm-6 col-xs-12">
-                                <input type="text" name="contactTitle" id="contactTitle" ng-model="school.ContactTitle" required class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">
-                                Email <span class="required" style="color:red;" ng-show="School.email.$invalid">*</span>
-                            </label>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <input name="email" type="email" id="contactPerson" ng-model="school.Email" required class="form-control col-md-7 col-xs-12">
-                                <p ng-show="School.email.$invalid && !School.email.$pristine" class="help-block">Enter valid email.</p>
-                            </div>
-                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="phone">
-                                Phone <span class="required" style="color:red;" ng-show="School.phone.$invalid">*</span>
-                            </label>
-                            <div class="col-md-2 col-sm-6 col-xs-12">
-                                <input type="number" ng-minlength="10" ng-maxlength="10" name="phone" id="phone" ng-model="school.Phone" required class="form-control col-md-7 col-xs-12">
-                                <p ng-show="School.phone.$invalid && !School.phone.$pristine" class="help-block">Enter valid phone number(Max 10 digit's).</p>
-                            </div>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="discription" class="control-label col-md-3 col-sm-3 col-xs-12">Discription</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea rows="3" ng-model="school.Discription" class="form-control col-md-7 col-xs-12">
+                                <textarea rows="3" ng-model="school.Description" class="form-control col-md-7 col-xs-12">
                                     Enter your text here...
                                 </textarea>
                             </div>
