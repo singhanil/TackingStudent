@@ -1,6 +1,5 @@
 ﻿(function (module) {
     "use strict";
-    debugger
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider
         .state('login', {

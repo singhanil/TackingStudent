@@ -60,6 +60,7 @@
                                 Organization Name <span class="required" style="color:red;" ng-show="School.school.$invalid">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" style="display:none;" name="orgname" id="orgname" ng-model="school.OrganizationName">
                                 <select class="form-control" name="school" ng-model="school.OrganizationId" ng-disabled="schooldisabled" required
                                         ng-options="sobj.OrganizationId as sobj.OrganizationName for sobj in Organisation">
                                     <option value="">-- Select School --</option>
@@ -135,7 +136,7 @@
                                 Country <span class="required" style="color:red;" ng-show="School.country.$invalid">*</span>
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <select class="form-control" name="country" ng-model="school.Country" ng-disabled="countrydisabled" required ng-change="getStates(SelectedCountry);"
+                                <select class="form-control" name="country" id="selCountry" ng-model="school.Country" ng-disabled="countrydisabled" required ng-change="getStates(school.Country);"
                                         ng-options="r.CountryCode as r.CountryName for r in Country">
                                     <option value="">-- Select Country --</option>
                                 </select>
@@ -143,7 +144,13 @@
                             <label class="control-label col-md-1 col-sm-3 col-xs-12" for="state">
                                 State <span class="required" style="color:red;" ng-show="School.state.$invalid">*</span>
                             </label>
-                            <div class="col-md-2 col-sm-6 col-xs-12">
+                            <div ng-if="IsUpdateClick" class="col-md-2 col-sm-6 col-xs-12">
+                                <select class="form-control" name="state" ng-model="school.State" ng-disabled="statedisabled" required
+                                        ng-options="s.StateId as s.StateName for s in States track by s.StateId">
+                                    <option value="">-- Select State --</option>
+                                </select>
+                            </div>
+                            <div ng-if="!IsUpdateClick" class="col-md-2 col-sm-6 col-xs-12">
                                 <select class="form-control" name="state" ng-model="school.State" ng-disabled="statedisabled" required
                                         ng-options="s.StateId as s.StateName for s in States">
                                     <option value="">-- Select State --</option>
@@ -179,7 +186,8 @@
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                 <button type="button" ng-click="AddSchoolCancel();" class="btn btn-primary">Cancel</button>
                                 <button ng-if="!IsUpdateClick" type="submit" data-ng-disabled="School.$invalid" class="btn btn-success">Save</button>
-                                <button ng-if="IsUpdateClick" type="submit" data-ng-disabled="School.$invalid" class="btn btn-success">Update</button>
+                                <!--<button ng-if="IsUpdateClick" type="submit" data-ng-disabled="School.$invalid" class="btn btn-success">Update</button>-->
+                                <button ng-if="IsUpdateClick" type="button" ng-click="UpdateSchool(school);" data-ng-disabled="School.$invalid" class="btn btn-success">Update</button>
                             </div>
                         </div>
 

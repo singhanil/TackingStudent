@@ -1,7 +1,6 @@
 ﻿(function (module) {
     'use strict';
     var dasboard = function ($rootScope, $location, $scope, LoginService, $state) {
-        debugger
         var vm = $scope;
         //$state.transitionTo('dashboard.main');
     }

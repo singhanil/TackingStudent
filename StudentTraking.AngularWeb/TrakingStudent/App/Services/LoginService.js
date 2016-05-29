@@ -46,10 +46,9 @@
             //    userId: UserName,
             //    password: Password
             //};
-            debugger;
             var APIURL = _constant.get("studenttrakingurl");
             var loginurl = _constant.get("loginurl");
-            var loginUrl = "http://localhost:58222/api/Security/" + UserName + "/" + Password; //APIURL + loginurl;
+            var loginUrl = APIURL + loginurl + UserName + "/" + Password; //APIURL + loginurl;
 
             var promise = $http({
                 cache: false,

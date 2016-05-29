@@ -28,6 +28,26 @@
             templateUrl: 'App/Student/Student.html',
             controller: 'StudentManagement  as vm'
         })
+        .state('dashboard.monthlyattendance', {
+            url: "/monthlyattendance",
+            templateUrl: 'App/Reports/MonthlyAttendance.html'
+            //controller: 'StudentManagement  as vm'
+        })
+        .state('dashboard.otherreport', {
+            url: "/otherreport",
+            templateUrl: 'App/Reports/OtherReport.html'
+            //controller: 'StudentManagement  as vm'
+        })
+        .state('dashboard.studentreport', {
+            url: "/studentreport",
+            templateUrl: 'App/Reports/StudentReport.html'
+            //controller: 'StudentManagement  as vm'
+        })
+        .state('dashboard.yearlyattendance', {
+            url: "/yearlyattendance",
+            templateUrl: 'App/Reports/YearlyAttendance.html'
+            //controller: 'StudentManagement  as vm'
+        })
     }
     module.run(function ($state) { })
     module.config(config);

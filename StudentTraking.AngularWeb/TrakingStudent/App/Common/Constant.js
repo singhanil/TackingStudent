@@ -3,15 +3,16 @@
 
     function constant($rootScope) {
         //#region Api's
-        //var studentTrakingApiUrl = "http://localhost/studentTrackingAPI"; 
+        var studentTrakingApiUrl1 = "http://localhost/studentTrackingAPI"; 
         var studentTrakingApiUrl = "http://localhost:58222";
-        var getLoginUrl = "/api/LogIn";
+        var getLoginUrl = "/api/Security/";
         var getStatesUrl = "/School/GetStateList";
         var getOrganisationUrl = "/School/GetSchoolList";
         var getSchoolsUrl = "/api/School/";
         var getClassesUrl = "/School/GetClassList";
         var getDivisionsUrl = "/School/GetDivisionList";
         var getStudentsUrl = "/School/GetStudentList";
+        var saveSchoolUrl = "/api/School";
 
         //#endregion
         var getConstant = function (key) {
@@ -20,6 +21,9 @@
             //please add all key in lowercase manner
             //********************************************************
             switch (key.toLowerCase()) {
+                case 'studenttrakingurl1':
+                    _constant = studentTrakingApiUrl1;
+                    break;
                 case 'studenttrakingurl':
                     _constant = studentTrakingApiUrl;
                     break;
@@ -43,6 +47,9 @@
                     break;
                 case 'studentlist':
                     _constant = getStudentsUrl;
+                    break;
+                case 'saveschool':
+                    _constant = saveSchoolUrl;
                     break;
                 default:
                     break;

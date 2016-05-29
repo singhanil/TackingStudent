@@ -60,19 +60,19 @@
 
                             <li>
                                 <a><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu" style="display: none">
+                                <ul class="nav child_menu" style="display: block">
 
                                     <li>
-                                        <a href="attendence-monthly.html">Monthly Attendence</a>
+                                        <a href="#" ui-sref="dashboard.monthlyattendance">Monthly Attendence</a>
                                     </li>
                                     <li>
-                                        <a href="attendence-yearly.html">Yearly Attendence</a>
+                                        <a href="#" ui-sref="dashboard.yearlyattendance">Yearly Attendence</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Student Report </a>
+                                    <li style="display:none;">
+                                        <a href="#" ui-sref="dashboard.studentreport">Student Report </a>
                                     </li>
-                                    <li>
-                                        <a href="other_charts.html">Other Reports </a>
+                                    <li style="display:none;">
+                                        <a href="#" ui-sref="dashboard.otherreport">Other Reports </a>
                                     </li>
                                 </ul>
                             </li>
@@ -85,7 +85,7 @@
                                     <li>
                                         <a href="#" ui-sref="dashboard.student">Student Management</a>
                                     </li>
-                                    <li>
+                                    <li style="display:none;">
                                         <a href="#">Teacher Management</a>
                                     </li>
                                 </ul>

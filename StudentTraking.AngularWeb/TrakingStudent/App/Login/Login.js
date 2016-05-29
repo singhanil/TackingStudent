@@ -9,12 +9,10 @@
                     $scope.LoginError = "";
                 });
             }, 100);
-            debugger
             var factory = LoginService.authenticateUser(UserName, Password)
          .then(onLoginSuccess, onLoginError);
         }
         var onLoginSuccess = function (data) {
-            debugger 
             if (data.data.Status == 'OK') { 
             //if (data.statusText == 'OK') {
                 LoginService.SetLocalStorage("User", JSON.stringify(data.data.UserContext));//data.data.UserContext

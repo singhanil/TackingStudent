@@ -25,8 +25,8 @@
             Twitter: "",
             LinkedIn: "",
             OrganizationId: 0,
-            ThemeId: null,
-            IsActive: "",
+            ThemeId: 1,
+            IsActive: 'Y',
             OrganizationName: "",
             ThemeDetail: "",
             ModifiedDate:null
@@ -61,9 +61,36 @@
                 //params: params
             })
         };
+        var addSchools = function (objSchool) {
+            var SchoolSaveRequest = {
+                SecurityToken: $rootScope.User.SecurityToken,
+                School: objSchool
+            };
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("schools");
+            var params = {};
+            return $http({
+                url: url,
+                method: "POST",
+                data: SchoolSaveRequest
+            })
+        };
+
+        var deleteSchool = function (schoolid) {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = "http://localhost/studentTrackingAPI" + _constant.get("orglist");
+            var params = {};
+            return $http({
+                url: url,
+                method: "GET",
+                params: params
+            })
+        };
+
         service.getStates = getStates;
         service.getSchools = getSchools;
         service.getOrganisations = getOrganisations;
+        service.addSchools = addSchools;
         return service;
     };
     module.service("SchoolService", ['$http', '$rootScope', 'Constant', SchoolService]);
