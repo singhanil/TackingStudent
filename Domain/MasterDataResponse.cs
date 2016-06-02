@@ -10,5 +10,9 @@ namespace StudentTracking.Domain
         public IEnumerable<Section> Sections { get; set; }
 
         public IEnumerable<TagDetail> TagDetails { get; set; }
+
+        public IEnumerable<Country> Coutries { get; set; }
+
+        public IEnumerable<State> States { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace StudentTracking.Application.Models
         public string Password { get; set; }
         public string Name { get; set; }
         public string UserRole { get; set; }
-        public int SchoolId { get; set; }
+        public int? SchoolId { get; set; }
         public string EmailId { get; set; }
         public string ContactNumber { get; set; }
         public DateTime CreatedDate { get; set; }

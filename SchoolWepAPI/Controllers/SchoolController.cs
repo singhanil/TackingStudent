@@ -32,7 +32,7 @@ namespace SchoolWepAPI.Controllers
             AllSchoolsResponse response = null;
             if (IsValid(securityToken))
             {
-                ISchool school = new StudentTracking.Application.Main.SchoolService(this._dbContext);
+                ISchool school = new SchoolService(this._dbContext);
                 response = new AllSchoolsResponse { Status = "OK" };
                 response.Schools = school.GetAll();
                 CurrentLoggerProvider.Info(string.Format("Retrieved Schools. Count = {0}", response.Schools.Count()));

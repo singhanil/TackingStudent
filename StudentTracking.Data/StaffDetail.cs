@@ -14,7 +14,6 @@ namespace StudentTracking.Data
     
     public partial class StaffDetail
     {
-        public int Id { get; set; }
         public string StaffId { get; set; }
         public string StaffName { get; set; }
         public Nullable<byte> Department { get; set; }
@@ -23,5 +22,6 @@ namespace StudentTracking.Data
         public string StaffMobileNo { get; set; }
         public Nullable<int> ClassId { get; set; }
         public Nullable<int> SectionId { get; set; }
+        public int ID { get; set; }
     }
 }

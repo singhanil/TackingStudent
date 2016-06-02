@@ -57,6 +57,9 @@
     <Compile Include="Class.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Holiday.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
@@ -82,10 +85,16 @@
     <Compile Include="StaffDetail.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="StudentAttendance.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentDetail.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentResult.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentTracking.Context.cs">
@@ -103,10 +112,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentTracking.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Subject.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyllabusDetail.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyllabusTracking.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="TagDetail.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Theme.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeTable.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">

@@ -3,7 +3,7 @@ using StudentTracking.Application.Main;
 using StudentTracking.Application.Models.Requests;
 using StudentTracking.Application.Models.Responses;
 using StudentTracking.Data;
-using StudentTracking.Domain;
+
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -27,7 +27,7 @@ namespace SchoolWepAPI.Controllers
             AllStudentResponse response = null;
             if (IsValid(securityToken))
             {
-                IStudentDetails student = new StudentDetails(this._dbContext);
+                IStudentDetails student = new StudentService(this._dbContext);
                 response = new AllStudentResponse { Status = "OK" };
                 response.Students = student.GetAll(schoolId);
                 CurrentLoggerProvider.Info(string.Format("Retrieved Student Details. Count = {0}", response.Students.Count()));
@@ -53,7 +53,7 @@ namespace SchoolWepAPI.Controllers
             StudentResponse response = null;
             if (IsValid(securityToken))
             {
-                IStudentDetails student = new StudentDetails(this._dbContext);
+                IStudentDetails student = new StudentService(this._dbContext);
                 response = new StudentResponse { Status = "OK" };
                 response.Student = student.Get(studentId);
                 CurrentLoggerProvider.Info(string.Format("Retrieved Student Details. Id = {0}", response.Student.Id));
@@ -74,7 +74,7 @@ namespace SchoolWepAPI.Controllers
             StudentResponse res = new StudentResponse { Status = "OK" };
             if (IsValid(req.SecurityToken))
             {
-                var studentSvc = new StudentDetails(this._dbContext);
+                var studentSvc = new StudentService(this._dbContext);
                 res.Student = studentSvc.Save(req.Student);
             }
             else

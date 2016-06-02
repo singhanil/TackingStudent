@@ -12,19 +12,18 @@ namespace StudentTracking.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class LectureDuration
+    public partial class TimeTable
     {
-        public LectureDuration()
-        {
-            this.TimeTables = new HashSet<TimeTable>();
-        }
-    
         public int ID { get; set; }
-        public string Duration { get; set; }
-        public string IsActive { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public System.DateTime ModifiedDate { get; set; }
+        public int ClassId { get; set; }
+        public int SectionId { get; set; }
+        public int LectureId { get; set; }
+        public string Days { get; set; }
+        public int SubjectId { get; set; }
     
-        public virtual ICollection<TimeTable> TimeTables { get; set; }
+        public virtual Class Class { get; set; }
+        public virtual Section Section { get; set; }
+        public virtual LectureDuration LectureDuration { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

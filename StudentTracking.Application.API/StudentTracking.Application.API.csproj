@@ -40,9 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICommon.cs" />
+    <Compile Include="IOrganization.cs" />
     <Compile Include="ISchool.cs" />
     <Compile Include="ISecurity.cs" />
     <Compile Include="IStudentDetails.cs" />
+    <Compile Include="ITimeTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchoolModel.cs" />
   </ItemGroup>

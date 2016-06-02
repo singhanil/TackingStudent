@@ -40,11 +40,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelBase.cs" />
+    <Compile Include="Models\StateModel.cs" />
+    <Compile Include="Models\TimeTableModel.cs" />
+    <Compile Include="OrganizationModel.cs" />
+    <Compile Include="Requests\OrganizationSaveRequest.cs" />
     <Compile Include="Requests\SchoolSaveRequest.cs" />
+    <Compile Include="Requests\ServiceRequest.cs" />
     <Compile Include="Requests\StudentSaveRequest.cs" />
+    <Compile Include="Requests\TimeTableRequest.cs" />
     <Compile Include="Requests\UserRequest.cs" />
+    <Compile Include="Responses\OrganizationResponse.cs" />
     <Compile Include="Responses\SchoolResponse.cs" />
+    <Compile Include="Responses\StatesResponse.cs" />
     <Compile Include="Responses\StudentResponse.cs" />
+    <Compile Include="Responses\TimeTableResponse.cs" />
     <Compile Include="Responses\UserResponse.cs" />
     <Compile Include="SchoolModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

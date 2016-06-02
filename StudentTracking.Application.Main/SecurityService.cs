@@ -72,6 +72,7 @@ namespace StudentTracking.Application.Main
 
             return null;
         }
+
         public IEnumerable<UserModel> UsersList(int schoolId)
         {
             var entities = this._dbContext.Users.Where(u => u.SchoolId == schoolId).ToList();
@@ -85,6 +86,7 @@ namespace StudentTracking.Application.Main
         public UserModel Save(UserModel model)
         {
             var entity = this._dbContext.Users.Where(e => e.UserId.Equals(model.UserId, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+            
             entity = _populateValues(entity, model);
 
             if (!string.IsNullOrWhiteSpace(model.UserId))
@@ -105,14 +107,21 @@ namespace StudentTracking.Application.Main
         private User _populateValues(User entity, UserModel model)
         {
             if (null == entity)
+            {
                 entity = new User();
+                entity.CreatedDate = DateTime.Now;
+                entity.SchoolId = model.SchoolId.Value;
+                entity.UserId = model.UserId;
+            }
+            entity.CreatedDate = entity.CreatedDate;
+            entity.ModifiedDate = DateTime.Now;
+            entity.ContactNumber = model.ContactNumber;
+            entity.EmailId = model.EmailId;
+            entity.Name = model.Name;
+            entity.Password = model.Password;
+            entity.UserRole = model.UserRole;
 
-            var entityResponse = model.MapAs<User>();
-            entityResponse.UserId = entity.UserId;
-            entityResponse.CreatedDate = entity.CreatedDate;
-            entityResponse.ModifiedDate = DateTime.Now;
-
-            return entityResponse;
+            return entity;
         }
     }
 }

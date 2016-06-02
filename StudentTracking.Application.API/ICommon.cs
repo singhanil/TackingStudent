@@ -1,9 +1,6 @@
-﻿using StudentTracking.Data;
-using System;
+﻿using StudentTracking.Application.Models;
+using StudentTracking.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentTracking.Application.API
 {
@@ -12,5 +9,8 @@ namespace StudentTracking.Application.API
         IEnumerable<Class> GetAllClasses();
         IEnumerable<Section> GetAllSections();
         IEnumerable<TagDetail> GetAllTags();
+        IEnumerable<Country> GetAllCountries();
+        IEnumerable<State> GetAllStates();
+        IEnumerable<StateModel> FindStates(string countyCode);
     }
 }

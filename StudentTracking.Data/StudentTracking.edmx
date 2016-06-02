@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StudentTrackingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StudentTrackingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="Id" />
@@ -35,9 +35,8 @@ warning 6002: The table/view 'octosoftlab.dbo.Message' does not have a primary k
         </EntityType>
         <EntityType Name="School">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="500" />
           <Property Name="BranchName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address1" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -58,6 +57,7 @@ warning 6002: The table/view 'octosoftlab.dbo.Message' does not have a primary k
           <Property Name="IsActive" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'octosoftlab.dbo.SchoolBranch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -79,13 +79,10 @@ warning 6002: The table/view 'octosoftlab.dbo.SchoolBranch' does not have a prim
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'octosoftlab.dbo.StaffDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StaffDetail">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="StaffId" Type="nvarchar" MaxLength="50" />
           <Property Name="StaffName" Type="nvarchar" MaxLength="100" />
           <Property Name="Department" Type="tinyint" />
@@ -94,6 +91,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StaffDetail' does not have a prima
           <Property Name="StaffMobileNo" Type="nvarchar" MaxLength="50" />
           <Property Name="ClassId" Type="int" />
           <Property Name="SectionId" Type="int" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -122,9 +120,8 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
         </EntityType>
         <EntityType Name="StudentDetail">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="nvarchar" MaxLength="50" />
           <Property Name="ParentMobileNo" Type="nvarchar" MaxLength="50" />
           <Property Name="PrimaryTagId" Type="int" Nullable="false" />
@@ -143,6 +140,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="DateOfBirthh" Type="date" Nullable="false" />
           <Property Name="ParentName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="AuthTickets">
           <Key>
@@ -152,6 +150,14 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="SecurityToken" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="LectureDuration">
           <Key>
@@ -172,6 +178,56 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="IsActive" Type="char" MaxLength="1" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="States">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="CountryCode" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentResults">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SyllabusDetails" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="MarksObtained" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="GradeObtained" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SyllabusDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Semester" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Details" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="TotalMarks" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SyllabusTracking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SyllabusID" Type="int" Nullable="false" />
+          <Property Name="SectionId" Type="int" Nullable="false" />
+          <Property Name="PerCompleted" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
         <EntityType Name="TagDetails">
           <Key>
@@ -195,6 +251,17 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="Details" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="SectionId" Type="int" Nullable="false" />
+          <Property Name="LectureId" Type="int" Nullable="false" />
+          <Property Name="Days" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="SubjectId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -234,6 +301,126 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__States__CountryC__619B8048">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="States" Type="Self.States" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="States">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Stude__7B5B524B">
+          <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="1" />
+          <End Role="StudentResults" Type="Self.StudentResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentResults">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Sylla__7A672E12">
+          <End Role="SyllabusDetails" Type="Self.SyllabusDetails" Multiplicity="1" />
+          <End Role="StudentResults" Type="Self.StudentResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyllabusDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentResults">
+              <PropertyRef Name="SyllabusDetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SyllabusD__Class__70DDC3D8">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="SyllabusDetails" Type="Self.SyllabusDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SyllabusDetails">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SyllabusT__Secti__74AE54BC">
+          <End Role="Section" Type="Self.Section" Multiplicity="1" />
+          <End Role="SyllabusTracking" Type="Self.SyllabusTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SyllabusTracking">
+              <PropertyRef Name="SectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SyllabusT__Sylla__73BA3083">
+          <End Role="SyllabusDetails" Type="Self.SyllabusDetails" Multiplicity="1" />
+          <End Role="SyllabusTracking" Type="Self.SyllabusTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyllabusDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SyllabusTracking">
+              <PropertyRef Name="SyllabusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Class__6C190EBB">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Lectu__6E01572D">
+          <End Role="LectureDuration" Type="Self.LectureDuration" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LectureDuration">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="LectureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Secti__6D0D32F4">
+          <End Role="Section" Type="Self.Section" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="SectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Subje__7C4F7684">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_ClassId">
           <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
           <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
@@ -258,12 +445,12 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_SchoolBranchId">
+        <Association Name="fk_SchoolId">
           <End Role="School" Type="Self.School" Multiplicity="0..1" />
           <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="School">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="StudentDetail">
               <PropertyRef Name="SchoolBranchId" />
@@ -286,12 +473,19 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffDetail" EntityType="Self.StaffDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentDetail" EntityType="Self.StudentDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AuthTickets" EntityType="Self.AuthTickets" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="LectureDuration" EntityType="Self.LectureDuration" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="StudentResults" EntityType="Self.StudentResults" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="SyllabusDetails" EntityType="Self.SyllabusDetails" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="SyllabusTracking" EntityType="Self.SyllabusTracking" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="TagDetails" EntityType="Self.TagDetails" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Themes" EntityType="Self.Themes" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="TimeTable" EntityType="Self.TimeTable" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Holiday" EntityType="Self.Holiday" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -317,19 +511,6 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
     [SchoolBranch].[Branch Code] AS [Branch Code]
     FROM [dbo].[SchoolBranch] AS [SchoolBranch]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="StaffDetail" EntityType="Self.StaffDetail" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [StaffDetail].[Id] AS [Id], 
-    [StaffDetail].[StaffId] AS [StaffId], 
-    [StaffDetail].[StaffName] AS [StaffName], 
-    [StaffDetail].[Department] AS [Department], 
-    [StaffDetail].[PrimaryTagId] AS [PrimaryTagId], 
-    [StaffDetail].[ReportingEmailId] AS [ReportingEmailId], 
-    [StaffDetail].[StaffMobileNo] AS [StaffMobileNo], 
-    [StaffDetail].[ClassId] AS [ClassId], 
-    [StaffDetail].[SectionId] AS [SectionId]
-    FROM [dbo].[StaffDetail] AS [StaffDetail]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="StudentAttendance" EntityType="Self.StudentAttendance" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [StudentAttendance].[Id] AS [Id], 
@@ -352,6 +533,14 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
     [StudentAttendance].[IpAddress] AS [IpAddress]
     FROM [dbo].[StudentAttendance] AS [StudentAttendance]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="States" EntityType="Self.States" store:Type="Tables" store:Schema="octosoftlab">
+            <DefiningQuery>SELECT 
+    [States].[ID] AS [ID], 
+    [States].[Name] AS [Name], 
+    [States].[IsActive] AS [IsActive], 
+    [States].[CountryCode] AS [CountryCode]
+    FROM [octosoftlab].[States] AS [States]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__School__Organiza__31EC6D26" Association="Self.FK__School__Organiza__31EC6D26">
             <End Role="Organizations" EntitySet="Organizations" />
             <End Role="School" EntitySet="School" />
@@ -359,6 +548,46 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <AssociationSet Name="FK__School__ThemeId__32E0915F" Association="Self.FK__School__ThemeId__32E0915F">
             <End Role="Themes" EntitySet="Themes" />
             <End Role="School" EntitySet="School" />
+          </AssociationSet>
+          <AssociationSet Name="FK__States__CountryC__619B8048" Association="Self.FK__States__CountryC__619B8048">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="States" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Stude__7B5B524B" Association="Self.FK__StudentRe__Stude__7B5B524B">
+            <End Role="StudentDetail" EntitySet="StudentDetail" />
+            <End Role="StudentResults" EntitySet="StudentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Sylla__7A672E12" Association="Self.FK__StudentRe__Sylla__7A672E12">
+            <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
+            <End Role="StudentResults" EntitySet="StudentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SyllabusD__Class__70DDC3D8" Association="Self.FK__SyllabusD__Class__70DDC3D8">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SyllabusT__Secti__74AE54BC" Association="Self.FK__SyllabusT__Secti__74AE54BC">
+            <End Role="Section" EntitySet="Section" />
+            <End Role="SyllabusTracking" EntitySet="SyllabusTracking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SyllabusT__Sylla__73BA3083" Association="Self.FK__SyllabusT__Sylla__73BA3083">
+            <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
+            <End Role="SyllabusTracking" EntitySet="SyllabusTracking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Class__6C190EBB" Association="Self.FK__TimeTable__Class__6C190EBB">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Lectu__6E01572D" Association="Self.FK__TimeTable__Lectu__6E01572D">
+            <End Role="LectureDuration" EntitySet="LectureDuration" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Secti__6D0D32F4" Association="Self.FK__TimeTable__Secti__6D0D32F4">
+            <End Role="Section" EntitySet="Section" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Subje__7C4F7684" Association="Self.FK__TimeTable__Subje__7C4F7684">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="TimeTable" EntitySet="TimeTable" />
           </AssociationSet>
           <AssociationSet Name="fk_ClassId" Association="Self.fk_ClassId">
             <End Role="Class" EntitySet="Class" />
@@ -368,7 +597,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             <End Role="TagDetails" EntitySet="TagDetails" />
             <End Role="StudentDetail" EntitySet="StudentDetail" />
           </AssociationSet>
-          <AssociationSet Name="fk_SchoolBranchId" Association="Self.fk_SchoolBranchId">
+          <AssociationSet Name="fk_SchoolId" Association="Self.fk_SchoolId">
             <End Role="School" EntitySet="School" />
             <End Role="StudentDetail" EntitySet="StudentDetail" />
           </AssociationSet>
@@ -377,8 +606,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             <End Role="StudentDetail" EntitySet="StudentDetail" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudentTrackingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -388,13 +616,14 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SyllabusDetails" Relationship="Self.FK__SyllabusD__Class__70DDC3D8" FromRole="Class" ToRole="SyllabusDetails" />
+          <NavigationProperty Name="TimeTables" Relationship="Self.FK__TimeTable__Class__6C190EBB" FromRole="Class" ToRole="TimeTable" />
           <NavigationProperty Name="StudentDetails" Relationship="Self.fk_ClassId" FromRole="Class" ToRole="StudentDetail" />
         </EntityType>
         <EntityType Name="School">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
@@ -415,9 +644,10 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Organization" Relationship="Self.FK__School__Organiza__31EC6D26" FromRole="School" ToRole="Organizations" />
           <NavigationProperty Name="Theme" Relationship="Self.FK__School__ThemeId__32E0915F" FromRole="School" ToRole="Themes" />
-          <NavigationProperty Name="StudentDetails" Relationship="Self.fk_SchoolBranchId" FromRole="School" ToRole="StudentDetail" />
+          <NavigationProperty Name="StudentDetails" Relationship="Self.fk_SchoolId" FromRole="School" ToRole="StudentDetail" />
         </EntityType>
         <EntityType Name="Section">
           <Key>
@@ -425,13 +655,28 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SyllabusTrackings" Relationship="Self.FK__SyllabusT__Secti__74AE54BC" FromRole="Section" ToRole="SyllabusTracking" />
+          <NavigationProperty Name="TimeTables" Relationship="Self.FK__TimeTable__Secti__6D0D32F4" FromRole="Section" ToRole="TimeTable" />
           <NavigationProperty Name="StudentDetails" Relationship="Self.fk_SectionId" FromRole="Section" ToRole="StudentDetail" />
+        </EntityType>
+        <EntityType Name="StaffDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="StaffId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StaffName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="Byte" />
+          <Property Name="PrimaryTagId" Type="Int64" />
+          <Property Name="ReportingEmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="StaffMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClassId" Type="Int32" />
+          <Property Name="SectionId" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="StudentDetail">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ParentMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PrimaryTagId" Type="Int32" Nullable="false" />
@@ -450,9 +695,11 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="DateOfBirthh" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ParentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Class" Relationship="Self.fk_ClassId" FromRole="StudentDetail" ToRole="Class" />
-          <NavigationProperty Name="School" Relationship="Self.fk_SchoolBranchId" FromRole="StudentDetail" ToRole="School" />
+          <NavigationProperty Name="School" Relationship="Self.fk_SchoolId" FromRole="StudentDetail" ToRole="School" />
           <NavigationProperty Name="Section" Relationship="Self.fk_SectionId" FromRole="StudentDetail" ToRole="Section" />
+          <NavigationProperty Name="StudentResults" Relationship="Self.FK__StudentRe__Stude__7B5B524B" FromRole="StudentDetail" ToRole="StudentResults" />
           <NavigationProperty Name="TagDetail" Relationship="Self.fk_PrimaryTagId" FromRole="StudentDetail" ToRole="TagDetails" />
         </EntityType>
         <EntityType Name="AuthTicket">
@@ -464,6 +711,15 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="States" Relationship="Self.FK__States__CountryC__619B8048" FromRole="Country" ToRole="States" />
+        </EntityType>
         <EntityType Name="LectureDuration">
           <Key>
             <PropertyRef Name="ID" />
@@ -473,6 +729,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TimeTables" Relationship="Self.FK__TimeTable__Lectu__6E01572D" FromRole="LectureDuration" ToRole="TimeTable" />
         </EntityType>
         <EntityType Name="Organization">
           <Key>
@@ -484,6 +741,51 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Schools" Relationship="Self.FK__School__Organiza__31EC6D26" FromRole="Organizations" ToRole="School" />
+        </EntityType>
+        <EntityType Name="StudentResult">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SyllabusDetails" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="MarksObtained" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="GradeObtained" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="StudentDetail" Relationship="Self.FK__StudentRe__Stude__7B5B524B" FromRole="StudentResults" ToRole="StudentDetail" />
+          <NavigationProperty Name="SyllabusDetail" Relationship="Self.FK__StudentRe__Sylla__7A672E12" FromRole="StudentResults" ToRole="SyllabusDetails" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TimeTables" Relationship="StudentTrackingModel.FK__TimeTable__Subje__7C4F7684" FromRole="Subject" ToRole="TimeTable" />
+        </EntityType>
+        <EntityType Name="SyllabusDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Semester" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalMarks" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK__SyllabusD__Class__70DDC3D8" FromRole="SyllabusDetails" ToRole="Class" />
+          <NavigationProperty Name="StudentResults" Relationship="Self.FK__StudentRe__Sylla__7A672E12" FromRole="SyllabusDetails" ToRole="StudentResults" />
+          <NavigationProperty Name="SyllabusTrackings" Relationship="Self.FK__SyllabusT__Sylla__73BA3083" FromRole="SyllabusDetails" ToRole="SyllabusTracking" />
+        </EntityType>
+        <EntityType Name="SyllabusTracking">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SyllabusID" Type="Int32" Nullable="false" />
+          <Property Name="SectionId" Type="Int32" Nullable="false" />
+          <Property Name="PerCompleted" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="Section" Relationship="Self.FK__SyllabusT__Secti__74AE54BC" FromRole="SyllabusTracking" ToRole="Section" />
+          <NavigationProperty Name="SyllabusDetail" Relationship="Self.FK__SyllabusT__Sylla__73BA3083" FromRole="SyllabusTracking" ToRole="SyllabusDetails" />
         </EntityType>
         <EntityType Name="TagDetail">
           <Key>
@@ -509,6 +811,21 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Schools" Relationship="Self.FK__School__ThemeId__32E0915F" FromRole="Themes" ToRole="School" />
+        </EntityType>
+        <EntityType Name="TimeTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <Property Name="SectionId" Type="Int32" Nullable="false" />
+          <Property Name="LectureId" Type="Int32" Nullable="false" />
+          <Property Name="Days" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK__TimeTable__Class__6C190EBB" FromRole="TimeTable" ToRole="Class" />
+          <NavigationProperty Name="Section" Relationship="Self.FK__TimeTable__Secti__6D0D32F4" FromRole="TimeTable" ToRole="Section" />
+          <NavigationProperty Name="LectureDuration" Relationship="Self.FK__TimeTable__Lectu__6E01572D" FromRole="TimeTable" ToRole="LectureDuration" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subject" Relationship="StudentTrackingModel.FK__TimeTable__Subje__7C4F7684" FromRole="TimeTable" ToRole="Subject" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -552,20 +869,6 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="Contact_Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Branch_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="StaffDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="StaffId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StaffName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Department" Type="Byte" />
-          <Property Name="PrimaryTagId" Type="Int64" />
-          <Property Name="ReportingEmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="StaffMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ClassId" Type="Int32" />
-          <Property Name="SectionId" Type="Int32" />
-        </EntityType>
         <EntityType Name="StudentAttendance">
           <Key>
             <PropertyRef Name="Id" />
@@ -589,6 +892,42 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="NoOftimeTimeTagRead" Type="Int16" />
           <Property Name="IpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="CountryCode" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__States__CountryC__619B8048" FromRole="States" ToRole="Country" />
+        </EntityType>
+        <Association Name="FK__SyllabusD__Class__70DDC3D8">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="SyllabusDetails" Type="Self.SyllabusDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SyllabusDetails">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Class__6C190EBB">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_ClassId">
           <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
           <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
@@ -625,15 +964,39 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_SchoolBranchId">
+        <Association Name="fk_SchoolId">
           <End Role="School" Type="Self.School" Multiplicity="0..1" />
           <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="School">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="StudentDetail">
               <PropertyRef Name="SchoolBranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SyllabusT__Secti__74AE54BC">
+          <End Role="Section" Type="Self.Section" Multiplicity="1" />
+          <End Role="SyllabusTracking" Type="Self.SyllabusTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SyllabusTracking">
+              <PropertyRef Name="SectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Secti__6D0D32F4">
+          <End Role="Section" Type="Self.Section" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="SectionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -649,6 +1012,18 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__StudentRe__Stude__7B5B524B">
+          <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="1" />
+          <End Role="StudentResults" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentDetail">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentResults">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_PrimaryTagId">
           <End Role="TagDetails" Type="Self.TagDetail" Multiplicity="1" />
           <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
@@ -661,22 +1036,85 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__States__CountryC__619B8048">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="States" Type="Self.State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="States">
+              <PropertyRef Name="CountryCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Lectu__6E01572D">
+          <End Role="LectureDuration" Type="Self.LectureDuration" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LectureDuration">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="LectureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudentRe__Sylla__7A672E12">
+          <End Role="SyllabusDetails" Type="Self.SyllabusDetail" Multiplicity="1" />
+          <End Role="StudentResults" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyllabusDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentResults">
+              <PropertyRef Name="SyllabusDetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SyllabusT__Sylla__73BA3083">
+          <End Role="SyllabusDetails" Type="Self.SyllabusDetail" Multiplicity="1" />
+          <End Role="SyllabusTracking" Type="Self.SyllabusTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyllabusDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SyllabusTracking">
+              <PropertyRef Name="SyllabusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="StudentTrackingContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Classes" EntityType="Self.Class" />
           <EntitySet Name="Schools" EntityType="Self.School" />
           <EntitySet Name="Sections" EntityType="Self.Section" />
+          <EntitySet Name="StaffDetails" EntityType="Self.StaffDetail" />
           <EntitySet Name="StudentDetails" EntityType="Self.StudentDetail" />
           <EntitySet Name="AuthTickets" EntityType="Self.AuthTicket" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
           <EntitySet Name="LectureDurations" EntityType="Self.LectureDuration" />
           <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="StudentResults" EntityType="Self.StudentResult" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="SyllabusDetails" EntityType="Self.SyllabusDetail" />
+          <EntitySet Name="SyllabusTrackings" EntityType="Self.SyllabusTracking" />
           <EntitySet Name="TagDetails" EntityType="Self.TagDetail" />
           <EntitySet Name="Themes" EntityType="Self.Theme" />
+          <EntitySet Name="TimeTables" EntityType="Self.TimeTable" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Holidays" EntityType="Self.Holiday" />
           <EntitySet Name="Messages" EntityType="Self.Message" />
           <EntitySet Name="SchoolBranches" EntityType="Self.SchoolBranch" />
-          <EntitySet Name="StaffDetails" EntityType="Self.StaffDetail" />
           <EntitySet Name="StudentAttendances" EntityType="Self.StudentAttendance" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <AssociationSet Name="FK__SyllabusD__Class__70DDC3D8" Association="Self.FK__SyllabusD__Class__70DDC3D8">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Class__6C190EBB" Association="Self.FK__TimeTable__Class__6C190EBB">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="TimeTable" EntitySet="TimeTables" />
+          </AssociationSet>
           <AssociationSet Name="fk_ClassId" Association="Self.fk_ClassId">
             <End Role="Class" EntitySet="Classes" />
             <End Role="StudentDetail" EntitySet="StudentDetails" />
@@ -689,19 +1127,63 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
             <End Role="Themes" EntitySet="Themes" />
             <End Role="School" EntitySet="Schools" />
           </AssociationSet>
-          <AssociationSet Name="fk_SchoolBranchId" Association="Self.fk_SchoolBranchId">
+          <AssociationSet Name="fk_SchoolId" Association="Self.fk_SchoolId">
             <End Role="School" EntitySet="Schools" />
             <End Role="StudentDetail" EntitySet="StudentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SyllabusT__Secti__74AE54BC" Association="Self.FK__SyllabusT__Secti__74AE54BC">
+            <End Role="Section" EntitySet="Sections" />
+            <End Role="SyllabusTracking" EntitySet="SyllabusTrackings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Secti__6D0D32F4" Association="Self.FK__TimeTable__Secti__6D0D32F4">
+            <End Role="Section" EntitySet="Sections" />
+            <End Role="TimeTable" EntitySet="TimeTables" />
           </AssociationSet>
           <AssociationSet Name="fk_SectionId" Association="Self.fk_SectionId">
             <End Role="Section" EntitySet="Sections" />
             <End Role="StudentDetail" EntitySet="StudentDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Stude__7B5B524B" Association="Self.FK__StudentRe__Stude__7B5B524B">
+            <End Role="StudentDetail" EntitySet="StudentDetails" />
+            <End Role="StudentResults" EntitySet="StudentResults" />
+          </AssociationSet>
           <AssociationSet Name="fk_PrimaryTagId" Association="Self.fk_PrimaryTagId">
             <End Role="TagDetails" EntitySet="TagDetails" />
             <End Role="StudentDetail" EntitySet="StudentDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK__States__CountryC__619B8048" Association="Self.FK__States__CountryC__619B8048">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="States" EntitySet="States" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Lectu__6E01572D" Association="Self.FK__TimeTable__Lectu__6E01572D">
+            <End Role="LectureDuration" EntitySet="LectureDurations" />
+            <End Role="TimeTable" EntitySet="TimeTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudentRe__Sylla__7A672E12" Association="Self.FK__StudentRe__Sylla__7A672E12">
+            <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
+            <End Role="StudentResults" EntitySet="StudentResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SyllabusT__Sylla__73BA3083" Association="Self.FK__SyllabusT__Sylla__73BA3083">
+            <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
+            <End Role="SyllabusTracking" EntitySet="SyllabusTrackings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Subje__7C4F7684" Association="StudentTrackingModel.FK__TimeTable__Subje__7C4F7684">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="TimeTable" EntitySet="TimeTables" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__TimeTable__Subje__7C4F7684">
+          <End Type="StudentTrackingModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="StudentTrackingModel.TimeTable" Role="TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -719,7 +1201,6 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <EntitySetMapping Name="Schools">
             <EntityTypeMapping TypeName="StudentTrackingModel.School">
               <MappingFragment StoreEntitySet="School">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BranchName" ColumnName="BranchName" />
                 <ScalarProperty Name="Address1" ColumnName="Address1" />
@@ -740,6 +1221,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -751,10 +1233,24 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="StaffDetails">
+            <EntityTypeMapping TypeName="StudentTrackingModel.StaffDetail">
+              <MappingFragment StoreEntitySet="StaffDetail">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="PrimaryTagId" ColumnName="PrimaryTagId" />
+                <ScalarProperty Name="ReportingEmailId" ColumnName="ReportingEmailId" />
+                <ScalarProperty Name="StaffMobileNo" ColumnName="StaffMobileNo" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="StudentDetails">
             <EntityTypeMapping TypeName="StudentTrackingModel.StudentDetail">
               <MappingFragment StoreEntitySet="StudentDetail">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="ParentMobileNo" ColumnName="ParentMobileNo" />
                 <ScalarProperty Name="PrimaryTagId" ColumnName="PrimaryTagId" />
@@ -773,6 +1269,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="DateOfBirthh" ColumnName="DateOfBirthh" />
                 <ScalarProperty Name="ParentName" ColumnName="ParentName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -783,6 +1280,15 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
                 <ScalarProperty Name="SecurityToken" ColumnName="SecurityToken" />
                 <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="StudentTrackingModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -808,6 +1314,47 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="StudentResults">
+            <EntityTypeMapping TypeName="StudentTrackingModel.StudentResult">
+              <MappingFragment StoreEntitySet="StudentResults">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SyllabusDetails" ColumnName="SyllabusDetails" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="MarksObtained" ColumnName="MarksObtained" />
+                <ScalarProperty Name="GradeObtained" ColumnName="GradeObtained" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="StudentTrackingModel.Subject">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyllabusDetails">
+            <EntityTypeMapping TypeName="StudentTrackingModel.SyllabusDetail">
+              <MappingFragment StoreEntitySet="SyllabusDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="TotalMarks" ColumnName="TotalMarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyllabusTrackings">
+            <EntityTypeMapping TypeName="StudentTrackingModel.SyllabusTracking">
+              <MappingFragment StoreEntitySet="SyllabusTracking">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SyllabusID" ColumnName="SyllabusID" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="PerCompleted" ColumnName="PerCompleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TagDetails">
             <EntityTypeMapping TypeName="StudentTrackingModel.TagDetail">
               <MappingFragment StoreEntitySet="TagDetails">
@@ -830,6 +1377,18 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
                 <ScalarProperty Name="Details" ColumnName="Details" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeTables">
+            <EntityTypeMapping TypeName="StudentTrackingModel.TimeTable">
+              <MappingFragment StoreEntitySet="TimeTable">
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="LectureId" ColumnName="LectureId" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -878,21 +1437,6 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StaffDetails">
-            <EntityTypeMapping TypeName="StudentTrackingModel.StaffDetail">
-              <MappingFragment StoreEntitySet="StaffDetail">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
-                <ScalarProperty Name="StaffName" ColumnName="StaffName" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="PrimaryTagId" ColumnName="PrimaryTagId" />
-                <ScalarProperty Name="ReportingEmailId" ColumnName="ReportingEmailId" />
-                <ScalarProperty Name="StaffMobileNo" ColumnName="StaffMobileNo" />
-                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
-                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StudentAttendances">
             <EntityTypeMapping TypeName="StudentTrackingModel.StudentAttendance">
               <MappingFragment StoreEntitySet="StudentAttendance">
@@ -914,6 +1458,16 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
                 <ScalarProperty Name="TagReadingTime" ColumnName="TagReadingTime" />
                 <ScalarProperty Name="NoOftimeTimeTagRead" ColumnName="NoOftimeTimeTagRead" />
                 <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="StudentTrackingModel.State">
+              <MappingFragment StoreEntitySet="States">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

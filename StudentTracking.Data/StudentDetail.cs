@@ -14,7 +14,11 @@ namespace StudentTracking.Data
     
     public partial class StudentDetail
     {
-        public int Id { get; set; }
+        public StudentDetail()
+        {
+            this.StudentResults = new HashSet<StudentResult>();
+        }
+    
         public string StudentId { get; set; }
         public string ParentMobileNo { get; set; }
         public int PrimaryTagId { get; set; }
@@ -33,10 +37,12 @@ namespace StudentTracking.Data
         public string Gender { get; set; }
         public System.DateTime DateOfBirthh { get; set; }
         public string ParentName { get; set; }
+        public int ID { get; set; }
     
         public virtual Class Class { get; set; }
         public virtual School School { get; set; }
         public virtual Section Section { get; set; }
+        public virtual ICollection<StudentResult> StudentResults { get; set; }
         public virtual TagDetail TagDetail { get; set; }
     }
 }
