@@ -120,6 +120,7 @@
     <Content Include="App\School\SchoolDetails.html" />
     <Content Include="App\School\SchoolManagement.js" />
     <Content Include="App\School\SchoolModule.js" />
+    <Content Include="App\Services\CommonService.js" />
     <Content Include="App\Services\LoginService.js" />
     <Content Include="App\Services\SchoolServive.js" />
     <Content Include="App\Student\Student.html" />

@@ -60,7 +60,7 @@
                                 Email <span class="required" style="color:red;" ng-show="StudenAddEdit.stdEmail.$invalid">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="email" name="stdEmail" id="stdEmail" ng-model="StudentDetails.EmailId" required class="form-control col-md-7 col-xs-12">
+                                <input type="email" name="stdEmail" id="stdEmail" ng-model="StudentDetails.EmailId" ng-disabled="IsStuUpdateClick" required class="form-control col-md-7 col-xs-12">
                                 <p ng-show="StudenAddEdit.stdEmail.$invalid && !StudenAddEdit.stdEmail.$pristine" class="help-block">Enter valid email.</p>
                             </div>
                         </div>
@@ -80,18 +80,18 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rollnumber">
+                            <!--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="rollnumber">
                                 Roll Number <span class="required" style="color:red;" ng-show="StudenAddEdit.rollnumber.$invalid">*</span>
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
                                 <input type="text" ng-maxlength="6" name="rollnumber" id="rollnumber" ng-model="StudentDetails.RollNumber" required class="form-control col-md-7 col-xs-12">
                                 <p ng-show="StudenAddEdit.rollnumber.$invalid && !StudenAddEdit.rollnumber.$pristine" class="help-block">Enter valid Roll Number (Max 6 digit's).</p>
-                            </div>
+                            </div>-->
                             <label class="control-label col-md-1 col-sm-3 col-xs-12" for="zip">
                                 Student ID <span class="required" style="color:red;" ng-show="StudenAddEdit.studeintid.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                <input type="number" maxlength="8" name="studeintid" id="studeintid" ng-model="StudentDetails.StudentId" required class="form-control col-md-7 col-xs-12">
+                                <input type="number" maxlength="8" name="studeintid" id="studeintid" ng-disabled="IsStuUpdateClick" ng-model="StudentDetails.StudentId" required class="form-control col-md-7 col-xs-12">
                                 <p ng-show="StudenAddEdit.studeintid.$invalid && !StudenAddEdit.studeintid.$pristine" class="help-block">Enter valid Student ID (Max 8 digit's).</p>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                                 Primary TagId <span class="required" style="color:red;" ng-show="StudenAddEdit.primarytag.$invalid">*</span>
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <select width="100px;" class="form-control" name="primarytag" ng-model="StudentDetails.PrimaryTagId" ng-disabled="countrydisabled" required
+                                <select width="100px;" class="form-control" name="primarytag" ng-model="StudentDetails.PrimaryTagId" ng-disabled="IsStuUpdateClick" required
                                         ng-options="PT.PrimaryTagId as PT.PrimaryTagName for PT in primaryTaglist">
                                     <option value="">-- Select Primary Tagid --</option>
                                 </select>
@@ -109,7 +109,7 @@
                                 Secondary TagId <span class="required" style="color:red;" ng-show="StudenAddEdit.secondaryTagId.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                <select width="100px;" class="form-control" name="secondaryTagId" ng-model="StudentDetails.SecondaryTagId" ng-disabled="countrydisabled" required
+                                <select width="100px;" class="form-control" name="secondaryTagId" ng-model="StudentDetails.SecondaryTagId" ng-disabled="IsStuUpdateClick" required
                                         ng-options="ST.SecondaryTagId as ST.SecondaryTagName for ST in secondaryTagList">
                                     <option value="">-- Select Secondary Tagid --</option>
                                 </select>
@@ -138,7 +138,7 @@
                                 Class <span class="required" style="color:red;" ng-show="StudenAddEdit.studclass.$invalid">*</span>
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <select width="100px;" class="form-control" name="studclass" ng-model="StudentDetails.ClassId" ng-disabled="countrydisabled" required ng-change="getDivisions(StudentDetails.ClassId);"
+                                <select width="100px;" class="form-control" name="studclass" ng-model="StudentDetails.ClassId" ng-disabled="IsStuUpdateClick" required ng-change="getDivisions(StudentDetails.ClassId);"
                                         ng-options="c.ClassId as c.ClassName for c in Classlist">
                                     <option value="">-- Select Class --</option>
                                 </select>
@@ -147,7 +147,7 @@
                                 Division <span class="required" style="color:red;" ng-show="StudenAddEdit.studdivsion.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                <select class="form-control" name="studdivsion" ng-model="StudentDetails.SectionId" ng-disabled="countrydisabled" required
+                                <select class="form-control" name="studdivsion" ng-model="StudentDetails.SectionId" ng-disabled="IsStuUpdateClick" required
                                         ng-options="s.SectionId as s.SectionName for s in Divisionlist">
                                     <option value="">-- Select Division --</option>
                                 </select>
@@ -174,7 +174,7 @@
                                 Country <span class="required" style="color:red;" ng-show="StudenAddEdit.country.$invalid">*</span>
                             </label>
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <select class="form-control" name="country" ng-model="StudentDetails.Country" ng-disabled="countrydisabled" required ng-change="getStates(StudentDetails.Country);"
+                                <select class="form-control" name="country" ng-model="StudentDetails.Country" ng-disabled="IsStuUpdateClick" required ng-change="getStates(StudentDetails.Country);"
                                         ng-options="r.CountryCode as r.CountryName for r in Country">
                                     <option value="">-- Select Country --</option>
                                 </select>
@@ -183,8 +183,8 @@
                                 State <span class="required" style="color:red;" ng-show="StudenAddEdit.state.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                <select class="form-control" name="state" ng-model="StudentDetails.State" ng-disabled="statedisabled" required
-                                        ng-options="s.StateId as s.StateName for s in States">
+                                <select class="form-control" name="state" ng-model="StudentDetails.State" ng-disabled="IsStuUpdateClick" required
+                                        ng-options="s.Id as s.Name for s in States">
                                     <option value="">-- Select State --</option>
                                 </select>
                             </div>

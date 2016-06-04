@@ -1,6 +1,6 @@
 ﻿(function (module) {
     'use strict';
-    var schoolManagement = function ($rootScope, $location, $scope, SchoolService, LoginService, $state) {
+    var schoolManagement = function ($rootScope, $location, $scope, SchoolService, LoginService, $state, CommonService) {
         var vm = $scope;
         $scope.showAddForm = false;
         $scope.IsUpdateClick = false;
@@ -16,8 +16,9 @@
         $scope.Organisation = {};
         $scope.count = 4;
         //define all functions
+
         $scope.getAllSchoolList = function () {
-            SchoolService.getSchools().then(function (result) {
+            CommonService.getSchools().then(function (result) {
                 $scope.Schools = {};
                 $rootScope.ajaxError = false;
                 if (result != null) {
@@ -35,12 +36,12 @@
         };
 
         $scope.loadOrgList = function () {
-            SchoolService.getOrganisations().then(function (result) {
+            CommonService.getOrganisations().then(function (result) {
                 $scope.Organisation = {};
                 $rootScope.ajaxError = false;
                 if (result != null) {
                     //console.log(result.data);
-                    $scope.Organisation = result.data;
+                    $scope.Organisation = result.data.Organizations;
                 }
             }, function (result) {
                 $rootScope.ajaxError = true;
@@ -52,10 +53,10 @@
             if (countryid == null || countryid == undefined) {
                 return false;
             }
-            SchoolService.getStates(countryid).then(function (result) {
+            CommonService.getStates(countryid).then(function (result) {
                 $rootScope.ajaxError = false;
                 if (result != null) {
-                    $scope.States = result.data;
+                    $scope.States = result.data.States;
                     if ($scope.IsUpdateClick) {
                         $scope.statedisabled = true;
                     }
@@ -66,11 +67,9 @@
         };
 
         $scope.getCountryList = function () {
-            $scope.Country = [
-                                { CountryCode: "Ind", CountryName: "India" },
-            { CountryCode: "Usa", CountryName: "USA" }
-            ];
+            $scope.Country = CommonService.getCountries();
         };
+
 
         $scope.deleteSchool = function (schoolid) {
             if (schoolid == null || schoolid == undefined) {
@@ -97,7 +96,7 @@
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
-            columnDefs: [{ field: "Name", displayName: "School Name", width: 400, cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
+            columnDefs: [{ field: "OrganizationName", displayName: "School Name", width: 400, cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
                          { field: "BranchName", displayName: "Branch Name" },
                          { field: "State", displayName: "State Name" },
                          { field: "City", displayName: "City" },
@@ -106,20 +105,22 @@
         };
 
         $scope.deleteSchool = function (schoolId) {
-            return false;
+            SchoolService.deleteSchool(schoolId).then(function (result) {
+                $rootScope.ajaxError = false;
+            }, function (result) {
+                $rootScope.ajaxError = true;
+            });
         };
 
         $scope.AddSchool = function (isValid, objSchool) {
-            objSchool.Id = $scope.count + 1;
             SchoolService.addSchools(objSchool).then(function (result) {
-                $scope.Organisation = {};
                 $rootScope.ajaxError = false;
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {
                         alert(result.data.ErrorMessage);
                         $rootScope.Logout();
                     }
-                    else{
+                    else {
                         $scope.getAllSchoolList();
                         $scope.AddSchoolCancel();
                     }
@@ -137,7 +138,7 @@
             $scope.loadOrgList();
             $scope.getStates($scope.school.Country);
             $scope.school.Phone = parseInt($scope.school.Phone);
-            
+
             //$scope.SelectedSchool = $scope.school.SchoolId;
             //$scope.SelectedCountry = "091";
             //$scope.SelectedState = $scope.school.StateId;
@@ -172,12 +173,13 @@
         };
 
         $scope.UpdateSchool = function (isValid, objSchool) {
-            alert("School data updated successfully!");
-            $scope.getAllSchoolList();
-            $scope.AddSchoolCancel();
+            $scope.AddSchool(isValid, objSchool);
+            //alert("School data updated successfully!");
+            //$scope.getAllSchoolList();
+            //$scope.AddSchoolCancel();
         }
 
 
     }
-    module.controller('SchoolManagement', ['$rootScope', '$location', '$scope', 'SchoolService', 'LoginService', '$state', schoolManagement]);
+    module.controller('SchoolManagement', ['$rootScope', '$location', '$scope', 'SchoolService', 'LoginService', '$state', 'CommonService', schoolManagement]);
 }(angular.module('StudentTracking.school')));

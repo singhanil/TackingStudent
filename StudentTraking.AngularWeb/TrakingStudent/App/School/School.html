@@ -10,7 +10,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" ng-click="ShowEditForm()" class="btn btn-primary">Edit</button>
+                    <button type="button" style="margin-bottom:5px;" ng-click="ShowEditForm()" class="btn btn-primary">Edit</button>
                 </div>
             </div>
         </div>
@@ -60,29 +60,35 @@
                                 Organization Name <span class="required" style="color:red;" ng-show="School.school.$invalid">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" style="display:none;" name="orgname" id="orgname" ng-model="school.OrganizationName">
+                                <input type="text" style="display:none;" name="orgname" id="orgname" ng-model="school.OrganizationId">
                                 <select class="form-control" name="school" ng-model="school.OrganizationId" ng-disabled="schooldisabled" required
-                                        ng-options="sobj.OrganizationId as sobj.OrganizationName for sobj in Organisation">
+                                        ng-options="sobj.ID as sobj.Name for sobj in Organisation">
                                     <option value="">-- Select School --</option>
                                 </select>
-                                <!--<input type="text" ng-model="school.Name" name="schoolname" id="schoolname" class="form-control col-md-7 col-xs-12" required>
-                                <p ng-show="School.schoolname.$invalid && !School.schoolname.$pristine" class="help-block">Name is required.</p>-->
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
                                 School Name <span class="required" style="color:red;" ng-show="School.schoolname.$invalid">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" name="schoolname" id="schoolname" ng-model="school.Name" required class="form-control col-md-7 col-xs-12">
                             </div>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
                                 Branch Name <span class="required" style="color:red;" ng-show="School.branchname.$invalid">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
                                 <input type="text" name="branchname" id="branchname" ng-model="school.BranchName" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="gender">
+                                Is Active <span class="required" style="color:red;" ng-show="School.Isactive.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                Yes:
+                                <input type="radio" ng-model="school.IsActive" class="flat" name="Isactive" id="IsactiveY" value="Y" ng-required="!School.Isactive" /> No:
+                                <input type="radio" ng-model="school.IsActive" class="flat" name="Isactive" id="IsactiveN" value="N" ng-required="!School.Isactive" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -144,15 +150,15 @@
                             <label class="control-label col-md-1 col-sm-3 col-xs-12" for="state">
                                 State <span class="required" style="color:red;" ng-show="School.state.$invalid">*</span>
                             </label>
-                            <div ng-if="IsUpdateClick" class="col-md-2 col-sm-6 col-xs-12">
+                            <!--<div ng-if="IsUpdateClick" class="col-md-2 col-sm-6 col-xs-12">
                                 <select class="form-control" name="state" ng-model="school.State" ng-disabled="statedisabled" required
-                                        ng-options="s.StateId as s.StateName for s in States track by s.StateId">
+                                        ng-options="s.Id as s.Name for s in States track by s.Id">
                                     <option value="">-- Select State --</option>
                                 </select>
-                            </div>
-                            <div ng-if="!IsUpdateClick" class="col-md-2 col-sm-6 col-xs-12">
+                            </div>-->
+                            <div class="col-md-2 col-sm-6 col-xs-12">
                                 <select class="form-control" name="state" ng-model="school.State" ng-disabled="statedisabled" required
-                                        ng-options="s.StateId as s.StateName for s in States">
+                                        ng-options="s.Id as s.Name for s in States">
                                     <option value="">-- Select State --</option>
                                 </select>
                             </div>
@@ -172,7 +178,30 @@
                                 <p ng-show="School.zipcode.$invalid && !School.zipcode.$pristine" class="help-block">Enter valid zip code(Max 8 digit's).</p>
                             </div>-->
                         </div>
-                        
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                Twitter Page: 
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="twitter" id="twitter" ng-model="school.Twitter" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                LinkedIn Page:
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="linkedIn" id="linkedIn" ng-model="school.LinkedIn" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                FaceBook Page:
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="faceBookUrl" id="faceBookUrl" ng-model="school.FaceBookUrl" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="discription" class="control-label col-md-3 col-sm-3 col-xs-12">Discription</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -187,7 +216,7 @@
                                 <button type="button" ng-click="AddSchoolCancel();" class="btn btn-primary">Cancel</button>
                                 <button ng-if="!IsUpdateClick" type="submit" data-ng-disabled="School.$invalid" class="btn btn-success">Save</button>
                                 <!--<button ng-if="IsUpdateClick" type="submit" data-ng-disabled="School.$invalid" class="btn btn-success">Update</button>-->
-                                <button ng-if="IsUpdateClick" type="button" ng-click="UpdateSchool(school);" data-ng-disabled="School.$invalid" class="btn btn-success">Update</button>
+                                <button ng-if="IsUpdateClick" type="button" ng-click="UpdateSchool(School.$valid,school);" data-ng-disabled="School.$invalid" class="btn btn-success">Update</button>
                             </div>
                         </div>
 

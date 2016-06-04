@@ -31,36 +31,7 @@
             ThemeDetail: "",
             ModifiedDate:null
         };
-        var getOrganisations = function (countryid) {
-            var APIURL = _constant.get("studenttrakingurl");
-            var url = "http://localhost/studentTrackingAPI" + _constant.get("orglist");
-            var params = {};
-            return $http({
-                url: url,
-                method: "GET",
-                params: params
-            })
-        };
-        var getStates = function (countryid) {
-            var APIURL = _constant.get("studenttrakingurl");
-            var url = "http://localhost/studentTrackingAPI" + _constant.get("states");
-            var params = { countryId: countryid };
-            return $http({
-                url: url,
-                method: "GET",
-                params: params
-            })
-        };
-        var getSchools = function () {
-            var APIURL = _constant.get("studenttrakingurl");
-            var url = APIURL + _constant.get("schools") + $rootScope.User.SecurityToken;
-            var params = { };
-            return $http({
-                url: url,
-                method: "GET"
-                //params: params
-            })
-        };
+        
         var addSchools = function (objSchool) {
             var SchoolSaveRequest = {
                 SecurityToken: $rootScope.User.SecurityToken,
@@ -78,19 +49,17 @@
 
         var deleteSchool = function (schoolid) {
             var APIURL = _constant.get("studenttrakingurl");
-            var url = "http://localhost/studentTrackingAPI" + _constant.get("orglist");
-            var params = {};
+            var url = APIURL + _constant.get("saveschool");
+            var requiredparams = { schoolId: schoolid, securityToken: $rootScope.User.SecurityToken };
             return $http({
                 url: url,
                 method: "GET",
-                params: params
+                params: requiredparams
             })
         };
 
-        service.getStates = getStates;
-        service.getSchools = getSchools;
-        service.getOrganisations = getOrganisations;
         service.addSchools = addSchools;
+        service.deleteSchool = deleteSchool;
         return service;
     };
     module.service("SchoolService", ['$http', '$rootScope', 'Constant', SchoolService]);

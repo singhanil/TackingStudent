@@ -4,14 +4,14 @@
     function constant($rootScope) {
         //#region Api's
         var studentTrakingApiUrl1 = "http://localhost/studentTrackingAPI"; 
-        var studentTrakingApiUrl = "http://localhost:58222";
+        var studentTrakingApiUrl = "http://localhost/Learn";
         var getLoginUrl = "/api/Security/";
-        var getStatesUrl = "/School/GetStateList";
-        var getOrganisationUrl = "/School/GetSchoolList";
+        var getStatesUrl = "/api/Common/GetStates/";
+        var getOrganisationUrl = "/api/Organization/";
         var getSchoolsUrl = "/api/School/";
         var getClassesUrl = "/School/GetClassList";
         var getDivisionsUrl = "/School/GetDivisionList";
-        var getStudentsUrl = "/School/GetStudentList";
+        var getStudentsUrl = "/api/Student/";
         var saveSchoolUrl = "/api/School";
 
         //#endregion

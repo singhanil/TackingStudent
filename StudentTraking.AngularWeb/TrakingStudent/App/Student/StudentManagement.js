@@ -1,6 +1,6 @@
 ﻿(function (module) {
     'use strict';
-    var studentManagement = function ($rootScope, $location, $scope, StudentService, LoginService, $state) {
+    var studentManagement = function ($rootScope, $location, $scope, StudentService, LoginService, CommonService, $state) {
         var vm = $scope;
         $scope.IsStuUpdateClick = false;
         $scope.showAddStudent = false;
@@ -8,80 +8,82 @@
         $scope.Studentlist = {};
         $scope.Classlist = {};
         $scope.Divisionlist = {};
+        $scope.Sectionlist = {};
+        $scope.Country
+        $scope.States = {};
         $scope.StudentDetails.SchoolBranchId = $rootScope.User.SchoolId;
-        $scope.Country = [
-                            { CountryCode: "091", CountryName: "India" }
-        ];
-        $scope.primaryTaglist = [
-                            { PrimaryTagId: "0001", PrimaryTagName: "PT001" },
-                            { PrimaryTagId: "0002", PrimaryTagName: "PT002" },
-                            { PrimaryTagId: "0003", PrimaryTagName: "PT003" },
-                            { PrimaryTagId: "0004", PrimaryTagName: "PT004" },
-                            { PrimaryTagId: "0005", PrimaryTagName: "PT005" },
-                            { PrimaryTagId: "0006", PrimaryTagName: "PT006" },
-                            { PrimaryTagId: "0007", PrimaryTagName: "PT007" },
-                            { PrimaryTagId: "0008", PrimaryTagName: "PT008" },
-                            { PrimaryTagId: "0009", PrimaryTagName: "PT009" },
-                            { PrimaryTagId: "0010", PrimaryTagName: "PT010" }
-        ];
-        $scope.secondaryTagList = [
-                            { SecondaryTagId: "0001", SecondaryTagName: "ST001" },
-                            { SecondaryTagId: "0002", SecondaryTagName: "ST002" },
-                            { SecondaryTagId: "0003", SecondaryTagName: "ST003" },
-                            { SecondaryTagId: "0004", SecondaryTagName: "ST004" },
-                            { SecondaryTagId: "0005", SecondaryTagName: "ST005" },
-                            { SecondaryTagId: "0006", SecondaryTagName: "ST006" },
-                            { SecondaryTagId: "0007", SecondaryTagName: "ST007" },
-                            { SecondaryTagId: "0008", SecondaryTagName: "ST008" },
-                            { SecondaryTagId: "0009", SecondaryTagName: "ST009" },
-                            { SecondaryTagId: "0010", SecondaryTagName: "ST010" }
-        ];
-
-        StudentService.getStudentList($scope.StudentDetails.SchoolBranchId).then(function (result) {
-            $rootScope.ajaxError = false;
-            if (result != null) {
-                $scope.Studentlist = result.data;
-            }
-        }, function (result) {
-            $rootScope.ajaxError = true;
-        });
-
-        $scope.getStates = function (countryid) {
+        $scope.loadCountries = function () {
+            $scope.Country = CommonService.getCountries();
+        };
+        $scope.loadStates = function (countryid) {
             $scope.States = {};
             if (countryid == null || countryid == undefined) {
                 return false;
             }
-            StudentService.getStates(countryid).then(function (result) {
+            CommonService.getStates(countryid).then(function (result) {
                 $rootScope.ajaxError = false;
                 if (result != null) {
-                    $scope.States = result.data;
+                    $scope.States = result.data.States;
+                    if ($scope.IsUpdateClick) {
+                        $scope.statedisabled = true;
+                    }
                 }
             }, function (result) {
                 $rootScope.ajaxError = true;
             });
         };
-        StudentService.getClassList($scope.StudentDetails.SchoolBranchId).then(function (result) {
-            $rootScope.ajaxError = false;
-            if (result != null) {
-                $scope.Classlist = result.data;
-            }
-        }, function (result) {
-            $rootScope.ajaxError = true;
-        });
-        $scope.getDivisions = function (classID) {
-            $scope.Divisionlist = {};
-            if (classID == null || classID == undefined) {
+        $scope.loadClassList = function () {
+            $scope.Classlist = StudentService.getClassList();
+        };
+        $scope.loadSectionList = function () {
+            $scope.Sectionlist = StudentService.getSectionList();
+        };
+
+        $scope.loadStudentList = function (brabchId) {
+            $scope.Studentlist = {};
+            if (brabchId == null || brabchId == undefined) {
                 return false;
             }
-            StudentService.getDivisionList(classID).then(function (result) {
+            StudentService.getStudentList(brabchId).then(function (result) {
                 $rootScope.ajaxError = false;
                 if (result != null) {
-                    $scope.Divisionlist = result.data;
+                    $scope.Studentlist = result.data.Students;
+                    if ($scope.IsStuUpdateClick) {
+                        $scope.statedisabled = true;
+                    }
                 }
             }, function (result) {
                 $rootScope.ajaxError = true;
             });
-        }
+        };
+
+        $scope.primaryTaglist = [
+                            { Id: 1, TagId: "PT001" },
+                            { Id: 2, TagId: "PT002" },
+                            { Id: 3, TagId: "PT003" },
+                            { Id: 4, TagId: "PT004" },
+                            { Id: 5, TagId: "PT005" },
+                            { Id: 6, TagId: "PT006" },
+                            { Id: 7, TagId: "PT007" },
+                            { Id: 8, TagId: "PT008" },
+                            { Id: 9, TagId: "PT009" },
+                            { Id: 0, TagId: "PT010" }
+        ];
+
+        $scope.secondaryTagList = [
+                            { Id: "0001", TagId: "ST001" },
+                            { Id: "0002", TagId: "ST002" },
+                            { Id: "0003", TagId: "ST003" },
+                            { Id: "0004", TagId: "ST004" },
+                            { Id: "0005", TagId: "ST005" },
+                            { Id: "0006", TagId: "ST006" },
+                            { Id: "0007", TagId: "ST007" },
+                            { Id: "0008", TagId: "ST008" },
+                            { Id: "0009", TagId: "ST009" },
+                            { Id: "0010", TagId: "ST010" }
+        ];
+
+        $scope.loadStudentList($rootScope.User.SchoolId);
 
         $scope.AddStudent = function (isvalid, studentDetail) {
             return false;
@@ -129,5 +131,5 @@
             $scope.showAddStudent = false;
         }
     }
-    module.controller('StudentManagement', ['$rootScope', '$location', '$scope', 'StudentService', 'LoginService', '$state', studentManagement]);
+    module.controller('StudentManagement', ['$rootScope', '$location', '$scope', 'StudentService', 'LoginService', 'CommonService', '$state', studentManagement]);
 }(angular.module('StudentTracking.student')));
