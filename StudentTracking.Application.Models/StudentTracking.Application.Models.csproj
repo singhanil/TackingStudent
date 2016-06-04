@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelBase.cs" />
+    <Compile Include="Models\AttendenceModel.cs" />
     <Compile Include="Models\ClassModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\SectionModel.cs" />
@@ -56,11 +57,13 @@
     <Compile Include="Models\TimeTableModel.cs" />
     <Compile Include="OrganizationModel.cs" />
     <Compile Include="Requests\OrganizationSaveRequest.cs" />
+    <Compile Include="Requests\ReportRequest.cs" />
     <Compile Include="Requests\SchoolSaveRequest.cs" />
     <Compile Include="Requests\ServiceRequest.cs" />
     <Compile Include="Requests\StudentSaveRequest.cs" />
     <Compile Include="Requests\TimeTableRequest.cs" />
     <Compile Include="Requests\UserRequest.cs" />
+    <Compile Include="Responses\DailyReportResponse.cs" />
     <Compile Include="Responses\MasterDataResponse.cs" />
     <Compile Include="Responses\OrganizationResponse.cs" />
     <Compile Include="Responses\SchoolResponse.cs" />

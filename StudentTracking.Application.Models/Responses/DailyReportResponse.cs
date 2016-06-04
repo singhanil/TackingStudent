@@ -1,0 +1,15 @@
+﻿using StudentTracking.Domain;
+using System.Collections.Generic;
+
+namespace StudentTracking.Application.Models.Responses
+{
+    public class DailyReportResponse : ServiceResponse
+    {
+        public IEnumerable<DailyAttendenceModel> Reports { get; set; }
+    }
+
+    public class MonthlyReportResponse : ServiceResponse
+    {
+        public IEnumerable<MonthlyAttendenceModel> Reports { get; set; }
+    }
+}

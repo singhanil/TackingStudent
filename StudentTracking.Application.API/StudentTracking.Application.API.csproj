@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAttendenceReport.cs" />
     <Compile Include="ICommon.cs" />
     <Compile Include="IOrganization.cs" />
     <Compile Include="ISchool.cs" />

@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttendenceReportService.cs" />
     <Compile Include="CommonService.cs" />
     <Compile Include="Extensions\TypeAdapterExtensions.cs" />
     <Compile Include="OrganizationService.cs" />
