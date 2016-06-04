@@ -7,5 +7,6 @@ namespace StudentTracking.Application.API
     {
         IEnumerable<TimeTableModel> FindAll(int classId, int sectionId);
         TimeTableModel Save(TimeTableModel model);
+        bool SaveBulk(IEnumerable<TimeTableModel> list);
     }
 }

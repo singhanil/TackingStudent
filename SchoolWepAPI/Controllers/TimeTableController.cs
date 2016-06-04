@@ -1,6 +1,7 @@
 ﻿using StudentTracking.Application.API;
 using StudentTracking.Application.Main;
 using StudentTracking.Application.Models;
+using StudentTracking.Application.Models.Requests;
 using StudentTracking.Application.Models.Responses;
 using StudentTracking.Data;
 using System;
@@ -47,25 +48,29 @@ namespace SchoolWepAPI.Controllers
             ISecurity auth = new SecurityService(this._dbContext);
             return auth.ValidateToken(securityToken);
         }
-        // GET api/<controller>/5
-        public string Get(int id)
+        [HttpPost]
+        public HttpResponseMessage Save(TimeTableRequest request)
         {
-            return "value";
+            var result = false;
+            if(IsValid(request.SecurityToken))
+            {
+                var svc = new TimeTableService(this._dbContext);
+                svc.Save(request.TimeTable);
+                result = true;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public HttpResponseMessage SaveBulk(BulkTimeTableRequest request)
         {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            var result = false;
+            if (IsValid(request.SecurityToken))
+            {
+                var svc = new TimeTableService(this._dbContext);
+                result = svc.SaveBulk(request.TimeTables);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
         }
     }
 }

@@ -34,9 +34,19 @@ namespace StudentTracking.Application.Main
             else
                 this._dbContext.TimeTables.Add(entity);
 
+            this._dbContext.SaveChanges();
+
             return entity.MapAs<TimeTable, TimeTableModel>();
         }
 
+        public bool SaveBulk(IEnumerable<TimeTableModel> list)
+        {
+            foreach(TimeTableModel model in list)
+            {
+                this.Save(model);
+            }
+            return true;
+        }
         private TimeTable __populateValues(TimeTable entity, TimeTableModel model)
         {
             if(null == entity)

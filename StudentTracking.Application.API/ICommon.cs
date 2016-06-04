@@ -6,11 +6,11 @@ namespace StudentTracking.Application.API
 {
     public interface ICommon
     {
-        IEnumerable<Class> GetAllClasses();
-        IEnumerable<Section> GetAllSections();
-        IEnumerable<TagDetail> GetAllTags();
-        IEnumerable<Country> GetAllCountries();
-        IEnumerable<State> GetAllStates();
+        IEnumerable<ClassModel> GetAllClasses();
+        IEnumerable<SectionModel> GetAllSections();
+        IEnumerable<TagDetailModel> GetAllTags();
+        IEnumerable<CountryModel> GetAllCountries();
+        IEnumerable<StateModel> GetAllStates();
         IEnumerable<StateModel> FindStates(string countyCode);
     }
 }

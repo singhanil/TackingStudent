@@ -16,29 +16,49 @@ namespace StudentTracking.Application.Main
             this._dbContext = cntx;
         }
 
-        public IEnumerable<Class> GetAllClasses()
+        public IEnumerable<ClassModel> GetAllClasses()
         {
-            return this._dbContext.Classes.ToList();
+            var entities = this._dbContext.Classes.ToList();
+            if (null != entities)
+                return entities.MapAsCollection<Class, ClassModel>();
+
+            return null;
         }
 
-        public IEnumerable<Section> GetAllSections()
+        public IEnumerable<SectionModel> GetAllSections()
         {
-            return this._dbContext.Sections.ToList();
+            var entities = this._dbContext.Sections.ToList();
+            if (null != entities)
+                return entities.MapAsCollection<Section, SectionModel>();
+
+            return null;
         }
 
-        public IEnumerable<TagDetail> GetAllTags()
+        public IEnumerable<TagDetailModel> GetAllTags()
         {
-            return this._dbContext.TagDetails.ToList();
+            var entities = this._dbContext.TagDetails.ToList();
+            if (null != entities)
+                return entities.MapAsCollection<TagDetail, TagDetailModel>();
+
+            return null;
         }
 
-        public IEnumerable<Country> GetAllCountries()
+        public IEnumerable<CountryModel> GetAllCountries()
         {
-            return this._dbContext.Countries.ToList();
+            var entities = this._dbContext.Countries.ToList();
+            if (null != entities)
+                return entities.MapAsCollection<Country, CountryModel>();
+
+            return null;
         }
 
-        public IEnumerable<State> GetAllStates()
+        public IEnumerable<StateModel> GetAllStates()
         {
-            return this._dbContext.States.ToList();
+            var entities = this._dbContext.States.ToList();
+            if (null != entities)
+                return entities.MapAsCollection<State, StateModel>();
+
+            return null;
         }
 
         public IEnumerable<StateModel> FindStates(string countyCode)

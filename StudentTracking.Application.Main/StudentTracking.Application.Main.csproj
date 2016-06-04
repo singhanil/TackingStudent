@@ -56,11 +56,15 @@
     <Compile Include="CommonService.cs" />
     <Compile Include="Extensions\TypeAdapterExtensions.cs" />
     <Compile Include="OrganizationService.cs" />
+    <Compile Include="Profiles\ClassProfile.cs" />
+    <Compile Include="Profiles\CountryProfile.cs" />
     <Compile Include="Profiles\OrganizationProfile.cs" />
     <Compile Include="Profiles\ProfileBase.cs" />
     <Compile Include="Profiles\SchoolProfile.cs" />
+    <Compile Include="Profiles\SectionProfile.cs" />
     <Compile Include="Profiles\StateProfile.cs" />
     <Compile Include="Profiles\StudentProfile.cs" />
+    <Compile Include="Profiles\TagDetailsProfile.cs" />
     <Compile Include="Profiles\TimeTableProfile.cs" />
     <Compile Include="Profiles\UserProfile.cs" />
     <Compile Include="SchoolService.cs" />

@@ -1,9 +1,9 @@
 ﻿using StudentTracking.Application.API;
 using StudentTracking.Application.Main;
+using StudentTracking.Application.Models;
 using StudentTracking.Application.Models.Responses;
 using StudentTracking.Data;
 using StudentTracking.Domain;
-
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
