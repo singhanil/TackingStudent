@@ -22,7 +22,7 @@ namespace StudentTracking.Data
         public string StudentId { get; set; }
         public string ParentMobileNo { get; set; }
         public int PrimaryTagId { get; set; }
-        public int SecondaryTagId { get; set; }
+        public Nullable<int> SecondaryTagId { get; set; }
         public string EmailId { get; set; }
         public string StudentName { get; set; }
         public Nullable<int> SchoolBranchId { get; set; }

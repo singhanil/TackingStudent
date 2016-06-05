@@ -15,8 +15,8 @@ namespace StudentTracking.Data
     public partial class StudentAttendance
     {
         public long Id { get; set; }
-        public Nullable<long> PrimaryTagId { get; set; }
-        public Nullable<long> SecondaryTagId { get; set; }
+        public string PrimaryTagId { get; set; }
+        public string SecondaryTagId { get; set; }
         public Nullable<System.DateTime> InTime { get; set; }
         public Nullable<System.DateTime> OutTime { get; set; }
         public Nullable<bool> IntimeMessageSendStatus { get; set; }

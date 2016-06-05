@@ -112,6 +112,7 @@ namespace StudentTracking.Application.Main
                 entity.CreatedDate = DateTime.Now;
                 entity.SchoolId = model.SchoolId.Value;
                 entity.UserId = model.UserId;
+                entity.EmailId = model.EmailId;
             }
             entity.CreatedDate = entity.CreatedDate;
             entity.ModifiedDate = DateTime.Now;
@@ -120,6 +121,7 @@ namespace StudentTracking.Application.Main
             entity.Name = model.Name;
             entity.Password = model.Password;
             entity.UserRole = model.UserRole;
+            entity.ContactNumber = model.ContactNumber;
 
             return entity;
         }

@@ -98,10 +98,11 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
         <EntityType Name="StudentAttendance">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="PrimaryTagId" />
           </Key>
           <Property Name="Id" Type="bigint" Nullable="false" />
-          <Property Name="PrimaryTagId" Type="bigint" />
-          <Property Name="SecondaryTagId" Type="bigint" />
+          <Property Name="PrimaryTagId" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SecondaryTagId" Type="nvarchar" MaxLength="25" />
           <Property Name="InTime" Type="datetime" />
           <Property Name="OutTime" Type="datetime" />
           <Property Name="IntimeMessageSendStatus" Type="bit" />
@@ -125,7 +126,7 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="StudentId" Type="nvarchar" MaxLength="50" />
           <Property Name="ParentMobileNo" Type="nvarchar" MaxLength="50" />
           <Property Name="PrimaryTagId" Type="int" Nullable="false" />
-          <Property Name="SecondaryTagId" Type="int" Nullable="false" />
+          <Property Name="SecondaryTagId" Type="int" />
           <Property Name="EmailId" Type="nvarchar" MaxLength="200" />
           <Property Name="StudentName" Type="nvarchar" MaxLength="100" />
           <Property Name="SchoolBranchId" Type="int" />
@@ -680,7 +681,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ParentMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PrimaryTagId" Type="Int32" Nullable="false" />
-          <Property Name="SecondaryTagId" Type="Int32" Nullable="false" />
+          <Property Name="SecondaryTagId" Type="Int32" Nullable="true" />
           <Property Name="EmailId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="StudentName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SchoolBranchId" Type="Int32" />
@@ -700,7 +701,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <NavigationProperty Name="School" Relationship="Self.fk_SchoolId" FromRole="StudentDetail" ToRole="School" />
           <NavigationProperty Name="Section" Relationship="Self.fk_SectionId" FromRole="StudentDetail" ToRole="Section" />
           <NavigationProperty Name="StudentResults" Relationship="Self.FK__StudentRe__Stude__7B5B524B" FromRole="StudentDetail" ToRole="StudentResults" />
-          <NavigationProperty Name="TagDetail" Relationship="Self.fk_PrimaryTagId" FromRole="StudentDetail" ToRole="TagDetails" />
+          <NavigationProperty Name="TagDetail" Relationship="StudentTrackingModel.fk_PrimaryTagId" FromRole="StudentDetail" ToRole="TagDetail" />
         </EntityType>
         <EntityType Name="AuthTicket">
           <Key>
@@ -760,7 +761,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SubjectName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="TimeTables" Relationship="StudentTrackingModel.FK__TimeTable__Subje__7C4F7684" FromRole="Subject" ToRole="TimeTable" />
+          <NavigationProperty Name="TimeTables" Relationship="Self.FK__TimeTable__Subje__7C4F7684" FromRole="Subjects" ToRole="TimeTable" />
         </EntityType>
         <EntityType Name="SyllabusDetail">
           <Key>
@@ -798,7 +799,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <Property Name="Details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="StudentDetails" Relationship="Self.fk_PrimaryTagId" FromRole="TagDetails" ToRole="StudentDetail" />
+          <NavigationProperty Name="StudentDetails" Relationship="StudentTrackingModel.fk_PrimaryTagId" FromRole="TagDetail" ToRole="StudentDetail" />
         </EntityType>
         <EntityType Name="Theme">
           <Key>
@@ -821,11 +822,11 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <Property Name="SectionId" Type="Int32" Nullable="false" />
           <Property Name="LectureId" Type="Int32" Nullable="false" />
           <Property Name="Days" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Class" Relationship="Self.FK__TimeTable__Class__6C190EBB" FromRole="TimeTable" ToRole="Class" />
           <NavigationProperty Name="Section" Relationship="Self.FK__TimeTable__Secti__6D0D32F4" FromRole="TimeTable" ToRole="Section" />
           <NavigationProperty Name="LectureDuration" Relationship="Self.FK__TimeTable__Lectu__6E01572D" FromRole="TimeTable" ToRole="LectureDuration" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Subject" Relationship="StudentTrackingModel.FK__TimeTable__Subje__7C4F7684" FromRole="TimeTable" ToRole="Subject" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK__TimeTable__Subje__7C4F7684" FromRole="TimeTable" ToRole="Subjects" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -872,10 +873,11 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
         <EntityType Name="StudentAttendance">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="PrimaryTagId" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" />
-          <Property Name="PrimaryTagId" Type="Int64" />
-          <Property Name="SecondaryTagId" Type="Int64" />
+          <Property Name="PrimaryTagId" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SecondaryTagId" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="InTime" Type="DateTime" Precision="3" />
           <Property Name="OutTime" Type="DateTime" Precision="3" />
           <Property Name="IntimeMessageSendStatus" Type="Boolean" />
@@ -1024,18 +1026,6 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_PrimaryTagId">
-          <End Role="TagDetails" Type="Self.TagDetail" Multiplicity="1" />
-          <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TagDetails">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="StudentDetail">
-              <PropertyRef Name="PrimaryTagId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__States__CountryC__619B8048">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="States" Type="Self.State" Multiplicity="*" />
@@ -1069,6 +1059,18 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
             </Principal>
             <Dependent Role="StudentResults">
               <PropertyRef Name="SyllabusDetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TimeTable__Subje__7C4F7684">
+          <End Role="Subjects" Type="Self.Subject" Multiplicity="1" />
+          <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="SubjectId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1147,10 +1149,6 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
             <End Role="StudentDetail" EntitySet="StudentDetails" />
             <End Role="StudentResults" EntitySet="StudentResults" />
           </AssociationSet>
-          <AssociationSet Name="fk_PrimaryTagId" Association="Self.fk_PrimaryTagId">
-            <End Role="TagDetails" EntitySet="TagDetails" />
-            <End Role="StudentDetail" EntitySet="StudentDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK__States__CountryC__619B8048" Association="Self.FK__States__CountryC__619B8048">
             <End Role="Country" EntitySet="Countries" />
             <End Role="States" EntitySet="States" />
@@ -1163,24 +1161,28 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
             <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
             <End Role="StudentResults" EntitySet="StudentResults" />
           </AssociationSet>
+          <AssociationSet Name="FK__TimeTable__Subje__7C4F7684" Association="Self.FK__TimeTable__Subje__7C4F7684">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="TimeTable" EntitySet="TimeTables" />
+          </AssociationSet>
           <AssociationSet Name="FK__SyllabusT__Sylla__73BA3083" Association="Self.FK__SyllabusT__Sylla__73BA3083">
             <End Role="SyllabusDetails" EntitySet="SyllabusDetails" />
             <End Role="SyllabusTracking" EntitySet="SyllabusTrackings" />
           </AssociationSet>
-          <AssociationSet Name="FK__TimeTable__Subje__7C4F7684" Association="StudentTrackingModel.FK__TimeTable__Subje__7C4F7684">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="TimeTable" EntitySet="TimeTables" />
+          <AssociationSet Name="fk_PrimaryTagId" Association="StudentTrackingModel.fk_PrimaryTagId">
+            <End Role="TagDetail" EntitySet="TagDetails" />
+            <End Role="StudentDetail" EntitySet="StudentDetails" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="FK__TimeTable__Subje__7C4F7684">
-          <End Type="StudentTrackingModel.Subject" Role="Subject" Multiplicity="1" />
-          <End Type="StudentTrackingModel.TimeTable" Role="TimeTable" Multiplicity="*" />
+        <Association Name="fk_PrimaryTagId">
+          <End Type="StudentTrackingModel.TagDetail" Role="TagDetail" Multiplicity="1" />
+          <End Type="StudentTrackingModel.StudentDetail" Role="StudentDetail" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Subject">
+            <Principal Role="TagDetail">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="TimeTable">
-              <PropertyRef Name="SubjectId" />
+            <Dependent Role="StudentDetail">
+              <PropertyRef Name="PrimaryTagId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1383,12 +1385,12 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <EntitySetMapping Name="TimeTables">
             <EntityTypeMapping TypeName="StudentTrackingModel.TimeTable">
               <MappingFragment StoreEntitySet="TimeTable">
-                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ClassId" ColumnName="ClassId" />
                 <ScalarProperty Name="SectionId" ColumnName="SectionId" />
                 <ScalarProperty Name="LectureId" ColumnName="LectureId" />
                 <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
