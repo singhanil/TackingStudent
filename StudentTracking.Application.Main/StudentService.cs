@@ -1,11 +1,11 @@
 ﻿using StudentTracking.Application.API;
+using StudentTracking.Application.Main.Extensions;
 using StudentTracking.Application.Models;
 using StudentTracking.Data;
-using StudentTracking.Application.Main.Extensions;
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
 using System.Data.Entity;
+using System.Linq;
 
 namespace StudentTracking.Application.Main
 {
@@ -34,6 +34,53 @@ namespace StudentTracking.Application.Main
                 return entity.MapAs<StudentDetail, StudentModel>();
             return null;
         }
+
+        public IEnumerable<StudentModel> Find(int schoolId, int classId, int sectionId)
+        {
+            var entities = this._dbContext.StudentDetails
+                .Where(s => s.SchoolBranchId == schoolId)
+                .ToList();
+
+            if (null != entities && entities.Count > 0)
+            {
+                if (classId > 0)
+                    entities = entities.Where(s => s.ClassId == classId).ToList();
+            }
+            if (null != entities && entities.Count > 0)
+            {
+                if (sectionId > 0 && entities.Count > 0)
+                    entities = entities.Where(s => s.SectionId == sectionId).ToList();
+            }
+
+            if (null != entities && entities.Count > 0)
+                return entities.MapAsCollection<StudentDetail, StudentModel>();
+
+            return new List<StudentModel>();
+        }
+
+        public IEnumerable<StudentModel> Find(int schoolId, string name, int classId, int sectionId)
+        {
+            var entities = this._dbContext.StudentDetails
+                .Where(s => s.SchoolBranchId == schoolId && s.StudentName.Contains(name))
+                .ToList();
+
+            if (null != entities && entities.Count > 0)
+            {
+                if (classId > 0)
+                    entities = entities.Where(s => s.ClassId == classId).ToList();
+            }
+            if (null != entities && entities.Count > 0)
+            {
+                if (sectionId > 0 && entities.Count > 0)
+                    entities = entities.Where(s => s.SectionId == sectionId).ToList();
+            }
+
+            if (null != entities && entities.Count > 0)
+                return entities.MapAsCollection<StudentDetail, StudentModel>();
+
+            return new List<StudentModel>();
+        }
+
         public StudentModel Save(StudentModel model)
         {
             var entity = this._dbContext.StudentDetails.Where(e => e.ID == model.Id).FirstOrDefault();

@@ -85,19 +85,19 @@ namespace StudentTracking.Application.Main
 
         public UserModel Save(UserModel model)
         {
+            bool isNew = true;
+
             var entity = this._dbContext.Users.Where(e => e.UserId.Equals(model.UserId, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-            
+
+            if (null != entity)
+                isNew = false;
+
             entity = _populateValues(entity, model);
 
-            if (!string.IsNullOrWhiteSpace(model.UserId))
-            {
-                if (null != entity)
-                    this._dbContext.Entry(entity).State = EntityState.Modified;
-                else
-                    this._dbContext.Users.Add(entity);
-            }
-            else
+            if (isNew)
                 this._dbContext.Users.Add(entity);
+            else
+                this._dbContext.Entry(entity).State = EntityState.Modified;
 
             this._dbContext.SaveChanges();
 
@@ -112,7 +112,7 @@ namespace StudentTracking.Application.Main
                 entity.CreatedDate = DateTime.Now;
                 entity.SchoolId = model.SchoolId.Value;
                 entity.UserId = model.UserId;
-                entity.EmailId = model.EmailId;
+                entity.EmailId = model.EmailId; 
             }
             entity.CreatedDate = entity.CreatedDate;
             entity.ModifiedDate = DateTime.Now;

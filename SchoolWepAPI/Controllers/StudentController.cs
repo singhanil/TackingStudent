@@ -41,6 +41,48 @@ namespace SchoolWepAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
+        [Route("api/Student/{securityToken}/{schoolId}/{name}/{classId}/{sectionId}")]
+        public HttpResponseMessage Get(string securityToken, int schoolId, string name, int classId, int sectionId)
+        {
+
+            AllStudentResponse response = null;
+            if (IsValid(securityToken))
+            {
+                IStudentDetails student = new StudentService(this._dbContext);
+                response = new AllStudentResponse { Status = "OK" };
+                response.Students = student.Find(schoolId, name, classId, sectionId);
+                //CurrentLoggerProvider.Info(string.Format("Retrieved Student Details. Count = {0}", response.Students.Count()));
+            }
+            else
+            {
+                response = new AllStudentResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info("Invalid Request. Student Id: {0}");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
+        [Route("api/Student/{securityToken}/{schoolId}/{classId}/{sectionId}")]
+        public HttpResponseMessage Get(string securityToken, int schoolId, int classId, int sectionId)
+        {
+
+            AllStudentResponse response = null;
+            if (IsValid(securityToken))
+            {
+                IStudentDetails student = new StudentService(this._dbContext);
+                response = new AllStudentResponse { Status = "OK" };
+                response.Students = student.Find(schoolId, classId, sectionId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved Student Details. Count = {0}", response.Students.Count()));
+            }
+            else
+            {
+                response = new AllStudentResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info("Invalid Request. Student Id: {0}");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
         private bool IsValid(string securityToken)
         {
             ISecurity auth = new SecurityService(this._dbContext);
