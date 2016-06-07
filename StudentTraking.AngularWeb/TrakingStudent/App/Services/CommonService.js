@@ -36,10 +36,21 @@
             })
         };
 
+        var getCommonData = function () {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("getcommondata") + $rootScope.User.SecurityToken;
+            var params = {};
+            return $http({
+                url: url,
+                method: "GET"
+            })
+        };
+
         var getCountries = function () {
             return [{ CountryCode: "IND", CountryName: "India" }];
         };
         
+        service.getCommonData = getCommonData;
         service.getStates = getStates;
         service.getSchools = getSchools;
         service.getOrganisations = getOrganisations;

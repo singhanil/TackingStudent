@@ -12,9 +12,9 @@
             PrimaryTagId: null,
             SecondaryTagId: null,
             EmailId: "",
-            SchoolBranchId: "",
-            ClassId: "",
-            SectionId: "",
+            SchoolBranchId: null,
+            ClassId: null,
+            SectionId: null,
             Address1: "",
             Address2: "",
             Country: "",
@@ -31,36 +31,6 @@
             SectionName: ""
         };
 
-        var getClassList = function () {
-            return [
-                            { Id: 1, Name: "Nursery" },
-                            { Id: 2, Name: "Junior KG" },
-                            { Id: 3, Name: "Senior KG" },
-                            { Id: 4, Name: "Class I" },
-                            { Id: 5, Name: "Class II" },
-                            { Id: 6, Name: "Class III" },
-                            { Id: 7, Name: "Class IV" },
-                            { Id: 8, Name: "Class V" },
-                            { Id: 9, Name: "Class VI" },
-                            { Id: 10, Name: "Class VII" },
-                            { Id: 11, Name: "Class VIII" },
-                            { Id: 12, Name: "Class IX" },
-                            { Id: 13, Name: "Class X" },
-                            { Id: 14, Name: "Class XI" },
-                            { Id: 15, Name: "Class XII" }
-            ];
-        };
-        var getSectionList = function () {
-            return [
-                            { Id: 1, Name: "A" },
-                            { Id: 2, Name: "B" },
-                            { Id: 3, Name: "C" },
-                            { Id: 4, Name: "D" },
-                            { Id: 5, Name: "E" },
-                            { Id: 6, Name: "F" }
-            ];
-        };
-
         var getStudentList = function (branchId) {
             var APIURL = _constant.get("studenttrakingurl");
             var url = APIURL + _constant.get("studentlist") + $rootScope.User.SecurityToken + '/' + branchId;
@@ -71,19 +41,35 @@
                 //params: params
             })
         };
+        
+        var getStudentListBySearch = function (searchObj) {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("studentlist") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId;
+            if (searchObj.name != "") {
+                url = url + '/' + searchObj.name;
+            }
+            
+                url = url + '/' +searchObj.classId;
+            
+                url = url + '/' +searchObj.sectionId;
+            return $http({
+                url: url,
+                method: "GET"
+            })
+        };
 
-        var addSchools = function (objSchool) {
-            var SchoolSaveRequest = {
+        var addStudent = function (objStudent) {
+            var StudentSaveRequest = {
                 SecurityToken: $rootScope.User.SecurityToken,
-                School: objSchool
+                Student: objStudent
             };
             var APIURL = _constant.get("studenttrakingurl");
-            var url = APIURL + _constant.get("schools");
+            var url = APIURL + _constant.get("savestudent");
             var params = {};
             return $http({
                 url: url,
                 method: "POST",
-                data: SchoolSaveRequest
+                data: StudentSaveRequest
             })
         };
 
@@ -98,8 +84,9 @@
             })
         };
 
-        service.getClassList = getClassList;
-        service.getSectionList = getSectionList;
+        service.getStudentList = getStudentList;
+        service.getStudentListBySearch = getStudentListBySearch;
+        service.addStudent = addStudent;
         return service;
     };
     module.service("StudentService", ['$http', '$rootScope', 'Constant', StudentService]);

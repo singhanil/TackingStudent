@@ -10,10 +10,11 @@
         var getOrganisationUrl = "/api/Organization/";
         var getSchoolsUrl = "/api/School/";
         var getClassesUrl = "/School/GetClassList";
-        var getDivisionsUrl = "/School/GetDivisionList";
+        var getDivisionsUrl = "/School/GetDivisionList"; 
         var getStudentsUrl = "/api/Student/";
         var saveSchoolUrl = "/api/School";
-
+        var getCommonDataUrl = "/api/Common/";
+        var saveStudentlUrl = "/api/Student";
         //#endregion
         var getConstant = function (key) {
             var _constant = "";
@@ -50,6 +51,12 @@
                     break;
                 case 'saveschool':
                     _constant = saveSchoolUrl;
+                    break;
+                case 'getcommondata':
+                    _constant = getCommonDataUrl;
+                    break;
+                case 'savestudent':
+                    _constant = saveStudentlUrl;
                     break;
                 default:
                     break;

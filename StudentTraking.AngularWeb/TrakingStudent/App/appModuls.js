@@ -15,10 +15,12 @@ app.directive('jqdatepicker', function () {
         restrict: 'A',
         require: 'ngModel',
         link: function (scope, element, attrs, ngModelCtrl) {
+            debugger
             $(element).datepicker({
                 dateFormat: 'dd/mm/yy',
                 onSelect: function (date) {
-                    scope.StudentDetails.DateOfBirth = date;
+                    debugger
+                    scope.StudentDetails.DateOfBirthh = date;
                     scope.$apply();
                 }
             });

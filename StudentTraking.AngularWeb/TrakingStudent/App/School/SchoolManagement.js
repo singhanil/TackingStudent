@@ -40,8 +40,13 @@
                 $scope.Organisation = {};
                 $rootScope.ajaxError = false;
                 if (result != null) {
-                    //console.log(result.data);
-                    $scope.Organisation = result.data.Organizations;
+                    if (result.data.ErrorMessage == "Invalid or expired token") {
+                        alert(result.data.ErrorMessage);
+                        $rootScope.Logout();
+                    }
+                    else {
+                        $scope.Organisation = result.data.Organizations;
+                    }
                 }
             }, function (result) {
                 $rootScope.ajaxError = true;
@@ -56,9 +61,12 @@
             CommonService.getStates(countryid).then(function (result) {
                 $rootScope.ajaxError = false;
                 if (result != null) {
-                    $scope.States = result.data.States;
-                    if ($scope.IsUpdateClick) {
-                        $scope.statedisabled = true;
+                    if (result.data.ErrorMessage == "Invalid or expired token") {
+                        alert(result.data.ErrorMessage);
+                        $rootScope.Logout();
+                    }
+                    else {
+                        $scope.States = result.data.States;
                     }
                 }
             }, function (result) {
@@ -78,9 +86,12 @@
             SchoolService.getStates(countryid).then(function (result) {
                 $rootScope.ajaxError = false;
                 if (result != null) {
-                    $scope.States = result.data;
-                    if ($scope.IsUpdateClick) {
-                        $scope.statedisabled = true;
+                    if (result.data.ErrorMessage == "Invalid or expired token") {
+                        alert(result.data.ErrorMessage);
+                        $rootScope.Logout();
+                    }
+                    else {
+                        $scope.States = result.data;
                     }
                 }
             }, function (result) {
@@ -138,10 +149,6 @@
             $scope.loadOrgList();
             $scope.getStates($scope.school.Country);
             $scope.school.Phone = parseInt($scope.school.Phone);
-
-            //$scope.SelectedSchool = $scope.school.SchoolId;
-            //$scope.SelectedCountry = "091";
-            //$scope.SelectedState = $scope.school.StateId;
             $scope.schooldisabled = true;
             $scope.countrydisabled = true;
             //$scope.statedisabled = true;
