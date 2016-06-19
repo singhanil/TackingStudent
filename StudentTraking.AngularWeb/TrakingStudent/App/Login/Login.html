@@ -10,10 +10,10 @@
                     <h1>Login Form</h1>
                     <span data-ng-style="{color:'red'}">{{LoginError}} </span>
                     <div data-ng-class="{'has-error':(form.UserName.$invalid &amp;&amp; form.UserName.$dirty)}">
-                        <input id="UserName" name="UserName"  type="text" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Username" data-ng-model="UserName" data-ng-trim="true" maxlength="20" required/>
+                        <input id="UserName" name="UserName" value="ST001"  type="text" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Username" data-ng-model="UserName" data-ng-trim="true" maxlength="20" required/>
                     </div>
                     <div data-ng-class="{'has-error':(form.Password.$invalid &amp;&amp; form.Password.$dirty)}">
-                        <input type="password" name="Password" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Password" data-ng-model="Password" maxlength="20" required>
+                        <input type="password" name="Password" value="Welcome1" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Password" data-ng-model="Password" maxlength="20" required>
                     </div>
                     <div>
                         <button type="submit" data-ng-disabled="form.$invalid" class="btn btn-success submit">Log in</button>

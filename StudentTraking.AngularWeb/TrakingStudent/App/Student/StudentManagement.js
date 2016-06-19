@@ -4,6 +4,7 @@
         var vm = $scope;
         $scope.IsStuUpdateClick = false;
         $scope.showAddStudent = false;
+        $scope.hasStudData = true;
         $scope.StudentDetails = {};
         $scope.Studentlist = {};
         $scope.Classlist = {};
@@ -62,7 +63,7 @@
             }, function (result) {
                 $rootScope.ajaxError = true;
             });
-        }
+        };
 
         $scope.loadStates = function (countryid) {
             $scope.States = {};
@@ -99,7 +100,13 @@
                         $rootScope.Logout();
                     }
                     else {
-                        $scope.Studentlist = result.data.Students;
+                        if (result.data.Students == null || result.data.Students.length == 0) {
+                            $scope.hasStudData = false;
+                        }
+                        else {
+                            $scope.hasStudData = true;
+                            $scope.Studentlist = result.data.Students;
+                        }
                     }
                 }
             }, function (result) {
@@ -122,7 +129,13 @@
                         $rootScope.Logout();
                     }
                     else {
-                        $scope.Studentlist = result.data.Students;
+                        if (result.data.Students.length == 0) {
+                            $scope.hasStudData = false;
+                        }
+                        else {
+                            $scope.hasStudData = true;
+                            $scope.Studentlist = result.data.Students;
+                        }
                     }
                 }
             }, function (result) {
@@ -191,7 +204,7 @@
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
-            columnDefs: [{ field: "StudentName", displayName: "Student Name", width: 400, cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowStudDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
+            columnDefs: [{ field: "StudentName", displayName: "Student Name", cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowStudDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
                          { field: "StudentId", displayName: "Student Id" },
                          { field: "SchoolName", displayName: "School Name" },
                          { field: "ClassName", displayName: "Class" },

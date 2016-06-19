@@ -6,6 +6,7 @@
     "StudentTracking.school",
     "StudentTracking.student",
     "StudentTracking.report",
+    "StudentTracking.Staff",
     "StudentTracking.ngLoadingSpinner"
   ]);
 

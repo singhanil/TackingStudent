@@ -1,6 +1,9 @@
 ﻿<div class="container body">
     <div class="main_container">
-        <span traking-spinner="{radius:30, width:6, length: 14}"></span>
+        <div id="overlay" class="ng-hide">
+            
+        </div>
+        <span id="loader" traking-spinner="{radius:30, width:6, length: 14}"></span>
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
@@ -25,65 +28,72 @@
                         <h3>&nbsp;</h3>
                         <ul class="nav side-menu">
                             <li>
-                                <a href="#" ui-sref="dashboard.main"><i class="fa fa-home"></i>Dashboard </a>
+                                <a ui-sref="dashboard.main"><i class="fa fa-home"></i>Dashboard </a>
                             </li>
-                            <!--<li><a href="profile.html"><i class="fa fa-user-md"></i> Profile</a>
-                                </li>-->
+                            <li style="display:none;">
+                                <a href="profile.html"><i class="fa fa-user-md"></i> Profile</a>
+                            </li>
                             <li>
                                 <a><i class="fa fa-spinner"></i> School <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu" style="display: none">
-
+                                <ul class="nav child_menu">
+                                    <li>
+                                        <a href="timetable.html">Staff</a>
+                                    </li>
                                     <li>
                                         <a href="syllabus.html">Syllabus</a>
                                     </li>
                                     <li>
                                         <a href="timetable.html">Timetable</a>
                                     </li>
+                                    <li>
+                                        <a href="timetable.html">Notification</a>
+                                    </li>
+                                   
                                 </ul>
                             </li>
 
                             <li>
                                 <a><i class="fa fa-bars"></i> Acadamics <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu" style="display: none">
+                                <ul class="nav child_menu">
 
                                     <li>
                                         <a href="edu-report.html">Educational Report</a>
                                     </li>
-                                    <li>
+                                    <li style="display:none;">
                                         <a href="curicular-activities.html">Extra Curicular Activities</a>
                                     </li>
-                                    <li>
+                                    <li style="display:none;">
                                         <a href="intelligence-quotient.html">Intelligence Quotient</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu" style="display: block">
+                                <a ><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
 
                                     <li>
-                                        <a href="#" ui-sref="dashboard.monthlyattendance">Monthly Attendence</a>
+                                        <a ui-sref="dashboard.monthlyattendance">Monthly Attendence</a>
                                     </li>
                                     <li>
-                                        <a href="#" ui-sref="dashboard.yearlyattendance">Yearly Attendence</a>
+                                        <a ui-sref="dashboard.yearlyattendance">Yearly Attendence</a>
                                     </li>
                                     <li style="display:none;">
-                                        <a href="#" ui-sref="dashboard.studentreport">Student Report </a>
+                                        <a ui-sref="dashboard.studentreport">Student Report </a>
                                     </li>
                                     <li style="display:none;">
-                                        <a href="#" ui-sref="dashboard.otherreport">Other Reports </a>
+                                        <a ui-sref="dashboard.otherreport">Other Reports </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li  ng-if="User.Role=='SuperAdmin'|| User.Role=='Admin'">
                                 <a><i class="fa fa-adn"></i> Control Panel <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li ng-if="User.Role=='SuperAdmin'">
-                                        <a href="#" ui-sref="dashboard.school">School Management</a>
+                                        <a ui-sref="dashboard.school">School Management</a>
                                     </li>
-                                    <li>
-                                        <a href="#" ui-sref="dashboard.student">Student Management</a>
+                                    <li  ng-if="User.Role=='Admin'">
+                                        <a ui-sref="dashboard.student">Student Management</a>
                                     </li>
                                     <li style="display:none;">
                                         <a href="#">Teacher Management</a>
@@ -189,3 +199,5 @@
 <!-- -->
 <!-- datepicker -->
 <!-- /datepicker -->
+
+       

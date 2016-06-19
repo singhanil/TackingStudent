@@ -121,8 +121,10 @@
     <Content Include="App\School\SchoolManagement.js" />
     <Content Include="App\School\SchoolModule.js" />
     <Content Include="App\Services\CommonService.js" />
+    <Content Include="App\Services\DashBoardService.js" />
     <Content Include="App\Services\LoginService.js" />
     <Content Include="App\Services\SchoolServive.js" />
+    <Content Include="App\Staff\StaffModule.js" />
     <Content Include="App\Student\Student.html" />
     <Content Include="App\Student\StudentDetails.html" />
     <Content Include="App\Student\StudentManagement.js" />
@@ -316,8 +318,11 @@
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\custom.js" />
     <Content Include="scripts\datepicker.js" />
     <Content Include="scripts\jquery.min.js" />
+    <Content Include="scripts\jquery.nicescroll.min.js" />
+    <Content Include="scripts\ng-grid-flexible-height.js" />
     <Content Include="scripts\ng-grid.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -342,7 +347,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>14478</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/TrakingStudent</IISUrl>
+          <IISUrl>http://localhost/AngularWeb</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/TrakingStudent</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

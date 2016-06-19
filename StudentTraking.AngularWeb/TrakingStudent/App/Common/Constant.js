@@ -15,6 +15,7 @@
         var saveSchoolUrl = "/api/School";
         var getCommonDataUrl = "/api/Common/";
         var saveStudentlUrl = "/api/Student";
+        var getStudDailyReportlUrl = "/api/Report";
         //#endregion
         var getConstant = function (key) {
             var _constant = "";
@@ -54,9 +55,12 @@
                     break;
                 case 'getcommondata':
                     _constant = getCommonDataUrl;
-                    break;
+                    break; 
                 case 'savestudent':
                     _constant = saveStudentlUrl;
+                    break;
+                case 'getstuddailyreportlurl':
+                    _constant = getStudDailyReportlUrl;
                     break;
                 default:
                     break;

@@ -6361,7 +6361,6 @@ ul.notifications {
 /* Custom CSS */
 body {
     background: #272634;
-    min-width: 1024px;
 }
 
 .tile-stats h3 {
@@ -6384,5 +6383,58 @@ body {
 
 .daterangepicker td.active {
     background-color: #F90048;
+}
+#sidebar-menu ul.child_menu { display:none; }
+
+#overlay { position:fixed; height:100%; width: 100%; z-index:999; background: #000; opacity: 0.3;}
+#loader { position:fixed; top: 45%; left:49%; z-index:9999;}
+
+/* Grid CSS */
+.ngHeaderScroller > div {
+    border-bottom:2px solid #ddd;
+}
+.ngVerticalBarVisible {
+    height: 30px;
+}
+.ngRow .ngCell {
+    border-bottom:1px solid #ddd;
+}
+/*div.table, div.ngViewport {
+    height:auto !important;
+}*/
+#dailyreport {
+    height:100px;
+    /*max-height:600px;*/
+   
+    
+}
+/*.ngViewport {
+    max-height:600px;
+}*/
+
+div.table { overflow-x: hidden; overflow-y:auto;}
+
+
+/* Media Queries */
+
+@media screen and (min-width : 320px) and (max-width : 768px) {
+    .dataTables_length {
+        width: 100%;
+    }
+    .panel_toolbox > li {
+    width: 75%;
+    }
+}
+
+@media screen and (max-width : 320px) {
+    .panel_toolbox > li {
+    width: 100%;
+    }
+}
+
+@media screen and (min-height: 768px) {
+    /*body.nav-md .container.body .right_col {
+    min-height: 750px;
+}*/
 }
 

@@ -4,6 +4,7 @@
         var vm = $scope;
         $scope.showAddForm = false;
         $scope.IsUpdateClick = false;
+        $scope.hasSchoolData = true;
         $scope.school = SchoolService.School;
         $scope.schooldisabled = false;
         $scope.countrydisabled = false;
@@ -15,8 +16,8 @@
         $scope.Schools = {};
         $scope.Organisation = {};
         $scope.count = 4;
+        $scope.searchSchoolName = "";
         //define all functions
-
         $scope.getAllSchoolList = function () {
             CommonService.getSchools().then(function (result) {
                 $scope.Schools = {};
@@ -27,7 +28,13 @@
                         $rootScope.Logout();
                     }
                     else {
-                        $scope.Schools = result.data.Schools;
+                        if (result.data.Schools.length == 0) {
+                            $scope.hasSchoolData = false;
+                        }
+                        else {
+                            $scope.hasSchoolData = true;
+                            $scope.Schools = result.data.Schools;
+                        }
                     }
                 }
             }, function (result) {
@@ -172,7 +179,6 @@
             $scope.countrydisabled = false;
             $scope.statedisabled = false;
         };
-
         $scope.ShowDetails = function (row) {
             var rowindex = row.rowIndex;
             $scope.school = row.entity;
@@ -185,8 +191,6 @@
             //$scope.getAllSchoolList();
             //$scope.AddSchoolCancel();
         }
-
-
     }
     module.controller('SchoolManagement', ['$rootScope', '$location', '$scope', 'SchoolService', 'LoginService', '$state', 'CommonService', schoolManagement]);
 }(angular.module('StudentTracking.school')));
