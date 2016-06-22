@@ -124,6 +124,10 @@
     <Content Include="App\Services\DashBoardService.js" />
     <Content Include="App\Services\LoginService.js" />
     <Content Include="App\Services\SchoolServive.js" />
+    <Content Include="App\Services\StaffService.js" />
+    <Content Include="App\Staff\Staff.html" />
+    <Content Include="App\Staff\StaffDetails.html" />
+    <Content Include="App\Staff\StaffManagement.js" />
     <Content Include="App\Staff\StaffModule.js" />
     <Content Include="App\Student\Student.html" />
     <Content Include="App\Student\StudentDetails.html" />

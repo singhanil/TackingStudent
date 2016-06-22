@@ -28,6 +28,11 @@
             templateUrl: 'App/Student/Student.html',
             controller: 'StudentManagement  as vm'
         })
+        .state('dashboard.staff', {
+            url: "/staff",
+            templateUrl: 'App/Staff/Staff.html',
+            controller: 'StaffManagement  as vm'
+        })
         .state('dashboard.monthlyattendance', {
             url: "/monthlyattendance",
             templateUrl: 'App/Reports/MonthlyAttendance.html'

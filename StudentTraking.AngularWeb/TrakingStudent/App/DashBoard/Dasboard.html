@@ -7,7 +7,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"> <span>DAV School</span></a>
+                    <a href="index.html" class="site_title"> <span>{{User.SchoolName}}</span></a>
                 </div>
                 <div class="clearfix"></div>
                 <!-- menu prile quick info -->
@@ -17,7 +17,6 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome, {{User.Name}}</span>
-                        <h2>Super Admin</h2>
                     </div>
 
                 </div>
@@ -37,16 +36,16 @@
                                 <a><i class="fa fa-spinner"></i> School <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li>
-                                        <a href="timetable.html">Staff</a>
+                                        <a ui-sref="dashboard.staff">Staff</a>
                                     </li>
                                     <li>
-                                        <a href="syllabus.html">Syllabus</a>
+                                        <a>Syllabus</a>
                                     </li>
                                     <li>
-                                        <a href="timetable.html">Timetable</a>
+                                        <a>Timetable</a>
                                     </li>
                                     <li>
-                                        <a href="timetable.html">Notification</a>
+                                        <a>Notification</a>
                                     </li>
                                    
                                 </ul>
@@ -86,13 +85,13 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li  ng-if="User.Role=='SuperAdmin'|| User.Role=='Admin'">
+                            <li  ng-if="User.Role=='SuperAdmin'|| User.Role=='SchoolAdmin'">
                                 <a><i class="fa fa-adn"></i> Control Panel <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li ng-if="User.Role=='SuperAdmin'">
                                         <a ui-sref="dashboard.school">School Management</a>
                                     </li>
-                                    <li  ng-if="User.Role=='Admin'">
+                                    <li  ng-if="User.Role=='SchoolAdmin'">
                                         <a ui-sref="dashboard.student">Student Management</a>
                                     </li>
                                     <li style="display:none;">
