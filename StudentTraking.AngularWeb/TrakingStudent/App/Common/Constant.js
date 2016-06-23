@@ -18,6 +18,8 @@
         var getStudDailyReportlUrl = "/api/Report";
         var getStaffUrl = "/api/Staff/";
         var saveStaffUrl = "/api/Staff";
+        var getTimeTableUrl = "/api/TimeTable/";
+        var saveTimeTableUrl = "/api/TimeTable/SaveBulk";
         var getDepartmentUrl = "/api/Staff/Department/";
         //#endregion
         var getConstant = function (key) {
@@ -73,6 +75,12 @@
                     break;
                 case 'departmentlist':
                     _constant = getDepartmentUrl;
+                    break;
+                case 'timetablelist':
+                    _constant = getTimeTableUrl;
+                    break;
+                case 'savetimetable':
+                    _constant = saveTimeTableUrl;
                     break;
                 default:
                     break;

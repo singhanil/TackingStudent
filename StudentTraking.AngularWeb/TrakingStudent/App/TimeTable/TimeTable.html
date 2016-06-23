@@ -1,0 +1,254 @@
+﻿<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Time Table</h3>
+        </div>
+        <div class="title_right" ng-if="!showAddTimeTable">
+            <div class="row">
+                <div class="col-md-10 col-sm-5 col-xs-12 form-group pull-left top_search input-group">
+                    <ul class="nav navbar-left panel_toolbox">
+                        <li>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <select class="form-control" name="classlist" id="classlist" ng-model="filterOption.classId"
+                                            ng-options="c.Id as c.Name for c in Classlist">
+                                        <option value="">-- Select Class --</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <select class="form-control" name="studdivsion" ng-model="filterOption.sectionId" ng-disabled="IsStuUpdateClick" required
+                                            ng-options="s.Id as s.Name for s in Sectionlist">
+                                        <option value="">-- Select Division --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" data-ng-disabled="filterOption.classId.$invalid&& filterOption.sectionId.$invalid" ng-click="loadTimeTableBySearch(filterOption)" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="row" ng-if="showAddTimeTable">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Add Staff</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form name="StaffAddEdit" class="form-horizontal form-label-left" ng-submit="AddStaff(StaffAddEdit.$valid,StaffDetails)" novalidate>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="schoolname">
+                                <span class="" style="color:red;" ng-show="ajaxError">Http request is failed.</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="staffname">
+                                Name <span class="required" style="color:red;" ng-show="StaffAddEdit.staffname.$invalid">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="staffname" id="staffname" ng-model="StaffDetails.StaffName" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stdEmail">
+                                Email <span class="required" style="color:red;" ng-show="StaffAddEdit.stdEmail.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input type="email" name="stdEmail" id="stdEmail" ng-model="StaffDetails.ReportingEmailId" ng-disabled="IsStuUpdateClick" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="StaffAddEdit.stdEmail.$invalid && !StaffAddEdit.stdEmail.$pristine" class="help-block">Enter valid email.</p>
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="parentMobileNo">
+                                Mobile <span class="required" style="color:red;" ng-show="StaffAddEdit.parentMobileNo.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <input type="number" ng-minlength="10" ng-maxlength="10" name="parentMobileNo" id="parentMobileNo" ng-model="StaffDetails.StaffMobileNo" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="StaffAddEdit.parentMobileNo.$invalid && !StaffAddEdit.parentMobileNo.$pristine" class="help-block">Enter valid 10 digit Mobile Number.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--<label class="control-label col-md-3 col-sm-3 col-xs-12" for="rollnumber">
+                                Roll Number <span class="required" style="color:red;" ng-show="StudenAddEdit.rollnumber.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input type="text" ng-maxlength="6" name="rollnumber" id="rollnumber" ng-model="StudentDetails.RollNumber" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="StudenAddEdit.rollnumber.$invalid && !StudenAddEdit.rollnumber.$pristine" class="help-block">Enter valid Roll Number (Max 6 digit's).</p>
+                            </div>-->
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="zip">
+                                Staff ID <span class="required" style="color:red;" ng-show="StaffAddEdit.studeintid.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input type="text" maxlength="8" name="studeintid" id="studeintid" ng-disabled="IsStuUpdateClick" ng-model="StaffDetails.StaffId" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="staffdept">
+                                Department <span class="required" style="color:red;" ng-show="StaffAddEdit.staffdepartment.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <select class="form-control" name="staffdept" ng-model="StaffDetails.DepartmentId" ng-disabled="IsStuUpdateClick" required
+                                        ng-options="s.ID as s.Name for s in Departmentlist">
+                                    <option value="">-- Select Department --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="primarytag">
+                                TagId <span class="required" style="color:red;" ng-show="StaffAddEdit.primarytag.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <select width="100px;" class="form-control" name="primarytag" ng-model="StaffDetails.PrimaryTagId" ng-disabled="IsStuUpdateClick" required
+                                        ng-options="PT.ID as PT.TagId for PT in primaryTaglist">
+                                    <option value="">-- Select Primary Tagid --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender">
+                                Gender <span class="required" style="color:red;" ng-show="StaffAddEdit.gender.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                Male:
+                                <input type="radio" ng-model="StaffDetails.Gender" class="flat" name="gender" id="genderM" value="M" ng-required="!StaffDetails.Gender" /> Female:
+                                <input type="radio" ng-model="StaffDetails.Gender" class="flat" name="gender" id="genderF" value="F" ng-required="!StaffDetails.Gender" />
+
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="studDOB">
+                                Date Of Birth <span class="required" style="color:red;" ng-show="StaffAddEdit.studDOB.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <input name="studDOB" ng-model="StaffDetails.DateOfBirthh" class="form-control col-md-7 col-xs-12" required type="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="classlist">
+                                Class <span class="required" style="color:red;" ng-show="StaffAddEdit.country.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <select class="form-control" name="classlist" id="classlist" ng-model="StaffDetails.ClassId" ng-disabled="IsStuUpdateClick" required
+                                        ng-options="c.Id as c.Name for c in Classlist">
+                                    <option value="">-- Select Class --</option>
+                                </select>
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="studdivsion">
+                                Division <span class="required" style="color:red;" ng-show="StaffAddEdit.studdivsion.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <select class="form-control" name="studdivsion" ng-model="StaffDetails.SectionId" ng-disabled="IsStuUpdateClick" required
+                                        ng-options="s.Id as s.Name for s in Sectionlist">
+                                    <option value="">-- Select Division --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address1">
+                                Address1 <span class="required" style="color:red;" ng-show="StaffAddEdit.address1.$invalid">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="address1" id="address1" ng-model="StaffDetails.Address1" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address2">
+                                Address2
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="address2" id="address2" ng-model="StaffDetails.Address2" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="country">
+                                Country <span class="required" style="color:red;" ng-show="StaffAddEdit.country.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <select class="form-control" name="country" id="selCountry" ng-model="StaffDetails.Country" ng-disabled="IsStuUpdateClick" required ng-change="loadStates(StaffDetails.Country);"
+                                        ng-options="r.ID as r.Name for r in Countrylist">
+                                    <option value="">-- Select Country --</option>
+                                </select>
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="state">
+                                State <span class="required" style="color:red;" ng-show="StaffAddEdit.state.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <select class="form-control" name="state" ng-model="StaffDetails.State" ng-disabled="IsStuUpdateClick" required
+                                        ng-options="s.Id as s.Name for s in Statelist">
+                                    <option value="">-- Select State --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city">
+                                City <span class="required" style="color:red;" ng-show="StaffAddEdit.city.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <input type="text" name="city" id="city" ng-model="StaffDetails.City" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="zip">
+                                Zip Code <span class="required" style="color:red;" ng-show="StaffAddEdit.zipcode.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <input type="number" ng-minlength="6" maxlength="6" name="zipcode" id="zipcode" ng-model="StaffDetails.ZipCode" required class="form-control col-md-7 col-xs-12">
+                                <p ng-show="StaffAddEdit.zipcode.$invalid && !StaffAddEdit.zipcode.$pristine" class="help-block">Enter valid 6 digit zip code.</p>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button type="button" ng-click="AddStaffCancel();" class="btn btn-primary">Cancel</button>
+                                <button ng-if="!IsStaffUpdateClick" type="submit" data-ng-disabled="StaffAddEdit.$invalid" class="btn btn-success">Save</button>
+                                <button ng-if="IsStaffUpdateClick" style="margin-bottom:5px;" type="button" ng-click="UpdateStaff(StaffAddEdit.$valid, StaffDetails);" data-ng-disabled="StudenAddEdit.$invalid" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-if="!showAddTimeTable">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+
+                <div class="x_content">
+                    <div id="datatable-fixed-header_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                        <div class="row" style="display:none;">
+                            <div class="col-sm-6"><div class="dt-buttons btn-group"><a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons"><span>CSV</span></a><a class="btn btn-default buttons-excel buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons"><span>Excel</span></a><a class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0" aria-controls="datatable-buttons"><span>PDF</span></a><a class="btn btn-default buttons-print btn-sm" tabindex="0" aria-controls="datatable-buttons"><span>Print</span></a></div></div>
+                        </div><div class="row">
+                            <div class="col-sm-12">
+                                <div ng-grid="TimeTablegrid" style="height:200px;" class="table table-striped table-bordered dataTable no-footer"></div>
+                            </div>
+                        </div><div class="row">
+                            </div><div class="col-sm-12">
+                                <div class="dataTables_paginate paging_simple_numbers" id="datatable-fixed-header_paginate" style="display:inline-flex;">
+                                    <ul class="pagination" style="margin-top:20px;">
+                                        <li>
+                                            <div class="datatable-fixed-header">
+                                                <button ng-if="!showAddTimeTable" type="button" ng-click="ShowAddTimeTableForm();" class="btn btn-primary">Add Time Table</button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

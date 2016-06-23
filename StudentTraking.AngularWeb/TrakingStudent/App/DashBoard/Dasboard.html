@@ -42,7 +42,7 @@
                                         <a>Syllabus</a>
                                     </li>
                                     <li>
-                                        <a>Timetable</a>
+                                        <a ui-sref="dashboard.timetable">Timetable</a>
                                     </li>
                                     <li>
                                         <a>Notification</a>
@@ -85,17 +85,14 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li  ng-if="User.Role=='SuperAdmin'|| User.Role=='SchoolAdmin'">
+                            <li ng-if="User.Role=='SuperAdmin'|| User.Role=='SchoolAdmin'">
                                 <a><i class="fa fa-adn"></i> Control Panel <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li ng-if="User.Role=='SuperAdmin'">
                                         <a ui-sref="dashboard.school">School Management</a>
                                     </li>
-                                    <li  ng-if="User.Role=='SchoolAdmin'">
+                                    <li ng-if="User.Role=='SchoolAdmin'">
                                         <a ui-sref="dashboard.student">Student Management</a>
-                                    </li>
-                                    <li style="display:none;">
-                                        <a href="#">Teacher Management</a>
                                     </li>
                                 </ul>
                             </li>

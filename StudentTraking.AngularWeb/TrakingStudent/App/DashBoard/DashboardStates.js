@@ -33,6 +33,11 @@
             templateUrl: 'App/Staff/Staff.html',
             controller: 'StaffManagement  as vm'
         })
+        .state('dashboard.timetable', {
+            url: "/timetable",
+            templateUrl: 'App/TimeTable/TimeTable.html',
+            controller: 'TimeTableManagement  as vm'
+            })
         .state('dashboard.monthlyattendance', {
             url: "/monthlyattendance",
             templateUrl: 'App/Reports/MonthlyAttendance.html'

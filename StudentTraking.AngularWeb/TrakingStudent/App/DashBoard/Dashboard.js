@@ -35,11 +35,11 @@
             enableRowSelection: false,
             enableColumnResize: true,
             plugins: [new ngGridFlexibleHeightPlugin()],
-            columnDefs: [{ field: "Attendence", displayName: "Attendence" },
-                         { field: "StudentName", displayName: "Student Name" },
+            columnDefs: [{ field: "StudentName", displayName: "Student Name" },
                          { field: "StudentId", displayName: "Student Id" },
                          { field: "Class", displayName: "Class" },
                          { field: "Section", displayName: "Section" },
+                         { field: "Attendence", displayName: "Attendence" },
                          ]
         };
     }
