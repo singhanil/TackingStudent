@@ -10,13 +10,13 @@ $(function () {
     $('#sidebar-menu li ul').slideUp();
     $('#sidebar-menu li').removeClass('active');
 
-    $(document).ready(function () {
-        var winHeight = $(window).height() - 50;
-        setTimeout(function () {
-            $('body.nav-md .container.body .right_col').css({ 'min-height': winHeight });
-        }, 500);
+    //$(document).ready(function () {
+    //    var winHeight = $(window).height() - 50;
+    //    setTimeout(function () {
+    //        $('body.nav-md .container.body .right_col').css({ 'min-height': winHeight });
+    //    }, 500);
         
-    });
+    //});
     
     $(document).off('click', '#sidebar-menu li').on('click', '#sidebar-menu li', function () {
        var link = $('a', this).attr('ui-sref');

@@ -207,6 +207,7 @@
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
+            plugins: [new ngGridFlexibleHeightPlugin()],
             columnDefs: [{ field: "StaffName", displayName: "Name", width: 400, cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowStaffDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
                          { field: "StaffId", displayName: "Id" },
                          { field: "DepartmentName", displayName: "Department" },

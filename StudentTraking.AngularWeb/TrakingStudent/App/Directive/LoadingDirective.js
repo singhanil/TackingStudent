@@ -10,11 +10,11 @@
                  };
                  scope.$watch(scope.isLoading, function (loading) {
                      $(document).ready(function () {
-                         var winHeight = $(window).height() - 50;
+                         var winHeight = $(window).height() - 20;
                          //setTimeout(function () {
                          $('body.nav-md .container.body .right_col').css({ 'min-height': winHeight });
-                         $('#sidebar-menu li ul').slideUp();
-                         $('#sidebar-menu li').removeClass('active');
+                         //$('#sidebar-menu li ul').slideUp();
+                         //$('#sidebar-menu li').removeClass('active');
                          //}, 1000);
 
                      });

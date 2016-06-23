@@ -66,7 +66,10 @@
    
     <!--<script src="scripts/custom.js"></script>-->
 </head>
-<body class="nav-md" ng-app="StudentTracking" ui-view="">
+<body class="nav-md" ng-app="StudentTracking">
+    <div id="overlay" class="ng-hide"></div>
+    <span id="loader" traking-spinner="{radius:30, width:6, length: 14}"></span>
+    <div ui-view=""></div>
 </body>
 
 </html>
