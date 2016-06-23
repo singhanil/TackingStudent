@@ -7,7 +7,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"> <span>{{User.SchoolName}}</span></a>
+                    <a class="site_title"> <span>{{User.SchoolName}}</span></a>
                 </div>
                 <div class="clearfix"></div>
                 <!-- menu prile quick info -->
@@ -27,7 +27,7 @@
                         <h3>&nbsp;</h3>
                         <ul class="nav side-menu">
                             <li>
-                                <a ui-sref="dashboard.main"><i class="fa fa-home"></i>Dashboard </a>
+                                <a data-ui-sref="dashboard.main"><i class="fa fa-home"></i>Dashboard </a>
                             </li>
                             <li style="display:none;">
                                 <a href="profile.html"><i class="fa fa-user-md"></i> Profile</a>
@@ -36,13 +36,13 @@
                                 <a><i class="fa fa-spinner"></i> School <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li>
-                                        <a ui-sref="dashboard.staff">Staff</a>
+                                        <a data-ui-sref="dashboard.staff">Staff</a>
                                     </li>
                                     <li>
                                         <a>Syllabus</a>
                                     </li>
                                     <li>
-                                        <a ui-sref="dashboard.timetable">Timetable</a>
+                                        <a data-ui-sref="dashboard.timetable">Timetable</a>
                                     </li>
                                     <li>
                                         <a>Notification</a>
@@ -72,16 +72,16 @@
                                 <ul class="nav child_menu">
 
                                     <li>
-                                        <a ui-sref="dashboard.monthlyattendance">Monthly Attendence</a>
+                                        <a data-ui-sref="dashboard.monthlyattendance">Monthly Attendence</a>
                                     </li>
                                     <li>
-                                        <a ui-sref="dashboard.yearlyattendance">Yearly Attendence</a>
+                                        <a data-ui-sref="dashboard.yearlyattendance">Yearly Attendence</a>
                                     </li>
                                     <li style="display:none;">
-                                        <a ui-sref="dashboard.studentreport">Student Report </a>
+                                        <a data-ui-sref="dashboard.studentreport">Student Report </a>
                                     </li>
                                     <li style="display:none;">
-                                        <a ui-sref="dashboard.otherreport">Other Reports </a>
+                                        <a data-ui-sref="dashboard.otherreport">Other Reports </a>
                                     </li>
                                 </ul>
                             </li>

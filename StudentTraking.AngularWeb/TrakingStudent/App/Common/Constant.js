@@ -4,7 +4,7 @@
     function constant($rootScope) {
         //#region Api's
         var studentTrakingApiUrl1 = "http://localhost/studentTrackingAPI"; 
-        var studentTrakingApiUrl = "http://localhost/Learn";
+        var studentTrakingApiUrl = "http://octosoftlabs.com";
         var getLoginUrl = "/api/Security/";
         var getStatesUrl = "/api/Common/GetStates/";
         var getOrganisationUrl = "/api/Organization/";

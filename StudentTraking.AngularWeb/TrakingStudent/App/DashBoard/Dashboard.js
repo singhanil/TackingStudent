@@ -5,9 +5,7 @@
         $scope.DailyReportData = {};
         $scope.hasDailyData = true;
         $scope.getDailyReportData = function () {
-            debugger
             DashBoardService.getDailyStudentReport().then(function (result) {
-                debugger
                 $rootScope.ajaxError = false;
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {
@@ -35,12 +33,12 @@
             enableRowSelection: false,
             enableColumnResize: true,
             plugins: [new ngGridFlexibleHeightPlugin()],
-            columnDefs: [{ field: "StudentName", displayName: "Student Name" },
+            columnDefs: [{ field: "Attendence", displayName: "Attendence" },
+                         { field: "StudentName", displayName: "Student Name" },
                          { field: "StudentId", displayName: "Student Id" },
                          { field: "Class", displayName: "Class" },
-                         { field: "Section", displayName: "Section" },
-                         { field: "Attendence", displayName: "Attendence" },
-                         ]
+                         { field: "Section", displayName: "Section" }
+                        ]
         };
     }
     module.controller('Dasboard', ['$rootScope', '$location', '$scope', 'DashBoardService', '$state', dasboard]);
