@@ -1,13 +1,13 @@
 ﻿<div class="container body">
     <div class="main_container">
         <div class="col-md-3 left_col">
-            <div class="left_col scroll-view">
-                <div class="navbar nav_title" style="border: 0;">
+            <div class="left_col scroll-view" style="width:100%;">
+                <!--<div class="navbar nav_title" style="border: 0;">
                     <a class="site_title"> <span>{{User.SchoolName}}</span></a>
-                </div>
-                <div class="clearfix"></div>
+                </div>-->
+                <!--<div class="clearfix"></div>-->
                 <!-- menu prile quick info -->
-                <div class="profile">
+                <!--<div class="profile">
                     <div class="profile_pic">
                         <img src="images/img.jpg" alt="..." class="img-circle profile_img">
                     </div>
@@ -15,7 +15,7 @@
                         <span>Welcome, {{User.Name}}</span>
                     </div>
 
-                </div>
+                </div>-->
                 <br />
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -111,11 +111,11 @@
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                     </div>
-
-                    <ul class="nav navbar-nav navbar-right">
+                    <div class="nav navbar-nav" style="text-align:center;padding-top: 16px;font-size: 20px;font-weight: bold;width: 75%;padding-left: 10%;">{{User.SchoolName}}</div>
+                    <ul class="nav navbar-nav navbar-right" style="width:20%;">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">{{User.Name}}
+                                {{User.Name}}
                                 <span class="fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -134,9 +134,7 @@
         <div class="right_col" role="main">
             <br />
             <div ui-view="" class=""></div>
-            <!--<div ng-if="!MainDashboard" id="dashboardChilds" ui-view="" class=""></div>-->
-            <!-- footer content -->
-            <footer>
+           <footer>
                 <div class="copyright-info">
                     <p class="pull-right">
                         School Application, &copy 2016. All rights reserved
