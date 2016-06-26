@@ -6,7 +6,6 @@
 
 /** ******  left menu  *********************** **/
 $(function () {
-    debugger
     $('#sidebar-menu li ul').slideUp();
     $('#sidebar-menu li').removeClass('active');
 

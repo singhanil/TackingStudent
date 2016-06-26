@@ -3,7 +3,7 @@
 
     function constant($rootScope) {
         //#region Api's
-        var studentTrakingApiUrl = "http://localhost/Learn";
+        var studentTrakingApiUrl = "http://octosoftlabs.com";
         var studentTrakingApiUrl1 = "http://octosoftlabs.com";
         var getLoginUrl = "/api/Security/";
         var getStatesUrl = "/api/Common/GetStates/";
@@ -15,7 +15,7 @@
         var saveSchoolUrl = "/api/School";
         var getCommonDataUrl = "/api/Common/";
         var saveStudentlUrl = "/api/Student";
-        var getStudDailyReportlUrl = "/api/Report";
+        var getStudReportlUrl = "/api/Report";
         var getStaffUrl = "/api/Staff/";
         var saveStaffUrl = "/api/Staff";
         var getTimeTableUrl = "/api/TimeTable/";
@@ -66,8 +66,8 @@
                 case 'savestudent':
                     _constant = saveStudentlUrl;
                     break;
-                case 'getstuddailyreportlurl':
-                    _constant = getStudDailyReportlUrl;
+                case 'getreporturl':
+                    _constant = getStudReportlUrl;
                     break;
                 case 'stafflist':
                     _constant = getStaffUrl;

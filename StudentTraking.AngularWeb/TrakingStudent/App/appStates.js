@@ -26,7 +26,6 @@ angular.module("StudentTracking").run(function ($rootScope, $state, $location, L
     })
     //for menu animation
     $rootScope.toggleLeftPannel = function () {
-        debugger
         if ($('body').hasClass('nav-md')) {
             $('body').removeClass('nav-md').addClass('nav-sm');
             $('.left_col').removeClass('scroll-view').removeAttr('style');

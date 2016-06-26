@@ -1,15 +1,14 @@
 ﻿(function (module) {
     'use strict';
-    var dasboard = function ($rootScope, $location, $scope, DashBoardService, CommonService, $state) {
+    var reports = function ($rootScope, $location, $scope, ReportsService, CommonService, $state) {
         var vm = $scope;
-        $scope.TotalStudentCount = 0;
-        $scope.presentCount = 0;
-        $scope.absentCount = 0;
-        $scope.DailyReportData = {};
-        $scope.hasDailyData = true;
+        var stateName = $state.current.name == 'dashboard.monthlyattendance'?'Monthaly':'Yearly';
+        $scope.ReportData = {};
+        $scope.hasReportData = true;
         $scope.loadClassSection = function () {
             $rootScope.ajaxError = false;
             CommonService.getCommonData().then(function (result) {
+                debugger
                 //$rootScope.ajaxError = false;
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {
@@ -25,9 +24,10 @@
                 $rootScope.ajaxError = true;
             });
         };
-        $scope.getDailyReportData = function () {
+        $scope.getReportData = function () {
             $rootScope.ajaxError = false;
-            DashBoardService.getDailyStudentReport().then(function (result) {
+            ReportsService.getMonthalyYearlyAttendance(stateName).then(function (result) {
+
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {
                         alert(result.data.ErrorMessage);
@@ -35,29 +35,23 @@
                     }
                     else {
                         if (result.data.Reports.length == 0) {
-                            $scope.hasDailyData = false;
+                            $scope.hasReportData = false;
                         }
                         else {
-                            $scope.TotalStudentCount = result.data.Reports.length;
-                            var presentList = $.grep(result.data.Reports, function (n, i) {
-                                return n.Attendence === 'Present';
-                            });
-                            $scope.presentCount = presentList.length;
-                            $scope.absentCount = ($scope.TotalStudentCount-$scope.presentCount);
-                            $scope.DailyReportData = result.data.Reports;
-                            $scope.hasDailyData = true;
+                            $scope.ReportData = result.data.Reports;
+                            $scope.hasReportData = true;
                         }
                     }
                 }
             }, function (result) {
-                $scope.hasDailyData = false;
+                $scope.hasReportData = false;
                 $rootScope.ajaxError = true;
             });
         };
-        $scope.getDailyReportDataBySearch = function (classId, sectionId) {
+        $scope.getReportDataBySearch = function (classId, sectionId) {
             $rootScope.ajaxError = false;
-            DashBoardService.getDailyStudentReportBySearch(classId, sectionId).then(function (result) {
-               
+            ReportsService.getReportDataBySearch(stateName, classId, sectionId).then(function (result) {
+
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {
                         alert(result.data.ErrorMessage);
@@ -65,23 +59,23 @@
                     }
                     else {
                         if (result.data.Reports.length == 0) {
-                            $scope.hasDailyData = false;
+                            $scope.hasReportData = false;
                         }
                         else {
-                            $scope.hasDailyData = true;
+                            $scope.hasReportData = true;
                             $scope.DailyReportData = result.data.Reports;
                         }
                     }
                 }
             }, function (result) {
-                $scope.hasDailyData = false;
+                $scope.hasReportData = false;
                 $rootScope.ajaxError = true;
             });
         };
         $scope.clearReportFilter = function () {
             $scope.selctedClass = null;
             $scope.selectedDivision = null;
-            $scope.getDailyReportData();
+            $scope.getReportData(stateName);
         }
         //$scope.getDailyReportDataBySearch = function (classId, sectionId) {
         //    $scope.getDailyReportData(classId, sectionId);
@@ -89,21 +83,23 @@
         if ($rootScope.Classlist == undefined || $rootScope.Sectionlist == undefined) {
             $scope.loadClassSection();
         }
-        $scope.getDailyReportData();
-        $scope.dailyreportgrid = {
-            data: 'DailyReportData',
+        $scope.getReportData();
+        $scope.reportgrid = {
+            data: 'ReportData',
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
             plugins: [new ngGridFlexibleHeightPlugin()],
             columnDefs: [{ field: "StudentName", displayName: "Student Name" },
+                         { field: "TotalPresentDays", displayName: "Present Day(s)" },
+                         { field: "TotalAbsentDays", displayName: "Absent Day(s)" },
+                         { field: "TotalSchoolDays", displayName: "School Day(s)" },
                          { field: "StudentId", displayName: "Student Id" },
                          { field: "Class", displayName: "Class" },
-                         { field: "Section", displayName: "Section" },
-                         { field: "Attendence", displayName: "Attendence" }
+                         { field: "Section", displayName: "Section" }
             ]
         };
         $('.ngViewport').height($('.ngViewport').height() + 2);
     }
-    module.controller('Dasboard', ['$rootScope', '$location', '$scope', 'DashBoardService', 'CommonService', '$state', dasboard]);
-}(angular.module('StudentTracking.dashboard')));
+    module.controller('Reports', ['$rootScope', '$location', '$scope', 'ReportsService', 'CommonService', '$state', reports]);
+}(angular.module('StudentTracking.report')));

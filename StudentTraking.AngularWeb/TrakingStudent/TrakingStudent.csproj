@@ -114,6 +114,7 @@
     <Content Include="App\Reports\MonthlyAttendance.html" />
     <Content Include="App\Reports\OtherReport.html" />
     <Content Include="App\Reports\ReportModule.js" />
+    <Content Include="App\Reports\Reports.js" />
     <Content Include="App\Reports\StudentReport.html" />
     <Content Include="App\Reports\YearlyAttendance.html" />
     <Content Include="App\School\School.html" />
@@ -123,8 +124,11 @@
     <Content Include="App\Services\CommonService.js" />
     <Content Include="App\Services\DashBoardService.js" />
     <Content Include="App\Services\LoginService.js" />
+    <Content Include="App\Services\ReportsService.js" />
     <Content Include="App\Services\SchoolServive.js" />
     <Content Include="App\Services\StaffService.js" />
+    <Content Include="App\Services\SyllabusService.js" />
+    <Content Include="App\Services\TimeTableService.js" />
     <Content Include="App\Staff\Staff.html" />
     <Content Include="App\Staff\StaffDetails.html" />
     <Content Include="App\Staff\StaffManagement.js" />
@@ -134,6 +138,12 @@
     <Content Include="App\Student\StudentManagement.js" />
     <Content Include="App\Student\StudentModule.js" />
     <Content Include="App\Services\StudentService.js" />
+    <Content Include="App\Syllabus\Syllabus.html" />
+    <Content Include="App\Syllabus\SyllabusManagement.js" />
+    <Content Include="App\Syllabus\SyllabusModule.js" />
+    <Content Include="App\TimeTable\TimeTable.html" />
+    <Content Include="App\TimeTable\TimeTableManagement.js" />
+    <Content Include="App\TimeTable\TimeTableModule.js" />
     <Content Include="content\css\animate.min.css" />
     <Content Include="content\css\bootstrap.min.css" />
     <Content Include="content\css\custom.css" />
