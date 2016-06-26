@@ -37,6 +37,11 @@
             url: "/timetable",
             templateUrl: 'App/TimeTable/TimeTable.html',
             controller: 'TimeTableManagement  as vm'
+        })
+            .state('dashboard.syllabus', {
+                url: "/syllabus",
+                templateUrl: 'App/Syllabus/Syllabus.html',
+                controller: 'SyllabusManagement  as vm'
             })
         .state('dashboard.monthlyattendance', {
             url: "/monthlyattendance",

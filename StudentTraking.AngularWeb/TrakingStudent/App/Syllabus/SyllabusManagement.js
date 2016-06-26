@@ -1,11 +1,11 @@
 ﻿(function (module) {
     'use strict';
-    var timetableManagement = function ($rootScope, $location, $scope, TimeTableService, LoginService, CommonService, $state, $filter) {
+    var syllabusManagement = function ($rootScope, $location, $scope, SyllabusService, LoginService, CommonService, $state, $filter) {
         var vm = $scope;
-        $scope.IsTimeTableUpdateClick = false;
-        $scope.showAddtimeTable = false;
-        $scope.TimeTableDetails = {};
-        $scope.TimeTablelist = {};
+        $scope.IsSyllabusUpdateClick = false;
+        $scope.showAddSyllabus = false;
+        $scope.SyllabusDetails = {};
+        $scope.Syllabuslist = {};
         $scope.Classlist = {};
         $scope.Divisionlist = {};
         $scope.Sectionlist = {};
@@ -29,7 +29,7 @@
 
         };
 
-        $scope.TimeTableDetails.SchoolId = $rootScope.User.SchoolId;
+        $scope.SyllabusDetails.SchoolId = $rootScope.User.SchoolId;
 
         $scope.loadCommonData = function () {
             CommonService.getCommonData().then(function (result) {
@@ -50,14 +50,14 @@
             });
         }
 
-        $scope.loadTimeTableBySearch = function (filterOption) {
+        $scope.loadSyllabusBySearch = function (filterOption) {
             var isFilterValid = $scope.validateFilterOption(filterOption);
             if (!isFilterValid) {
                 alert("Please select atleast one filter option");
                 return false;
             }
-            $scope.TimeTablelist = {};
-            TimeTableService.getTimeTableListBySearch(filterOption).then(function (result) {
+            $scope.Syllabuslist = {};
+            SyllabusService.getSyllabusListBySearch(filterOption).then(function (result) {
                 $rootScope.ajaxError = false;
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {
@@ -65,7 +65,7 @@
                         $rootScope.Logout();
                     }
                     else {
-                        $scope.TimeTablelist = result.data.TimeTables;
+                        $scope.Syllabuslist = result.data.Syllabus;
                     }
                 }
             }, function (result) {
@@ -73,9 +73,9 @@
             });
         };
 
-        $scope.AddTimeTable = function (isvalid, timeTableDetail) {
+        $scope.AddSyllabus = function (isvalid, syllabusDetail) {
             $scope.clearFilter();
-            StaffService.addTimeTable(timeTableDetail).then(function (result) {
+            SyllabusService.addSyllabus(syllabusDetail).then(function (result) {
                 $rootScope.ajaxError = false;
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {
@@ -83,8 +83,8 @@
                         $rootScope.Logout();
                     }
                     else {
-                        $scope.loadTimeTableList($rootScope.User.SchoolId);
-                        $scope.AddTimeTableCancel();
+                        $scope.loadsyllabusDetailList($rootScope.User.SchoolId);
+                        $scope.AddSyllabusDetailCancel();
                     }
                 }
             }, function (result) {
@@ -94,19 +94,19 @@
 
         $scope.loadCommonData();
 
-        $scope.AddTimeTableCancel = function () {
-            $scope.TimeTableDetails = {};
-            $scope.TimeTableDetails.SchoolId = $rootScope.User.SchoolId;
-            $scope.IsTimeTableUpdateClick = false;
-            $scope.showAddTimeTable = false;
+        $scope.AddSyllabusCancel = function () {
+            $scope.SyllabusDetail = {};
+            $scope.SyllabusDetail.SchoolId = $rootScope.User.SchoolId;
+            $scope.IsSyllabusUpdateClick = false;
+            $scope.showSyllabus = false;
         }
 
-        $scope.ShowAddTimeTableForm = function () {
+        $scope.ShowAddSyllabusForm = function () {
             $rootScope.ajaxError = false;
-            $scope.TimeTableDetails = TimeTableService.TimeTableDetails;
-            $scope.TimeTableDetails.SchoolId = $rootScope.User.SchoolId;
-            $scope.showAddTimeTable = true;
-            $scope.IsTimeTableUpdateClick = false;
+            $scope.SyllabusDetail = SyllabusService.SyllabusDetail;
+            $scope.SyllabusDetail.SchoolId = $rootScope.User.SchoolId;
+            $scope.showAddSyllabus = true;
+            $scope.IsSyllabusUpdateClick = false;
         }
 
         $scope.ShowStaffEditForm = function () {
@@ -120,24 +120,21 @@
             $scope.IsStaffUpdateClick = true;
         }
 
-        $scope.TimeTablegrid = {
-            data: 'TimeTablelist',
+        $scope.Syllabusgrid = {
+            data: 'Syllabuslist',
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
             plugins: [new ngGridFlexibleHeightPlugin()],
-            columnDefs: [{ field: "Lecture", displayName: "Lecture", width: 150 },
-                         { field: "Monday", displayName: "Monday" },
-                         { field: "Tuesday", displayName: "Tuesday" },
-                         { field: "Wednessday", displayName: "Wednessday" },
-                         { field: "Thursday", displayName: "Thursday" },
-                         { field: "Friday", displayName: "Friday" }]
+            columnDefs: [{ field: "Semester", displayName: "Semester", width: 150 },
+                         { field: "TotalMarks", displayName: "Total Marks", width: 150 },
+                         { field: "Detail", displayName: "Syllabus Details" }]
         };
 
-        $scope.UpdateTimeTable = function (isvalid, objTimeTable) {
+        $scope.UpdateSyllabus = function (isvalid, objTimeTable) {
             $scope.TimeTableDetails.SchoolId = $rootScope.User.SchoolId;
             $scope.AddTimeTable(isvalid, objTimeTable);
         }
     }
-    module.controller('TimeTableManagement', ['$rootScope', '$location', '$scope', 'TimeTableService', 'LoginService', 'CommonService', '$state', '$filter', timetableManagement]);
-}(angular.module('StudentTracking.timetable')));
+    module.controller('SyllabusManagement', ['$rootScope', '$location', '$scope', 'SyllabusService', 'LoginService', 'CommonService', '$state', '$filter', syllabusManagement]);
+}(angular.module('StudentTracking.syllabus')));
