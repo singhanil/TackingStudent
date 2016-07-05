@@ -4,20 +4,16 @@ using StudentTracking.Data;
 
 namespace StudentTracking.Application.Main.Profiles
 {
-    public class TimeTableProfile : ProfileBase
+    public class SyllabusProfile : ProfileBase
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<TimeTable, TimeTableModel>()
+            Mapper.CreateMap<SyllabusDetail, SyllabusModel>()
                 .ForMember(tt => tt.ClassName, ttm => ttm.MapFrom(src => src.Class.Name))
                 .ForMember(tt => tt.SectionName, ttm => ttm.MapFrom(src => src.Section.Name))
-                .ForMember(tt => tt.LectureDetail, ttm => ttm.MapFrom(src => src.LectureDuration.Duration))
                 .ForMember(tt => tt.Subject, ttm => ttm.MapFrom(src => src.Subject.SubjectName));
-                   
-            Mapper.CreateMap<Subject, SubjectModel>();
-            Mapper.CreateMap<LectureDuration, LectureModel>();
 
-            Mapper.AssertConfigurationIsValid(typeof(TimeTableProfile).Name);
+            Mapper.AssertConfigurationIsValid(typeof(SyllabusProfile).Name);
         }
     }
 }

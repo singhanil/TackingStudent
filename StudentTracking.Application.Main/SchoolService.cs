@@ -35,21 +35,40 @@ namespace StudentTracking.Application.Main
         }
         public SchoolModel Save(SchoolModel model)
         {
+            var isNew = false;
+
             var entity = this._dbContext.Schools.Where(e => e.ID == model.Id).FirstOrDefault();
+
+            if (null == entity)
+                isNew = true;
+
             entity = _populateValues(entity, model);
 
-            if (model.Id > 0)
-            {
-                if (null != entity)
-                    this._dbContext.Entry(entity).State = EntityState.Modified;
-                else
-                    this._dbContext.Schools.Add(entity);
-            }
-            else
+            if(isNew)
                 this._dbContext.Schools.Add(entity);
+            else
+                this._dbContext.Entry(entity).State = EntityState.Modified;
             
             this._dbContext.SaveChanges();
             
+            //Create account for school Admin
+            if (isNew)
+            {
+                var securitySVC = new SecurityService(this._dbContext);
+                var userModel = new UserModel
+                {
+                    UserId = entity.EmailId,
+                    UserRole = "SchoolAdmin",
+                    Password = "Welcome1@",
+                    Name = entity.ContactPerson,
+                    SchoolId = entity.ID,
+                    ClassId = null,
+                    SectionId = null,
+                    EmailId = entity.EmailId,
+                    ContactNumber = entity.Phone
+                };
+                securitySVC.Save(userModel);
+            }
             return entity.MapAs<School, SchoolModel>();
         }
 
@@ -60,6 +79,7 @@ namespace StudentTracking.Application.Main
                 entity = new School();
                 entity.EmailId = model.EmailId;
                 entity.OrganizationId = model.OrganizationId;
+                entity.BranchName = model.BranchName;
                 
                 entity.CreatedDate = DateTime.Now;
                 entity.ModifiedDate = DateTime.Now;

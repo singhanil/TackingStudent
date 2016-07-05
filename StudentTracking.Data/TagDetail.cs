@@ -17,6 +17,7 @@ namespace StudentTracking.Data
         public TagDetail()
         {
             this.StudentDetails = new HashSet<StudentDetail>();
+            this.StaffDetails = new HashSet<StaffDetail>();
         }
     
         public int ID { get; set; }
@@ -26,7 +27,10 @@ namespace StudentTracking.Data
         public string Details { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime ModifiedDate { get; set; }
+        public string IsAvailable { get; set; }
+        public Nullable<int> SchoolId { get; set; }
     
         public virtual ICollection<StudentDetail> StudentDetails { get; set; }
+        public virtual ICollection<StaffDetail> StaffDetails { get; set; }
     }
 }

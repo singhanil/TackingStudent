@@ -17,6 +17,7 @@ namespace StudentTracking.Data
         public StudentDetail()
         {
             this.StudentResults = new HashSet<StudentResult>();
+            this.StudentResults1 = new HashSet<StudentResult1>();
         }
     
         public string StudentId { get; set; }
@@ -44,5 +45,6 @@ namespace StudentTracking.Data
         public virtual Section Section { get; set; }
         public virtual ICollection<StudentResult> StudentResults { get; set; }
         public virtual TagDetail TagDetail { get; set; }
+        public virtual ICollection<StudentResult1> StudentResults1 { get; set; }
     }
 }

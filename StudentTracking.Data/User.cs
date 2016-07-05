@@ -23,5 +23,11 @@ namespace StudentTracking.Data
         public string ContactNumber { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime ModifiedDate { get; set; }
+        public Nullable<int> ClassId { get; set; }
+        public Nullable<int> SectionId { get; set; }
+    
+        public virtual Class Class { get; set; }
+        public virtual Section Section { get; set; }
+        public virtual School School { get; set; }
     }
 }

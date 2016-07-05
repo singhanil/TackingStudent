@@ -19,6 +19,9 @@ namespace StudentTracking.Data
             this.SyllabusTrackings = new HashSet<SyllabusTracking>();
             this.TimeTables = new HashSet<TimeTable>();
             this.StudentDetails = new HashSet<StudentDetail>();
+            this.StaffDetails = new HashSet<StaffDetail>();
+            this.Users = new HashSet<User>();
+            this.SyllabusDetails = new HashSet<SyllabusDetail>();
         }
     
         public int Id { get; set; }
@@ -27,5 +30,8 @@ namespace StudentTracking.Data
         public virtual ICollection<SyllabusTracking> SyllabusTrackings { get; set; }
         public virtual ICollection<TimeTable> TimeTables { get; set; }
         public virtual ICollection<StudentDetail> StudentDetails { get; set; }
+        public virtual ICollection<StaffDetail> StaffDetails { get; set; }
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<SyllabusDetail> SyllabusDetails { get; set; }
     }
 }

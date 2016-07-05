@@ -5,8 +5,10 @@ namespace StudentTracking.Application.API
 {
     public interface ITimeTable
     {
-        IEnumerable<TimeTableModel> FindAll(int classId, int sectionId);
-        TimeTableModel Save(TimeTableModel model);
+        IEnumerable<TimeTableVM> FindAll(int schoolId, int classId, int sectionId);
+        TimeTableModel Save(int schoolId, int classId, int sectionId, IEnumerable<TimeTableVM> list);
         bool SaveBulk(IEnumerable<TimeTableModel> list);
+        IEnumerable<SubjectModel> GetSubjects(int schoolId);
+        IEnumerable<LectureModel> GetLectures(int schoolId);
     }
 }

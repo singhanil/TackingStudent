@@ -31,7 +31,18 @@ namespace StudentTracking.Application.Main
                     int  minutes = Convert.ToInt16(ConfigurationManager.AppSettings["SecurityTokenExpirataionInMinutes"]);
 
                     string securityToken = Guid.NewGuid().ToString("N");
-                    uc = new UserContext { Id = user.UserId, Name = user.Name, Role = user.UserRole, SchoolId = user.SchoolId, SecurityToken = securityToken };
+                    uc = new UserContext
+                    {
+                        Id = user.UserId,
+                        Name = user.Name,
+                        Role = user.UserRole,
+                        SchoolId = user.SchoolId,
+                        SecurityToken = securityToken,
+                        ClassId = user.ClassId,
+                        SectionId = user.SectionId,
+                        SchoolName = string.Format("{0}, {1}",
+                            user.School.Organization.Name, user.School.BranchName)
+                    };
                     this._dbContext.AuthTickets.Add(new AuthTicket { SecurityToken = securityToken, ExpirationDate = DateTime.Now.AddMinutes(minutes), ModifiedDate = DateTime.Now });
                     this._dbContext.SaveChanges();
                 }
@@ -110,9 +121,11 @@ namespace StudentTracking.Application.Main
             {
                 entity = new User();
                 entity.CreatedDate = DateTime.Now;
-                entity.SchoolId = model.SchoolId.Value;
+                entity.SchoolId = model.SchoolId;
                 entity.UserId = model.UserId;
-                entity.EmailId = model.EmailId; 
+                entity.EmailId = model.EmailId;
+                entity.ClassId = model.ClassId;
+                entity.SectionId = model.SectionId;
             }
             entity.CreatedDate = entity.CreatedDate;
             entity.ModifiedDate = DateTime.Now;

@@ -12,19 +12,16 @@ namespace StudentTracking.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Country
+    public partial class Department
     {
-        public Country()
+        public Department()
         {
-            this.States = new HashSet<State>();
             this.StaffDetails = new HashSet<StaffDetail>();
         }
     
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
-        public string IsActive { get; set; }
     
-        public virtual ICollection<State> States { get; set; }
         public virtual ICollection<StaffDetail> StaffDetails { get; set; }
     }
 }

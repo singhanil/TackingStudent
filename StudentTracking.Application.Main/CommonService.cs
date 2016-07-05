@@ -36,11 +36,11 @@ namespace StudentTracking.Application.Main
 
         public IEnumerable<TagDetailModel> GetAllTags()
         {
-            var entities = this._dbContext.TagDetails.ToList();
-            if (null != entities)
+            var entities = this._dbContext.TagDetails.Where(t=>t.IsAvailable.Equals("Y")).ToList();
+            if (null != entities && entities.Count > 0)
                 return entities.MapAsCollection<TagDetail, TagDetailModel>();
 
-            return null;
+            return new List<TagDetailModel>();
         }
 
         public IEnumerable<CountryModel> GetAllCountries()

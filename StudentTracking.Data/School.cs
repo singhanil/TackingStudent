@@ -16,7 +16,13 @@ namespace StudentTracking.Data
     {
         public School()
         {
+            this.StaffDetails = new HashSet<StaffDetail>();
             this.StudentDetails = new HashSet<StudentDetail>();
+            this.Users = new HashSet<User>();
+            this.SyllabusDetails = new HashSet<SyllabusDetail>();
+            this.TimeTables = new HashSet<TimeTable>();
+            this.SemesterDetails = new HashSet<SemesterDetail>();
+            this.StudentResults = new HashSet<StudentResult1>();
         }
     
         public string Name { get; set; }
@@ -43,6 +49,12 @@ namespace StudentTracking.Data
     
         public virtual Organization Organization { get; set; }
         public virtual Theme Theme { get; set; }
+        public virtual ICollection<StaffDetail> StaffDetails { get; set; }
         public virtual ICollection<StudentDetail> StudentDetails { get; set; }
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<SyllabusDetail> SyllabusDetails { get; set; }
+        public virtual ICollection<TimeTable> TimeTables { get; set; }
+        public virtual ICollection<SemesterDetail> SemesterDetails { get; set; }
+        public virtual ICollection<StudentResult1> StudentResults { get; set; }
     }
 }

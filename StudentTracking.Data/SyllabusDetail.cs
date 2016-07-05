@@ -22,13 +22,18 @@ namespace StudentTracking.Data
     
         public int ID { get; set; }
         public int ClassId { get; set; }
-        public string Subject { get; set; }
         public string Semester { get; set; }
         public string Details { get; set; }
         public int TotalMarks { get; set; }
+        public int SchoolId { get; set; }
+        public int SectionId { get; set; }
+        public int SubjectId { get; set; }
     
         public virtual Class Class { get; set; }
         public virtual ICollection<StudentResult> StudentResults { get; set; }
         public virtual ICollection<SyllabusTracking> SyllabusTrackings { get; set; }
+        public virtual School School { get; set; }
+        public virtual Section Section { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

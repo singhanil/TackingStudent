@@ -22,7 +22,10 @@ namespace StudentTracking.Application.Main
         {
             var entities =  this._dbContext.StudentDetails.Where(sd => sd.SchoolBranchId == schoolId).ToList();
 
-            return entities.MapAsCollection<StudentDetail, StudentModel>();
+            if (entities.Count > 0)
+                return entities.MapAsCollection<StudentDetail, StudentModel>();
+
+            return new List<StudentModel>();
         }
 
         public StudentModel Get(int studentId)
@@ -83,36 +86,104 @@ namespace StudentTracking.Application.Main
 
         public StudentModel Save(StudentModel model)
         {
+            var isNew = true;
             var entity = this._dbContext.StudentDetails.Where(e => e.ID == model.Id).FirstOrDefault();
-
+            int primaryTagId=0;
+            int? secondaryTagId=0;
+            if (null != entity)
+            {
+                isNew = false;
+                primaryTagId = entity.PrimaryTagId;
+                secondaryTagId = entity.SecondaryTagId;
+            }
             entity = _populateValues(entity, model);
 
-            if (model.Id > 0)
+            if (isNew)
             {
-                if (null != entity)
-                    this._dbContext.Entry(entity).State = EntityState.Modified;
-                else
-                    this._dbContext.StudentDetails.Add(entity);
+                this._dbContext.StudentDetails.Add(entity);
+                //Set isAvailable flag to 'N'
+                var primaryTagDetail = this._dbContext.TagDetails.Where(t => t.ID == entity.PrimaryTagId).FirstOrDefault();
+                if (null != primaryTagDetail)
+                {
+                    primaryTagDetail.IsAvailable = "N";
+                    this._dbContext.Entry<TagDetail>(primaryTagDetail).State = EntityState.Modified;
+                }
+                var secondaryTagDetail = this._dbContext.TagDetails.Where(t => t.ID == entity.SecondaryTagId).FirstOrDefault();
+                if (null != secondaryTagDetail)
+                {
+                    secondaryTagDetail.IsAvailable = "N";
+                    this._dbContext.Entry<TagDetail>(secondaryTagDetail).State = EntityState.Modified;
+                }
             }
             else
-                this._dbContext.StudentDetails.Add(entity);
-
+            {
+                this._dbContext.Entry<StudentDetail>(entity).State = EntityState.Modified;
+                if(primaryTagId != entity.PrimaryTagId)
+                {
+                    var oldPrimaryTag = this._dbContext.TagDetails.Where(t => t.ID == primaryTagId).FirstOrDefault();
+                    if(null != oldPrimaryTag)
+                    {
+                        oldPrimaryTag.IsAvailable = "Y";
+                        this._dbContext.Entry<TagDetail>(oldPrimaryTag).State = EntityState.Modified;
+                    }
+                    var newPrimaryTag = this._dbContext.TagDetails.Where(t => t.ID == entity.PrimaryTagId).FirstOrDefault();
+                    if (null != newPrimaryTag)
+                    {
+                        newPrimaryTag.IsAvailable = "N";
+                        this._dbContext.Entry<TagDetail>(newPrimaryTag).State = EntityState.Modified;
+                    }
+                }
+                if (secondaryTagId != entity.SecondaryTagId)
+                {
+                    var oldSecondaryTag = this._dbContext.TagDetails.Where(t => t.ID == primaryTagId).FirstOrDefault();
+                    if (null != oldSecondaryTag)
+                    {
+                        oldSecondaryTag.IsAvailable = "Y";
+                        this._dbContext.Entry<TagDetail>(oldSecondaryTag).State = EntityState.Modified;
+                    }
+                    var newSecondaryTag = this._dbContext.TagDetails.Where(t => t.ID == entity.PrimaryTagId).FirstOrDefault();
+                    if (null != newSecondaryTag)
+                    {
+                        newSecondaryTag.IsAvailable = "N";
+                        this._dbContext.Entry<TagDetail>(newSecondaryTag).State = EntityState.Modified;
+                    }
+                }
+            }
             this._dbContext.SaveChanges();
 
             //Create user account when student gets registered.
             //create parent's account as well.
-
-            var securitySVC = new SecurityService(this._dbContext);
-            var userModel = new UserModel
+            if (isNew)
             {
-                UserId = entity.StudentId,
-                UserRole = "Student",
-                Password = "Welcome1@",
-                Name = entity.StudentName,
-                SchoolId = entity.SchoolBranchId
-            };
-            securitySVC.Save(userModel);
-
+                var securitySVC = new SecurityService(this._dbContext);
+                var userModel = new UserModel
+                {
+                    UserId = entity.StudentId,
+                    UserRole = "Student",
+                    Password = "Welcome1@",
+                    Name = entity.StudentName,
+                    SchoolId = entity.SchoolBranchId.Value,
+                    ClassId = entity.ClassId,
+                    SectionId = entity.SectionId,
+                    EmailId= entity.EmailId,
+                    ContactNumber = entity.ParentMobileNo
+                };
+                securitySVC.Save(userModel);
+                //Create account of parent as well
+                userModel = new UserModel
+                {
+                    UserId = entity.EmailId,
+                    UserRole = "Parent",
+                    Password = "Welcome1@",
+                    Name = entity.ParentName,
+                    SchoolId = entity.SchoolBranchId.Value,
+                    ClassId = entity.ClassId,
+                    SectionId = entity.SectionId,
+                    EmailId = entity.EmailId,
+                    ContactNumber = entity.ParentMobileNo                    
+                };
+                securitySVC.Save(userModel);
+            }
             return entity.MapAs<StudentDetail, StudentModel>();
         }
 

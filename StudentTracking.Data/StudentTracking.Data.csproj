@@ -60,6 +60,9 @@
     <Compile Include="Country.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Holiday.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
@@ -82,6 +85,12 @@
     <Compile Include="Section.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="SemesterDetail.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_InsertUpdateAttendance_Result.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="StaffDetail.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
@@ -95,6 +104,9 @@
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentResult.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentResult1.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="StudentTracking.Context.cs">

@@ -20,6 +20,23 @@ namespace SchoolWepAPI.Controllers
             this._dbContext = new StudentTrackingContext();
         }
 
+        [Route("api/Report/{securityToken}/{schoolId}")]
+        public HttpResponseMessage Get(string securityToken, int schoolId)
+        {
+            var response = new DailyReportResponse { Status = "OK" };
+            if (IsValid(securityToken))
+            {
+                var svc = new AttendenceReportService(this._dbContext);
+                response.Reports = svc.GetDailyReport(schoolId);
+            }
+            else
+            {
+                response = new DailyReportResponse { Status = "Error", ErrorCode = "ERR001", ErrorMessage = "Invalide security token" };
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
         [Route("api/Report/{securityToken}/{schoolId}/{classId}/{sectionId}")]
         public HttpResponseMessage Get(string securityToken, int schoolId, int classId, int sectionId)
         {
@@ -27,7 +44,7 @@ namespace SchoolWepAPI.Controllers
             if(IsValid(securityToken))
             {
                 var svc = new AttendenceReportService(this._dbContext);
-                response.Reports = svc.GetDailyReport();
+                response.Reports = svc.GetDailyReport(schoolId, classId, sectionId);
             }
             else
             {
@@ -45,7 +62,7 @@ namespace SchoolWepAPI.Controllers
             {
                 var svc = new AttendenceReportService(this._dbContext);
                 if (type.Equals("Month", StringComparison.InvariantCultureIgnoreCase))
-                    response.Reports = svc.GetMonthlyReport();
+                    response.Reports = svc.GetMonthlyReport(schoolId, classId, sectionId);
                 else
                     response.Reports = svc.GetYearlyReport();
             }

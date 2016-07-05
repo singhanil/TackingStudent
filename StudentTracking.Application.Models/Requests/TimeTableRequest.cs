@@ -4,7 +4,10 @@ namespace StudentTracking.Application.Models.Requests
 {
     public class TimeTableRequest: ServiceRequest
     {
-        public TimeTableModel TimeTable { get; set; }
+        public int SchoolId { get; set; }
+        public int ClassId { get; set; }
+        public int SectionId { get; set; }
+        public IEnumerable<TimeTableVM> TimeTable { get; set; }
     }
 
     public class BulkTimeTableRequest : ServiceRequest

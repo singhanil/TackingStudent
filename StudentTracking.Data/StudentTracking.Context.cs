@@ -12,6 +12,8 @@ namespace StudentTracking.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class StudentTrackingContext : DbContext
     {
@@ -32,6 +34,7 @@ namespace StudentTracking.Data
         public virtual DbSet<StudentDetail> StudentDetails { get; set; }
         public virtual DbSet<AuthTicket> AuthTickets { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<LectureDuration> LectureDurations { get; set; }
         public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<StudentResult> StudentResults { get; set; }
@@ -47,5 +50,32 @@ namespace StudentTracking.Data
         public virtual DbSet<SchoolBranch> SchoolBranches { get; set; }
         public virtual DbSet<StudentAttendance> StudentAttendances { get; set; }
         public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<SemesterDetail> SemesterDetails { get; set; }
+        public virtual DbSet<StudentResult1> StudentResult1 { get; set; }
+    
+        public virtual ObjectResult<sp_InsertUpdateAttendance_Result> sp_InsertUpdateAttendance(string tagId, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, Nullable<bool> isInTime, string ipAddress)
+        {
+            var tagIdParameter = tagId != null ?
+                new ObjectParameter("TagId", tagId) :
+                new ObjectParameter("TagId", typeof(string));
+    
+            var startTimeParameter = startTime.HasValue ?
+                new ObjectParameter("StartTime", startTime) :
+                new ObjectParameter("StartTime", typeof(System.DateTime));
+    
+            var endTimeParameter = endTime.HasValue ?
+                new ObjectParameter("EndTime", endTime) :
+                new ObjectParameter("EndTime", typeof(System.DateTime));
+    
+            var isInTimeParameter = isInTime.HasValue ?
+                new ObjectParameter("IsInTime", isInTime) :
+                new ObjectParameter("IsInTime", typeof(bool));
+    
+            var ipAddressParameter = ipAddress != null ?
+                new ObjectParameter("IpAddress", ipAddress) :
+                new ObjectParameter("IpAddress", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_InsertUpdateAttendance_Result>("sp_InsertUpdateAttendance", tagIdParameter, startTimeParameter, endTimeParameter, isInTimeParameter, ipAddressParameter);
+        }
     }
 }

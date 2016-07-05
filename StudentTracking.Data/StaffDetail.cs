@@ -16,12 +16,28 @@ namespace StudentTracking.Data
     {
         public string StaffId { get; set; }
         public string StaffName { get; set; }
-        public Nullable<byte> Department { get; set; }
-        public Nullable<long> PrimaryTagId { get; set; }
+        public int PrimaryTagId { get; set; }
         public string ReportingEmailId { get; set; }
         public string StaffMobileNo { get; set; }
         public Nullable<int> ClassId { get; set; }
         public Nullable<int> SectionId { get; set; }
         public int ID { get; set; }
+        public int DepartmentId { get; set; }
+        public int SchoolId { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string StateId { get; set; }
+        public string ZipCode { get; set; }
+        public string Country { get; set; }
+        public string Gender { get; set; }
+        public System.DateTime DateOfBirthh { get; set; }
+    
+        public virtual School School { get; set; }
+        public virtual Department Department { get; set; }
+        public virtual Country Country1 { get; set; }
+        public virtual Class Class { get; set; }
+        public virtual Section Section { get; set; }
+        public virtual TagDetail TagDetail { get; set; }
     }
 }

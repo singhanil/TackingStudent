@@ -22,15 +22,37 @@ namespace SchoolWepAPI.Controllers
             this._dbContext = new StudentTrackingContext();
         }
 
-        [Route("api/TimeTable/{securityToken}/{classId}/{sectionId}")]
-        public HttpResponseMessage Get(string securityToken, int classId, int sectionId)
+        [Route("api/TimeTable/{securityToken}/{schoolId}")]
+        public HttpResponseMessage Get(string securityToken, int schoolId)
+        {
+            TTCommonResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ITimeTable ttService = new TimeTableService(this._dbContext);
+                response = new TTCommonResponse { Status = "OK" };
+                response.Subjects = ttService.GetSubjects(schoolId);
+                response.Lectures = ttService.GetLectures(schoolId);
+
+                CurrentLoggerProvider.Info(string.Format("Retrieved Common Data. Subjects: {0}, Lectures: {1}", response.Subjects.Count(), response.Lectures.Count()));
+            }
+            else
+            {
+                response = new TTCommonResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info("Invalid Request");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
+        [Route("api/TimeTable/{securityToken}/{schoolId}/{classId}/{sectionId}")]
+        public HttpResponseMessage Get(string securityToken, int schoolId, int classId, int sectionId)
         {
             TimeTableResponse response = null;
             if (IsValid(securityToken))
             {
                 ITimeTable ttService = new TimeTableService(this._dbContext);
                 response = new TimeTableResponse { Status = "OK" };
-                response.TimeTables = ttService.FindAll(classId, sectionId);
+                response.TimeTables = ttService.FindAll(schoolId, classId, sectionId);
 
                 CurrentLoggerProvider.Info(string.Format("Retrieved Time Table. Count = {0}", response.TimeTables.Count()));
             }
@@ -55,12 +77,12 @@ namespace SchoolWepAPI.Controllers
             if(IsValid(request.SecurityToken))
             {
                 var svc = new TimeTableService(this._dbContext);
-                svc.Save(request.TimeTable);
+                svc.Save(request.SchoolId, request.ClassId, request.SectionId, request.TimeTable);
                 result = true;
             }
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
-
+        /*
         [HttpPost]
         public HttpResponseMessage SaveBulk(BulkTimeTableRequest request)
         {
@@ -71,6 +93,6 @@ namespace SchoolWepAPI.Controllers
                 result = svc.SaveBulk(request.TimeTables);
             }
             return Request.CreateResponse(HttpStatusCode.OK, result);
-        }
+        }*/
     }
 }

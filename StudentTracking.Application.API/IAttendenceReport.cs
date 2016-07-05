@@ -5,8 +5,10 @@ namespace StudentTracking.Application.API
 {
     public interface IAttendenceReport
     {
-        IEnumerable<DailyAttendenceModel> GetDailyReport();
-        IEnumerable<MonthlyAttendenceModel> GetMonthlyReport();
+        IEnumerable<DailyAttendenceModel> GetDailyReport(int schoolId);
+        IEnumerable<DailyAttendenceModel> GetDailyReport(int schoolId, int classId, int sectionId);
+        IEnumerable<MonthlyAttendenceModel> GetMonthlyReport(int schoolId);
+        IEnumerable<MonthlyAttendenceModel> GetMonthlyReport(int schoolId, int classId, int sectionId);
         IEnumerable<MonthlyAttendenceModel> GetYearlyReport();
     }
 }
