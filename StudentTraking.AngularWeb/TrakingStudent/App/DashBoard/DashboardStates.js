@@ -43,6 +43,11 @@
             templateUrl: 'App/Syllabus/Syllabus.html',
             controller: 'SyllabusManagement  as vm'
         })
+        .state('dashboard.result', {
+            url: "/result",
+            templateUrl: 'App/Result/Result.html',
+            controller: 'ResultManagement  as vm'
+        })
         .state('dashboard.monthlyattendance', {
             url: "/monthlyattendance",
             templateUrl: 'App/Reports/MonthlyAttendance.html',

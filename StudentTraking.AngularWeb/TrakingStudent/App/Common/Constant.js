@@ -3,8 +3,8 @@
 
     function constant($rootScope) {
         //#region Api's
-        var studentTrakingApiUrl = "http://octosoftlabs.com";
-        var studentTrakingApiUrl1 = "http://octosoftlabs.com";
+        var studentTrakingApiUrl1 = "http://localhost/Learn";
+        var studentTrakingApiUrl = "http://www.octosoftlabs.com";
         var getLoginUrl = "/api/Security/";
         var getStatesUrl = "/api/Common/GetStates/";
         var getOrganisationUrl = "/api/Organization/";
@@ -19,7 +19,7 @@
         var getStaffUrl = "/api/Staff/";
         var saveStaffUrl = "/api/Staff";
         var getTimeTableUrl = "/api/TimeTable/";
-        var saveTimeTableUrl = "/api/TimeTable/SaveBulk";
+        var saveTimeTableUrl = "/api/TimeTable";
         var getSyllabusUrl = "/api/Syllabus/";
         var saveSyllabusUrl = "/api/Syllabus/SaveBulk";
         var getDepartmentUrl = "/api/Staff/Department/";

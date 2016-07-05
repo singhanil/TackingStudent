@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrakingStudent</RootNamespace>
     <AssemblyName>TrakingStudent</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,10 +83,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -114,9 +111,12 @@
     <Content Include="App\Reports\MonthlyAttendance.html" />
     <Content Include="App\Reports\OtherReport.html" />
     <Content Include="App\Reports\ReportModule.js" />
-    <Content Include="App\Reports\Reports.js" />
     <Content Include="App\Reports\StudentReport.html" />
     <Content Include="App\Reports\YearlyAttendance.html" />
+    <Content Include="App\Result\Result.html" />
+    <Content Include="App\Result\ResultManagement.js" />
+    <Content Include="App\Result\ResultModule.js" />
+    <Content Include="App\Result\StudentResult.html" />
     <Content Include="App\School\School.html" />
     <Content Include="App\School\SchoolDetails.html" />
     <Content Include="App\School\SchoolManagement.js" />
@@ -124,7 +124,7 @@
     <Content Include="App\Services\CommonService.js" />
     <Content Include="App\Services\DashBoardService.js" />
     <Content Include="App\Services\LoginService.js" />
-    <Content Include="App\Services\ReportsService.js" />
+    <Content Include="App\Services\ResultService.js" />
     <Content Include="App\Services\SchoolServive.js" />
     <Content Include="App\Services\StaffService.js" />
     <Content Include="App\Services\SyllabusService.js" />
@@ -343,9 +343,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

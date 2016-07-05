@@ -1,10 +1,10 @@
 ﻿(function (module) {
     'use strict';
 
-    var TimeTableService = function ($http, $rootScope, Constant) {
+    var ResultService = function ($http, $rootScope, Constant) {
         var service = {};
         var _constant = new Constant();
-        service.TimeTableDetails = {
+        service.ResultDetails = {
             Id: null,
             SchoolId: null,
             ClassId: null,
@@ -16,7 +16,7 @@
             Thursday: null,
             Friday: null
         };
-        
+
         var getTimeTableListBySearch = function (searchObj) {
             var APIURL = _constant.get("studenttrakingurl");
             var url = APIURL + _constant.get("timetablelist") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId;
@@ -69,5 +69,5 @@
 
         return service;
     };
-    module.service("TimeTableService", ['$http', '$rootScope', 'Constant', TimeTableService]);
-}(angular.module('StudentTracking.timetable')));
+    module.service("ResultService", ['$http', '$rootScope', 'Constant', ResultService]);
+}(angular.module('StudentTracking.result')));
