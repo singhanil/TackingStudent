@@ -10,8 +10,7 @@ namespace StudentTracking.Application.Main.Profiles
         {
             Mapper.CreateMap<SyllabusDetail, SyllabusModel>()
                 .ForMember(tt => tt.ClassName, ttm => ttm.MapFrom(src => src.Class.Name))
-                .ForMember(tt => tt.SectionName, ttm => ttm.MapFrom(src => src.Section.Name))
-                .ForMember(tt => tt.Subject, ttm => ttm.MapFrom(src => src.Subject.SubjectName));
+                .ForMember(tt => tt.SubjectName, ttm => ttm.MapFrom(src => src.Subject.SubjectName));
 
             Mapper.AssertConfigurationIsValid(typeof(SyllabusProfile).Name);
         }

@@ -10,5 +10,6 @@ namespace StudentTracking.Application.API
         IEnumerable<MonthlyAttendenceModel> GetMonthlyReport(int schoolId);
         IEnumerable<MonthlyAttendenceModel> GetMonthlyReport(int schoolId, int classId, int sectionId);
         IEnumerable<MonthlyAttendenceModel> GetYearlyReport();
+        MonthlyAttendenceVM GetMonthlyReportByStudent(int schoolId, string studentId);
     }
 }

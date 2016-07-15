@@ -1,6 +1,7 @@
 ﻿using StudentTracking.Application.API;
 using StudentTracking.Application.Main.Extensions;
 using StudentTracking.Application.Models;
+using StudentTracking.Application.ViewModels;
 using StudentTracking.Data;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,6 +15,60 @@ namespace StudentTracking.Application.Main
         public TimeTableService(StudentTrackingContext cntx)
         {
             this._dbContext = cntx;
+        }
+
+        public IEnumerable<TimeTableMobileVM> Get(int schoolId, int classId, int sectionId, string day)
+        {
+            List<TimeTableMobileVM> timeTable = new List<TimeTableMobileVM>();
+            switch(day.ToUpper())
+            {
+                case "MONDAY":
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:00 AM - 8:45 AM", Subject = "English" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:45 AM - 9:30 AM", Subject = "Yoga" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "9:45 AM - 10:30 AM", Subject = "Sports" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "10:30 AM - 12:00 Noon", Subject = "Science" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "12:00 Noon - 12:45 PM", Subject = "Hindi" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "1:30 PM - 2:15 PM", Subject = "Math" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "2:15 PM - 3:00 PM", Subject = "IT" });
+                    break;
+                case "TUESDAY":
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:00 AM - 8:45 AM", Subject = "English" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:45 AM - 9:30 AM", Subject = "Science" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "9:45 AM - 10:30 AM", Subject = "Math" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "10:30 AM - 12:00 Noon", Subject = "Hindi" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "12:00 Noon - 12:45 PM", Subject = "SST" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "1:30 PM - 2:15 PM", Subject = "Music" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "2:15 PM - 3:00 PM", Subject = "Art" });
+                    break;
+                case "WEDNESSDAY":
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:00 AM - 8:45 AM", Subject = "English" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:45 AM - 9:30 AM", Subject = "Yoga" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "9:45 AM - 10:30 AM", Subject = "Science" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "10:30 AM - 12:00 Noon", Subject = "Math" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "12:00 Noon - 12:45 PM", Subject = "SST" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "1:30 PM - 2:15 PM", Subject = "IT" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "2:15 PM - 3:00 PM", Subject = "Art" });
+                    break;
+                case "THURSDAY":
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:00 AM - 8:45 AM", Subject = "English" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:45 AM - 9:30 AM", Subject = "Math" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "9:45 AM - 10:30 AM", Subject = "Music" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "10:30 AM - 12:00 Noon", Subject = "Science" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "12:00 Noon - 12:45 PM", Subject = "SST" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "1:30 PM - 2:15 PM", Subject = "Hindi" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "2:15 PM - 3:00 PM", Subject = "Yoga" });
+                    break;
+                case "FRIDAY":
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:00 AM - 8:45 AM", Subject = "English" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "8:45 AM - 9:30 AM", Subject = "Yoga" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "9:45 AM - 10:30 AM", Subject = "Hindi" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "10:30 AM - 12:00 Noon", Subject = "Math" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "12:00 Noon - 12:45 PM", Subject = "SST" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "1:30 PM - 2:15 PM", Subject = "Science" });
+                    timeTable.Add(new TimeTableMobileVM { Time = "2:15 PM - 3:00 PM", Subject = "Sports" });
+                    break;
+            }
+            return timeTable;
         }
         public IEnumerable<TimeTableVM> FindAll(int schoolId, int classId, int sectionId)
         {

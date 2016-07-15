@@ -5,7 +5,7 @@ namespace StudentTracking.Application.API
 {
     public interface ISyllabusService
     {
-        IEnumerable<SyllabusModel> Get(int schoolId, int classId, int sectionId);
+        IEnumerable<SyllabusModel> Get(int schoolId, int classId);
         void Save(SyllabusModel model, bool isCommit = true);
         void Save(IEnumerable<SyllabusModel> models);
     }

@@ -121,6 +121,24 @@ namespace StudentTracking.Application.Main
                                                                                 and sd.SectionId = @p2", schoolId, classId, sectionId );
         }
 
+        public MonthlyAttendenceVM GetMonthlyReportByStudent(int schoolId, string studentId)
+        {
+            MonthlyAttendenceVM vms = new MonthlyAttendenceVM()
+            {
+                StudentId = "ST001",
+                Class = "V",
+                Section = "D",
+                StudentName = "Amogh Sharma",
+                Attendance = new List<MonthlyAttendenceModel>(){
+                        new MonthlyAttendenceModel(){Month = "April", TotalSchoolDays=20, TotalPresentDays=20, TotalAbsentDays=0},
+                        new MonthlyAttendenceModel(){Month = "June", TotalSchoolDays=18, TotalPresentDays=17, TotalAbsentDays=1},
+                        new MonthlyAttendenceModel(){Month = "July", TotalSchoolDays=22, TotalPresentDays=22, TotalAbsentDays=0}
+                    }
+
+            };
+            return vms;
+        }
+
         private int __getWorkingDays(DateTime fromDate, DateTime toDate, DateTime[] holidayList)
         {
             fromDate = fromDate.Date;

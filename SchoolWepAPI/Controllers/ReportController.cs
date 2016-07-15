@@ -74,6 +74,23 @@ namespace SchoolWepAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
+        [Route("api/Report/Mobile/{securityToken}/{schoolId}/{studentId}")]
+        public HttpResponseMessage Get(string securityToken, int schoolId, string studentId)
+        {
+            var response = new MonthlyReportVMResponse { Status = "OK" };
+            if (IsValid(securityToken))
+            {
+                var svc = new AttendenceReportService(this._dbContext);
+                response.Attendence = svc.GetMonthlyReportByStudent(schoolId, studentId);
+            }
+            else
+            {
+                response = new MonthlyReportVMResponse { Status = "Error", ErrorCode = "ERR001", ErrorMessage = "Invalide security token" };
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
         private bool IsValid(string securityToken)
         {
             ISecurity auth = new SecurityService(this._dbContext);

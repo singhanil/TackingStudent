@@ -65,6 +65,31 @@ namespace SchoolWepAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
+        [Route("api/TimeTable/Mobile/{securityToken}/{schoolId}/{classId}/{sectionId}")]
+        public HttpResponseMessage GetTimeTable(string securityToken, int schoolId, int classId, int sectionId)
+        {
+            TimeTableVMResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ITimeTable ttService = new TimeTableService(this._dbContext);
+                response = new TimeTableVMResponse { Status = "OK" };
+                response.Monday = ttService.Get(schoolId, classId, sectionId, "Monday");
+                response.Tuesday = ttService.Get(schoolId, classId, sectionId, "Tuesday");
+                response.Wednessday = ttService.Get(schoolId, classId, sectionId, "Wednessday");
+                response.Thursday = ttService.Get(schoolId, classId, sectionId, "Thursday");
+                response.Friday = ttService.Get(schoolId, classId, sectionId, "Friday");
+
+                CurrentLoggerProvider.Info("Retrieved time for mobile view");
+            }
+            else
+            {
+                response = new TimeTableVMResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info("Invalid Request");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
         private bool IsValid(string securityToken)
         {
             ISecurity auth = new SecurityService(this._dbContext);

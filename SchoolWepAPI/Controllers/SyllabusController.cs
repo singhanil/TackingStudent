@@ -20,15 +20,15 @@ namespace SchoolWepAPI.Controllers
             this._dbContext = new StudentTrackingContext();
         }
 
-        [Route("api/Syllabus/{securityToken}/{schoolId}/{classId}/{sectionId}")]
-        public HttpResponseMessage Get(string securityToken, int schoolId, int classId, int sectionId)
+        [Route("api/Syllabus/{securityToken}/{schoolId}/{classId}")]
+        public HttpResponseMessage Get(string securityToken, int schoolId, int classId)
         {
             SyllabusResponse response = null;
             if (IsValid(securityToken))
             {
                 ISyllabusService syllabusService = new SyllabusService(this._dbContext);
                 response = new SyllabusResponse { Status = "OK" };
-                response.Syllabus = syllabusService.Get(schoolId, classId, sectionId);
+                response.Syllabus = syllabusService.Get(schoolId, classId);
 
                 CurrentLoggerProvider.Info(string.Format("Retrieved Syllabus. Count = {0}", response.Syllabus.Count()));
             }

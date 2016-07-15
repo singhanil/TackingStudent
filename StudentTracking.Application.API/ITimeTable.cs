@@ -1,4 +1,5 @@
 ﻿using StudentTracking.Application.Models;
+using StudentTracking.Application.ViewModels;
 using System.Collections.Generic;
 
 namespace StudentTracking.Application.API
@@ -10,5 +11,6 @@ namespace StudentTracking.Application.API
         bool SaveBulk(IEnumerable<TimeTableModel> list);
         IEnumerable<SubjectModel> GetSubjects(int schoolId);
         IEnumerable<LectureModel> GetLectures(int schoolId);
+        IEnumerable<TimeTableMobileVM> Get(int schoolId, int classId, int sectionId, string day);
     }
 }

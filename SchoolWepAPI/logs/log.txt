@@ -43,3 +43,305 @@ INFO  2016-05-24 11:56:44,887 25993ms BaseApiController      Get                
 INFO  2016-06-01 11:01:21,777 205784ms BaseApiController      Get                - Retrieved School. Id = 1, Name=AIS
 INFO  2016-06-02 11:06:59,303 21791ms BaseApiController      Get                - Invalid Request
 INFO  2016-06-02 11:07:11,795 34282ms BaseApiController      Get                - Retrieved Time Table. Count = 3
+INFO  2016-06-04 22:57:31,559 48979ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-04 22:59:33,798 171218ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-04 23:23:46,004 37291ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-05 09:54:32,697 84283ms BaseApiController      GetStudent         - Retrieved Student Details. Id = 1
+INFO  2016-06-05 11:08:55,412 50153ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-05 11:18:19,999 62486ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-06-05 11:19:53,523 156010ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-06-05 11:40:31,850 43026ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-05 11:41:05,841 77017ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-06-05 11:41:24,037 95213ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-05 11:49:04,133 53499ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-05 11:49:14,150 63515ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2016-06-08 23:52:35,081 1202842ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-06-08 23:52:51,970 1219732ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-08 23:53:10,106 1237867ms BaseApiController      Get                - Retrieved Schools. Count = 8
+INFO  2016-06-08 23:53:26,796 1254557ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-08 23:54:42,393 1330154ms BaseApiController      Get                - Retrieved Schools. Count = 8
+INFO  2016-06-08 23:54:47,307 1335068ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-08 23:57:22,597 1490358ms BaseApiController      Get                - Retrieved Schools. Count = 8
+INFO  2016-06-08 23:57:49,968 1517730ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-08 23:58:12,701 1540462ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-09 00:02:29,721 20270ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2016-06-09 00:02:33,566 24115ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-09 00:02:34,998 25547ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2016-06-09 00:13:31,797 682346ms BaseApiController      Get                - Invalid Request. School Id: {0}
+INFO  2016-06-09 00:13:52,077 702626ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-09 00:13:56,470 707020ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-09 00:22:04,273 1194822ms BaseApiController      Get                - Retrieved Schools. Count = 8
+INFO  2016-06-09 00:22:10,521 1201070ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-09 00:22:14,052 1204601ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-10 11:59:05,510 33714ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-06-16 10:40:37,142 41853ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-16 10:40:43,114 47825ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-16 10:41:36,692 101403ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-16 10:41:40,701 105413ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-16 10:42:23,818 148529ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-16 10:42:27,451 152162ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-19 18:37:32,100 1492183ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:37:34,907 1494990ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:38:56,295 1576378ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:38:59,337 1579420ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:39:54,683 1634766ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:39:57,083 1637166ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:40:06,692 1646775ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:40:16,237 1656320ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-19 18:40:42,602 1682685ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:40:45,956 1686039ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-19 18:45:37,077 1977160ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:46:10,944 2011027ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:46:13,253 2013336ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:47:30,511 2090594ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:47:32,895 2092978ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:47:54,868 2114951ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:47:58,233 2118316ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-19 18:54:41,181 2521264ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:56:37,210 2637293ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 18:56:40,683 2640766ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-19 18:57:36,348 2696431ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:00:06,146 2846229ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:01:32,159 2932242ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:01:34,524 2934607ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:02:21,524 2981607ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:06:15,952 3216035ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:06:16,931 3217015ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:06:22,053 3222136ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:06:25,905 3225988ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-19 19:15:55,385 3795468ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 19:15:57,685 3797768ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:06:16,383 19617ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:06:16,384 19618ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:44:05,375 22671ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:44:05,539 22835ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:45:19,412 96708ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:45:21,698 98994ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:46:05,537 142833ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:46:18,716 156011ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-19 21:49:53,359 370655ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:50:02,607 379903ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:51:48,882 486177ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 21:51:49,882 487177ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 22:16:45,842 92349ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 22:25:57,624 53818ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 22:27:30,093 15515ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 22:30:23,176 188599ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 22:31:10,309 235731ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 22:33:17,931 363354ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 22:49:10,564 61542ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-06-19 22:50:00,229 111207ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:01:29,543 800521ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-06-19 23:01:59,830 830808ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:02:14,514 845492ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:04:38,216 989194ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:05:51,417 1062395ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-19 23:06:01,224 1072202ms BaseApiController      GetStates          - States not found for country: AUS
+INFO  2016-06-19 23:06:09,789 1080767ms BaseApiController      GetStates          - States not found for country: AUS
+INFO  2016-06-19 23:07:33,402 1164380ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:42:10,105 986450ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:42:59,496 1035841ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:44:09,192 1105537ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:49:20,779 1417125ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-19 23:55:34,764 1791109ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-19 23:56:53,311 1869656ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-20 00:06:13,551 35005ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:06:26,865 48318ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-20 00:17:53,230 33547ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:19:24,122 124439ms BaseApiController      GetStates          - States not found for country: AUS
+INFO  2016-06-20 00:19:26,914 127231ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-20 00:26:42,163 562480ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:27:48,886 629203ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:29:06,268 706585ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-20 00:33:03,877 944195ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:34:47,536 1047853ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:35:06,355 1066673ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:35:15,429 1075746ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:35:19,510 1079827ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-20 00:35:33,900 1094217ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-06-20 00:35:43,537 1103854ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:49:05,706 65687ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:53:34,405 334386ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:55:30,850 450831ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 00:59:03,939 663919ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 01:00:10,537 730518ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 01:36:37,779 135068ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 01:36:41,532 138821ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-20 01:38:11,092 228381ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-20 01:52:19,658 1076947ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 01:52:23,253 1080542ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-06-20 01:52:57,040 1114329ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2016-06-20 08:53:17,736 74992ms BaseApiController      Get                - Retrieved Schools. Count = 8
+INFO  2016-06-20 08:53:36,633 93889ms BaseApiController      Get                - Retrieved Organizations. Count = 4
+INFO  2016-06-20 08:54:35,835 153091ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-20 08:59:49,287 466543ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2016-06-20 09:09:12,008 469715ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-20 09:09:14,668 472375ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2016-06-20 09:10:39,201 556908ms BaseApiController      GetStates          - Retrieved States for Country: IND
+INFO  2016-06-20 09:15:46,231 863938ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-06-20 11:39:37,256 20919ms BaseApiController      Get                - Invalid Request
+INFO  2016-06-20 11:39:55,776 39439ms BaseApiController      Get                - Retrieved Time Table. Count = 2
+INFO  2016-06-21 10:08:31,015 70365ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-21 10:12:48,452 327802ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-21 10:14:05,170 404519ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-21 10:21:53,061 382292ms BaseApiController      Get                - Invalid Request
+INFO  2016-06-21 10:24:26,560 19974ms BaseApiController      Get                - Invalid Request
+INFO  2016-06-23 09:14:50,688 373368ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-23 09:15:56,016 438696ms BaseApiController      Get                - Retrieved Time Table. Count = 0
+INFO  2016-06-23 09:16:27,767 470446ms BaseApiController      Get                - Retrieved Time Table. Count = 2
+INFO  2016-06-23 09:20:17,835 700515ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-23 09:20:31,705 714384ms BaseApiController      Get                - Retrieved Time Table. Count = 2
+INFO  2016-06-23 09:25:07,768 990448ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-23 09:26:28,310 1070990ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-23 09:28:20,895 1183575ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-23 09:28:33,378 1196057ms BaseApiController      Get                - Retrieved Time Table. Count = 2
+INFO  2016-06-23 09:28:51,352 1214032ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 00:40:32,128 26083ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-06-26 00:40:32,130 26085ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-06-26 00:41:47,744 36858ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 00:41:51,785 40899ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 00:43:13,144 122259ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 00:43:24,599 133713ms BaseApiController      Get                - Retrieved Time Table. Count = 2
+INFO  2016-06-26 00:43:39,502 148616ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 00:44:04,170 173285ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 12:32:21,045 35930ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 12:32:25,261 40146ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 12:34:24,821 159707ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 12:34:34,356 169242ms BaseApiController      Get                - Retrieved Time Table. Count = 0
+INFO  2016-06-26 13:11:31,218 35135ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:11:35,456 39373ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:12:04,974 68890ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:12:08,923 72840ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:14:57,598 241514ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:15:57,431 301348ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:16:01,400 305317ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:16:29,063 332980ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:16:34,552 338469ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:17:35,991 399907ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:17:39,923 403840ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:18:21,758 445675ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:18:36,450 460367ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:18:48,032 471948ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-06-26 13:18:51,940 475857ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 18:17:08,986 26198ms BaseApiController      Get                - Invalid Request
+INFO  2016-07-04 18:17:39,125 56337ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:04:59,059 65614ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:05:10,076 76631ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:05:12,975 79530ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:09:23,866 330420ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:09:26,391 332946ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:17:32,866 819420ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:17:35,628 822183ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:22:01,414 1087969ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:22:03,988 1090543ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:24:53,962 1260517ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:24:56,543 1263098ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:26:15,914 1342469ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:26:18,438 1344992ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:31:51,508 1678062ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:31:54,152 1680707ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 19:37:01,322 1987877ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 19:37:03,917 1990471ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 20:30:29,335 5195890ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:30:38,987 5205542ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:30:41,651 5208206ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 20:31:05,882 5232437ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:31:08,437 5234992ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 20:38:19,800 5666355ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:38:22,455 5669010ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 20:48:36,767 6283322ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-07-04 20:48:40,437 6286992ms BaseApiController      Get                - Invalid Request
+INFO  2016-07-04 20:48:50,231 6296786ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:48:59,376 6305931ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:49:02,061 6308616ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 20:53:07,229 6553784ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:53:09,971 6556526ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 20:59:44,028 6950582ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 20:59:46,643 6953197ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 21:16:54,616 7981170ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-07-04 21:16:56,686 7983240ms BaseApiController      Get                - Invalid Request
+INFO  2016-07-04 21:17:06,575 7993130ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:17:14,834 8001389ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:17:17,649 8004204ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 21:17:25,813 8012368ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:17:28,448 8015003ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 21:27:01,981 8588536ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:27:04,526 8591081ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 21:30:22,264 8788819ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:30:50,031 8816585ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:30:58,086 8824641ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:31:00,651 8827206ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 21:32:24,914 8911469ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:32:27,487 8914042ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 21:33:12,710 8959265ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:33:15,365 8961920ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 21:36:21,667 9148222ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 21:36:24,210 9150764ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 22:36:31,386 12757941ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 22:36:41,509 12768064ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 22:36:44,062 12770617ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 22:37:00,217 12786772ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 22:37:07,082 12793637ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 23:55:50,662 64162ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 23:55:57,106 70606ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 23:55:59,071 72572ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-04 23:56:13,742 87242ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-04 23:56:15,395 88895ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-05 00:03:56,569 550070ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:03:58,254 551754ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-05 00:22:53,588 28970ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:22:56,978 32359ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-05 00:39:07,136 1002518ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:39:22,671 1018053ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:39:33,757 1029138ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:45:53,564 1408946ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:46:28,861 1444243ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:47:15,456 1490838ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:47:21,157 1496539ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:47:27,735 1503116ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 00:47:31,790 1507172ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:01:42,141 2357523ms BaseApiController      GetAll             - Invalid Request
+INFO  2016-07-05 01:02:10,694 2386075ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:02:19,416 2394798ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:02:23,050 2398432ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:03:02,639 2438020ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-07-05 01:03:17,587 2452969ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:05:22,602 2577983ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:05:26,146 2581527ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:07:22,760 2698142ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:07:26,494 2701876ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:10:14,766 2870148ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:10:18,542 2873923ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:10:53,986 2909368ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:10:55,456 2910838ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2016-07-05 01:11:04,683 2920065ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:12:46,529 3021910ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:12:50,172 3025553ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:15:40,252 3195633ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:23:32,116 3667498ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:23:35,838 3671220ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:23:46,361 3681743ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:23:50,314 3685696ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:26:38,760 3854142ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:30:16,596 4071978ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:30:20,469 4075851ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:30:27,285 4082667ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:30:31,161 4086543ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:32:44,425 4219806ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:32:48,228 4223609ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:33:01,485 4236867ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:33:26,431 4261812ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:33:30,250 4265632ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:33:39,601 4274982ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-07-05 01:33:48,194 4283576ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:34:03,865 4299246ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:34:07,869 4303251ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:41:13,280 4728662ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-05 01:41:17,194 4732575ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:41:27,101 4742482ms BaseApiController      Get                - Retrieved Student Details. Count = 1
+INFO  2016-07-05 01:41:33,424 4748806ms BaseApiController      Get                - Retrieved Student Details. Count = 3
+INFO  2016-07-05 01:42:56,534 4831915ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2016-07-10 11:28:41,483 164293ms BaseApiController      GetTimeTable       - Retrieved time for mobile view
+INFO  2016-07-15 11:06:05,607 24114ms BaseApiController      Get                - Retrieved Syllabus. Count = 2
+INFO  2016-07-15 11:38:59,422 33622ms BaseApiController      Get                - Invalid Request
+INFO  2016-07-15 11:39:12,962 47161ms BaseApiController      Get                - Retrieved Notifications. Count = 3

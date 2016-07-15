@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="IAttendenceReport.cs" />
     <Compile Include="ICommon.cs" />
+    <Compile Include="INotificationService.cs" />
     <Compile Include="IOrganization.cs" />
+    <Compile Include="IResultService.cs" />
     <Compile Include="ISchool.cs" />
     <Compile Include="ISecurity.cs" />
     <Compile Include="IStaffService.cs" />

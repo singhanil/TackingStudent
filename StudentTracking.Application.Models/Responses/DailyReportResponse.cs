@@ -12,4 +12,9 @@ namespace StudentTracking.Application.Models.Responses
     {
         public IEnumerable<MonthlyAttendenceModel> Reports { get; set; }
     }
+
+    public class MonthlyReportVMResponse : ServiceResponse
+    {
+        public MonthlyAttendenceVM Attendence { get; set; }
+    }
 }

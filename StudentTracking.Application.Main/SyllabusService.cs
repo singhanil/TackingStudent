@@ -16,13 +16,19 @@ namespace StudentTracking.Application.Main
             this._dbContext = cntx;
         }
 
-        public IEnumerable<SyllabusModel> Get(int schoolId, int classId, int sectionId)
+        public IEnumerable<SyllabusModel> Get(int schoolId, int classId)
         {
-            var entities = this._dbContext.SyllabusDetails.Where(s => s.SchoolId == schoolId && s.ClassId == classId && s.SectionId == sectionId).ToList();
+            /*var entities = this._dbContext.SyllabusDetails.Where(s => s.SchoolId == schoolId && s.ClassId == classId).ToList();
             if (entities.Count > 0)
                 return entities.MapAsCollection<SyllabusDetail, SyllabusModel>();
 
             return new List<SyllabusModel>();
+             */
+            var list = new List<SyllabusModel>();
+            list.Add(new SyllabusModel { ID = 11, ClassId = 4, ClassName = "1st", SubjectId = 2, SubjectName = "English", FilePath = "http://octosoftlabs.com/public/pdfs/ASDSD23389080JKSDKFJEE43.pdf" });
+            list.Add(new SyllabusModel { ID = 11, ClassId = 4, ClassName = "1st", SubjectId = 2, SubjectName = "Hindi", FilePath = "http://octosoftlabs.com/public/pdfs/LSDJFLSJ3433808SDLFJS343.pdf" });
+
+            return list;
         }
 
         public void Save(SyllabusModel model, bool isCommit = true)
@@ -55,12 +61,12 @@ namespace StudentTracking.Application.Main
         private SyllabusDetail __populateDetails(SyllabusDetail entity, SyllabusModel model)
         {
             entity.ClassId = model.ClassId;
-            entity.Details = model.Detail;
+            //entity.Details = model.Detail;
             entity.SchoolId = model.SchoolId;
-            entity.SectionId = model.SectionId;
-            entity.Semester = model.Semester;
+            //entity.SectionId = model.SectionId;
+            //entity.Semester = model.Semester;
             entity.SubjectId = model.SubjectId;
-            entity.TotalMarks = model.TotalMarks;
+            //entity.TotalMarks = model.TotalMarks;
             return entity;
         }
         

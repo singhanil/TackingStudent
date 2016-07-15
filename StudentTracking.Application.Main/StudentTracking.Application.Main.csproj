@@ -56,6 +56,7 @@
     <Compile Include="AttendenceReportService.cs" />
     <Compile Include="CommonService.cs" />
     <Compile Include="Extensions\TypeAdapterExtensions.cs" />
+    <Compile Include="NotificationService.cs" />
     <Compile Include="OrganizationService.cs" />
     <Compile Include="Profiles\ClassProfile.cs" />
     <Compile Include="Profiles\CountryProfile.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Profiles\TagDetailsProfile.cs" />
     <Compile Include="Profiles\TimeTableProfile.cs" />
     <Compile Include="Profiles\UserProfile.cs" />
+    <Compile Include="ResultService.cs" />
     <Compile Include="SchoolService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityService.cs" />
