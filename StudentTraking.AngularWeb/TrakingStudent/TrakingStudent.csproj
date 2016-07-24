@@ -111,6 +111,7 @@
     <Content Include="App\Reports\MonthlyAttendance.html" />
     <Content Include="App\Reports\OtherReport.html" />
     <Content Include="App\Reports\ReportModule.js" />
+    <Content Include="App\Reports\Reports.js" />
     <Content Include="App\Reports\StudentReport.html" />
     <Content Include="App\Reports\YearlyAttendance.html" />
     <Content Include="App\Result\Result.html" />
@@ -124,6 +125,7 @@
     <Content Include="App\Services\CommonService.js" />
     <Content Include="App\Services\DashBoardService.js" />
     <Content Include="App\Services\LoginService.js" />
+    <Content Include="App\Services\ReportsService.js" />
     <Content Include="App\Services\ResultService.js" />
     <Content Include="App\Services\SchoolServive.js" />
     <Content Include="App\Services\StaffService.js" />

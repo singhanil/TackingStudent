@@ -29,7 +29,7 @@
             ReportsService.getMonthalyYearlyAttendance(stateName).then(function (result) {
 
                 if (result != null) {
-                    if (result.data.ErrorMessage == "Invalid or expired token") {
+                    if (result.data.ErrorMessage == "Invalide security token") {
                         alert(result.data.ErrorMessage);
                         $rootScope.Logout();
                     }
