@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="F:\TrakingStudent\trunk\StudentTrakingMobileApp\StudentTrakingMobileApp\platforms\android\build\intermediates\exploded-aar\android\CordovaLib\unspecified\debug\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="63646c27d9b2e9b8a28d4b552a8763f26e5fae7c">
+        <dex dex="F:\TrakingStudent\trunk\StudentTrakingMobileApp\StudentTrakingMobileApp\platforms\android\build\intermediates\pre-dexed\debug\CordovaLib-unspecified-debug_3eff9bc8ae007d934a4c644349968358b94bf4be.jar" />
+    </item>
+
+</items>

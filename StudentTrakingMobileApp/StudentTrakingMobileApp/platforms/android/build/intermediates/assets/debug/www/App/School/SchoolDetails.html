@@ -1,0 +1,51 @@
+﻿<form role="form" class="ng-pristine ng-valid">
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Organization Name:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.OrganizationName}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Branch Name:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.BranchName}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Contact Person:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.ContactPerson}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Title:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.Title}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Email:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.EmailId}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Phone:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.Phone}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">City:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.City}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">State:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.State}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Country:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.Country}}</label>
+    </div>
+    <div ng-if="school.Twitter!=''&& school.Twitter!=null" class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Twitter Page:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.Twitter}}</label>
+    </div>
+    <div ng-if="school.LinkedIn!=''&& school.LinkedIn!=null" class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">LinkedIn Page:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.LinkedIn}}</label>
+    </div>
+    <div ng-if="school.FaceBookUrl!=''&& school.FaceBookUrl!=null" class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">FaceBook Page:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{school.FaceBookUrl}}</label>
+    </div>
+
+</form>

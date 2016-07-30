@@ -1,0 +1,123 @@
+﻿<div class="login-page">
+    <div id="overlay" class="ng-hide"></div>
+    <span id="loader" traking-spinner="{radius:30, width:6, length: 14}"></span>
+    <div class="">
+        <a class="hiddenanchor" id="toregister"></a>
+        <a class="hiddenanchor" id="tologin"></a>
+        <div class="row">
+            <div class="text-center"><h3>Welcome to MySchool App</h3></div>
+            <div style="margin:8% 0 0 25%  ">
+                <h4>Application Features</h4>
+                <ul style="margin: 0; padding:0">
+                    <li>View your child's Attendance</li>
+                    <li>View your child's Report Card</li>
+                    <li>View your child's Timetable</li>
+                    <li>View your child's Syllabus</li>
+                </ul>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="login" class="animate form">
+                <section class="login_content">
+                    <form name="form" role="form" data-ng-submit="validate(UserName, Password)" class="ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required">
+                        <h1>Login Form</h1>
+                        <span data-ng-style="{color:'red'}">{{LoginError}} </span>
+                        <div data-ng-class="{'has-error':(form.UserName.$invalid &amp;&amp; form.UserName.$dirty)}">
+                            <input id="UserName" name="UserName" type="text" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Username" data-ng-model="UserName" data-ng-trim="true" maxlength="20" required />
+                        </div>
+                        <div data-ng-class="{'has-error':(form.Password.$invalid &amp;&amp; form.Password.$dirty)}">
+                            <input type="password" name="Password" class="form-control ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" placeholder="Password" data-ng-model="Password" maxlength="20" required>
+                        </div>
+                        <div>
+                            <button type="submit" data-ng-disabled="form.$invalid" class="btn btn-success submit">Log in</button>
+                            <!--<a class="btn btn-success submit" href="index.html">Log in</a>
+                            <a class="reset_pass" href="#">Lost your password?</a>-->
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+
+                            <p class="change_link">
+                                <a href="#toregister" class="to_register"> Forgot your password? </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 icon-container">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <a href="#">
+                                            <i class="fa fa-phone-square fa-3x"> </i>
+                                            <h5>+91 985 123 4567</h5>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <a href="#">
+                                            <i class="fa fa-envelope fa-3x"> </i>
+                                            <h5>info@myschool.com</h5>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- <div>
+                                  <h1><i class="fa fa-paw" style="font-size: 26px;"></i> School Application</h1>
+
+                                  <p>©2016 All Rights Reserved.</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!--<div class="separator">
+
+                            <p class="change_link">
+                                New to site?
+                                <a href="#toregister" class="to_register"> Create Account </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> School Application</h1>
+
+                                <p>©2016 All Rights Reserved.</p>
+                            </div>
+                        </div>-->
+                    </form>
+                    <!-- form -->
+                </section>
+                <!-- content -->
+            </div>
+            <div id="register" class="animate form">
+                <section class="login_content">
+                    <form>
+                        <h1>Create Account</h1>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Username" required />
+                        </div>
+                        <div>
+                            <input type="email" class="form-control" placeholder="Email" required />
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" placeholder="Password" required />
+                        </div>
+                        <div>
+                            <a class="btn btn-success submit" href="index.html">Submit</a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+
+                            <p class="change_link">
+                                Already a member ?
+                                <a href="#tologin" class="to_register"> Log in </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> School Application</h1>
+
+                                <p>©2016 All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- form -->
+                </section>
+                <!-- content -->
+            </div>
+        </div>
+    </div>
+</div>

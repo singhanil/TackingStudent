@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+    <link href="content/css/trakingstudent.css" rel="stylesheet" />
+    <link href="content/css/ng-grid.css" rel="stylesheet" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/angular-ui-router.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+    <link href="content/css/jquery-ui.css" rel="stylesheet" />
+    <script src="scripts/custom.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="scripts/jquery.nicescroll.min.js"></script>
+    <script src="scripts/ng-grid.min.js"></script>
+    <link href="content/fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="content/css/animate.min.css" rel="stylesheet">
+    <script src="scripts/spin.min.js"></script>
+    <script src="scripts/angular-spinner.min.js"></script>
+    <link href="content/css/custom.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" type="text/css" href="content/css/maps/jquery-jvectormap-2.0.3.css" />
+    <link href="content/css/icheck/flat/green.css" rel="stylesheet">-->
+    <link href="content/css/floatexamples.css" rel="stylesheet" />
+    <script src="scripts/angular-filter.min.js"></script>
+    <title>StudentTrakingMobileApp</title>
+</head>
+<body ng-app="StudentTracking" ng-controller="trackingController" class="nav-md">
+
+
+    <div ui-view="" class="container body">
+    </div>
+    <!--<script src="lib/ngCordova/dist/ng-cordova.js"></script>-->
+    <script src="scripts/ng-cordova.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="App/appModuls.js"></script>
+    <script src="App/appStates.js"></script>
+    <script src="App/Common/Constant.js"></script>
+    <script src="App/Login/LoginModule.js"></script>
+    <script src="App/Login/loginStates.js"></script>
+    <script src="App/Services/LoginService.js"></script>
+    <script src="App/Login/Login.js"></script>
+    <script src="App/Services/CommonService.js"></script>
+    <script src="App/DashBoard/DashboardModule.js"></script>
+    <script src="App/DashBoard/DashboardStates.js"></script>
+    <script src="App/DashBoard/Dashboard.js"></script>
+    <script src="App/School/SchoolModule.js"></script>
+    <script src="App/Services/SchoolServive.js"></script>
+    <script src="App/School/SchoolManagement.js"></script>
+    <script src="App/Student/StudentModule.js"></script>
+    <script src="App/Services/StudentService.js"></script>
+    <script src="App/Student/StudentManagement.js"></script>
+    <script src="App/Reports/ReportModule.js"></script>
+    <script src="App/Reports/Reports.js"></script>
+    <script src="App/Reports/Notification.js"></script>
+    <script src="App/Acadamic/AcadamicModule.js"></script>
+    <script src="App/Directive/LoadingDirective.js"></script>
+</body>
+</html>

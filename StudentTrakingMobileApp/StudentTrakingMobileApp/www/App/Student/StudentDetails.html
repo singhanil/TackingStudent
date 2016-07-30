@@ -1,0 +1,60 @@
+﻿<form role="form" class="ng-pristine ng-valid">
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Name:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.StudentName}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">School Name:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.SchoolName}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Class Name:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.ClassName}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Section Name:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.SectionName}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Student Id:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.StudentId}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Date of Birth:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.DateOfBirthh}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Gender:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.Gender}}</label>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Parent Name:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.ParentName}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Email Id:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.EmailId}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Address1:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.Address1}}</label>
+    </div>
+    <div class="form-group" ng-if="StudentDetails.Address2!='' && StudentDetails.Address1!=null">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Address2:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.Address2}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">City:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.City}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">State:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.State}}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-5 col-sm-6 col-xs-12" for="comment">Country:</label>
+        <label class="col-md-7 col-sm-6 col-xs-12" id="comment" style="float:right;">{{StudentDetails.Country}}</label>
+    </div>
+   
+</form>

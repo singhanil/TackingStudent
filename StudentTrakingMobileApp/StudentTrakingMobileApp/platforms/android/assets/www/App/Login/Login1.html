@@ -1,0 +1,74 @@
+﻿<div class="container body">
+    <div class="main_container" style="height:auto;">
+        <div class="right_col" role="main">
+            <br />
+            <div class="">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="x_content">
+
+                            <div id="datatable-fixed-header_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div style="min-height: 400px;" class="right_col ng-scope" role="main">
+                                    <br>
+                                    <div class="">
+                                        <div class="login">
+                                            <h4 style="padding-left:10px;font-weight:bold;">
+                                                User Login
+                                            </h4>
+                                            <div style="height:30px;"></div>
+                                            <div class="login_inner">
+                                                <form name="form" role="form" data-ng-submit="validate(User)" class="ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required" style="width:400px;">
+                                                    <span data-ng-style="{color:'red'}" class="ng-binding" style="color: red;"> </span>
+                                                    <div class="form-group" data-ng-class="{'has-error':(form.User.UserName.$invalid &amp;&amp; form.User.UserName.$dirty)}" style="width:inherit;">
+                                                        <label class="control-label text-right" style="width:50%;float: left;padding-right: 5px;">User id:</label>
+                                                        <input id="UserName" style="width:50%;margin-left: 0px;" type="text" class="control-label ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" name="UserName" data-ng-model="User.UserName" data-ng-trim="true" maxlength="20" required="">
+                                                    </div>
+                                                    <br>
+                                                    <div style="height:30px;"></div>
+                                                    <div class="form-group" data-ng-class="{'has-error':(form.User.Password.$invalid &amp;&amp; form.User.Password.$dirty)}" style="width:inherit;">
+                                                        <label class="control-label text-right" style="width:50%;float: left;padding-right: 5px;">Password:</label>
+                                                        <input id="password1" type="password" style="width:50%;" name="Password" class="control-label ng-valid-maxlength ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" data-ng-model="User.Password" maxlength="20" required="">
+                                                    </div>
+                                                    <br>
+                                                    <div style="height:30px;"></div>
+                                                    <!--<div class="checkbox">
+                                                        <label>
+                                                            <input name="" type="checkbox" value="">
+                                                            Remember me
+                                                        </label>
+                                                    </div>-->
+                                                    <button type="submit" data-ng-disabled="form.$invalid" class="btn btn-custom login_btn" style="margin-left:50%;">
+                                                        Login
+                                                    </button>
+                                                    <!--<input type="Submit" value="Submit" class="btn btn-default" data-ng-disabled="form.$invalid"  />
+                                                    <a href="#" class="login_help"><span class="fa fa-info-o"></span> Need help logging in?</a> </div>-->
+                                                    <!--<a id="forgotpass" href="#" data-ng-click="vm.launchForgotPassword()"> <span class="fa fa-info-circle"></span> Need help logging in?</a>-->
+                                                    <!-- login end -->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- footer content -->
+            <footer>
+                <div class="copyright-info">
+                    <p class="pull-right">
+                        School Application, &copy 2016. All rights reserved
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+
+        </div>
+        <!-- /page content -->
+    </div>
+</div>
