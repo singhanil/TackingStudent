@@ -104,6 +104,7 @@
                             $scope.hasStudData = false;
                         }
                         else {
+                            debugger
                             $scope.hasStudData = true;
                             $scope.Studentlist = result.data.Students;
                         }
@@ -204,6 +205,7 @@
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
+            plugins: [new ngGridFlexibleHeightPlugin()],
             columnDefs: [{ field: "StudentName", displayName: "Student Name", cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowStudDetails(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
                          { field: "StudentId", displayName: "Student Id" },
                          { field: "SchoolName", displayName: "School Name" },

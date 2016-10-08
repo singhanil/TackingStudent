@@ -15,18 +15,18 @@
         $scope.Statelist = {};
         $scope.filterOption = {
             name: "",
-            classId: 0,
-            sectionId: 0
+            departmentId: "0"
+           
         };
         $scope.clearFilter = function () {
             $scope.filterOption = {
                 name: "",
-                classId: 0,
-                sectionId: 0
+                departmentId: "0"
+                
             };
         };
         $scope.validateFilterOption = function (filterObj) {
-            if (filterObj.name == "" && filterObj.departmentId == 0) {
+            if (filterObj.name == "" && (filterObj.departmentId == 0 || filterObj.departmentId == undefined)) {
                 return false;
             }
             else {
@@ -71,7 +71,9 @@
                         $rootScope.Logout();
                     }
                     else {
+                        debugger
                         $scope.Departmentlist = result.data.Departments;
+                        //$scope.Departmentlist.add();
                     }
                     //$scope.TagDetails = result.data.TagDetails;
                 }

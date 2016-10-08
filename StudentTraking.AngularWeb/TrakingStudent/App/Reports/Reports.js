@@ -2,7 +2,7 @@
     'use strict';
     var reports = function ($rootScope, $location, $scope, ReportsService, CommonService, $state) {
         var vm = $scope;
-        var stateName = $state.current.name == 'dashboard.monthlyattendance'?'Monthaly':'Yearly';
+        var stateName = $state.current.name == 'dashboard.monthlyattendance'?'Month':'Year';
         $scope.ReportData = {};
         $scope.hasReportData = true;
         $scope.loadClassSection = function () {

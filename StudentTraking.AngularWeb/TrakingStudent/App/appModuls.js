@@ -10,6 +10,7 @@
     "StudentTracking.timetable",
     "StudentTracking.syllabus",
     "StudentTracking.result",
+    "StudentTracking.notification",
     "StudentTracking.ngLoadingSpinner"
   ]);
 

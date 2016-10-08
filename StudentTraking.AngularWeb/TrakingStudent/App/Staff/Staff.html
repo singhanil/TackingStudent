@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="page-title">
+    <!--<div class="page-title">
         <div class="title_left">
             <h3>Staff Management</h3>
         </div>
@@ -45,7 +45,7 @@
         </div>
 
 
-    </div>
+    </div>-->
     <div class="clearfix"></div>
     <div class="row" ng-if="showAddStaff">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -71,7 +71,7 @@
                                 <input type="text" name="staffname" id="staffname" ng-model="StaffDetails.StaffName" required class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stdEmail">
                                 Email <span class="required" style="color:red;" ng-show="StaffAddEdit.stdEmail.$invalid">*</span>
@@ -230,7 +230,38 @@
     <div class="row" ng-if="!showAddStaff">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
-
+                <div class="x_title">
+                    <div id="SchoolNorecords" style="font-weight:bold; color:red; font-size:14px; text-align:center;" ng-show="ajaxError">Internal Server Error.</div>
+                    <h2>Staff List</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Search for..." ng-model="filterOption.name">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <select class="form-control" id="departmentlist" ng-model="filterOption.departmentId"
+                                            ng-options="c.ID as c.Name for c in Departmentlist">
+                                        <option value="">-- Select Department --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="button" ng-click="loadStaffList(User.SchoolId);" class="btn btn-primary">Clear</button>
+                                    <button type="button" ng-click="loadStaffBySearch(filterOption);" data-ng-disabled="filterOption.name==''&& (filterOption.departmentId=='0' || filterOption.departmentId=='' || filterOption.departmentId==undefined)" class="btn btn-primary">Go</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
                 <div class="x_content">
                     <div id="datatable-fixed-header_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                         <div class="row" style="display:none;">
@@ -241,8 +272,9 @@
                             </div>
                         </div><div class="row">
                             <div class="col-sm-5">
-                                <div class="dataTables_info" id="datatable-fixed-header_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
-                            </div><div class="col-sm-7">
+
+                            </div>
+                            <div class="col-sm-7">
                                 <div class="dataTables_paginate paging_simple_numbers" id="datatable-fixed-header_paginate" style="display:inline-flex;">
                                     <ul class="pagination" style="margin-top:20px;">
                                         <li>
@@ -250,18 +282,6 @@
                                                 <button ng-if="!showAddStaff" type="button" ng-click="ShowAddStaffForm();" class="btn btn-primary">Add Staff</button>
                                             </div>
                                         </li>
-                                    </ul>
-                                    <ul class="pagination">
-                                        <li class="paginate_button previous disabled" id="datatable-fixed-header_previous">
-                                            <a href="#" aria-controls="datatable-fixed-header" data-dt-idx="0" tabindex="0">Previous</a>
-                                        </li>
-                                        <li class="paginate_button active"><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="1" tabindex="0">1</a></li>
-                                        <li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="2" tabindex="0">2</a></li>
-                                        <li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="3" tabindex="0">3</a></li>
-                                        <li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="4" tabindex="0">4</a></li>
-                                        <li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="5" tabindex="0">5</a></li>
-                                        <li class="paginate_button "><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="6" tabindex="0">6</a></li>
-                                        <li class="paginate_button next" id="datatable-fixed-header_next"><a href="#" aria-controls="datatable-fixed-header" data-dt-idx="7" tabindex="0">Next</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -1,0 +1,138 @@
+﻿<div class="">
+    <div class="clearfix"></div>
+    <!--<div style="display:none;" id="datatable-fixed-header_wrapper" class="notificationPopUp dataTables_wrapper form-inline dt-bootstrap no-footer">-->
+    <div name="notificationmodal" class="modal fade" id="notificationmodal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Notification Form:</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="notificationForm" class="form-horizontal form-label-left" ng-submit="SendNotification(notificationForm.$valid,Notification, filterOption)" novalidate>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="schoolname">
+                                <span class="" style="color:red;" ng-show="ajaxError">Http request is failed.</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="studentname">
+                                Message Type <span class="required" style="color:red;" ng-show="notificationForm.notificationtype.$invalid">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                Email<input type="radio" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" id="email" value="Email" ng-required="!notificationForm.notificationtype" />
+                                Notification<input type="radio" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" id="notification" value="Notification" ng-required="!notificationForm.notificationtype" />
+                                Message<input type="radio" ng-model="Notification.MessageType" style="margin-left:5px;" class="flat" name="notificationtype" id="message" value="Message" ng-required="!notificationForm.notificationtype" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="classlist">
+                                Class <span class="required" style="color:red;" ng-show="notificationForm.classlist.$invalid">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <select class="form-control" name="classlist" id="classlist" ng-model="filterOption.classId" ng-change="loadStudentListBySearch(filterOption);"
+                                        ng-options="c.Id as c.Name for c in Classlist">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                            <label class="control-label col-md-1 col-sm-3 col-xs-12" for="studdivsion">
+                                Division <span class="required" style="color:red;" ng-show="notificationForm.studdivsion.$invalid">*</span>
+                            </label>
+                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                <select class="form-control" name="studdivsion" ng-model="filterOption.sectionId" ng-change="loadStudentListBySearch(filterOption);"
+                                        ng-options="s.Id as s.Name for s in Sectionlist">
+                                    <option value="">All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label ng-if="Notification.MessageType=='Email'" class="control-label col-md-3 col-sm-3 col-xs-12" for="classlist">
+                                Student List <span class="required" style="color:red;" ng-show="notificationForm.classlist.$invalid">*</span>
+                            </label>
+                            <div ng-if="Notification.MessageType=='Email'" class="col-md-3 col-sm-6 col-xs-12">
+                                <select class="form-control" name="classlist" id="classlist" ng-model="Notification.StudentId" required
+                                        ng-options="sl.StudentId as sl.StudentName for sl in Studentlist">
+                                    <option value="">-- All --</option>
+                                </select>
+                            </div>
+                            <label ng-class="(Notification.MessageType!='Email') ? 'col-md-3' : 'col-md-1'" class="control-label col-sm-3 col-xs-12" for="studdivsion">
+                                Attachment <span class="required" style="color:red;" ng-show="notificationForm.studdivsion.$invalid">*</span>
+                            </label>
+                            <div ng-class="(Notification.MessageType!='Email') ? 'col-md-3' : 'col-md-2'" class="col-sm-6 col-xs-12">
+                                <input type="file" name="attachment" id="attachment" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subject">
+                                Subject <span class="required" style="color:red;" ng-show="notificationForm.subject.$invalid">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="subject" id="subject" ng-model="Notification.Subject" required class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="message">
+                                Message <span class="required" style="color:red;" ng-show="notificationForm.message.$invalid">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <textarea type="text" rows="6" name="message" id="message" ng-model="Notification.MessageText" required class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button type="button" ng-click="CancelNotification();" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-success">Send</button>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--</div>-->
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <div style="font-weight:bold; color:red; font-size:14px; text-align:center;" ng-show="ajaxError">Internal Server Error.</div>
+                    <h2>Notifications</h2>
+                    <ul class="pagination" style="margin-top:0px;float:right;">
+                        <li>
+                            <div class="datatable-fixed-header">
+                               <button type="button" ng-click="showNotificationForm();" data-toggle="modal" data-target="#notificationmodal" class="btn btn-primary ng-scope">New Notification</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <ul class="nav nav-tabs">
+                        <li class="active" style="cursor:pointer;"><a data-toggle="tab" data-target="#sectionA">Message</a></li>
+                        <li style="cursor:pointer;"><a data-toggle="tab" data-target="#sectionB">Notification</a></li>
+                        <li style="cursor:pointer;"><a data-toggle="tab" data-target="#sectionC">Home Work</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="sectionA" class="tab-pane fade in active">
+                            <h3>Section A</h3>
+                            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                        </div>
+                        <div id="sectionB" class="tab-pane fade">
+                            <h3>Section B</h3>
+                            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                        </div>
+                        <div id="sectionC" class="tab-pane fade">
+                            <h3>Section C</h3>
+                            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                        </div>
+                       
+                    </div>
+                    
+            </div>
+        </div>
+    </div>
+</div>
+</div>

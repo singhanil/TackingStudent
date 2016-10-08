@@ -1,6 +1,7 @@
 ﻿(function (module) {
     "use strict";
     function config($urlRouterProvider, $locationProvider) {
+        debugger
         $urlRouterProvider.when("/dashboard", '/dashboard/main');
         $urlRouterProvider.otherwise('/login');
     }

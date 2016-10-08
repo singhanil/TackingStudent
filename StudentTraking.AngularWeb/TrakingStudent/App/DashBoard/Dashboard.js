@@ -7,7 +7,8 @@
         $scope.absentCount = 0;
         $scope.DailyReportData = {};
         $scope.hasDailyData = true;
-        $scope.loadClassSection = function () {
+                
+       $scope.loadClassSection = function () {
             $rootScope.ajaxError = false;
             CommonService.getCommonData().then(function (result) {
                 //$rootScope.ajaxError = false;
@@ -83,9 +84,7 @@
             $scope.selectedDivision = null;
             $scope.getDailyReportData();
         }
-        //$scope.getDailyReportDataBySearch = function (classId, sectionId) {
-        //    $scope.getDailyReportData(classId, sectionId);
-        //};
+        
         if ($rootScope.Classlist == undefined || $rootScope.Sectionlist == undefined) {
             $scope.loadClassSection();
         }

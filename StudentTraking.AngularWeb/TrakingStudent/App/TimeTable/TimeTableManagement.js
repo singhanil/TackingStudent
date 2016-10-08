@@ -85,6 +85,7 @@
             }
             $scope.TimeTablelist = {};
             TimeTableService.getTimeTableListBySearch(filterOption).then(function (result) {
+                debugger
                 $rootScope.ajaxError = false;
                 if (result != null) {
                     if (result.data.ErrorMessage == "Invalid or expired token") {

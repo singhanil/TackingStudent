@@ -68,6 +68,11 @@
             templateUrl: 'App/Reports/StudentReport.html'
             //controller: 'StudentManagement  as vm'
         })
+        .state('dashboard.notification', {
+            url: "/notifications",
+            templateUrl: 'App/Notification/Notifications.html',
+            controller: 'Notification  as vm'
+        })
 
     }
     module.run(function ($state) { })

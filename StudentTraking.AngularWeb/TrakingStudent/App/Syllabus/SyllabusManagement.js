@@ -9,9 +9,9 @@
         $scope.Classlist = {};
         $scope.Divisionlist = {};
         $scope.Sectionlist = {};
+        $scope.hasSyllabusData = false;
         $scope.filterOption = {
-            classId: 0,
-            sectionId: 0
+            classId: 0
         };
         $scope.clearFilter = function () {
             $scope.filterOption = {
@@ -20,7 +20,7 @@
             };
         };
         $scope.validateFilterOption = function (filterObj) {
-            if (filterObj.classId == 0 && filterObj.sectionId == 0) {
+            if ((filterObj.classId == 0 || filterObj.classId == undefined)) {
                 return false;
             }
             else {
@@ -51,9 +51,10 @@
         }
 
         $scope.loadSyllabusBySearch = function (filterOption) {
+            $scope.hasSyllabusData = false;
             var isFilterValid = $scope.validateFilterOption(filterOption);
             if (!isFilterValid) {
-                alert("Please select atleast one filter option");
+                alert("Please select class filter to search");
                 return false;
             }
             $scope.Syllabuslist = {};
@@ -65,6 +66,7 @@
                         $rootScope.Logout();
                     }
                     else {
+                        debugger
                         $scope.Syllabuslist = result.data.Syllabus;
                     }
                 }
@@ -93,7 +95,7 @@
         }
 
         $scope.loadCommonData();
-
+        $scope.loadSyllabusBySearch(0,0);
         $scope.AddSyllabusCancel = function () {
             $scope.SyllabusDetail = {};
             $scope.SyllabusDetail.SchoolId = $rootScope.User.SchoolId;

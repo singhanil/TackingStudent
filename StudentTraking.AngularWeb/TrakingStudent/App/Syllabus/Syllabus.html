@@ -6,28 +6,28 @@
                 <li>
                     <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <select class="form-control" id="classlist" ng-model="selctedClass"
+                            <select class="form-control" id="classlist" ng-model="filterOption.classId"
                                     ng-options="c.Id as c.Name for c in Classlist">
                                 <option value="">-- Select Class --</option>
                             </select>
                         </div>
                     </div>
                 </li>
-                <li class="dropdown">
+                <!--<li class="dropdown">
                     <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <select class="form-control" ng-model="selectedDivision"
+                            <select class="form-control" ng-model="filterOption.sectionId"
                                     ng-options="s.Id as s.Name for s in Sectionlist">
                                 <option value="">-- Select Division --</option>
                             </select>
                         </div>
                     </div>
-                </li>
+                </li>-->
                 <li class="dropdown">
                     <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <button type="button" ng-click="clearReportFilter()" class="btn btn-primary">Clear</button>
-                            <button type="button" ng-click="loadSyllabusBySearch(selctedClass,selectedDivision);" data-ng-disabled="selctedClass==undefined || selectedDivision==undefined" class="btn btn-success">GO</button>
+                            <button type="button" ng-click="loadSyllabusBySearch(filterOption);" data-ng-disabled="(filterOption.classId==0 || filterOption.classId==undefined)" class="btn btn-success">GO</button>
                         </div>
                     </div>
                 </li>
@@ -38,7 +38,7 @@
             <div id="datatable-fixed-header_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                 <div class="row">
                     <div class="col-sm-12" style="max-height:600px;">
-                        <div id="SyllabusNorecords" style="font-weight:bold; color:red; font-size:20px; text-align:center;" ng-show="!hasSyllabusData">No record found!</div>
+                        <div id="SyllabusNorecords" style="font-weight:bold; color:red; font-size:20px; text-align:center;" ng-show="!hasSyllabusData">No record found Please change search creteria!</div>
                         <div id="syllabus" style="max-height:600px;" ng-grid="Syllabusgrid" class="table table-striped table-bordered dataTable no-footer" ng-show="hasSyllabusData"></div>
                     </div>
                 </div>
