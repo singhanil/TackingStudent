@@ -3,8 +3,8 @@
 
     function constant($rootScope) {
         //#region Api's
-        var studentTrakingApiUrl = "http://localhost/Learn";
-        //var studentTrakingApiUrl = "http://www.octosoftlabs.com";
+        //var studentTrakingApiUrl = "http://localhost/Learn";
+        var studentTrakingApiUrl = "http://www.octosoftlab.com";
         //var studentTrakingApiUrl = "http://localhost/Learn";
         var getLoginUrl = "/api/Security/";
         var getStatesUrl = "/api/Common/GetStates/";

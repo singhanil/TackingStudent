@@ -177,6 +177,19 @@
             $('#myNotificationTextModal').modal('show');
         };
         $scope.showNotificationForm = function () {
+            $scope.Notification = {
+                MessageType: '',
+                ClassId: 0,
+                SectionId: 0,
+                StudentId: 0,
+                Subject: null,
+                MessageText: null
+            };
+            $scope.filterOption = {
+                name: "",
+                classId: 0,
+                sectionId: 0
+            };
             $('#myNotificationModal').modal('show');
         };
         $scope.notifyToAdmin = function () {

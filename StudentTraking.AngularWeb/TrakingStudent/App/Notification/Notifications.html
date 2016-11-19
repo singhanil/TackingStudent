@@ -6,7 +6,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Notification Form:</h4>
+                    <h4 class="modal-title" id="myModalLabel">New Notification:</h4>
                 </div>
                 <div class="modal-body">
                     <form name="notificationForm" class="form-horizontal form-label-left" ng-submit="SendNotification(notificationForm.$valid,Notification, filterOption)" novalidate>
@@ -22,7 +22,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 Email<input type="radio" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" id="email" value="Email" ng-required="!notificationForm.notificationtype" />
                                 Notification<input type="radio" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" id="notification" value="Notification" ng-required="!notificationForm.notificationtype" />
-                                Message<input type="radio" ng-model="Notification.MessageType" style="margin-left:5px;" class="flat" name="notificationtype" id="message" value="Message" ng-required="!notificationForm.notificationtype" />
+                                Home Work<input type="radio" ng-model="Notification.MessageType" style="margin-left:5px;" class="flat" name="notificationtype" id="message" value="Message" ng-required="!notificationForm.notificationtype" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -81,7 +81,7 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="button" ng-click="CancelNotification();" class="btn btn-primary">Cancel</button>
+                                <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
                                 <button type="submit" class="btn btn-success">Send</button>
 
                             </div>
