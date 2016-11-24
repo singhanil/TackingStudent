@@ -7,7 +7,7 @@
        
         var getNotifications = function () {
             var APIURL = _constant.get("studenttrakingurl");
-            var url = APIURL + _constant.get("notificationurl") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId + '/' + $rootScope.User.Id;
+            var url = APIURL + _constant.get("getnotifications") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId + '/' + $rootScope.User.Id;
             return $http({
                 url: url,
                 method: "GET"

@@ -20,9 +20,9 @@
                                 Message Type <span class="required" style="color:red;" ng-show="notificationForm.notificationtype.$invalid">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                Email<input type="radio" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" id="email" value="Email" ng-required="!notificationForm.notificationtype" />
-                                Notification<input type="radio" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" id="notification" value="Notification" ng-required="!notificationForm.notificationtype" />
-                                Home Work<input type="radio" ng-model="Notification.MessageType" style="margin-left:5px;" class="flat" name="notificationtype" id="message" value="Message" ng-required="!notificationForm.notificationtype" />
+                                Email<input type="radio" id="mType" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" value="Message" ng-required="!notificationForm.notificationtype" />
+                                Notification<input type="radio" id="nType" ng-model="Notification.MessageType" style="margin-right:30px;margin-left:5px;" class="flat" name="notificationtype" value="Notification" ng-required="!notificationForm.notificationtype" />
+                                Home Work<input type="radio" id="hType" ng-model="Notification.MessageType" style="margin-left:5px;" class="flat" name="notificationtype" value="Homework" ng-required="!notificationForm.notificationtype" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -46,19 +46,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label ng-if="Notification.MessageType=='Email'" class="control-label col-md-3 col-sm-3 col-xs-12" for="classlist">
+                            <label ng-if="Notification.MessageType=='Message'" class="control-label col-md-3 col-sm-3 col-xs-12" for="classlist">
                                 Student List <span class="required" style="color:red;" ng-show="notificationForm.classlist.$invalid">*</span>
                             </label>
-                            <div ng-if="Notification.MessageType=='Email'" class="col-md-3 col-sm-6 col-xs-12">
+                            <div ng-if="Notification.MessageType=='Message'" class="col-md-3 col-sm-6 col-xs-12">
                                 <select class="form-control" name="classlist" id="classlist" ng-model="Notification.StudentId" required
                                         ng-options="sl.StudentId as sl.StudentName for sl in Studentlist">
                                     <option value="">-- All --</option>
                                 </select>
                             </div>
-                            <label ng-class="(Notification.MessageType!='Email') ? 'col-md-3' : 'col-md-1'" class="control-label col-sm-3 col-xs-12" for="studdivsion">
+                            <label ng-class="(Notification.MessageType !='Message') ? 'col-md-3' : 'col-md-1'" class="control-label col-sm-3 col-xs-12" for="studdivsion">
                                 Attachment <span class="required" style="color:red;" ng-show="notificationForm.studdivsion.$invalid">*</span>
                             </label>
-                            <div ng-class="(Notification.MessageType!='Email') ? 'col-md-3' : 'col-md-2'" class="col-sm-6 col-xs-12">
+                            <div ng-class="(Notification.MessageType !='Message') ? 'col-md-3' : 'col-md-2'" class="col-sm-6 col-xs-12">
                                 <input type="file" name="attachment" id="attachment" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                 <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
-                                <button type="submit" class="btn btn-success">Send</button>
+                                <button type="submit" data-ng-disabled="notificationForm.$invalid" class="btn btn-success">Send</button>
 
                             </div>
                         </div>
@@ -117,16 +117,28 @@
                     </ul>
                     <div class="tab-content">
                         <div id="sectionA" class="tab-pane fade in active">
-                            <h3>Section A</h3>
-                            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-sm-12" style="max-height:600px;">
+                                    <div style="font-weight:bold; color:red; font-size:20px; text-align:center;" ng-if="MessageList.length <= 0">No record found!</div>
+                                    <div style="max-height:600px;" ng-grid="Messagegrid" class="table table-striped table-bordered dataTable no-footer" ng-if="MessageList.length > 0"></div>
+                                </div>
+                            </div>
                         </div>
                         <div id="sectionB" class="tab-pane fade">
-                            <h3>Section B</h3>
-                            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-sm-12" style="max-height:600px;">
+                                    <div style="font-weight:bold; color:red; font-size:20px; text-align:center;" ng-if="NotificationList.length <= 0">No record found!</div>
+                                    <div style="max-height:600px;" ng-grid="Notificationgrid" class="table table-striped table-bordered dataTable no-footer" ng-if="NotificationList.length > 0"></div>
+                                </div>
+                            </div>
                         </div>
                         <div id="sectionC" class="tab-pane fade">
-                            <h3>Section C</h3>
-                            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-sm-12" style="max-height:600px;">
+                                    <div style="font-weight:bold; color:red; font-size:20px; text-align:center;" ng-if="HomeworkList.length <= 0">No record found!</div>
+                                    <div style="max-height:600px;" ng-grid="Homeworkgrid" class="table table-striped table-bordered dataTable no-footer" ng-if="HomeworkList.length > 0"></div>
+                                </div>
+                            </div>
                         </div>
                        
                     </div>

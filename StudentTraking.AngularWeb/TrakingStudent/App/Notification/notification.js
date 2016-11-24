@@ -9,7 +9,7 @@
     var notification = function ($rootScope, $scope, NotificationService, CommonService, StudentService) {
         var vm = $scope;
         $scope.Notification = {
-            MessageType: '',
+            MessageType: 'Message',
             ClassId: 0,
             SectionId: 0,
             StudentId: 0,
@@ -105,51 +105,38 @@
                         $scope.Logout();
                     }
                     else {
-                        $rootScope.Notifications = result.data.Notifications;
-                        var newNotification = $.grep(result.data.Notifications, function (n, i) {
+                        //$rootScope.Notifications = result.data.Notifications;
+                        var newNotification = $.grep(result.data.List, function (n, i) {
                             return n.IsNew === true;
                         });
-                        $rootScope.NotificationCount = $(newNotification).length;
+                        $scope.MessageList = $.grep(newNotification, function (n, i) {
+                            return n.MessageType === 'Message';
+                        });
+                        $scope.NotificationList = $.grep(newNotification, function (n, i) {
+                            return n.MessageType === 'Notification';
+                        });
+                        $scope.HomeworkList = $.grep(newNotification, function (n, i) {
+                            return n.MessageType === 'Homework';
+                        });
+                        //$rootScope.NotificationCount = $(newNotification).length;
                     }
                 }
             }, function (result) {
                 $rootScope.ajaxError = true;
-                $scope.loadCommonData();
+                //$scope.loadCommonData();
             });
         };
-        //$scope.sendNotification = function (notificationText) {
-        //    NotificationService.sendNotifications().then(function (result) {
-        //        $scope.ajaxError = false;
-        //        if (result != null) {
-        //            if (result.data.ErrorMessage == "Invalide security token") {
-        //                alert(result.data.ErrorMessage);
-        //                $scope.Logout();
-        //            }
-        //            else {
-        //                alert("notification send.");
-        //                $scope.notificationtext = "";
-        //                $('#mynotificationmodal').modal('hide');
-        //                $scope.getNotificationList();
-        //            }
-        //        }
-        //    }, function (result) {
-        //        $rootScope.ajaxError = true;
-        //    });
-        //};
-        //if ($rootScope.Notifications == null) {
-        //    $scope.getNotificationList();
-        //}
         $scope.showNotificationForm = function () {
             //$('#myNotificationTextModal').modal('show');
             //$("#myModal").modal('show');
         };
-        
+        $scope.getNotificationList();
         if ($rootScope.Classlist == undefined || $rootScope.Sectionlist == undefined) {
             $scope.loadCommonData();
-            $scope.Classlist = $rootScope.Classlist;
-            $scope.Sectionlist = $rootScope.Sectionlist;
         }
         else {
+            $scope.Classlist = $rootScope.Classlist;
+            $scope.Sectionlist = $rootScope.Sectionlist;
             $scope.loadStudentList($rootScope.User.SchoolId);
         }
         $scope.SendNotification = function (isvalid, Notification, filterOption) {
@@ -169,16 +156,9 @@
                 $rootScope.ajaxError = true;
             });
         };
-        $scope.ShowFullText = function (textMessage) {
-            if (textMessage.length <= 65) {
-                return false;
-            }
-            $scope.myNotificationText = textMessage;
-            $('#myNotificationTextModal').modal('show');
-        };
         $scope.showNotificationForm = function () {
             $scope.Notification = {
-                MessageType: '',
+                MessageType: 'Message',
                 ClassId: 0,
                 SectionId: 0,
                 StudentId: 0,
@@ -192,28 +172,40 @@
             };
             $('#myNotificationModal').modal('show');
         };
-        $scope.notifyToAdmin = function () {
-            alert("notification send.");
-            $scope.notificationtext = "";
-            $('#mynotificationmodal').modal('hide');
-            //$scope.sendNotification($scope.notificationText);
-        };
         $scope.cancelNotification = function () {
             $scope.notificationText = "";
             $('#myNotificationModal').modal('hide');
         };
 
-        $scope.Studentgrid = {
-            data: 'Studentlist',
+        $scope.Messagegrid = {
+            data: 'MessageList',
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
-            columnDefs: [{ field: "StudentName", displayName: "Student Name", cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowResult(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
-                         { field: "StudentId", displayName: "Student Id" },
-                         { field: "ClassName", displayName: "Class" },
-                         { field: "SectionName", displayName: "Section" },
-                         { field: "ParentName", displayName: "Parent Name" },
-                         { field: "ParentMobileNo", displayName: "Parent MobileNo" }]
+            plugins: [new ngGridFlexibleHeightPlugin()],
+            columnDefs: [{ field: "Sender", displayName: "From" },
+                         { field: "Subject", displayName: "Subject" },
+                         { field: "SentDate", displayName: "Date", cellFilter: 'date:\'MM/dd/yyyy\'' }]
+        };
+        $scope.Notificationgrid = {
+            data: 'NotificationList',
+            enableSorting: true,
+            enableRowSelection: false,
+            enableColumnResize: true,
+            plugins: [new ngGridFlexibleHeightPlugin()],
+            columnDefs: [{ field: "Sender", displayName: "From" },
+                         { field: "Subject", displayName: "Subject" },
+                         { field: "SentDate", displayName: "Date" }]
+        };
+        $scope.Homeworkgrid = {
+            data: 'HomeworkList',
+            enableSorting: true,
+            enableRowSelection: false,
+            enableColumnResize: true,
+            plugins: [new ngGridFlexibleHeightPlugin()],
+            columnDefs: [{ field: "Sender", displayName: "From" },
+                         { field: "Subject", displayName: "Subject" },
+                         { field: "SentDate", displayName: "Date" }]
         };
     }
     module.controller('Notification', ['$rootScope', '$scope', 'NotificationService', 'CommonService', 'StudentService', notification]);

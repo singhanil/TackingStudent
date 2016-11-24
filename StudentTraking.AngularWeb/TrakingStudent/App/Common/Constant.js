@@ -25,6 +25,7 @@
         var saveSyllabusUrl = "/api/Syllabus/SaveBulk";
         var getDepartmentUrl = "/api/Staff/Department/";
         var saveAttachmentUrl = "/api/Notification";
+        var getNotificationUrl = "/api/Communication/";
         //#endregion
         var getConstant = function (key) {
             var _constant = "";
@@ -94,6 +95,9 @@
                     break;
                 case 'saveattachment':
                     _constant = saveAttachmentUrl;
+                    break;
+                case 'getnotifications':
+                    _constant = getNotificationUrl;
                     break;
                 default:
                     break;

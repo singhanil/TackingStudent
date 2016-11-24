@@ -108,6 +108,8 @@
     <Content Include="App\Login\Login.js" />
     <Content Include="App\Login\LoginModule.js" />
     <Content Include="App\Login\LoginStates.js" />
+    <Content Include="App\Notification\notification.js" />
+    <Content Include="App\Notification\Notifications.html" />
     <Content Include="App\Reports\MonthlyAttendance.html" />
     <Content Include="App\Reports\OtherReport.html" />
     <Content Include="App\Reports\ReportModule.js" />
@@ -125,6 +127,7 @@
     <Content Include="App\Services\CommonService.js" />
     <Content Include="App\Services\DashBoardService.js" />
     <Content Include="App\Services\LoginService.js" />
+    <Content Include="App\Services\NotificationService.js" />
     <Content Include="App\Services\ReportsService.js" />
     <Content Include="App\Services\ResultService.js" />
     <Content Include="App\Services\SchoolServive.js" />
