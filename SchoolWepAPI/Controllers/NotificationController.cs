@@ -43,21 +43,42 @@ namespace SchoolWepAPI.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage Save(NotificationRequest req)
+        public HttpResponseMessage Save()
         {
-            NotificationSaveResponse res = new NotificationSaveResponse{Status="OK"};
-            if (IsValid(req.SecurityToken))
+           
+            var studentSvc = new NotificationService(this._dbContext);
+            NotificationSaveResponse res = new NotificationSaveResponse { Status = "OK" };
+            var SecurityToken = System.Web.HttpContext.Current.Request.Form["SecurityToken"];
+            if (IsValid(SecurityToken))
             {
-                var studentSvc = new NotificationService(this._dbContext);
-                studentSvc.Save(req.Notification);
+                //var studentSvc = new NotificationService(this._dbContext);
+                var result = studentSvc.PostFormData();
+                res.ErrorMessage = result.ReasonPhrase;
+                //studentSvc.Save(req.Notification);
             }
             else
             {
                 res = new NotificationSaveResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
-                CurrentLoggerProvider.Info(string.Format("Invalid Request. Student Id: {0}", req.Notification.MessageId));
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. Student Id: {0}", 0));
             }
             return Request.CreateResponse(HttpStatusCode.OK, res);
         }
+        //[HttpPost]
+        //public HttpResponseMessage Save(NotificationRequest req)
+        //{
+        //    NotificationSaveResponse res = new NotificationSaveResponse { Status = "OK" };
+        //    if (IsValid(req.SecurityToken))
+        //    {
+        //        var studentSvc = new NotificationService(this._dbContext);
+        //        studentSvc.Save(req.Notification);
+        //    }
+        //    else
+        //    {
+        //        res = new NotificationSaveResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+        //        CurrentLoggerProvider.Info(string.Format("Invalid Request. Student Id: {0}", req.Notification.MessageId));
+        //    }
+        //    return Request.CreateResponse(HttpStatusCode.OK, res);
+        //}
         private bool IsValid(string securityToken)
         {
             ISecurity auth = new SecurityService(this._dbContext);

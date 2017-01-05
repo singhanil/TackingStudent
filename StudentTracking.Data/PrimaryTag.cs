@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
 namespace StudentTracking.Data
 {
     using System;
@@ -16,23 +14,10 @@ namespace StudentTracking.Data
     
     public partial class PrimaryTag
     {
-        public PrimaryTag()
-        {
-            this.StaffDetails = new HashSet<StaffDetail>();
-            this.StudentAttendances = new HashSet<StudentAttendance>();
-            this.StudentDetails = new HashSet<StudentDetail>();
-        }
-    
         public long Id { get; set; }
-        [Display(Name = "Tag Id")]
         public string TagId { get; set; }
-        [Display(Name = "IP Address")]
         public string IP_Address { get; set; }
         public string TagInformation1 { get; set; }
         public string TagInformation2 { get; set; }
-    
-        public virtual ICollection<StaffDetail> StaffDetails { get; set; }
-        public virtual ICollection<StudentAttendance> StudentAttendances { get; set; }
-        public virtual ICollection<StudentDetail> StudentDetails { get; set; }
     }
 }

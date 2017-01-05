@@ -57,6 +57,12 @@
     <Compile Include="Class.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="CommunicationInfo.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationTracking.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Country.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
@@ -72,7 +78,16 @@
     <Compile Include="Message.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="MessageTemplate.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Organization.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrimaryTag.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +95,9 @@
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="SchoolBranch.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecondaryTag.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
     <Compile Include="Section.cs">

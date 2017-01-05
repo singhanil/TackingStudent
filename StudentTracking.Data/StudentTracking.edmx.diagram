@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="587926560e7d440c9f1fe467c8a9ea71" Name="Diagram1" ZoomLevel="93">
+      <Diagram DiagramId="587926560e7d440c9f1fe467c8a9ea71" Name="Diagram1" ZoomLevel="65">
         <EntityTypeShape EntityType="StudentTrackingModel.Class" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentTrackingModel.School" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentTrackingModel.Section" Width="1.5" PointX="3.75" PointY="4.25" IsExpanded="true" />
@@ -64,6 +64,13 @@
         <AssociationConnector Association="StudentTrackingModel.FK__StudentRe__Stude__4C6B5938" />
         <AssociationConnector Association="StudentTrackingModel.FK__StudentRe__Semes__4D5F7D71" />
         <AssociationConnector Association="StudentTrackingModel.FK__StudentRe__Subje__4E53A1AA" />
+        <EntityTypeShape EntityType="StudentTrackingModel.CommunicationInfo" Width="1.5" PointX="13.375" PointY="1.375" />
+        <EntityTypeShape EntityType="StudentTrackingModel.CommunicationTracking" Width="1.5" PointX="15.625" PointY="1" />
+        <EntityTypeShape EntityType="StudentTrackingModel.MessageTemplate" Width="1.5" PointX="13.375" PointY="5.75" />
+        <EntityTypeShape EntityType="StudentTrackingModel.PrimaryTag" Width="1.5" PointX="13.375" PointY="8.75" />
+        <AssociationConnector Association="StudentTrackingModel.FK__Communica__Messa__59C55456" />
+        <EntityTypeShape EntityType="StudentTrackingModel.SecondaryTag" Width="1.5" PointX="13.375" PointY="11.75" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Notification" Width="1.5" PointX="13.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

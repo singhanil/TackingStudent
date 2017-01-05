@@ -14,19 +14,10 @@ namespace StudentTracking.Data
     
     public partial class SecondaryTag
     {
-        public SecondaryTag()
-        {
-            this.StudentAttendances = new HashSet<StudentAttendance>();
-            this.StudentDetails = new HashSet<StudentDetail>();
-        }
-    
         public long Id { get; set; }
         public string TagId { get; set; }
         public string IP_Address { get; set; }
         public string TagInformation1 { get; set; }
         public string TagInformation2 { get; set; }
-    
-        public virtual ICollection<StudentAttendance> StudentAttendances { get; set; }
-        public virtual ICollection<StudentDetail> StudentDetails { get; set; }
     }
 }

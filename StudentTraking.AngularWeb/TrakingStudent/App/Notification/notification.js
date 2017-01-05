@@ -106,9 +106,10 @@
                     }
                     else {
                         //$rootScope.Notifications = result.data.Notifications;
-                        var newNotification = $.grep(result.data.List, function (n, i) {
-                            return n.IsNew === true;
-                        });
+                        var newNotification = result.data.Notifications;
+                        //$.grep(result.data.List, function (n, i) {
+                        //    return n.IsNew === true;
+                        //});
                         $scope.MessageList = $.grep(newNotification, function (n, i) {
                             return n.MessageType === 'Message';
                         });
@@ -127,7 +128,7 @@
             });
         };
         $scope.showNotificationForm = function () {
-            //$('#myNotificationTextModal').modal('show');
+            //$('#notificationmodal').modal('show');
             //$("#myModal").modal('show');
         };
         $scope.getNotificationList();
@@ -143,14 +144,28 @@
             debugger;
             Notification.ClassId = filterOption.classId;
             Notification.SectionId = filterOption.sectionId;
-            var objFiles = $("#attachment").prop("files");
+            var objFiles = $("#attachment").prop("files"); 
             var fd = new FormData();
+            fd.append("SecurityToken", $rootScope.User.SecurityToken);
+            fd.append("SchoolId", $rootScope.User.SchoolId);
             fd.append("file", objFiles[0]);
-            fd.append("data", JSON.stringify(Notification));
+            fd.append("MessageType", Notification.MessageType); 
+            fd.append("MessageText", Notification.MessageText);
+            fd.append("classId", Notification.ClassId);
+            fd.append("sectionId", Notification.SectionId);
+            fd.append("StudentId", Notification.StudentId);
+            fd.append("Subject", Notification.Subject);
             NotificationService.sendNotifications(fd).then(function (result) {
                 $scope.ajaxError = false;
                 if (result != null) {
-                    alert("file uploaded");
+                    if (result.data.ErrorMessage == "Invalide security token" || result.data.ErrorMessage == "Invalid or expired token") {
+                        alert(result.data.ErrorMessage);
+                        $scope.Logout();
+                    }
+                    else {
+                        $scope.getNotificationList();
+                        $('#notificationmodal').modal('hide');
+                    }
                 }
             }, function (result) {
                 $rootScope.ajaxError = true;
@@ -183,9 +198,9 @@
             enableRowSelection: false,
             enableColumnResize: true,
             plugins: [new ngGridFlexibleHeightPlugin()],
-            columnDefs: [{ field: "Sender", displayName: "From" },
-                         { field: "Subject", displayName: "Subject" },
-                         { field: "SentDate", displayName: "Date", cellFilter: 'date:\'MM/dd/yyyy\'' }]
+            columnDefs: [{ field: "Subject", displayName: "Subject" },
+                         { field: "MessageText", displayName: "Message" },
+                         { field: "CreatedDate", displayName: "Date", cellFilter: 'date:\'MM/dd/yyyy\'' }]
         };
         $scope.Notificationgrid = {
             data: 'NotificationList',
@@ -193,9 +208,9 @@
             enableRowSelection: false,
             enableColumnResize: true,
             plugins: [new ngGridFlexibleHeightPlugin()],
-            columnDefs: [{ field: "Sender", displayName: "From" },
-                         { field: "Subject", displayName: "Subject" },
-                         { field: "SentDate", displayName: "Date" }]
+            columnDefs: [{ field: "Subject", displayName: "Subject" },
+                        { field: "MessageText", displayName: "Message" },
+                        { field: "CreatedDate", displayName: "Date", cellFilter: 'date:\'MM/dd/yyyy\'' }]
         };
         $scope.Homeworkgrid = {
             data: 'HomeworkList',
@@ -203,9 +218,9 @@
             enableRowSelection: false,
             enableColumnResize: true,
             plugins: [new ngGridFlexibleHeightPlugin()],
-            columnDefs: [{ field: "Sender", displayName: "From" },
-                         { field: "Subject", displayName: "Subject" },
-                         { field: "SentDate", displayName: "Date" }]
+            columnDefs: [{ field: "Subject", displayName: "Subject" },
+                        { field: "MessageText", displayName: "Message" },
+                        { field: "CreatedDate", displayName: "Date", cellFilter: 'date:\'MM/dd/yyyy\'' }]
         };
     }
     module.controller('Notification', ['$rootScope', '$scope', 'NotificationService', 'CommonService', 'StudentService', notification]);

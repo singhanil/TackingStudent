@@ -46,6 +46,7 @@ namespace StudentTracking.Data
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime ModifiedDate { get; set; }
         public int ID { get; set; }
+        public string AppId { get; set; }
     
         public virtual Organization Organization { get; set; }
         public virtual Theme Theme { get; set; }

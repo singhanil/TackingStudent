@@ -52,6 +52,12 @@ namespace StudentTracking.Data
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<SemesterDetail> SemesterDetails { get; set; }
         public virtual DbSet<StudentResult1> StudentResult1 { get; set; }
+        public virtual DbSet<CommunicationInfo> CommunicationInfoes { get; set; }
+        public virtual DbSet<CommunicationTracking> CommunicationTrackings { get; set; }
+        public virtual DbSet<MessageTemplate> MessageTemplates { get; set; }
+        public virtual DbSet<PrimaryTag> PrimaryTags { get; set; }
+        public virtual DbSet<SecondaryTag> SecondaryTags { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
     
         public virtual ObjectResult<sp_InsertUpdateAttendance_Result> sp_InsertUpdateAttendance(string tagId, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, Nullable<bool> isInTime, string ipAddress)
         {

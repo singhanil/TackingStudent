@@ -4,8 +4,8 @@
     function constant($rootScope) {
         //#region Api's
         //var studentTrakingApiUrl = "http://localhost/Learn";
-        var studentTrakingApiUrl = "http://www.octosoftlab.com";
-        //var studentTrakingApiUrl = "http://localhost/Learn";
+        //var studentTrakingApiUrl = "http://www.octosoftlab.com";
+        var studentTrakingApiUrl = "http://localhost/Learn";
         var getLoginUrl = "/api/Security/";
         var getStatesUrl = "/api/Common/GetStates/";
         var getOrganisationUrl = "/api/Organization/";
@@ -25,7 +25,7 @@
         var saveSyllabusUrl = "/api/Syllabus/SaveBulk";
         var getDepartmentUrl = "/api/Staff/Department/";
         var saveAttachmentUrl = "/api/Notification";
-        var getNotificationUrl = "/api/Communication/";
+        var getNotificationUrl = "/api/Notification/Mobile/";
         //#endregion
         var getConstant = function (key) {
             var _constant = "";

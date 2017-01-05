@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="StudentTrackingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StudentTrackingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="Id" />
@@ -33,6 +33,19 @@ warning 6002: The table/view 'octosoftlab.dbo.Message' does not have a primary k
           <Property Name="Message" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="MessageCode" Type="nchar" MaxLength="10" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.PrimaryTag' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PrimaryTag">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="TagId" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IP Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="TagInformation1" Type="nvarchar" MaxLength="50" />
+          <Property Name="TagInformation2" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="School">
           <Key>
             <PropertyRef Name="ID" />
@@ -58,6 +71,7 @@ warning 6002: The table/view 'octosoftlab.dbo.Message' does not have a primary k
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppId" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'octosoftlab.dbo.SchoolBranch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -71,6 +85,19 @@ warning 6002: The table/view 'octosoftlab.dbo.SchoolBranch' does not have a prim
           <Property Name="SchoolId" Type="int" />
           <Property Name="Contact Detail" Type="nvarchar" MaxLength="500" />
           <Property Name="Branch Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'octosoftlab.dbo.SecondaryTag' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SecondaryTag">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="TagId" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IP Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="TagInformation1" Type="nvarchar" MaxLength="50" />
+          <Property Name="TagInformation2" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Section">
           <Key>
@@ -161,6 +188,41 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="CommunicationInfo">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="ToList" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CCList" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RefNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="AttachmentCount" Type="int" />
+          <Property Name="MessageTyppe" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SentDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommunicationTracking">
+          <Key>
+            <PropertyRef Name="MessageId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="MessageId" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RefNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="AttachmentCount" Type="int" />
+          <Property Name="MessageTyppe" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="ReadDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="RelatedMsgId" Type="nvarchar" MaxLength="40" />
+          <Property Name="SentDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="ID" />
@@ -185,6 +247,32 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="IsActive" Type="char" MaxLength="1" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MessageTemplates">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="Body" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolId" Type="int" Nullable="false" />
+          <Property Name="ClassId" Type="int" />
+          <Property Name="SectionId" Type="int" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="50" />
+          <Property Name="MessageType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="300" />
+          <Property Name="MessageText" Type="nvarchar(max)" />
+          <Property Name="FilePath" Type="varchar" MaxLength="300" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Organizations">
           <Key>
@@ -323,6 +411,18 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <Property Name="ClassId" Type="int" />
           <Property Name="SectionId" Type="int" />
         </EntityType>
+        <Association Name="FK__Communica__Messa__59C55456">
+          <End Role="CommunicationInfo" Type="Self.CommunicationInfo" Multiplicity="1" />
+          <End Role="CommunicationTracking" Type="Self.CommunicationTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommunicationInfo">
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CommunicationTracking">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__School__Organiza__31EC6D26">
           <End Role="Organizations" Type="Self.Organizations" Multiplicity="1" />
           <End Role="School" Type="Self.School" Multiplicity="*" />
@@ -757,9 +857,13 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <EntitySet Name="StaffDetail" EntityType="Self.StaffDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentDetail" EntityType="Self.StudentDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AuthTickets" EntityType="Self.AuthTickets" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="CommunicationInfo" EntityType="Self.CommunicationInfo" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="CommunicationTracking" EntityType="Self.CommunicationTracking" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="LectureDuration" EntityType="Self.LectureDuration" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="MessageTemplates" EntityType="Self.MessageTemplates" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="SemesterDetails" EntityType="Self.SemesterDetails" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="StudentResult" EntityType="Self.StudentResult" Schema="octosoftlab" store:Type="Tables" />
@@ -785,6 +889,15 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
     [Message].[MessageCode] AS [MessageCode]
     FROM [dbo].[Message] AS [Message]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="PrimaryTag" EntityType="Self.PrimaryTag" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PrimaryTag].[Id] AS [Id], 
+    [PrimaryTag].[TagId] AS [TagId], 
+    [PrimaryTag].[IP Address] AS [IP Address], 
+    [PrimaryTag].[TagInformation1] AS [TagInformation1], 
+    [PrimaryTag].[TagInformation2] AS [TagInformation2]
+    FROM [dbo].[PrimaryTag] AS [PrimaryTag]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="SchoolBranch" EntityType="Self.SchoolBranch" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [SchoolBranch].[Id] AS [Id], 
@@ -794,6 +907,15 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
     [SchoolBranch].[Contact Detail] AS [Contact Detail], 
     [SchoolBranch].[Branch Code] AS [Branch Code]
     FROM [dbo].[SchoolBranch] AS [SchoolBranch]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SecondaryTag" EntityType="Self.SecondaryTag" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SecondaryTag].[Id] AS [Id], 
+    [SecondaryTag].[TagId] AS [TagId], 
+    [SecondaryTag].[IP Address] AS [IP Address], 
+    [SecondaryTag].[TagInformation1] AS [TagInformation1], 
+    [SecondaryTag].[TagInformation2] AS [TagInformation2]
+    FROM [dbo].[SecondaryTag] AS [SecondaryTag]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="StudentAttendance" EntityType="Self.StudentAttendance" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -825,6 +947,10 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
     [States].[CountryCode] AS [CountryCode]
     FROM [octosoftlab].[States] AS [States]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__Communica__Messa__59C55456" Association="Self.FK__Communica__Messa__59C55456">
+            <End Role="CommunicationInfo" EntitySet="CommunicationInfo" />
+            <End Role="CommunicationTracking" EntitySet="CommunicationTracking" />
+          </AssociationSet>
           <AssociationSet Name="FK__School__Organiza__31EC6D26" Association="Self.FK__School__Organiza__31EC6D26">
             <End Role="Organizations" EntitySet="Organizations" />
             <End Role="School" EntitySet="School" />
@@ -1016,6 +1142,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <NavigationProperty Name="TimeTables" Relationship="StudentTrackingModel.FK__TimeTable__Schoo__2739D489" FromRole="School" ToRole="TimeTable" />
           <NavigationProperty Name="SemesterDetails" Relationship="StudentTrackingModel.FK__SemesterD__Schoo__43D61337" FromRole="School" ToRole="SemesterDetail" />
           <NavigationProperty Name="StudentResults" Relationship="StudentTrackingModel.FK__StudentRe__Schoo__4B7734FF" FromRole="School" ToRole="StudentResult1" />
+          <Property Name="AppId" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Section">
           <Key>
@@ -1703,6 +1830,16 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="StudentResult1" EntitySet="StudentResult1" />
           </AssociationSet>
+          <EntitySet Name="CommunicationInfoes" EntityType="StudentTrackingModel.CommunicationInfo" />
+          <EntitySet Name="CommunicationTrackings" EntityType="StudentTrackingModel.CommunicationTracking" />
+          <EntitySet Name="MessageTemplates" EntityType="StudentTrackingModel.MessageTemplate" />
+          <EntitySet Name="PrimaryTags" EntityType="StudentTrackingModel.PrimaryTag" />
+          <AssociationSet Name="FK__Communica__Messa__59C55456" Association="StudentTrackingModel.FK__Communica__Messa__59C55456">
+            <End Role="CommunicationInfo" EntitySet="CommunicationInfoes" />
+            <End Role="CommunicationTracking" EntitySet="CommunicationTrackings" />
+          </AssociationSet>
+          <EntitySet Name="SecondaryTags" EntityType="StudentTrackingModel.SecondaryTag" />
+          <EntitySet Name="Notifications" EntityType="StudentTrackingModel.Notification" />
         </EntityContainer>
         <Association Name="FK__StaffDeta__Count__18EBB532">
           <End Type="StudentTrackingModel.Country" Role="Country" Multiplicity="1" />
@@ -1929,6 +2066,103 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CommunicationInfo">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ToList" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CCList" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RefNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AttachmentCount" Type="Int32" />
+          <Property Name="MessageTyppe" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CommunicationTrackings" Relationship="StudentTrackingModel.FK__Communica__Messa__59C55456" FromRole="CommunicationInfo" ToRole="CommunicationTracking" />
+        </EntityType>
+        <EntityType Name="CommunicationTracking">
+          <Key>
+            <PropertyRef Name="MessageId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="MessageId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RefNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AttachmentCount" Type="Int32" />
+          <Property Name="MessageTyppe" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="ReadDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="RelatedMsgId" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="SentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CommunicationInfo" Relationship="StudentTrackingModel.FK__Communica__Messa__59C55456" FromRole="CommunicationTracking" ToRole="CommunicationInfo" />
+        </EntityType>
+        <EntityType Name="MessageTemplate">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PrimaryTag">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="TagId" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IP_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TagInformation1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TagInformation2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Communica__Messa__59C55456">
+          <End Type="StudentTrackingModel.CommunicationInfo" Role="CommunicationInfo" Multiplicity="1" />
+          <End Type="StudentTrackingModel.CommunicationTracking" Role="CommunicationTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CommunicationInfo">
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CommunicationTracking">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SecondaryTag">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="TagId" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IP_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TagInformation1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TagInformation2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="MessageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" />
+          <Property Name="SectionId" Type="Int32" />
+          <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MessageType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="MessageText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1946,6 +2180,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <EntitySetMapping Name="Schools">
             <EntityTypeMapping TypeName="StudentTrackingModel.School">
               <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BranchName" ColumnName="BranchName" />
                 <ScalarProperty Name="Address1" ColumnName="Address1" />
@@ -2270,6 +2505,92 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommunicationInfoes">
+            <EntityTypeMapping TypeName="StudentTrackingModel.CommunicationInfo">
+              <MappingFragment StoreEntitySet="CommunicationInfo">
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="MessageTyppe" ColumnName="MessageTyppe" />
+                <ScalarProperty Name="AttachmentCount" ColumnName="AttachmentCount" />
+                <ScalarProperty Name="RefNumber" ColumnName="RefNumber" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="CCList" ColumnName="CCList" />
+                <ScalarProperty Name="ToList" ColumnName="ToList" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommunicationTrackings">
+            <EntityTypeMapping TypeName="StudentTrackingModel.CommunicationTracking">
+              <MappingFragment StoreEntitySet="CommunicationTracking">
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="RelatedMsgId" ColumnName="RelatedMsgId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ReadDateTime" ColumnName="ReadDateTime" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="MessageTyppe" ColumnName="MessageTyppe" />
+                <ScalarProperty Name="AttachmentCount" ColumnName="AttachmentCount" />
+                <ScalarProperty Name="RefNumber" ColumnName="RefNumber" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageTemplates">
+            <EntityTypeMapping TypeName="StudentTrackingModel.MessageTemplate">
+              <MappingFragment StoreEntitySet="MessageTemplates">
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrimaryTags">
+            <EntityTypeMapping TypeName="StudentTrackingModel.PrimaryTag">
+              <MappingFragment StoreEntitySet="PrimaryTag">
+                <ScalarProperty Name="TagInformation2" ColumnName="TagInformation2" />
+                <ScalarProperty Name="TagInformation1" ColumnName="TagInformation1" />
+                <ScalarProperty Name="IP_Address" ColumnName="IP Address" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecondaryTags">
+            <EntityTypeMapping TypeName="StudentTrackingModel.SecondaryTag">
+              <MappingFragment StoreEntitySet="SecondaryTag">
+                <ScalarProperty Name="TagInformation2" ColumnName="TagInformation2" />
+                <ScalarProperty Name="TagInformation1" ColumnName="TagInformation1" />
+                <ScalarProperty Name="IP_Address" ColumnName="IP Address" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="StudentTrackingModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
