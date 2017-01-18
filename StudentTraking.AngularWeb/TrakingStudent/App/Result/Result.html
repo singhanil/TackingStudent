@@ -1,18 +1,40 @@
 ﻿<div class="">
     <div class="modal fade" id="myResultModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog" style="overflow:auto;">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Result</h4>
                 </div>
-                <div class="modal-body" ng-include src="'App/Result/StudentResult.html'">
+                <div class="modal-body">
+                    <div class="row"  ng-repeat="semister in ResultDetails">
+                        <div class="row" style="padding:0px 0px 5px 10px; font-size:15px; font-weight:bold; color:#1a5454">{{semister.SemesterName}}</div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No</th>
+                                    <th>Subject Name</th>
+                                    <th>Total Marks</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="result in semister.Result">
+                                <tr>
+                                    <td>{{$index}}</td>
+                                    <td>{{result.Subject}}</td>
+                                    <td>{{result.TotalMarks}}</td>
+                                    <td>{{result.Grade}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
-                <div class="modal-footer">
+                <!--<div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" ng-click="ShowResultEditForm()" class="btn btn-primary" ng-disabled="true">Edit</button>
                     <button type="button" ng-click="ShowAddResultForm()" class="btn btn-primary" ng-disabled="true">Add</button>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

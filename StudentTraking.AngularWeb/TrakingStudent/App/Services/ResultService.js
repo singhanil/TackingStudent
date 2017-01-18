@@ -31,6 +31,20 @@
             })
         };
 
+        var getResultBySchoolIdStudentId = function (StudentId) {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("getresult") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId + '/' + StudentId;
+
+            //url = url + '/' + searchObj.classId;
+
+            //url = url + '/' + searchObj.sectionId;
+
+            return $http({
+                url: url,
+                method: "GET"
+            })
+        };
+
         var addtimeTable = function (objTimeTable) {
             var APIURL = _constant.get("studenttrakingurl");
             var url = APIURL + _constant.get("savetimetable");
@@ -66,7 +80,7 @@
         service.getTimeTableListBySearch = getTimeTableListBySearch;
         service.addTimeTable = addtimeTable;
         service.getTTCommonData = getTTCommonData;
-
+        service.getResultBySchoolIdStudentId = getResultBySchoolIdStudentId;
         return service;
     };
     module.service("ResultService", ['$http', '$rootScope', 'Constant', ResultService]);

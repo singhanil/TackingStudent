@@ -26,6 +26,7 @@
         var getDepartmentUrl = "/api/Staff/Department/";
         var saveAttachmentUrl = "/api/Notification";
         var getNotificationUrl = "/api/Notification/Mobile/";
+        var getResultUrl = "/api/Result/Mobile/";
         //#endregion
         var getConstant = function (key) {
             var _constant = "";
@@ -98,6 +99,9 @@
                     break;
                 case 'getnotifications':
                     _constant = getNotificationUrl;
+                    break; 
+                case 'getresult':
+                    _constant = getResultUrl;
                     break;
                 default:
                     break;

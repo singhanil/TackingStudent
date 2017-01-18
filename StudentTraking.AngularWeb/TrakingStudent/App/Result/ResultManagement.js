@@ -149,11 +149,29 @@
         }
 
         $scope.ShowResult = function (row) {
+            $scope.ResultDetails = [];
             var rowindex = row.rowIndex;
             row.entity.DateOfBirthh = $filter('date')(new Date(row.entity.DateOfBirthh), 'MM/dd/yyyy');
             //row.entity.DateOfBirthh = new Date(Date.parse(row.entity.DateOfBirthh, "dd/mm/yyyy"));
-            $scope.ResultDetails = row.entity;
-
+            ResultService.getResultBySchoolIdStudentId(row.entity.StudentId).then(function (result) {
+                $rootScope.ajaxError = false;
+                if (result != null) {
+                    if (result.data.ErrorMessage == "Invalid or expired token") {
+                        alert(result.data.ErrorMessage);
+                        $rootScope.Logout();
+                    }
+                    else {
+                        $scope.ResultDetails = result.data.Results;
+                    }
+                }
+            }, function (result) {
+                $rootScope.ajaxError = true;
+            });
+            var winHeight = $(window).height() * (0.7);
+            var winWidth = $(window).width() * (0.5);
+            $('#myResultModal').height($(window).height() * (0.8));
+            $('#myResultModal .modal-dialog').height(winHeight);
+            $('#myResultModal .modal-dialog').width(winWidth);
             $('#myResultModal').modal('show');
         }
 
