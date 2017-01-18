@@ -65,9 +65,10 @@ namespace StudentTracking.Application.Main
                         //the original file.part name posted
                         var stream = FileDataContent.InputStream;
                         var fileName = Path.GetFileName(FileDataContent.FileName);
-                        string driveLetter = Path.GetPathRoot(Environment.CurrentDirectory);
-                        UploadPath = AppDomain.CurrentDomain.BaseDirectory;
-                        path = Path.Combine(UploadPath, "Attachments", fileName);
+                        //string driveLetter = Path.GetPathRoot(Environment.CurrentDirectory);
+                        UploadPath = AppDomain.CurrentDomain.BaseDirectory + "\\Attachments\\";
+                        Directory.CreateDirectory(UploadPath);
+                        path = Path.Combine(UploadPath, fileName);
 
                         if (System.IO.File.Exists(path))
                             System.IO.File.Delete(path);
