@@ -5,6 +5,8 @@
         $scope.IsResultUpdateClick = false;
         $scope.showAddResult = false;
         $scope.Studentlist = {};
+        $scope.AllStudentlist = {};
+        $scope.addResultStdList = {};
         $scope.ResultDetails = {};
         $scope.Resultlist = {};
         $scope.Classlist = {};
@@ -73,6 +75,7 @@
                         else {
                             $scope.hasStudData = true;
                             $scope.Studentlist = result.data.Students;
+                            $scope.AllStudentlist = result.data.Students;
                         }
                     }
                 }
@@ -80,6 +83,18 @@
                 $rootScope.ajaxError = true;
             });
         };
+
+        $scope.getStudentData = function (addResultObj) {
+            if (addResultObj.ClassId == undefined || addResultObj.SectionId == undefined) {
+                $scope.addResultStdList = {};
+                return;
+            }
+            $scope.addResultStdList = jQuery.grep($scope.AllStudentlist, function (a) {
+                if (a.ClassId == addResultObj.ClassId && a.SectionId == addResultObj.SectionId) {
+                    return a;
+                }
+            });
+        }
 
         $scope.clearReportFilter = function () {
             $scope.selctedClass = null;
@@ -191,12 +206,14 @@
             enableSorting: true,
             enableRowSelection: false,
             enableColumnResize: true,
+            //plugins: [new ngGridFlexibleHeightPlugin()],
             columnDefs: [{ field: "StudentName", displayName: "Student Name", cellTemplate: '<a href="" class=\"HighlightColumn\" ng-click="ShowResult(row);"><div class=\"ngCellText\">{{row.getProperty(col.field)}}</div></a>' },
                          { field: "StudentId", displayName: "Student Id" },
                          { field: "ClassName", displayName: "Class" },
                          { field: "SectionName", displayName: "Section" },
                          { field: "ParentName", displayName: "Parent Name" },
-                         { field: "ParentMobileNo", displayName: "Parent MobileNo" }]
+                         { field: "ParentMobileNo", displayName: "Parent MobileNo" },
+                         { field: "", displayName: "", cellTemplate: '<div class="ngCellText"><a style="color:#1078d4;" ng-click="ShowResult(row);" >Show Result</a></div>' }]
         };
 
         $scope.UpdateStaff = function (isvalid, objStaff) {

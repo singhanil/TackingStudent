@@ -73,6 +73,21 @@
             templateUrl: 'App/Notification/Notifications.html',
             controller: 'Notification  as vm'
         })
+        .state('dashboard.hollidays', {
+            url: "/hollidays",
+            templateUrl: 'App/Reports/HollidayList.html',
+            controller: 'hollidayController  as vm'
+        })
+        .state('dashboard.links', {
+            url: "/implinks",
+            templateUrl: 'App/Reports/MyLinks.html',
+            controller: 'linksController  as vm'
+        })
+        .state('dashboard.upload', {
+            url: "/upload",
+            templateUrl: 'App/Reports/UploadFile.html',
+            controller: 'uploadController  as vm'
+        })
 
     }
     module.run(function ($state) { })
