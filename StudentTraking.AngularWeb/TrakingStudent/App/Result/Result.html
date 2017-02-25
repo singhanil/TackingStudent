@@ -82,8 +82,7 @@
                                 Subject <span class="required" style="color:red;" ng-show="resultAddEdit.subjectlist.$invalid">*</span>
                             </label>
                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                <select class="form-control" name="subjectlist" id="subjectlist" ng-model="addResultObject.SubjectId" ng-disabled="IsStuUpdateClick" required>
-                                        <!--ng-options="s.StudentId as s.StudentName for s in addResultStdList"-->
+                                <select class="form-control" name="subjectlist" id="subjectlist" ng-model="addResultObject.SubjectId" ng-disabled="IsStuUpdateClick" required ng-options="s.Id as s.SubjectName for s in Subjectlist">
                                     <option value="">-- Select Subject --</option>
                                 </select>
                             </div>

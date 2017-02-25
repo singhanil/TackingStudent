@@ -25,6 +25,15 @@ namespace StudentTracking.Application.Main
             return null;
         }
 
+        public IEnumerable<SubjectModel> GetAllSubjects()
+        {
+            var entities = this._dbContext.Subjects.ToList();
+            if (null != entities)
+                return entities.MapAsCollection<Subject, SubjectModel>();
+
+            return null;
+        }
+
         public IEnumerable<SectionModel> GetAllSections()
         {
             var entities = this._dbContext.Sections.ToList();

@@ -32,7 +32,7 @@ namespace SchoolWepAPI.Controllers
                 response.TagDetails = commonSvc.GetAllTags();
                 response.Coutries = commonSvc.GetAllCountries();
                 response.States = commonSvc.GetAllStates();
-
+                response.Subjects = commonSvc.GetAllSubjects();
                 CurrentLoggerProvider.Info(string.Format("Retrieved Master Data"));
             }
             else

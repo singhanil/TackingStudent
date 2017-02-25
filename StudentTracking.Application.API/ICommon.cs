@@ -7,6 +7,7 @@ namespace StudentTracking.Application.API
     public interface ICommon
     {
         IEnumerable<ClassModel> GetAllClasses();
+        IEnumerable<SubjectModel> GetAllSubjects();
         IEnumerable<SectionModel> GetAllSections();
         IEnumerable<TagDetailModel> GetAllTags();
         IEnumerable<CountryModel> GetAllCountries();

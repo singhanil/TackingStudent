@@ -496,3 +496,323 @@ INFO  2017-01-06 01:54:06,343 518570ms BaseApiController      Get               
 INFO  2017-01-06 01:54:29,519 541746ms BaseApiController      Get                - Retrieved Student Details. Count = 2
 INFO  2017-01-06 01:54:38,795 551022ms BaseApiController      Get                - Retrieved Student Details. Count = 2
 INFO  2017-01-06 01:58:57,382 809609ms BaseApiController      Get                - Retrieved Notifications. Count = 8
+INFO  2017-01-18 21:45:39,134 70531ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 21:45:49,565 80962ms BaseApiController      Get                - Retrieved Notifications. Count = 8
+INFO  2017-01-18 21:45:51,369 82766ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:46:20,234 111631ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:46:26,242 117639ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:47:34,449 185846ms BaseApiController      Get                - Retrieved Notifications. Count = 8
+INFO  2017-01-18 21:47:55,822 207218ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 21:48:14,849 226245ms BaseApiController      Get                - Retrieved Notifications. Count = 8
+INFO  2017-01-18 21:48:16,536 227933ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:50:06,953 338350ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:50:12,566 343963ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:54:29,413 17344ms BaseApiController      Get                - Retrieved Notifications. Count = 8
+INFO  2017-01-18 21:54:34,897 22828ms BaseApiController      Get                - Retrieved Notifications. Count = 8
+INFO  2017-01-18 21:54:49,989 37921ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 21:54:52,402 40333ms BaseApiController      Get                - Retrieved Notifications. Count = 8
+INFO  2017-01-18 21:54:54,814 42745ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 21:54:58,908 46839ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:55:18,347 66278ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:55:25,570 73502ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:56:50,346 158278ms BaseApiController      Get                - Retrieved Notifications. Count = 9
+INFO  2017-01-18 21:57:33,231 201162ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 21:57:37,186 205118ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2017-01-18 21:58:29,040 256971ms BaseApiController      Get                - Retrieved Notifications. Count = 10
+INFO  2017-01-18 22:02:42,421 510352ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 22:02:52,519 520451ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 22:02:56,178 524110ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 22:12:27,850 1095781ms BaseApiController      Get                - Retrieved Notifications. Count = 10
+INFO  2017-01-18 22:12:31,752 1099683ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 22:12:45,245 1113176ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 22:12:48,996 1116927ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 22:19:26,581 1514512ms BaseApiController      Get                - Retrieved Notifications. Count = 10
+INFO  2017-01-18 22:19:28,377 1516308ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 22:19:36,369 1524300ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 22:19:40,071 1528002ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 22:19:54,748 1542679ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 22:20:01,976 1549907ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2017-01-18 22:20:11,213 1559144ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 22:59:51,929  7882ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 22:59:58,501 14453ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:00:01,926 17879ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:01:14,061 90013ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:01:21,253 97206ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:01:24,591 100544ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:01:28,326 104279ms BaseApiController      Get                - Retrieved Notifications. Count = 10
+INFO  2017-01-18 23:04:16,931 272884ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:04:34,319 290272ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:04:37,607 293560ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:11:30,938 706891ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:11:37,442 713395ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:11:40,738 716691ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:26:32,155 1608108ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:26:39,084 1615036ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:26:42,350 1618303ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:29:47,308 1803261ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:29:57,727 1813680ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:30:00,972 1816925ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:31:56,628 1932581ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:32:03,638 1939591ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:32:06,896 1942849ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:36:35,000 2210953ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:36:42,623 2218576ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:36:45,913 2221865ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:41:52,888 2528841ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:41:59,484 2535436ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:42:02,796 2538748ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:43:24,762 2620715ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:43:28,090 2624042ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:44:07,572 2663525ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:44:10,897 2666850ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:44:38,518 2694470ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:44:41,833 2697786ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:45:22,955 2738908ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:45:26,261 2742214ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:46:36,673 2812626ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:46:39,992 2815945ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:48:09,376 2905329ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:48:12,681 2908634ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:50:01,003 3016956ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:50:04,310 3020262ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:51:07,307 3083260ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:51:10,643 3086596ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:52:07,514 3143466ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:52:10,826 3146779ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:53:09,015 3204968ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:53:12,342 3208295ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:55:08,841 3324794ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:55:12,163 3328116ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:56:46,261 3422213ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:56:49,577 3425530ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-18 23:59:39,440 3595392ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-18 23:59:42,760 3598713ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-19 00:01:24,159 3700111ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-19 00:01:27,471 3703424ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-19 00:06:17,105 3993058ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-19 00:06:20,475 3996427ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-19 00:07:41,383 4077336ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-19 00:07:44,737 4080689ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-19 00:08:07,738 4103691ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-19 00:08:11,093 4107046ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-22 11:18:34,563 55508ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 11:19:12,983 93928ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2017-01-22 11:21:53,974 254919ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2017-01-22 11:24:05,914 386859ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2017-01-22 12:22:46,225  3156ms BaseApiController      Get                - Invalid Request. School Id: {0}
+INFO  2017-01-22 12:23:04,669 21600ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 12:56:43,874  7947ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 12:58:33,793 117866ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 12:59:07,392 151465ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 13:07:39,140 663213ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 13:11:51,431 915504ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 13:20:57,452 1461524ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-22 13:21:00,850 1464922ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-22 13:21:32,960 1497033ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2017-01-22 13:21:43,132 1507204ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:01:49,274 86755ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:02:03,395 100876ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:02:07,218 104699ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:02:52,317 149798ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:02:56,032 153513ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:09:44,007 561488ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:09:47,672 565153ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:10:49,488 626969ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:10:53,145 630626ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:16:32,140 969621ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:16:35,749 973230ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:18:56,039 1113520ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:18:59,589 1117070ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:20:30,920 1208401ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:20:34,444 1211925ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:21:10,172 1247653ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:21:13,711 1251192ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:22:03,403 1300884ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:22:06,925 1304406ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:23:30,634 1388115ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:27:36,143 1633624ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:27:49,838 1647319ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:27:53,402 1650883ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:29:17,970 1735451ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:29:21,546 1739027ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:29:43,633 1761114ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:29:50,952 1768434ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:29:54,510 1771991ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:31:08,284 1845765ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:31:11,861 1849342ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:33:41,616 1999097ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:33:45,138 2002620ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:35:30,303 2107784ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:35:33,872 2111354ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:36:17,354 2154835ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:36:22,184 2159665ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:36:25,697 2163179ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:39:35,402 2352883ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:39:38,944 2356425ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:42:53,580 2551062ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:42:57,114 2554595ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 20:43:25,603 2583084ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 20:43:29,130 2586611ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:03:49,127 3806608ms BaseApiController      GetAll             - Invalid Request
+INFO  2017-01-26 21:04:07,508 3824989ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:04:30,452 3847933ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:04:34,070 3851551ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:08:10,603 4068084ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:08:14,168 4071649ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:09:24,434 4141915ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:09:28,013 4145494ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:10:52,044 4229525ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:10:55,648 4233129ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:11:16,087 4253568ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:11:19,679 4257160ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:15:59,082 4536564ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:16:02,630 4540111ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:17:34,541 4632022ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:17:38,096 4635577ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:18:56,655 4714136ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:19:00,196 4717677ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:20:10,487 4787968ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:20:14,030 4791511ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:21:54,744 4892225ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:21:58,294 4895776ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:23:57,411 5014892ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:24:00,964 5018446ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:28:04,473 5261954ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:28:08,197 5265678ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:46:06,524 6344005ms BaseApiController      GetAll             - Invalid Request
+INFO  2017-01-26 21:46:23,926 6361407ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:46:30,537 6368018ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:46:34,063 6371544ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:52:32,605 6730086ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:54:06,200 6823681ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:57:01,515 6998997ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:57:08,891 7006372ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:58:16,580 7074061ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 21:58:31,351 7088832ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 21:59:59,198 7176679ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 22:03:53,058 7410539ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 22:30:55,316  7387ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 22:31:02,819 14890ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 22:31:06,076 18147ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 22:35:36,439 288511ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 22:35:52,958 305029ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 22:36:44,430 356502ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 22:36:47,516 359588ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-26 22:37:55,789 427860ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-26 22:37:58,888 430960ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:21:55,524 67949ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:22:04,104 76528ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:22:07,865 80289ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:37:56,099 1028523ms BaseApiController      GetAll             - Invalid Request
+INFO  2017-01-28 09:38:12,133 1044557ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:38:23,416 1055840ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:38:27,049 1059473ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:38:44,637 1077061ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:38:48,272 1080696ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:39:34,783 1127208ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:39:41,143 1133567ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:39:44,778 1137202ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:41:42,517 1254941ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:41:46,056 1258480ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:43:12,267 1344692ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:43:15,799 1348223ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:46:13,812 1526236ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:46:26,099 1538523ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:46:29,825 1542249ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:46:40,793 1553218ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2017-01-28 09:48:27,546 1659970ms BaseApiController      Get                - Retrieved Organizations. Count = 4
+INFO  2017-01-28 09:50:13,565 1765990ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:50:39,525 1791949ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:50:43,225 1795649ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:51:56,086 1868510ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:51:59,791 1872215ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:53:21,589 1954013ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:53:27,600 1960025ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:53:31,205 1963629ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 09:54:29,915 2022339ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 09:54:33,455 2025879ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:02:33,085 2505509ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:02:36,743 2509167ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:06:02,138 2714562ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:06:05,827 2718251ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:06:50,433 2762858ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:06:54,108 2766532ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:07:59,071 2831495ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:08:02,742 2835166ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:09:18,205 2910629ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:09:21,868 2914292ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:10:03,602 2956026ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:10:07,295 2959719ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:11:32,175 3044599ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:11:35,856 3048280ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:12:36,025 3108450ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:12:40,721 3113145ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:13:06,550 3138974ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:13:10,239 3142663ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:15:16,527 3268951ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:15:20,198 3272622ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:15:33,457 3285881ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:15:40,618 3293042ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:15:44,324 3296748ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:16:55,510 3367934ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:16:59,194 3371618ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 10:17:39,132 3411556ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 10:17:42,763 3415187ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 19:15:47,121 35699545ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 19:16:13,142 35725566ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 19:16:16,798 35729222ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-01-28 19:39:27,321  8163ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 20:10:50,923  7835ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-28 20:14:00,524 197436ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-29 18:22:46,954 30234ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-29 18:23:01,379 44659ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2017-01-29 18:23:05,470 48750ms BaseApiController      Get                - Retrieved Organizations. Count = 4
+INFO  2017-01-29 18:29:32,301 435581ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-01-29 18:29:34,366 437646ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2017-01-29 18:33:22,840 666120ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2017-01-29 18:34:56,553 759833ms BaseApiController      Get                - Retrieved Organizations. Count = 4
+INFO  2017-01-29 18:46:40,651 1463931ms BaseApiController      GetStates          - Invalid Request
+INFO  2017-01-29 18:47:24,668 1507948ms BaseApiController      Get                - Retrieved Schools. Count = 9
+INFO  2017-01-29 18:47:29,911 1513191ms BaseApiController      GetStates          - Retrieved States for Country: Ind
+INFO  2017-01-29 18:47:31,606 1514886ms BaseApiController      Get                - Retrieved Organizations. Count = 4
+INFO  2017-02-23 07:00:09,353 74518ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-23 07:00:18,553 83717ms BaseApiController      Get                - Retrieved Notifications. Count = 10
+INFO  2017-02-23 07:00:19,582 84746ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-23 07:01:27,816 152981ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-23 07:01:29,463 154628ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-23 07:04:49,024 354189ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-23 07:04:50,973 356138ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-23 22:24:31,128 98695ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-24 07:13:46,355 102322ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-24 07:13:55,746 111714ms BaseApiController      Get                - Retrieved Notifications. Count = 10
+INFO  2017-02-24 07:13:56,660 112628ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:14:45,641 161609ms BaseApiController      Get                - Retrieved Notifications. Count = 10
+INFO  2017-02-24 07:14:46,697 162665ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:14:52,994 168962ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:14:56,349 172316ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:16:07,917 243885ms BaseApiController      Get                - Retrieved Notifications. Count = 11
+INFO  2017-02-24 07:16:32,641 268608ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-24 07:16:34,184 270151ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:16:38,308 274276ms BaseApiController      Get                - Retrieved Notifications. Count = 11
+INFO  2017-02-24 07:16:39,365 275333ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:17:38,846 334814ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:17:42,272 338239ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:18:44,502 400470ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-24 07:18:46,073 402041ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:20:54,566 530534ms BaseApiController      Get                - Retrieved Student Details. Count = 0
+INFO  2017-02-24 07:21:04,057 540024ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-24 07:24:51,968 767936ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-24 07:24:53,613 769580ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-25 21:06:22,114 171079ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:07:13,341 222307ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:09:36,792 17642ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:10:11,535 52385ms BaseApiController      Get                - Retrieved Notifications. Count = 11
+INFO  2017-02-25 21:10:12,532 53382ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-25 21:10:22,647 63497ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:10:24,046 64896ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-25 21:20:42,093 682943ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:20:53,733 694583ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:20:55,609 696459ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-25 21:27:27,697 1088546ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:27:51,456 1112306ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-02-25 21:28:03,397 1124246ms BaseApiController      Get                - Retrieved Student Details. Count = 2

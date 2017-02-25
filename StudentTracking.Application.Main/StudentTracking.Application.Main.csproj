@@ -71,6 +71,7 @@
     <Compile Include="Profiles\StaffProfile.cs" />
     <Compile Include="Profiles\StateProfile.cs" />
     <Compile Include="Profiles\StudentProfile.cs" />
+    <Compile Include="Profiles\SubjectProfile.cs" />
     <Compile Include="Profiles\SyllabusProfile.cs" />
     <Compile Include="Profiles\TagDetailsProfile.cs" />
     <Compile Include="Profiles\TimeTableProfile.cs" />

@@ -11,6 +11,7 @@
         $scope.Resultlist = {};
         $scope.Classlist = {};
         $scope.Sectionlist = {};
+        $scope.Subjectlist = {};
         $scope.filterOption = {
             name: "",
             classId: 0,
@@ -46,7 +47,7 @@
                     else {
                         $scope.Classlist = result.data.Classes;
                         $scope.Sectionlist = result.data.Sections;
-
+                        $scope.Subjectlist = result.data.Subjects;
                         $scope.loadStudentList($rootScope.User.SchoolId);
                     }
                 }
