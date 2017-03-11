@@ -12,4 +12,8 @@ namespace StudentTracking.Application.Models
         public IEnumerable<CountryModel> Coutries { get; set; }
         public IEnumerable<StateModel> States { get; set; }
     }
+    public class FileUploadResponse : ServiceResponse
+    {
+        public string fileUploadStatus { get; set; }
+    }
 }

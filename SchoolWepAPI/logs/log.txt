@@ -816,3 +816,9 @@ INFO  2017-02-25 21:20:55,609 696459ms BaseApiController      Get               
 INFO  2017-02-25 21:27:27,697 1088546ms BaseApiController      GetAll             - Retrieved Master Data
 INFO  2017-02-25 21:27:51,456 1112306ms BaseApiController      GetAll             - Retrieved Master Data
 INFO  2017-02-25 21:28:03,397 1124246ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-02-25 22:48:31,855  3902ms BaseApiController      GetAll             - Invalid Request
+INFO  2017-02-25 22:48:59,349 31396ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-11 22:01:51,335 192583ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-11 22:04:11,876 333123ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-11 22:09:21,407 642655ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-11 22:11:32,671 773919ms BaseApiController      GetAll             - Retrieved Master Data

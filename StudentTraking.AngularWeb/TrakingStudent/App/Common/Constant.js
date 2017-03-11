@@ -26,7 +26,7 @@
         var getDepartmentUrl = "/api/Staff/Department/";
         var saveAttachmentUrl = "/api/Notification";
         var getNotificationUrl = "/api/Notification/Mobile/";
-        var getResultUrl = "/api/Result/Mobile/";
+        var getFileUploadUrl = "/api/Common/UploadFile";
         //#endregion
         var getConstant = function (key) {
             var _constant = "";
@@ -102,6 +102,9 @@
                     break; 
                 case 'getresult':
                     _constant = getResultUrl;
+                    break;
+                case 'uploadurl':
+                    _constant = getFileUploadUrl;
                     break;
                 default:
                     break;

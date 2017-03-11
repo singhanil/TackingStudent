@@ -7,4 +7,5 @@ namespace StudentTracking.Application.Models.Responses
     {
         public IEnumerable<StateModel> States { get; set; }
     }
+   
 }

@@ -49,12 +49,25 @@
         var getCountries = function () {
             return [{ CountryCode: "IND", CountryName: "India" }];
         };
+
+        var uploadFile = function (fd) {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("uploadurl");
+            return $http({
+                url: url,
+                method: "POST",
+                data: fd,
+                transformRequest: angular.identity,
+                headers: { 'Content-Type': undefined }
+            })
+        };
         
         service.getCommonData = getCommonData;
         service.getStates = getStates;
         service.getSchools = getSchools;
         service.getOrganisations = getOrganisations;
         service.getCountries = getCountries;
+        service.uploadFile = uploadFile;
         return service;
     };
     module.service("CommonService", ['$http', '$rootScope', 'Constant', CommonService]);

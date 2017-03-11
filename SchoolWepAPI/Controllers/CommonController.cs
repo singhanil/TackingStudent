@@ -4,8 +4,11 @@ using StudentTracking.Application.Models;
 using StudentTracking.Application.Models.Responses;
 using StudentTracking.Data;
 using StudentTracking.Domain;
+using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace SchoolWepAPI.Controllers
@@ -71,10 +74,87 @@ namespace SchoolWepAPI.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
+
+        [Route("api/Common/UploadFile")]
+        [HttpPost]
+        public HttpResponseMessage UploadFile()
+        {
+            FileUploadResponse response = null;
+            var securityToken = System.Web.HttpContext.Current.Request.Form["SecurityToken"];
+            if (IsValid(securityToken))
+            {
+                ICommon commonSvc = new CommonService(this._dbContext);
+                response = new FileUploadResponse { Status = "OK" };
+               
+                    var result = SaveFile();
+
+                response.ErrorMessage = result.ReasonPhrase;
+               
+            }
+            else
+            {
+                response = new FileUploadResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info("Invalid Request");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
         private bool IsValid(string securityToken)
         {
             ISecurity auth = new SecurityService(this._dbContext);
             return auth.ValidateToken(securityToken);
+        }
+
+        private HttpResponseMessage SaveFile()
+        {
+            var UploadPath = "";
+            string path = "";
+            foreach (string file in HttpContext.Current.Request.Files)
+            {
+                var FileDataContent = System.Web.HttpContext.Current.Request.Files[file];
+                var myObject = System.Web.HttpContext.Current.Request;
+                var SchoolId = Convert.ToInt32(myObject.Form["SchoolId"]);
+                if (FileDataContent != null && FileDataContent.ContentLength > 0)
+                {
+                    try
+                    {
+                        //take the input stream, and save it to a temp folder using
+                        //the original file.part name posted
+                        var stream = FileDataContent.InputStream;
+                        var fileName = Path.GetFileName(FileDataContent.FileName);
+                        //string driveLetter = Path.GetPathRoot(Environment.CurrentDirectory);
+                        UploadPath = AppDomain.CurrentDomain.BaseDirectory + "FileStore\\" + SchoolId + "\\";
+                        Directory.CreateDirectory(UploadPath);
+                        path = Path.Combine(UploadPath, fileName);
+
+                        if (System.IO.File.Exists(path))
+                            System.IO.File.Delete(path);
+                        using (var fileStream = System.IO.File.Create(path))
+                        {
+                            stream.CopyTo(fileStream);
+                            fileStream.Dispose();
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        //return nobj;
+                        return new HttpResponseMessage()
+                        {
+                            StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                            Content = new StringContent("File upload failed"),
+                            ReasonPhrase = path
+                        };
+                    }
+                }
+            }
+            //return nobj;
+            return new HttpResponseMessage()
+            {
+                StatusCode = System.Net.HttpStatusCode.OK,
+                Content = new StringContent("File successfully uploaded"),
+                ReasonPhrase = UploadPath
+            };
+
         }
     }
 }
