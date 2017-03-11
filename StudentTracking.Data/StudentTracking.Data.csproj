@@ -72,6 +72,9 @@
     <Compile Include="Holiday.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="Important_Links.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="LectureDuration.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>

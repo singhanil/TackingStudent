@@ -15,7 +15,9 @@ namespace StudentTracking.Data
     public partial class Holiday
     {
         public int Id { get; set; }
-        public Nullable<System.DateTime> HolidayDate { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
         public string HolidayDay { get; set; }
+        public int SchoolId { get; set; }
+        public System.DateTime HolidayEndDate { get; set; }
     }
 }

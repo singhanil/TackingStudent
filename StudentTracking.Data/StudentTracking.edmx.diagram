@@ -23,7 +23,6 @@
         <EntityTypeShape EntityType="StudentTrackingModel.Theme" Width="1.5" PointX="1.5" PointY="20.125" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentTrackingModel.TimeTable" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentTrackingModel.User" Width="1.5" PointX="8.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudentTrackingModel.Holiday" Width="1.5" PointX="10.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentTrackingModel.Message" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentTrackingModel.SchoolBranch" Width="1.5" PointX="7.75" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="StudentTrackingModel.StudentAttendance" Width="1.5" PointX="10.75" PointY="10.875" IsExpanded="true" />
@@ -71,6 +70,8 @@
         <AssociationConnector Association="StudentTrackingModel.FK__Communica__Messa__59C55456" />
         <EntityTypeShape EntityType="StudentTrackingModel.SecondaryTag" Width="1.5" PointX="13.375" PointY="11.75" />
         <EntityTypeShape EntityType="StudentTrackingModel.Notification" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Important_Links" Width="1.5" PointX="15.75" PointY="5.75" />
+        <EntityTypeShape EntityType="StudentTrackingModel.Holiday" Width="1.5" PointX="15.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

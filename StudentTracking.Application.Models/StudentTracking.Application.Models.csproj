@@ -52,6 +52,7 @@
     <Compile Include="Models\ClassModel.cs" />
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="HolidayModel.cs" />
     <Compile Include="Models\LectureModel.cs" />
     <Compile Include="Models\NotificationModel.cs" />
     <Compile Include="Models\SectionModel.cs" />

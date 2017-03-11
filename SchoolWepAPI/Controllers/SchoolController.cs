@@ -114,5 +114,26 @@ namespace SchoolWepAPI.Controllers
         {
 
         }
+
+        [Route("api/School/holidaylist/{securityToken}/{schoolId}")]
+        public HttpResponseMessage getHolidayList(string securityToken, int schoolId)
+        {
+            AllHolidayResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ISchool school = new SchoolService(this._dbContext);
+                response = new AllHolidayResponse { Status = "OK" };
+                response.HolidayList = school.GetHolidayList(schoolId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved Schools. Count = {0}", response.HolidayList.Count()));
+            }
+            else
+            {
+                response = new AllHolidayResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info("Invalid Request. School Id: {1}");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
     }
 }

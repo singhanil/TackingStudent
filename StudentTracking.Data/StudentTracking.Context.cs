@@ -45,7 +45,6 @@ namespace StudentTracking.Data
         public virtual DbSet<Theme> Themes { get; set; }
         public virtual DbSet<TimeTable> TimeTables { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Holiday> Holidays { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<SchoolBranch> SchoolBranches { get; set; }
         public virtual DbSet<StudentAttendance> StudentAttendances { get; set; }
@@ -58,6 +57,8 @@ namespace StudentTracking.Data
         public virtual DbSet<PrimaryTag> PrimaryTags { get; set; }
         public virtual DbSet<SecondaryTag> SecondaryTags { get; set; }
         public virtual DbSet<Notification> Notifications { get; set; }
+        public virtual DbSet<Important_Links> Important_Links { get; set; }
+        public virtual DbSet<Holiday> Holidays { get; set; }
     
         public virtual ObjectResult<sp_InsertUpdateAttendance_Result> sp_InsertUpdateAttendance(string tagId, Nullable<System.DateTime> startTime, Nullable<System.DateTime> endTime, Nullable<bool> isInTime, string ipAddress)
         {
