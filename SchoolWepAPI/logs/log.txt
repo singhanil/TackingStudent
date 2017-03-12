@@ -822,3 +822,33 @@ INFO  2017-03-11 22:01:51,335 192583ms BaseApiController      GetAll            
 INFO  2017-03-11 22:04:11,876 333123ms BaseApiController      GetAll             - Retrieved Master Data
 INFO  2017-03-11 22:09:21,407 642655ms BaseApiController      GetAll             - Retrieved Master Data
 INFO  2017-03-11 22:11:32,671 773919ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 22:49:43,620 1265107ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 22:51:20,446 1361933ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 22:53:16,423 1477909ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 22:54:25,457 1546944ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 22:56:17,725 1659212ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 22:56:19,628 1661115ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-03-12 22:59:45,260 11188ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 23:00:18,552 44480ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-12 23:18:06,977 17473ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 23:19:20,663 91159ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 23:37:39,209 1189706ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 23:38:58,431 1268927ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-12 23:39:08,288 1278785ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 0
+INFO  2017-03-12 23:39:43,600 1314096ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-12 23:45:45,981  7038ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-12 23:46:36,878 57935ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-12 23:47:09,049 90106ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-12 23:51:59,742 17556ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-13 00:10:53,727 19757ms BaseApiController      GetAll             - Invalid Request
+INFO  2017-03-13 00:11:38,042 64071ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 0
+INFO  2017-03-13 00:12:32,410 118439ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 0
+INFO  2017-03-13 00:15:46,288 312318ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-13 00:23:28,026 26968ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 0
+INFO  2017-03-13 00:48:10,941 34756ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-13 00:48:26,406 50220ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-13 00:48:57,494 81308ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-13 00:53:21,018 344832ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-13 00:53:28,632 352446ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-13 00:53:43,562 367377ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-13 00:54:00,827 384641ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1

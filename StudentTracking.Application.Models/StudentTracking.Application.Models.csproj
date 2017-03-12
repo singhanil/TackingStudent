@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImpotantLinkModel.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="Models\AttendenceModel.cs" />
     <Compile Include="Models\ClassModel.cs" />

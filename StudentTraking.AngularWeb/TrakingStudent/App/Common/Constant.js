@@ -27,6 +27,8 @@
         var saveAttachmentUrl = "/api/Notification";
         var getNotificationUrl = "/api/Notification/Mobile/";
         var getFileUploadUrl = "/api/Common/UploadFile";
+        var getHolidayListUrl = "/api/School/holidaylist/";
+        var getLinksUrl = "/api/School/importantlinks/";
         //#endregion
         var getConstant = function (key) {
             var _constant = "";
@@ -105,6 +107,12 @@
                     break;
                 case 'uploadurl':
                     _constant = getFileUploadUrl;
+                    break;
+                case 'getholidaylist':
+                    _constant = getHolidayListUrl;
+                    break;
+                case 'getimplinks':
+                    _constant = getLinksUrl;
                     break;
                 default:
                     break;

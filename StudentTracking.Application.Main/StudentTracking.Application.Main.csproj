@@ -63,6 +63,8 @@
     <Compile Include="Profiles\ClassProfile.cs" />
     <Compile Include="Profiles\CountryProfile.cs" />
     <Compile Include="Profiles\DepartmentProfile.cs" />
+    <Compile Include="Profiles\HolidayProfile.cs" />
+    <Compile Include="Profiles\ImportantLinkProfile.cs" />
     <Compile Include="Profiles\NotificationProfile.cs" />
     <Compile Include="Profiles\OrganizationProfile.cs" />
     <Compile Include="Profiles\ProfileBase.cs" />

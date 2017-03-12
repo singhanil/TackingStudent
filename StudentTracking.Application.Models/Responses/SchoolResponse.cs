@@ -17,4 +17,9 @@ namespace StudentTracking.Application.Models.Responses
     {
         public IEnumerable<HolidayModel> HolidayList { get; set; }
     }
+
+    public class ImportantLinkResponse : ServiceResponse
+    {
+        public IEnumerable<ImpotantLinkModel> ImportantLinks { get; set; }
+    }
 }

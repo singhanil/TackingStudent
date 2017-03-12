@@ -124,12 +124,32 @@ namespace SchoolWepAPI.Controllers
                 ISchool school = new SchoolService(this._dbContext);
                 response = new AllHolidayResponse { Status = "OK" };
                 response.HolidayList = school.GetHolidayList(schoolId);
-                CurrentLoggerProvider.Info(string.Format("Retrieved Schools. Count = {0}", response.HolidayList.Count()));
+                CurrentLoggerProvider.Info(string.Format("Retrieved Holidays. Count = {0}", response.HolidayList!= null ? response.HolidayList.Count() : 0 ));
             }
             else
             {
                 response = new AllHolidayResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
-                CurrentLoggerProvider.Info("Invalid Request. School Id: {1}");
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. School Id: {0}", schoolId));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
+        [Route("api/School/importantlinks/{securityToken}/{schoolId}")]
+        public HttpResponseMessage getImportantLinks(string securityToken, int schoolId)
+        {
+            ImportantLinkResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ISchool school = new SchoolService(this._dbContext);
+                response = new ImportantLinkResponse { Status = "OK" };
+                response.ImportantLinks = school.getImportantLinks(schoolId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved ipmortant links. Count = {0}", response.ImportantLinks != null ? response.ImportantLinks.Count() : 0));
+            }
+            else
+            {
+                response = new ImportantLinkResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. School Id: {0}", schoolId));
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, response);

@@ -56,10 +56,34 @@
                 method: "GET",
                 params: requiredparams
             })
+        }; 
+
+        var getHolidayList = function () {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("getholidaylist") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId;
+            //var requiredparams = { schoolId: schoolid, securityToken: $rootScope.User.SecurityToken };
+            return $http({
+                url: url,
+                method: "GET"
+                //params: requiredparams
+            })
+        };
+
+        var getImportantLinks = function () {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("getimplinks") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId;
+            //var requiredparams = { schoolId: schoolid, securityToken: $rootScope.User.SecurityToken };
+            return $http({
+                url: url,
+                method: "GET"
+                //params: requiredparams
+            })
         };
 
         service.addSchools = addSchools;
         service.deleteSchool = deleteSchool;
+        service.getHolidayList = getHolidayList;
+        service.getImportantLinks = getImportantLinks;
         return service;
     };
     module.service("SchoolService", ['$http', '$rootScope', 'Constant', SchoolService]);

@@ -10,5 +10,6 @@ namespace StudentTracking.Application.API
         SchoolModel Save(SchoolModel school);
         bool Delete(int id);
         IEnumerable<HolidayModel> GetHolidayList(int schoolId);
+        IEnumerable<ImpotantLinkModel> getImportantLinks(int schoolId);
     }
 }

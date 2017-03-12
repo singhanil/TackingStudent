@@ -113,12 +113,20 @@ namespace StudentTracking.Application.Main
             }
             return false;
         }
+        
 
         public IEnumerable<HolidayModel> GetHolidayList(int schoolId)
         {
             var entities = this._dbContext.Holidays.Where(e => e.SchoolId == schoolId).ToList();
 
             return entities.MapAsCollection<Holiday, HolidayModel>();
+        }
+
+        public IEnumerable<ImpotantLinkModel> getImportantLinks(int schoolId)
+        {
+            var entities = this._dbContext.Important_Links.Where(e => e.SchoolId == schoolId).ToList();
+
+            return entities.MapAsCollection<Important_Links, ImpotantLinkModel>();
         }
     }
 }
