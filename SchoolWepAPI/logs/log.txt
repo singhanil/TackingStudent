@@ -852,3 +852,8 @@ INFO  2017-03-13 00:53:21,018 344832ms BaseApiController      GetAll            
 INFO  2017-03-13 00:53:28,632 352446ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
 INFO  2017-03-13 00:53:43,562 367377ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
 INFO  2017-03-13 00:54:00,827 384641ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-25 20:25:25,108 452847ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-26 23:10:53,936 155119ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-26 23:26:40,570 299669ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-26 23:31:14,837 573935ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-26 23:42:03,911 195611ms BaseApiController      GetAll             - Retrieved Master Data

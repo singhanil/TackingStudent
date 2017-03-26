@@ -61,11 +61,8 @@ namespace StudentTracking.Application.Main
                 {
                     try
                     {
-                        //take the input stream, and save it to a temp folder using
-                        //the original file.part name posted
                         var stream = FileDataContent.InputStream;
                         var fileName = Path.GetFileName(FileDataContent.FileName);
-                        //string driveLetter = Path.GetPathRoot(Environment.CurrentDirectory);
                         UploadPath = AppDomain.CurrentDomain.BaseDirectory + "\\Attachments\\";
                         Directory.CreateDirectory(UploadPath);
                         path = Path.Combine(UploadPath, fileName);

@@ -79,25 +79,41 @@ namespace SchoolWepAPI.Controllers
         [HttpPost]
         public HttpResponseMessage UploadFile()
         {
-            FileUploadResponse response = null;
-            var securityToken = System.Web.HttpContext.Current.Request.Form["SecurityToken"];
-            if (IsValid(securityToken))
+            CommonService commonSvc = new CommonService(this._dbContext);
+            DocumentResponse res = new DocumentResponse { Status = "OK" };
+            var SecurityToken = System.Web.HttpContext.Current.Request.Form["SecurityToken"];
+            if (IsValid(SecurityToken))
             {
-                ICommon commonSvc = new CommonService(this._dbContext);
-                response = new FileUploadResponse { Status = "OK" };
-               
-                    var result = SaveFile();
-
-                response.ErrorMessage = result.ReasonPhrase;
-               
+                //var studentSvc = new NotificationService(this._dbContext);
+                var result = commonSvc.UploadDocument();
+                res.ErrorMessage = result.ReasonPhrase;
+                //studentSvc.Save(req.Notification);
             }
             else
             {
-                response = new FileUploadResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
-                CurrentLoggerProvider.Info("Invalid Request");
+                res = new DocumentResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. Student Id: {0}", 0));
             }
+            return Request.CreateResponse(HttpStatusCode.OK, res);
+            //FileUploadResponse response = null;
+            //var securityToken = System.Web.HttpContext.Current.Request.Form["SecurityToken"];
+            //if (IsValid(securityToken))
+            //{
+            //    ICommon commonSvc = new CommonService(this._dbContext);
+            //    response = new FileUploadResponse { Status = "OK" };
 
-            return Request.CreateResponse(HttpStatusCode.OK, response);
+            //        var result = SaveFile();
+
+            //    response.ErrorMessage = result.ReasonPhrase;
+
+            //}
+            //else
+            //{
+            //    response = new FileUploadResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+            //    CurrentLoggerProvider.Info("Invalid Request");
+            //}
+
+            //return Request.CreateResponse(HttpStatusCode.OK, response);
         }
         private bool IsValid(string securityToken)
         {
@@ -114,14 +130,15 @@ namespace SchoolWepAPI.Controllers
                 var FileDataContent = System.Web.HttpContext.Current.Request.Files[file];
                 var myObject = System.Web.HttpContext.Current.Request;
                 var SchoolId = Convert.ToInt32(myObject.Form["SchoolId"]);
+                var guidKey = Guid.NewGuid();
                 if (FileDataContent != null && FileDataContent.ContentLength > 0)
                 {
                     try
                     {
-                        //take the input stream, and save it to a temp folder using
-                        //the original file.part name posted
+                        
                         var stream = FileDataContent.InputStream;
-                        var fileName = Path.GetFileName(FileDataContent.FileName);
+                        var fileName = FileDataContent.FileName;
+                        var fileExtension = Path.GetExtension(fileName);
                         //string driveLetter = Path.GetPathRoot(Environment.CurrentDirectory);
                         UploadPath = AppDomain.CurrentDomain.BaseDirectory + "FileStore\\" + SchoolId + "\\";
                         Directory.CreateDirectory(UploadPath);

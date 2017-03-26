@@ -242,6 +242,18 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SchoolId" Type="int" Nullable="false" />
+          <Property Name="ClassId" Type="int" />
+          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="UpdatedDate" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="Important_Links">
           <Key>
             <PropertyRef Name="Id" />
@@ -874,6 +886,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <EntitySet Name="CommunicationTracking" EntityType="Self.CommunicationTracking" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Document" EntityType="Self.Document" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Important_Links" EntityType="Self.Important_Links" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="LectureDuration" EntityType="Self.LectureDuration" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="MessageTemplates" EntityType="Self.MessageTemplates" Schema="octosoftlab" store:Type="Tables" />
@@ -1849,6 +1862,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <EntitySet Name="Notifications" EntityType="StudentTrackingModel.Notification" />
           <EntitySet Name="Holidays" EntityType="StudentTrackingModel.Holiday" />
           <EntitySet Name="Important_Links" EntityType="StudentTrackingModel.Important_Links" />
+          <EntitySet Name="Documents" EntityType="StudentTrackingModel.Document" />
         </EntityContainer>
         <Association Name="FK__StaffDeta__Count__18EBB532">
           <End Type="StudentTrackingModel.Country" Role="Country" Multiplicity="1" />
@@ -2192,6 +2206,18 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <Property Name="SchoolId" Type="Int32" Nullable="false" />
           <Property Name="LinkTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="LinkUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2633,6 +2659,19 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
                 <ScalarProperty Name="LinkTitle" ColumnName="LinkTitle" />
                 <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="StudentTrackingModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -69,6 +69,9 @@
     <Compile Include="Department.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>StudentTracking.tt</DependentUpon>
+    </Compile>
     <Compile Include="Holiday.cs">
       <DependentUpon>StudentTracking.tt</DependentUpon>
     </Compile>

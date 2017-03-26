@@ -4,6 +4,10 @@ using StudentTracking.Application.Main.Extensions;
 using StudentTracking.Data;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.IO;
+using System;
+using System.Web;
 
 namespace StudentTracking.Application.Main
 {
@@ -79,6 +83,80 @@ namespace StudentTracking.Application.Main
             return null;
         }
 
-        
+        public HttpResponseMessage UploadDocument()
+        {
+            var UploadPath = "";
+            string path = "";
+            Data.Document docObj = new Data.Document();
+            foreach (string file in HttpContext.Current.Request.Files)
+            {
+                var FileDataContent = System.Web.HttpContext.Current.Request.Files[file];
+                var myObject = System.Web.HttpContext.Current.Request;
+                docObj.UserId = myObject.Form["UserId"];
+                docObj.SchoolId = Convert.ToInt32(myObject.Form["SchoolId"]);
+                if(!string.IsNullOrEmpty(myObject.Form["ClassId"]))
+                    docObj.ClassId =  Convert.ToInt32(myObject.Form["ClassId"]);
+                docObj.CreatedDate = DateTime.Now;
+                docObj.UpdatedDate = DateTime.Now;
+                var guidKey = Guid.NewGuid();
+                if (FileDataContent != null && FileDataContent.ContentLength > 0)
+                {
+                    try
+                    {
+                        var stream = FileDataContent.InputStream;
+                        var fileName = guidKey +"_"+ FileDataContent.FileName;
+                        docObj.DocumentName = fileName;
+                        //string driveLetter = Path.GetPathRoot(Environment.CurrentDirectory);
+                        UploadPath = AppDomain.CurrentDomain.BaseDirectory + "FileStore\\" + docObj.SchoolId + "\\";
+                        Directory.CreateDirectory(UploadPath);
+                        path = Path.Combine(UploadPath, fileName);
+
+                        if (System.IO.File.Exists(path))
+                            System.IO.File.Delete(path);
+                        using (var fileStream = System.IO.File.Create(path))
+                        {
+                            stream.CopyTo(fileStream);
+                            fileStream.Dispose();
+                            
+                            try
+                            {
+                                this._dbContext.Documents.Add(docObj);
+                                this._dbContext.SaveChanges();
+                            }
+                            catch (Exception Ex)
+                            {
+                                if (System.IO.File.Exists(path))
+                                    System.IO.File.Delete(path);
+                                return new HttpResponseMessage()
+                                {
+                                    StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                                    Content = new StringContent("Document upload failed."),
+                                    ReasonPhrase = "Document upload failed."
+                                };
+                            }
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        return new HttpResponseMessage()
+                        {
+                            StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                            Content = new StringContent("Document upload failed."),
+                            ReasonPhrase = "Document upload failed."
+                        };
+                    }
+                }
+            }
+            
+            return new HttpResponseMessage()
+            {
+                StatusCode = System.Net.HttpStatusCode.OK,
+                Content = new StringContent("Document uploaded successfully."),
+                ReasonPhrase = string.Empty
+            };
+
+        }
+
+
     }
 }
