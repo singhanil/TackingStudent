@@ -12,13 +12,11 @@ namespace StudentTracking.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Holiday
+    public partial class Important_Links
     {
         public int Id { get; set; }
-        public string title { get; set; }
         public int SchoolId { get; set; }
-        public System.DateTime start { get; set; }
-        public System.DateTime end { get; set; }
-        public string EventType { get; set; }
+        public string LinkTitle { get; set; }
+        public string LinkUrl { get; set; }
     }
 }

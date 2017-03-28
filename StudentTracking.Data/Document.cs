@@ -12,13 +12,14 @@ namespace StudentTracking.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Holiday
+    public partial class Document
     {
-        public int Id { get; set; }
-        public string title { get; set; }
+        public int ID { get; set; }
+        public string DocumentName { get; set; }
+        public string UserId { get; set; }
         public int SchoolId { get; set; }
-        public System.DateTime start { get; set; }
-        public System.DateTime end { get; set; }
-        public string EventType { get; set; }
+        public Nullable<int> ClassId { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public System.DateTime UpdatedDate { get; set; }
     }
 }

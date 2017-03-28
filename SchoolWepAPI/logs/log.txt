@@ -857,3 +857,81 @@ INFO  2017-03-26 23:10:53,936 155119ms BaseApiController      GetAll            
 INFO  2017-03-26 23:26:40,570 299669ms BaseApiController      GetAll             - Retrieved Master Data
 INFO  2017-03-26 23:31:14,837 573935ms BaseApiController      GetAll             - Retrieved Master Data
 INFO  2017-03-26 23:42:03,911 195611ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 16:15:47,794 66570ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 16:44:15,895  1342ms BaseApiController      getHolidayList     - Invalid Request. School Id: 1
+INFO  2017-03-28 16:44:29,811 15257ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 17:01:50,334 19701ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-28 17:12:30,866 119553ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-28 22:58:03,629 12507ms BaseApiController      getHolidayList     - Invalid Request. School Id: 1
+INFO  2017-03-28 22:58:16,980 25858ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:19:50,020 34997ms BaseApiController      getHolidayList     - Invalid Request. School Id: 1
+INFO  2017-03-28 23:20:06,650 51627ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:32:42,622 65552ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-28 23:32:46,794 69725ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-28 23:34:32,478 53339ms BaseApiController      getImportantLinks  - Retrieved ipmortant links. Count = 1
+INFO  2017-03-28 23:40:47,944 42682ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:44:41,265 31306ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:45:01,744 51786ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 1
+INFO  2017-03-28 23:48:37,463 267504ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:48:44,991 275032ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 1
+INFO  2017-03-28 23:50:41,809 391851ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 1
+INFO  2017-03-28 23:51:03,506 413547ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:51:06,318 416360ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-03-28 23:51:17,522 427563ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:51:23,963 434004ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:51:25,641 435682ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2017-03-28 23:51:30,041 440082ms BaseApiController      Get                - Retrieved Notifications. Count = 11
+INFO  2017-03-28 23:51:31,051 441092ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:51:33,455 443497ms BaseApiController      Get                - Retrieved Student Details. Count = 2
+INFO  2017-03-28 23:54:04,939 594981ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:54:14,626 604667ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 1
+INFO  2017-03-28 23:59:01,221 891263ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-28 23:59:19,333 909375ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 1
+INFO  2017-03-29 00:01:12,973 1023015ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:01:21,089 1031131ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 1
+INFO  2017-03-29 00:03:57,923 20330ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-29 00:04:24,489 46897ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:06:50,109 192517ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:07:00,614 203022ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-29 00:07:13,347 215755ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:07:14,927 217335ms BaseApiController      Get                - Retrieved Common Data. Subjects: 9, Lectures: 7
+INFO  2017-03-29 00:07:19,671 222079ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:08:13,251 275659ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:08:20,555 282963ms BaseApiController      getHolidayList     - Retrieved Holidays. Count = 0
+INFO  2017-03-29 00:26:43,883 1386291ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:27:43,938 1446346ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:46:15,179 143825ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:46:18,874 147521ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 00:52:08,377 497023ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:52:13,471 502117ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 00:55:39,492 708138ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 00:56:02,973 731619ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 00:56:08,422 737069ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 00:57:02,390 791037ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:01:08,709 1037355ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:01:54,133 1082780ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:01:56,781 1085428ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:02:47,420 1136066ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:02:52,973 1141620ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:03:23,241 1171887ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:09:49,892 1558538ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:09:53,672 1562318ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:12:57,420 1746066ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:15:18,294 1886940ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:15:21,562 1890208ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:15:49,533 1918179ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:15:54,493 1923140ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:17:55,058 2043704ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:18:50,199 2098845ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:21:35,206 2263852ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:21:41,385 2270032ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:23:28,790 2377437ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:23:32,971 2381618ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:27:44,277 2632923ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:27:46,876 2635522ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:31:57,890 2886537ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:33:37,478 2986124ms BaseApiController      GetAll             - Retrieved Master Data
+INFO  2017-03-29 01:33:41,979 2990625ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:37:17,635 3206281ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:39:25,219 3333865ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1
+INFO  2017-03-29 01:40:01,987 3370633ms BaseApiController      getcalendar        - Retrieved eventlist. Count = 1

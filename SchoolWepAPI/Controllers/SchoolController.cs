@@ -135,6 +135,26 @@ namespace SchoolWepAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
+        [Route("api/School/calendar/{securityToken}/{schoolId}")]
+        public HttpResponseMessage getcalendar(string securityToken, int schoolId)
+        {
+            CalendarResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ISchool school = new SchoolService(this._dbContext);
+                response = new CalendarResponse { Status = "OK" };
+                response.eventlist = school.GetCalendarEvents(schoolId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved eventlist. Count = {0}", response.eventlist != null ? response.eventlist.Count() : 0));
+            }
+            else
+            {
+                response = new CalendarResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. School Id: {0}", schoolId));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
         [Route("api/School/importantlinks/{securityToken}/{schoolId}")]
         public HttpResponseMessage getImportantLinks(string securityToken, int schoolId)
         {

@@ -1,4 +1,5 @@
-﻿using StudentTracking.Domain;
+﻿using StudentTracking.Data;
+using StudentTracking.Domain;
 using System.Collections.Generic;
 
 namespace StudentTracking.Application.Models.Responses
@@ -15,7 +16,12 @@ namespace StudentTracking.Application.Models.Responses
 
     public class AllHolidayResponse : ServiceResponse
     {
-        public IEnumerable<HolidayModel> HolidayList { get; set; }
+        public IEnumerable<Holiday> HolidayList { get; set; }
+    }
+
+    public class CalendarResponse : ServiceResponse
+    {
+        public IEnumerable<Holiday> eventlist { get; set; }
     }
 
     public class ImportantLinkResponse : ServiceResponse

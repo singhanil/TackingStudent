@@ -115,11 +115,18 @@ namespace StudentTracking.Application.Main
         }
         
 
-        public IEnumerable<HolidayModel> GetHolidayList(int schoolId)
+        public IEnumerable<Holiday> GetHolidayList(int schoolId)
         {
-            var entities = this._dbContext.Holidays.Where(e => e.SchoolId == schoolId).ToList();
+            return this._dbContext.Holidays.Where(e => e.SchoolId == schoolId && e.EventType != "calendar").ToList();
 
-            return entities.MapAsCollection<Holiday, HolidayModel>();
+            //return entities.MapAsCollection<Holiday, HolidayModel>();
+        }
+
+        public IEnumerable<Holiday> GetCalendarEvents(int schoolId)
+        {
+            return this._dbContext.Holidays.Where(e => e.SchoolId == schoolId && e.EventType == "calendar").ToList();
+
+            //return entities.MapAsCollection<Holiday, HolidayModel>();
         }
 
         public IEnumerable<ImpotantLinkModel> getImportantLinks(int schoolId)

@@ -13,20 +13,6 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'octosoftlab.dbo.Holiday' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Holiday">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="SchoolId" />
-            <PropertyRef Name="HolidayEndDate" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="StartDate" Type="date" />
-          <Property Name="HolidayDay" Type="nvarchar" MaxLength="50" />
-          <Property Name="SchoolId" Type="int" Nullable="false" />
-          <Property Name="HolidayEndDate" Type="date" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'octosoftlab.dbo.Message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Message">
           <Key>
@@ -253,6 +239,17 @@ warning 6002: The table/view 'octosoftlab.dbo.StudentAttendance' does not have a
           <Property Name="ClassId" Type="int" />
           <Property Name="CreatedDate" Type="date" Nullable="false" />
           <Property Name="UpdatedDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="SchoolId" Type="int" Nullable="false" />
+          <Property Name="start" Type="date" Nullable="false" />
+          <Property Name="end" Type="date" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Important_Links">
           <Key>
@@ -887,6 +884,7 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <EntitySet Name="Country" EntityType="Self.Country" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Departments" EntityType="Self.Departments" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Document" EntityType="Self.Document" Schema="octosoftlab" store:Type="Tables" />
+          <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Important_Links" EntityType="Self.Important_Links" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="LectureDuration" EntityType="Self.LectureDuration" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="MessageTemplates" EntityType="Self.MessageTemplates" Schema="octosoftlab" store:Type="Tables" />
@@ -902,15 +900,6 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <EntitySet Name="Themes" EntityType="Self.Themes" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="TimeTable" EntityType="Self.TimeTable" Schema="octosoftlab" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="octosoftlab" store:Type="Tables" />
-          <EntitySet Name="Holiday" EntityType="Self.Holiday" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Holiday].[Id] AS [Id], 
-    [Holiday].[StartDate] AS [StartDate], 
-    [Holiday].[HolidayDay] AS [HolidayDay], 
-    [Holiday].[SchoolId] AS [SchoolId], 
-    [Holiday].[HolidayEndDate] AS [HolidayEndDate]
-    FROM [dbo].[Holiday] AS [Holiday]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="Message" EntityType="Self.Message" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Message].[Id] AS [Id], 
@@ -1860,9 +1849,9 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           </AssociationSet>
           <EntitySet Name="SecondaryTags" EntityType="StudentTrackingModel.SecondaryTag" />
           <EntitySet Name="Notifications" EntityType="StudentTrackingModel.Notification" />
-          <EntitySet Name="Holidays" EntityType="StudentTrackingModel.Holiday" />
           <EntitySet Name="Important_Links" EntityType="StudentTrackingModel.Important_Links" />
           <EntitySet Name="Documents" EntityType="StudentTrackingModel.Document" />
+          <EntitySet Name="Holidays" EntityType="StudentTrackingModel.Holiday" />
         </EntityContainer>
         <Association Name="FK__StaffDeta__Count__18EBB532">
           <End Type="StudentTrackingModel.Country" Role="Country" Multiplicity="1" />
@@ -2186,18 +2175,6 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <Property Name="FilePath" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="Holiday">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="SchoolId" />
-            <PropertyRef Name="HolidayEndDate" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" />
-          <Property Name="HolidayDay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SchoolId" Type="Int32" Nullable="false" />
-          <Property Name="HolidayEndDate" Type="DateTime" Nullable="false" Precision="0" />
-        </EntityType>
         <EntityType Name="Important_Links">
           <Key>
             <PropertyRef Name="Id" />
@@ -2218,6 +2195,17 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
           <Property Name="ClassId" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <Property Name="start" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EventType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2641,17 +2629,6 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Holidays">
-            <EntityTypeMapping TypeName="StudentTrackingModel.Holiday">
-              <MappingFragment StoreEntitySet="Holiday">
-                <ScalarProperty Name="HolidayEndDate" ColumnName="HolidayEndDate" />
-                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
-                <ScalarProperty Name="HolidayDay" ColumnName="HolidayDay" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Important_Links">
             <EntityTypeMapping TypeName="StudentTrackingModel.Important_Links">
               <MappingFragment StoreEntitySet="Important_Links">
@@ -2672,6 +2649,18 @@ warning 6002: The table/view 'octosoftlab.octosoftlab.States' does not have a pr
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holidays">
+            <EntityTypeMapping TypeName="StudentTrackingModel.Holiday">
+              <MappingFragment StoreEntitySet="Holiday">
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="end" ColumnName="end" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
