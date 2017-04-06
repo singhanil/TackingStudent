@@ -80,9 +80,21 @@
             })
         };
 
+        var getEventList = function () {
+            var APIURL = _constant.get("studenttrakingurl");
+            var url = APIURL + _constant.get("geteventlist") + $rootScope.User.SecurityToken + '/' + $rootScope.User.SchoolId;
+            //var requiredparams = { schoolId: schoolid, securityToken: $rootScope.User.SecurityToken };
+            return $http({
+                url: url,
+                method: "GET"
+                //params: requiredparams
+            })
+        };
+
         service.addSchools = addSchools;
         service.deleteSchool = deleteSchool;
         service.getHolidayList = getHolidayList;
+        service.getEventList = getEventList;
         service.getImportantLinks = getImportantLinks;
         return service;
     };

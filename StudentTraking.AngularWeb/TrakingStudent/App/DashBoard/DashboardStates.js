@@ -88,6 +88,11 @@
             templateUrl: 'App/Reports/UploadFile.html',
             controller: 'uploadController  as vm'
         })
+        .state('dashboard.calendar', {
+            url: "/calender",
+            templateUrl: 'App/Reports/MyCalendar.html',
+            controller: 'calendarController  as vm'
+        })
 
     }
     module.run(function ($state) { })

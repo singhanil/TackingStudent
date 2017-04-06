@@ -6414,7 +6414,10 @@ body {
 
 div.table { overflow-x: hidden; overflow-y:auto;}
 
-
+/*form calendar*/
+.fc-time {
+    display:none !important;
+}
 /* Media Queries */
 
 @media screen and (min-width : 320px) and (max-width : 768px) {

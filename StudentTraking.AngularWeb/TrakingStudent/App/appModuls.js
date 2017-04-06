@@ -11,7 +11,10 @@
     "StudentTracking.syllabus",
     "StudentTracking.result",
     "StudentTracking.notification",
-    "StudentTracking.ngLoadingSpinner"
+    "StudentTracking.ngLoadingSpinner",
+    'ui.bootstrap',
+    "ui.calendar",
+    
   ]);
 
 

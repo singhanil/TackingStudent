@@ -5,7 +5,8 @@
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
-            <table class="table table-bordered">
+            <div ng-if="holidayList.length == 0" style="font-weight:bold; color:red; font-size:20px; text-align:center;">No record found</div>
+            <table ng-if="holidayList.length > 0" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Sr. No</th>
@@ -17,9 +18,9 @@
                 <tbody ng-repeat="result in holidayList">
                     <tr>
                         <td>{{$index}}</td>
-                        <td>{{result.HolidayDay}}</td>
-                        <td>{{result.StartDate}}</td>
-                        <td>{{result.HolidayEndDate}}</td>
+                        <td>{{result.title}}</td>
+                        <td ng-bind="result.start | date:'dd/MM/yyyy'"></td>
+                        <td>{{result.end | date:'dd/MM/yyyy'}}</td>
                     </tr>
                 </tbody>
             </table>

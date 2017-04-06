@@ -4,8 +4,8 @@
     function constant($rootScope) {
         //#region Api's
         //var studentTrakingApiUrl = "http://localhost/Learn";
-        //var studentTrakingApiUrl = "http://www.octosoftlab.com";
-        var studentTrakingApiUrl = "http://localhost/Learn";
+        var studentTrakingApiUrl = "http://www.octosoftlab.com";
+        //var studentTrakingApiUrl = "http://localhost/Learn";
         var getLoginUrl = "/api/Security/";
         var getStatesUrl = "/api/Common/GetStates/";
         var getOrganisationUrl = "/api/Organization/";
@@ -28,6 +28,7 @@
         var getNotificationUrl = "/api/Notification/Mobile/";
         var getFileUploadUrl = "/api/Common/UploadFile";
         var getHolidayListUrl = "/api/School/holidaylist/";
+        var getEventListUrl = "/api/School/calendar/";
         var getLinksUrl = "/api/School/importantlinks/";
         //#endregion
         var getConstant = function (key) {
@@ -107,9 +108,12 @@
                     break;
                 case 'uploadurl':
                     _constant = getFileUploadUrl;
-                    break;
+                    break; 
                 case 'getholidaylist':
                     _constant = getHolidayListUrl;
+                    break;
+                case 'geteventlist':
+                    _constant = getEventListUrl;
                     break;
                 case 'getimplinks':
                     _constant = getLinksUrl;
