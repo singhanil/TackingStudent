@@ -62,7 +62,9 @@ namespace StudentTracking.Application.Main
                     try
                     {
                         var stream = FileDataContent.InputStream;
+                        var guidKey = Guid.NewGuid();
                         var fileName = Path.GetFileName(FileDataContent.FileName);
+                        fileName = guidKey + "_" + fileName;
                         UploadPath = AppDomain.CurrentDomain.BaseDirectory + "\\Attachments\\";
                         Directory.CreateDirectory(UploadPath);
                         path = Path.Combine(UploadPath, fileName);
@@ -72,7 +74,7 @@ namespace StudentTracking.Application.Main
                         using (var fileStream = System.IO.File.Create(path))
                         {
                             stream.CopyTo(fileStream);
-                            nobj.FilePath = path;
+                            nobj.FilePath = "Attachments\\" + fileName;
                             fileStream.Dispose();
                             nobj.CreatedDate = DateTime.Now;
                             try
