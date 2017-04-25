@@ -54,7 +54,8 @@
     <Compile Include="Models\CountryModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="HolidayModel.cs" />
-    <Compile Include="Models\DocumentModel.cs" />
+    <Compile Include="Models\ImageDetailModel.cs" />
+	<Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\LectureModel.cs" />
     <Compile Include="Models\NotificationModel.cs" />
     <Compile Include="Models\SectionModel.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Models\TimeTableModel.cs" />
     <Compile Include="Models\TimeTableVM.cs" />
     <Compile Include="OrganizationModel.cs" />
+    <Compile Include="Requests\GalleryRequest.cs" />
     <Compile Include="Requests\NotificationRequest.cs" />
     <Compile Include="Requests\OrganizationSaveRequest.cs" />
     <Compile Include="Requests\ReportRequest.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Responses\DailyReportResponse.cs" />
     <Compile Include="Responses\DepartmentResponse.cs" />
     <Compile Include="Responses\DocumentResponse.cs" />
+    <Compile Include="Responses\GalleryResponse.cs" />
     <Compile Include="Responses\MasterDataResponse.cs" />
     <Compile Include="Responses\NotificationResponse.cs" />
     <Compile Include="Responses\OrganizationResponse.cs" />
@@ -102,6 +105,10 @@
     <ProjectReference Include="..\Domain\StudentTracking.Domain.csproj">
       <Project>{0fb0254a-8403-400c-ad98-b9a0c2af532d}</Project>
       <Name>StudentTracking.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentTracking.Data\StudentTracking.Data.csproj">
+      <Project>{d035dc39-bff2-46c1-bb98-d8cb5c617390}</Project>
+      <Name>StudentTracking.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

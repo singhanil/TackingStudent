@@ -133,7 +133,26 @@ namespace StudentTracking.Application.Main
         {
             var entities = this._dbContext.Important_Links.Where(e => e.SchoolId == schoolId).ToList();
 
-            return entities.MapAsCollection<Important_Links, ImpotantLinkModel>();
+            return (entities != null) ? entities.MapAsCollection<Important_Links, ImpotantLinkModel>() : null;
+        }
+
+        public IEnumerable<string> GetAlerts(int schoolId)
+        {
+            List<string> list = new List<string> { "School will repon on 17-Apr-2017", "Please collect books, uniform from schoool" };
+            return list;
+        }
+
+        public string GetBlogUrl(int schoolId)
+        {
+            return "https://edublogs.org/";
+        }
+
+        public IEnumerable<EventModel> GetEvents(int schoolId)
+        {
+            int currentMonth = DateTime.Now.Month;
+            var entities = this._dbContext.Holidays.Where(h => h.SchoolId == schoolId && (h.start.Month == currentMonth || h.end.Month == currentMonth));
+
+            return (entities != null) ? entities.MapAsCollection<Holiday, EventModel>() : null;
         }
     }
 }

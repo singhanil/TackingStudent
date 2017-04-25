@@ -28,4 +28,19 @@ namespace StudentTracking.Application.Models.Responses
     {
         public IEnumerable<ImpotantLinkModel> ImportantLinks { get; set; }
     }
+
+    public class AlertResponse : ServiceResponse
+    {
+        public IEnumerable<string> Alerts { get; set; }
+    }
+
+    public class BlogResponse : ServiceResponse
+    {
+        public string BlogUrl { get; set; }
+    }
+
+    public class EventResponse : ServiceResponse
+    {
+        public IEnumerable<EventModel> Events { get; set; }
+    }
 }
