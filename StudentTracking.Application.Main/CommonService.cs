@@ -106,8 +106,8 @@ namespace StudentTracking.Application.Main
                         var stream = FileDataContent.InputStream;
                         var fileName = guidKey +"_"+ FileDataContent.FileName;
                         docObj.DocumentName = fileName;
-                        //string driveLetter = Path.GetPathRoot(Environment.CurrentDirectory);
-                        UploadPath = AppDomain.CurrentDomain.BaseDirectory + "FileStore\\" + docObj.SchoolId + "\\";
+                        string pathToFiles = HttpContext.Current.Server.MapPath("~/SchoolWepAPI");
+                        UploadPath = pathToFiles + "\\FileStore\\" + docObj.SchoolId + "\\";
                         Directory.CreateDirectory(UploadPath);
                         path = Path.Combine(UploadPath, fileName);
 

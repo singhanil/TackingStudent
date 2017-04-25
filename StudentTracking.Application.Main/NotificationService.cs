@@ -65,7 +65,9 @@ namespace StudentTracking.Application.Main
                         var guidKey = Guid.NewGuid();
                         var fileName = Path.GetFileName(FileDataContent.FileName);
                         fileName = guidKey + "_" + fileName;
-                        UploadPath = AppDomain.CurrentDomain.BaseDirectory + "\\Attachments\\";
+                        //UploadPath = AppDomain.CurrentDomain.BaseDirectory + "\\Attachments\\";
+                        string pathToFiles = HttpContext.Current.Server.MapPath("~/SchoolWepAPI");
+                        UploadPath = pathToFiles + "\\Attachments\\";
                         Directory.CreateDirectory(UploadPath);
                         path = Path.Combine(UploadPath, fileName);
 
