@@ -174,6 +174,64 @@ namespace SchoolWepAPI.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
+        [Route("api/School/alerts/{securityToken}/{schoolId}")]
+        public HttpResponseMessage getAlerts(string securityToken, int schoolId)
+        {
+            AlertResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ISchool school = new SchoolService(this._dbContext);
+                response = new AlertResponse { Status = "OK" };
+                response.Alerts = school.GetAlerts(schoolId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved ipmortant links. Count = {0}", response.Alerts != null ? response.Alerts.Count() : 0));
+            }
+            else
+            {
+                response = new AlertResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. School Id: {0}", schoolId));
+            }
 
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
+        [Route("api/School/getBlogUrl/{securityToken}/{schoolId}")]
+        public HttpResponseMessage getBlogUrl(string securityToken, int schoolId)
+        {
+            BlogResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ISchool school = new SchoolService(this._dbContext);
+                response = new BlogResponse { Status = "OK" };
+                response.BlogUrl = school.GetBlogUrl(schoolId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved blog url = {0}", response.BlogUrl));
+            }
+            else
+            {
+                response = new BlogResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. School Id: {0}", schoolId));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
+        [Route("api/School/Events/{securityToken}/{schoolId}")]
+        public HttpResponseMessage getEvents(string securityToken, int schoolId)
+        {
+            EventResponse response = null;
+            if (IsValid(securityToken))
+            {
+                ISchool school = new SchoolService(this._dbContext);
+                response = new EventResponse { Status = "OK" };
+                response.Events = school.GetEvents(schoolId);
+                CurrentLoggerProvider.Info(string.Format("Retrieved Events: {0}", response.Events != null ? response.Events.Count() : 0));
+            }
+            else
+            {
+                response = new EventResponse { Status = "Error", ErrorCode = "ERR1001", ErrorMessage = "Invalid or expired token" };
+                CurrentLoggerProvider.Info(string.Format("Invalid Request. School Id: {0}", schoolId));
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
     }
 }

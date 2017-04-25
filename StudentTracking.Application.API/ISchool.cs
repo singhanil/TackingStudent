@@ -12,5 +12,8 @@ namespace StudentTracking.Application.API
         IEnumerable<Data.Holiday> GetHolidayList(int schoolId);
         IEnumerable<Data.Holiday> GetCalendarEvents(int schoolId);
         IEnumerable<ImpotantLinkModel> getImportantLinks(int schoolId);
+        IEnumerable<string> GetAlerts(int schoolId);
+        string GetBlogUrl(int schoolId);
+        IEnumerable<EventModel> GetEvents(int schoolId);
     }
 }
